@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Updates – Pure Root Switzerland</title>
+<title>Projekt-Updates – Pure Root Switzerland</title>
 
 <style>
 :root {
@@ -18,14 +18,15 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { max-width:100vw; overflow-x:hidden; }
 body {
-    font-family:"Lora","Georgia",serif;
-    background:var(--green-dark);
-    color:var(--cream);
+    font-family: "Lora","Georgia",serif;
+    background: var(--green-dark);
+    color: var(--cream);
+    line-height:1.6;
 }
 
-/* ================= HEADER — IDENTISCH ZU INDEX ================= */
+/* ================= HEADER ================= */
 header {
-    position:sticky;
+    position: sticky;
     top:0;
     z-index:40;
     background:rgba(0,0,0,0.45);
@@ -37,18 +38,13 @@ header {
 .nav-container {
     max-width:1400px;
     margin:auto;
-    padding:14px 6%;
+    padding:12px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:16px;
 }
 
-/* Logo */
-.header-left {
-    display:flex;
-    align-items:center;
-    margin-left:-30px;
-}
 .header-left img {
     width:62px;
     height:62px;
@@ -57,11 +53,52 @@ header {
     box-shadow:var(--shadow);
 }
 
-/* Navigation */
+/* MOBILE HEADER */
+.mobile-header {
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    padding:14px 0;
+    gap:8px;
+}
+
+.mobile-header img {
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.mobile-header-title {
+    color:var(--cream);
+    font-size:1.25em;
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+    text-align:center;
+}
+
+.mobile-nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.mobile-nav a {
+    color:var(--cream);
+    text-decoration:none;
+    font-size:1em;
+}
+
+/* DESKTOP NAVIGATION */
 .desktop-nav {
     display:flex;
     gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
+
 .desktop-nav a {
     color:var(--cream);
     text-decoration:none;
@@ -69,6 +106,7 @@ header {
     position:relative;
     font-size:1em;
 }
+
 .desktop-nav a::after {
     content:"";
     position:absolute;
@@ -77,23 +115,25 @@ header {
     background:var(--gold);
     transition:0.3s;
 }
+
 .desktop-nav a:hover::after { width:100%; }
 
-/* Header Titel rechts */
+/* Desktop Titel rechts */
 .header-right {
     color:var(--cream);
-    font-size:1.2em;
+    font-size:1.1em;
     font-weight:700;
     letter-spacing:1.5px;
     white-space:nowrap;
-    margin-right:-30px;
 }
 
-/* ================= HERO — ANIMATION WIE INDEX ================= */
+/* ================= HERO ================= */
 .hero {
     position:relative;
     height:90vh;
+    min-height:520px;
     overflow:hidden;
+    width:100%;
 }
 
 .hero img {
@@ -105,6 +145,7 @@ header {
     transform:scale(1.05);
     animation:slowzoom 12s ease forwards;
 }
+
 @keyframes slowzoom {
     0% { transform:scale(1.05); }
     100% { transform:scale(1.0); }
@@ -120,54 +161,46 @@ header {
     );
 }
 
-/* Titel */
-.hero-title {
+/* Hero Titel */
+.title-wrap {
     position:absolute;
     top:12%;
-    left:7%;
-    font-size:3.4em;
-    letter-spacing:0.12em;
-    font-weight:700;
-    white-space:nowrap;
-    color:var(--cream);
-    text-shadow:var(--shadow);
-    opacity:0;
-    animation:fadeTitle 1.8s ease-out forwards;
-    animation-delay:0.4s;
-}
-@keyframes fadeTitle {
-    0% { opacity:0; transform:translateY(-18px); }
-    100% { opacity:1; transform:translateY(0); }
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
 }
 
-/* Linie */
+.hero-title {
+    font-size:clamp(2rem, 3.7vw, 3.4em);
+    white-space:nowrap;
+    font-weight:700;
+    letter-spacing:0.12em;
+    color:var(--cream);
+    text-shadow:var(--shadow);
+}
+
+/* Dynamische Linie */
 .hero-line {
-    position:absolute;
-    top:21%;
-    left:7%;
     height:3px;
     background:var(--gold);
+    margin:10px auto 0;
+    opacity:1;
     box-shadow:var(--shadow);
     width:0;
-    opacity:0;
-    transition:width 1.2s ease-out, opacity 0.5s ease-out;
 }
 
 /* Untertitel */
 .hero-sub {
     position:absolute;
     bottom:10%;
-    right:6%;
-    font-size:1.9em;
-    white-space:nowrap;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:900px;
+    text-align:center;
+    font-size:clamp(1.15rem, 2vw, 1.75rem);
+    line-height:1.35;
     color:var(--cream);
-    opacity:0;
-    animation:fadeSub 1.8s ease-out forwards;
-    animation-delay:0.8s;
-}
-@keyframes fadeSub {
-    0% { opacity:0; transform:translateY(24px); }
-    100% { opacity:1; transform:translateY(0); }
 }
 
 /* ================= CONTENT ================= */
@@ -181,66 +214,120 @@ header {
 section {
     max-width:1200px;
     margin:0 auto;
-    padding:120px 10%;
+    padding:140px 10%;
+    text-align:center;
 }
 
-/* UPDATE-KARTEN */
-.update-card {
-    background:rgba(0,0,0,0.35);
-    border:1px solid rgba(255,255,255,0.10);
-    border-radius:16px;
-    padding:28px;
-    margin-bottom:45px;
+h2 {
+    font-size:clamp(1.4rem, 2.3vw, 1.75rem);
+    margin-bottom:36px;
+    text-shadow:var(--shadow);
+}
+
+.section-text {
+    max-width:860px;
+    margin:0 auto 80px;
+    font-size:1.15em;
+}
+
+/* Update Blocks */
+.update-block {
+    background:rgba(0,0,0,0.45);
+    padding:40px;
+    border-radius:20px;
     box-shadow:var(--shadow);
-    backdrop-filter:blur(4px);
+    margin-bottom:60px;
+    text-align:left;
 }
 
-.update-date {
+.update-block h3 {
+    font-size:1.4em;
+    margin-bottom:14px;
     color:var(--gold);
-    font-size:1.2em;
-    font-weight:bold;
-    margin-bottom:8px;
 }
 
-.update-title {
-    font-size:1.55em;
-    margin-bottom:12px;
+.update-block p {
+    margin-bottom:20px;
 }
 
-.update-text {
-    font-size:1.2em;
-    line-height:1.6;
-    opacity:0.95;
-    margin-bottom:18px;
+/* Small update cards */
+.card-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:40px;
+    margin-top:40px;
 }
 
-.update-image {
-    width:100%;
-    border-radius:12px;
-    margin-top:12px;
+.card {
+    background:rgba(0,0,0,0.45);
+    padding:26px;
+    border-radius:16px;
     box-shadow:var(--shadow);
+    text-align:left;
 }
 
-/* FOOTER */
+/* Button */
+.btn {
+    display:inline-block;
+    padding:14px 40px;
+    border-radius:999px;
+    border:2px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    font-size:1.05em;
+    transition:0.3s;
+    margin-top:20px;
+}
+
+.btn:hover {
+    background:var(--gold);
+    color:var(--green-dark);
+}
+
+/* Footer */
 footer {
     text-align:center;
     padding:50px 10px 40px;
     opacity:0.85;
 }
+
 footer img {
     width:60px;
     height:60px;
     border-radius:50%;
+}
+
+/* Mobile */
+@media (max-width:768px) {
+    .nav-container { display:none; }
+    .mobile-header { display:flex; }
+    .hero-title { white-space:normal; }
+    .update-block, .card { text-align:left; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+    <img src="logo2.jpg" alt="Mobile Logo">
+    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
+
+    <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="crowdfunding.html">Crowdfunding</a>
+        <a href="geschichte.html">Meine Geschichte</a>
+        <a href="updates.html">Updates</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+</div>
+
+<!-- DESKTOP HEADER -->
 <header>
     <div class="nav-container">
-
         <div class="header-left">
             <img src="logo2.jpg" alt="Logo">
         </div>
@@ -256,83 +343,130 @@ footer img {
         </nav>
 
         <div class="header-right">PURE ROOT SWITZERLAND</div>
-
     </div>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <div class="hero">
-    <img src="landschaft.jpg" alt="Azoren Landschaft">
+    <img src="landschaft.jpg" alt="">
     <div class="hero-overlay"></div>
 
-    <div class="hero-title" id="title-text">UPDATES</div>
+    <div class="title-wrap">
+        <div class="hero-title" id="heroTitle">PROJEKT-UPDATES</div>
+        <div class="hero-line" id="heroLine"></div>
+    </div>
 
-    <div class="hero-line" id="title-line"></div>
-
-    <div class="hero-sub">Schritt für Schritt zum Bio-Ingwer</div>
+    <div class="hero-sub">
+        Schritt für Schritt zum Bio-Ingwer
+    </div>
 </div>
 
-<!-- ================= CONTENT ================= -->
+<script>
+function updateLineWidth() {
+    const title = document.getElementById("heroTitle");
+    const line = document.getElementById("heroLine");
+    if (!title || !line) return;
+    line.style.width = title.offsetWidth + "px";
+}
+window.addEventListener("load", () => setTimeout(updateLineWidth,100));
+window.addEventListener("resize", updateLineWidth);
+</script>
+
 <div class="page-background">
 
 <section>
+    <h2>Aktuelle Schritte im Projekt</h2>
 
-    <!-- Update-Karte 1 -->
-    <div class="update-card">
-        <div class="update-date">20. Januar 2025</div>
-        <div class="update-title">Hof und Partnerbetrieb auf São Miguel gefunden</div>
-        <p class="update-text">
-            Ich habe einen verlässlichen Landwirt gefunden, mit dem ich langfristig zusammenarbeiten werde.
-            Gemeinsam planen wir die ersten Testflächen für den Bio-Ingweranbau.
-            Auch die Universität der Azoren hat Interesse gezeigt und Unterstützung in Form von Beratung
-            und Bodenkontrollen in Aussicht gestellt.
+    <!-- UPDATE BLOCK 1 -->
+    <div class="update-block">
+        <h3>Januar 2025 – Die Idee nimmt Form an</h3>
+
+        <p>
+            Im Januar 2025 kam mir der Gedanke, dass es einen riesigen Mehrwert für die Schweiz hätte,
+            wenn frischer Bio-Ingwer das ganze Jahr über verfügbar wäre.  
+            Das Problem: Die Temperaturen in der Schweiz reichen dafür nicht aus.
         </p>
-        <img src="hof.jpg" class="update-image" alt="Hof auf São Miguel">
+
+        <p>
+            Ich begann intensiv zu recherchieren und sprach mit einem erfahrenen Bio-Gärtner,
+            der selbst Knospe-zertifizierten Ingwer anbaut.  
+            Ich stellte ihm meine Idee vor – und er machte mir spontan Mut:
+            Die Nachfrage sei gross, und das Projekt habe enormes Potenzial.
+        </p>
+
+        <p>
+            Danach informierte ich mich über Zertifizierungen, Anforderungen und alles,
+            was für ein solches Projekt nötig ist. Mit diesem Wissen begann ich, einen geeigneten Bauern
+            für eine Zusammenarbeit zu finden. Ich schrieb rund 20 Landwirte an – und alle wollten mitmachen.
+        </p>
+
+        <p>
+            Entscheiden habe ich mich schliesslich für einen Bio-Bauern, der perfekt zu meinem Projekt passt.
+            Er erzählte einem Kontakt an der Universität der Azoren von meiner Idee – und kurz darauf
+            meldete sich die Universität selbst bei mir.  
+            Sie finden mein Vorhaben nachhaltig, sinnvoll und einen echten Mehrwert für die Insel.
+        </p>
+
+        <p>
+            Seither stehe ich mit Paolo und der Universität in engem Austausch.
+            Wir haben den perfekten Standort gefunden, den Testanbau geplant,
+            und jetzt sind wir bereit für den nächsten Schritt.
+        </p>
     </div>
 
-    <!-- Update-Karte 2 -->
-    <div class="update-card">
-        <div class="update-date">18. Januar 2025</div>
-        <div class="update-title">Erste Version der Website steht</div>
-        <p class="update-text">
-            Die Startseite, die Crowdfunding-Seite und die Geschichtsseite sind im Premium-Design umgesetzt.
-            Der Stil steht: warm, hochwertig, naturverbunden und klar strukturiert.
+    <!-- UPDATE BLOCK 2 -->
+    <div class="update-block">
+        <h3>Februar 2025 – Website, Planung & Crowdfunding</h3>
+
+        <p>
+            Um mein Projekt wirklich starten zu können, musste ich eine eigene Website erstellen.
+            Ich habe mir Schritt für Schritt alles selbst beigebracht – Design, Struktur, HTML und mehr.
+            Die Seite, die du gerade besuchst, ist das Ergebnis davon.
+        </p>
+
+        <p>
+            Ich bin nun bereit für das Crowdfunding, um den Testanbau auf São Miguel
+            im kommenden Sommer zu starten.  
+            Jede Unterstützung hilft – und bringt das Projekt einen Schritt näher an die Realität.
         </p>
     </div>
 
-    <!-- Update-Karte 3 -->
-    <div class="update-card">
-        <div class="update-date">16. Januar 2025</div>
-        <div class="update-title">Projektstart „Pure Root Switzerland“</div>
-        <p class="update-text">
-            Heute habe ich offiziell mit der Umsetzung des Bio-Ingwerprojekts begonnen.
-            Die Idee begleitet mich schon lange – jetzt wird sie Schritt für Schritt Realität.
-        </p>
+    <!-- SMALL UPDATE CARDS -->
+    <div class="card-grid">
+
+        <div class="card">
+            <h3>Start der Planungsphase</h3>
+            <p>Die Standortanalyse und Bodenbewertung sind abgeschlossen.  
+            Erste logistische Entscheidungen wurden getroffen.</p>
+        </div>
+
+        <div class="card">
+            <h3>Kontakt zur Universität der Azoren</h3>
+            <p>Regelmässiger Austausch über nachhaltige Bewirtschaftung,
+            Bodenqualität und biologische Methoden.</p>
+        </div>
+
+        <div class="card">
+            <h3>Testanbau geplant</h3>
+            <p>Die ersten Parzellen wurden ausgewählt und vorbereitet.  
+            Der Start 2025/2026 ist realistisch.</p>
+        </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:60px;">
+        <a href="crowdfunding.html" class="btn">Jetzt unterstützen</a>
     </div>
 
 </section>
 
 <footer>
-    <img src="logo2.jpg" alt="Logo klein">
+    <img src="logo2.jpg" alt="">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
 </footer>
 
 </div>
 
-<script>
-/* Linie identisch wie bei Index */
-function updateLine() {
-    const title = document.getElementById("title-text");
-    const line  = document.getElementById("title-line");
-    if (!title || !line) return;
-
-    line.style.width = title.offsetWidth + "px";
-    line.style.opacity = "1";
-}
-
-window.addEventListener("load", () => setTimeout(updateLine, 200));
-window.addEventListener("resize", updateLine);
-</script>
-
 </body>
 </html>
+
