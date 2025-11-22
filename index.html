@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pure Root Switzerland – Organic Ginger</title>
 
+<!-- SEO -->
+<meta name="description" content="Pure Root Switzerland – frischer Bio-Ingwer von den Azoren. Testanbau mit lokalem Bio-Bauern und Unterstützung der Universidade dos Açores – für mehr Nähe, Qualität und Nachhaltigkeit in der Schweiz.">
+<meta name="keywords" content="Bio Ingwer, Azoren, Schweiz, frischer Ingwer, Organic Ginger, Pure Root Switzerland, nachhaltiger Anbau">
+
 <style>
 :root {
     --green-dark: #3e4a29;
@@ -21,6 +25,7 @@ body {
     font-family: "Lora","Georgia",serif;
     background: var(--green-dark);
     color: var(--cream);
+    line-height:1.6;
 }
 
 /* ================= HEADER ================= */
@@ -36,10 +41,11 @@ header {
 .nav-container {
     max-width:1400px;
     margin:auto;
-    padding:14px 6%;
+    padding:12px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:16px;
 }
 
 /* Logo */
@@ -60,6 +66,8 @@ header {
 .desktop-nav {
     display:flex;
     gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 .desktop-nav a {
     color:var(--cream);
@@ -81,7 +89,7 @@ header {
 /* Titel rechts */
 .header-right {
     color:var(--cream);
-    font-size:1.2em;
+    font-size:1.1em;
     font-weight:700;
     letter-spacing:1.5px;
     white-space:nowrap;
@@ -92,6 +100,7 @@ header {
 .hero {
     position:relative;
     height:90vh;
+    min-height:520px;
     overflow:hidden;
     width:100%;
 }
@@ -123,7 +132,7 @@ header {
     position:absolute;
     top:12%;
     left:7%;
-    font-size:3.4em;
+    font-size:clamp(2.0rem, 3.4vw, 3.4em);
     letter-spacing:0.12em;
     font-weight:700;
     color:var(--cream);
@@ -156,10 +165,12 @@ header {
     position:absolute;
     bottom:10%;
     right:6%;
-    font-size:1.9em;
+    font-size:clamp(1.2rem, 2.1vw, 1.9em);
     white-space:nowrap;
     color:var(--cream);
     opacity:0;
+    text-align:right;
+    max-width:60%;
     animation:fadeSub 1.8s ease-out forwards;
     animation-delay:0.8s;
 }
@@ -191,9 +202,10 @@ h2 {
 .section-text {
     max-width:860px;
     margin:0 auto 48px;
-    font-size:1.2em;
+    font-size:1.15em;
 }
 
+/* GRID 3 */
 .grid-3 {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
@@ -204,6 +216,7 @@ h2 {
     padding:32px;
     border-radius:20px;
     box-shadow:var(--shadow);
+    font-size:1.05em;
 }
 .feature img {
     width:78%;
@@ -220,6 +233,7 @@ h2 {
 }
 .side img {
     width:42%;
+    min-width:260px;
     border-radius:18px;
     box-shadow:var(--shadow);
 }
@@ -227,7 +241,7 @@ h2 {
     width:50%;
     min-width:260px;
     text-align:left;
-    font-size:1.2em;
+    font-size:1.1em;
 }
 
 /* BUTTON */
@@ -238,7 +252,7 @@ h2 {
     border:2px solid var(--gold);
     color:var(--gold);
     text-decoration:none;
-    font-size:1.15em;
+    font-size:1.05em;
     transition:0.3s;
 }
 .btn:hover {
@@ -251,12 +265,139 @@ footer {
     text-align:center;
     padding:50px 10px 40px;
     opacity:0.85;
+    font-size:0.95em;
 }
 footer img {
     width:60px;
     height:60px;
     border-radius:50%;
     margin-bottom:12px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet / kleinere Laptops */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding:10px 4%;
+    }
+    .header-left {
+        margin-left:0;
+    }
+    .header-right {
+        margin-right:0;
+        font-size:0.98em;
+    }
+    section {
+        padding:100px 8%;
+    }
+    .hero {
+        height:80vh;
+    }
+    .hero-sub {
+        max-width:70%;
+        bottom:9%;
+    }
+}
+
+/* Mittel / große Smartphones & kleine Tablets */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:10px;
+    }
+    .header-left img {
+        width:54px;
+        height:54px;
+    }
+    .header-right {
+        display:none; /* Platz sparen auf kleinen Screens */
+    }
+    .desktop-nav {
+        gap:16px;
+        font-size:0.92em;
+    }
+
+    .hero {
+        height:75vh;
+        min-height:480px;
+    }
+    .hero-title {
+        top:16%;
+        left:7%;
+        white-space:normal;
+        max-width:80%;
+    }
+    .hero-line {
+        top:27%;
+    }
+    .hero-sub {
+        right:auto;
+        left:7%;
+        bottom:8%;
+        text-align:left;
+        max-width:80%;
+        white-space:normal;
+    }
+
+    section {
+        padding:80px 7%;
+    }
+    h2 {
+        font-size:2.2em;
+    }
+    .section-text {
+        font-size:1.05em;
+    }
+    .side {
+        flex-direction:column;
+    }
+    .side img,
+    .side-text {
+        width:100%;
+    }
+    .side-text {
+        text-align:left;
+    }
+}
+
+/* Kleine Smartphones */
+@media (max-width: 480px) {
+    .hero {
+        height:70vh;
+        min-height:420px;
+    }
+    .hero-title {
+        top:18%;
+        left:6%;
+        max-width:88%;
+        font-size:clamp(1.8rem, 8vw, 2.2rem);
+        letter-spacing:0.08em;
+    }
+    .hero-line {
+        top:30%;
+        left:6%;
+    }
+    .hero-sub {
+        left:6%;
+        bottom:7%;
+        max-width:88%;
+        font-size:1.05rem;
+    }
+
+    section {
+        padding:60px 6%;
+    }
+    .grid-3 {
+        gap:24px;
+    }
+    .feature {
+        padding:24px 18px;
+    }
+    footer {
+        padding-top:36px;
+    }
 }
 </style>
 </head>
@@ -268,7 +409,7 @@ footer img {
     <div class="nav-container">
 
         <div class="header-left">
-            <img src="logo2.jpg" alt="Logo">
+            <img src="logo2.jpg" alt="Pure Root Switzerland Logo">
         </div>
 
         <nav class="desktop-nav">
@@ -290,12 +431,12 @@ footer img {
 
 <!-- ================= HERO ================= -->
 <div class="hero">
-    <img src="landschaft.jpg" alt="Azoren Landschaft">
+    <img src="landschaft.jpg" alt="Landschaft auf den Azoren von Pure Root Switzerland">
     <div class="hero-overlay"></div>
 
     <div class="hero-title" id="title-text">PURE ROOT SWITZERLAND</div>
     <div class="hero-line" id="title-line"></div>
-    <div class="hero-sub">Frischer Ingwer – direkt vom Bio-Bauern</div>
+    <div class="hero-sub">Frischer Bio-Ingwer – direkt vom Azoren-Bio-Bauern in Richtung Schweiz</div>
 </div>
 
 <!-- ================= CONTENT ================= -->
@@ -311,9 +452,18 @@ footer img {
     </p>
 
     <div class="grid-3">
-        <div class="feature"><img src="ingwerfrisch.jpg" alt="Frischer Ingwer">Unvergleichliche Frische</div>
-        <div class="feature"><img src="personenimfeld.jpg" alt="Partnerschaft">Lokale Partnerschaft</div>
-        <div class="feature"><img src="ingwerfeld.jpg" alt="Ingwerfeld">Perfekte Bedingungen</div>
+        <div class="feature">
+            <img src="ingwerfrisch.jpg" alt="Frischer Ingwer von Pure Root Switzerland" loading="lazy">
+            Unvergleichliche Frische
+        </div>
+        <div class="feature">
+            <img src="personenimfeld.jpg" alt="Lokale Partnerschaft mit Bio-Bauern auf den Azoren" loading="lazy">
+            Lokale Partnerschaft
+        </div>
+        <div class="feature">
+            <img src="ingwerfeld.jpg" alt="Ingwerfeld auf den Azoren" loading="lazy">
+            Perfekte Bedingungen
+        </div>
     </div>
 </section>
 
@@ -321,7 +471,7 @@ footer img {
     <h2>Warum dieses Projekt?</h2>
 
     <div class="side">
-        <img src="frischer-ingwer.jpg" alt="Frischer Bio-Ingwer">
+        <img src="frischer-ingwer.jpg" alt="Frischer Bio-Ingwer von den Azoren" loading="lazy">
 
         <div class="side-text">
             <p>
@@ -346,8 +496,8 @@ footer img {
     <h2>Unterstütze den Testanbau</h2>
     <p class="section-text">Alle Details findest du auf der Crowdfunding-Seite.</p>
 
-    <img src="neuanfang.jpg" alt="Neubeginn"
-         style="width:60%; border-radius:18px; box-shadow:var(--shadow); margin-bottom:24px;">
+    <img src="neuanfang.jpg" alt="Neuanfang mit Bio-Ingwer-Projekt auf den Azoren" loading="lazy"
+         style="width:60%; max-width:640px; border-radius:18px; box-shadow:var(--shadow); margin-bottom:24px;">
 
     <div style="text-align:center;">
         <a href="crowdfunding.html" class="btn">Zur Crowdfunding-Seite</a>
@@ -355,7 +505,7 @@ footer img {
 </section>
 
 <footer>
-    <img src="logo2.jpg" alt="Logo">
+    <img src="logo2.jpg" alt="Pure Root Switzerland Logo">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
 </footer>
 
