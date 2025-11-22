@@ -127,37 +127,45 @@ header {
     );
 }
 
-/* Titel */
-.hero-title {
+/* ===== NEUER TITELBLOCK (perfekte Linie) ===== */
+.title-wrap {
     position:absolute;
     top:12%;
     left:7%;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+}
+
+.title-wrap .hero-title {
     font-size:clamp(2.0rem, 3.4vw, 3.4em);
     letter-spacing:0.12em;
     font-weight:700;
     color:var(--cream);
-    white-space:nowrap;
     text-shadow:var(--shadow);
     opacity:0;
     animation:fadeTitle 1.8s ease-out forwards;
     animation-delay:0.4s;
+    white-space:nowrap;
 }
 @keyframes fadeTitle {
     0% { opacity:0; transform:translateY(-18px); }
     100% { opacity:1; transform:translateY(0); }
 }
 
-/* Linie */
-.hero-line {
-    position:absolute;
-    top:21%;
-    left:7%;
+.title-wrap .hero-line {
     height:3px;
     background:var(--gold);
-    box-shadow:var(--shadow);
     width:0;
     opacity:0;
-    transition:width 1.2s ease-out, opacity 0.5s ease-out;
+    animation:lineGrow 1.2s ease-out forwards;
+    animation-delay:1.0s;
+    box-shadow:var(--shadow);
+}
+@keyframes lineGrow {
+    0% { width:0; opacity:0; }
+    100% { width:100%; opacity:1; }
 }
 
 /* Untertitel */
@@ -172,7 +180,7 @@ header {
     text-align:right;
     max-width:60%;
     animation:fadeSub 1.8s ease-out forwards;
-    animation-delay:0.8s;
+    animation-delay:1.2s;
 }
 @keyframes fadeSub {
     0% { opacity:0; transform:translateY(24px); }
@@ -276,127 +284,52 @@ footer img {
 
 /* ================= RESPONSIVE ================= */
 
-/* Tablet / kleinere Laptops */
 @media (max-width: 1024px) {
-    .nav-container {
-        padding:10px 4%;
-    }
-    .header-left {
-        margin-left:0;
-    }
-    .header-right {
-        margin-right:0;
-        font-size:0.98em;
-    }
-    section {
-        padding:100px 8%;
-    }
-    .hero {
-        height:80vh;
-    }
-    .hero-sub {
-        max-width:70%;
-        bottom:9%;
-    }
+    .nav-container { padding:10px 4%; }
+    .header-left { margin-left:0; }
+    .header-right { margin-right:0; font-size:0.98em; }
+    section { padding:100px 8%; }
+    .hero { height:80vh; }
+    .hero-sub { max-width:70%; bottom:9%; }
 }
 
-/* Mittel / große Smartphones & kleine Tablets */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:10px;
-    }
-    .header-left img {
-        width:54px;
-        height:54px;
-    }
-    .header-right {
-        display:none; /* Platz sparen auf kleinen Screens */
-    }
-    .desktop-nav {
-        gap:16px;
-        font-size:0.92em;
-    }
+    .nav-container { flex-wrap:wrap; justify-content:center; gap:10px; }
+    .header-left img { width:54px; height:54px; }
+    .header-right { display:none; }
 
-    .hero {
-        height:75vh;
-        min-height:480px;
-    }
-    .hero-title {
-        top:16%;
-        left:7%;
-        white-space:normal;
-        max-width:80%;
-    }
-    .hero-line {
-        top:27%;
-    }
+    .desktop-nav { gap:16px; font-size:0.92em; }
+
+    .hero { height:75vh; min-height:480px; }
+
+    .title-wrap { top:16%; left:7%; }
+    .title-wrap .hero-title { white-space:normal; max-width:80%; }
+
     .hero-sub {
-        right:auto;
-        left:7%;
-        bottom:8%;
-        text-align:left;
-        max-width:80%;
+        right:auto; left:7%; bottom:8%;
+        text-align:left; max-width:80%;
         white-space:normal;
-    }
-
-    section {
-        padding:80px 7%;
-    }
-    h2 {
-        font-size:2.2em;
-    }
-    .section-text {
-        font-size:1.05em;
-    }
-    .side {
-        flex-direction:column;
-    }
-    .side img,
-    .side-text {
-        width:100%;
-    }
-    .side-text {
-        text-align:left;
     }
 }
 
-/* Kleine Smartphones */
 @media (max-width: 480px) {
-    .hero {
-        height:70vh;
-        min-height:420px;
-    }
-    .hero-title {
+    .hero { height:70vh; min-height:420px; }
+
+    .title-wrap {
         top:18%;
         left:6%;
+    }
+    .title-wrap .hero-title {
         max-width:88%;
         font-size:clamp(1.8rem, 8vw, 2.2rem);
         letter-spacing:0.08em;
     }
-    .hero-line {
-        top:30%;
-        left:6%;
-    }
+
     .hero-sub {
         left:6%;
         bottom:7%;
         max-width:88%;
         font-size:1.05rem;
-    }
-
-    section {
-        padding:60px 6%;
-    }
-    .grid-3 {
-        gap:24px;
-    }
-    .feature {
-        padding:24px 18px;
-    }
-    footer {
-        padding-top:36px;
     }
 }
 </style>
@@ -407,7 +340,6 @@ footer img {
 <!-- ================= HEADER ================= -->
 <header>
     <div class="nav-container">
-
         <div class="header-left">
             <img src="logo2.jpg" alt="Pure Root Switzerland Logo">
         </div>
@@ -425,7 +357,6 @@ footer img {
         <div class="header-right">
             PURE ROOT SWITZERLAND
         </div>
-
     </div>
 </header>
 
@@ -434,9 +365,15 @@ footer img {
     <img src="landschaft.jpg" alt="Landschaft auf den Azoren von Pure Root Switzerland">
     <div class="hero-overlay"></div>
 
-    <div class="hero-title" id="title-text">PURE ROOT SWITZERLAND</div>
-    <div class="hero-line" id="title-line"></div>
-    <div class="hero-sub">Frischer Bio-Ingwer – direkt vom Azoren-Bio-Bauern in Richtung Schweiz</div>
+    <!-- Neuer stabiler Titelblock -->
+    <div class="title-wrap">
+        <div class="hero-title">PURE ROOT SWITZERLAND</div>
+        <div class="hero-line"></div>
+    </div>
+
+    <div class="hero-sub">
+        Frischer Bio-Ingwer – direkt vom Azoren-Bio-Bauern in Richtung Schweiz
+    </div>
 </div>
 
 <!-- ================= CONTENT ================= -->
@@ -511,19 +448,5 @@ footer img {
 
 </div>
 
-<script>
-/* Linie exakt an Titelbreite anpassen */
-function updateLine() {
-    const title = document.getElementById("title-text");
-    const line  = document.getElementById("title-line");
-    if (!title || !line) return;
-    line.style.width = title.offsetWidth + "px";
-    line.style.opacity = "1";
-}
-window.addEventListener("load", () => setTimeout(updateLine, 200));
-window.addEventListener("resize", updateLine);
-</script>
-
 </body>
 </html>
-
