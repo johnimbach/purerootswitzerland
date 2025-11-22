@@ -45,11 +45,6 @@ header {
     gap:16px;
 }
 
-.header-left {
-    display:flex;
-    align-items:center;
-}
-
 .header-left img {
     width:62px;
     height:62px;
@@ -136,7 +131,7 @@ header {
     );
 }
 
-/* ==== ZENTRIERTER HERO-TITEL DESKTOP ==== */
+/* ==== ZENTRIERTER HERO-TITEL ==== */
 .title-wrap {
     position:absolute;
     top:12%;
@@ -195,7 +190,7 @@ section {
     text-align:center;
 }
 
-/* Kleinere Titel wie Untertitel oben */
+/* Kleinere Titel */
 h2 {
     font-size:clamp(1.4rem, 2.3vw, 1.75rem);
     margin-bottom:36px;
@@ -221,11 +216,17 @@ h2 {
     box-shadow:var(--shadow);
     max-width:360px;
     margin:0 auto;
+    text-align:center;
 }
 .feature img {
     width:78%;
+    height:200px; /* Gleich wie Bild 1 und 3 */
+    object-fit:cover;
     border-radius:14px;
     margin-bottom:12px;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 /* SIDE BLOCK */
@@ -356,15 +357,12 @@ footer img {
 </div>
 
 <script>
-/* Dynamische Linie exakt so breit wie Titel */
 function updateLineWidth() {
     const title = document.getElementById("heroTitle");
     const line = document.getElementById("heroLine");
 
     if (!title || !line) return;
 
-    /* Desktop = ganze Breite  
-       Mobile = Breite der letzten Zeile -> durch offsetWidth automatisch korrekt */
     line.style.width = title.offsetWidth + "px";
 }
 
@@ -445,6 +443,7 @@ window.addEventListener("resize", updateLineWidth);
 
 </body>
 </html>
+
 
 
 
