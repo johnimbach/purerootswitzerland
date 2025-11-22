@@ -23,7 +23,110 @@ body {
     color:var(--cream);
 }
 
-/* ================= PAGE BACKGROUND ================= */
+/* ================= HEADER (NAVIGATION) ================= */
+header {
+    position: sticky;
+    top:0;
+    z-index:40;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+    width:100%;
+}
+
+.nav-container {
+    max-width:1400px;
+    margin:auto;
+    padding:12px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+}
+
+.header-left img {
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:var(--shadow);
+}
+
+/* MOBILE HEADER */
+.mobile-header {
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    padding:14px 0;
+    gap:8px;
+}
+
+.mobile-header img {
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.mobile-header-title {
+    color:var(--cream);
+    font-size:1.25em;
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+    text-align:center;
+}
+
+/* MOBILE NAV */
+.mobile-nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.mobile-nav a {
+    color:var(--cream);
+    text-decoration:none;
+    font-size:1em;
+}
+
+/* DESKTOP NAVIGATION */
+.desktop-nav {
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.desktop-nav a {
+    color:var(--cream);
+    text-decoration:none;
+    letter-spacing:1px;
+    position:relative;
+    font-size:1em;
+}
+
+.desktop-nav a::after {
+    content:"";
+    position:absolute;
+    left:0; bottom:-3px;
+    width:0; height:1px;
+    background:var(--gold);
+    transition:0.3s;
+}
+
+.desktop-nav a:hover::after { width:100%; }
+
+.header-right {
+    color:var(--cream);
+    font-size:1.1em;
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+}
+
+/* ================= CONTENT BACKGROUND ================= */
 .page-background {
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
@@ -75,23 +178,56 @@ footer img {
 
 /* MOBILE OPTIMIZATION */
 @media (max-width:768px) {
-    .page-background {
-        padding-top:130px;
-        padding-bottom:60px;
-    }
-
-    section {
-        padding:40px 8%;
-    }
+    .nav-container { display:none; }
+    .mobile-header { display:flex; }
+    .page-background { padding-top:130px; }
+    section { padding:40px 8%; }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ================= MOBILE HEADER ================= -->
+<div class="mobile-header">
+    <img src="logo2.jpg" alt="Logo">
+    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
+
+    <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="crowdfunding.html">Crowdfunding</a>
+        <a href="geschichte.html">Meine Geschichte</a>
+        <a href="updates.html">Updates</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+</div>
+
+<!-- ================= DESKTOP HEADER ================= -->
+<header>
+    <div class="nav-container">
+
+        <div class="header-left">
+            <img src="logo2.jpg" alt="Logo">
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="index.html">Home</a>
+            <a href="crowdfunding.html">Crowdfunding</a>
+            <a href="geschichte.html">Meine Geschichte</a>
+            <a href="updates.html">Updates</a>
+            <a href="impressum.html">Impressum</a>
+            <a href="datenschutz.html">Datenschutz</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <div class="header-right">PURE ROOT SWITZERLAND</div>
+    </div>
+</header>
+
 <!-- ================= CONTENT ================= -->
 <div class="page-background">
-
 <section>
 
     <h1>Impressum</h1>
@@ -111,28 +247,25 @@ footer img {
     <h2>Haftungsausschluss</h2>
     <p>
         Alle Inhalte dieser Website wurden mit grösster Sorgfalt erstellt.
-        Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte
-        wird jedoch keine Gewähr übernommen.
+        Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird keine Gewähr übernommen.
     </p>
 
     <p>
-        Haftungsansprüche gegen den Betreiber der Seite aufgrund von Schäden materieller
-        oder immaterieller Art, die durch den Zugriff oder die Nutzung bzw. Nichtnutzung
-        der veröffentlichten Informationen entstehen, werden ausgeschlossen.
+        Haftungsansprüche gegen den Betreiber der Seite wegen materieller oder immaterieller Schäden,
+        die durch den Zugriff oder die Nutzung bzw. Nichtnutzung der veröffentlichten Informationen entstehen,
+        sind ausgeschlossen.
     </p>
 
     <h2>Urheberrechte</h2>
     <p>
-        Alle Inhalte dieser Website (Texte, Fotos, Grafiken, Logos)
-        unterliegen dem Urheberrecht.  
-        Eine Nutzung oder Vervielfältigung ist ohne ausdrückliche schriftliche Zustimmung
-        des Rechteinhabers nicht erlaubt.
+        Alle Inhalte dieser Website (Texte, Fotos, Grafiken, Logos) unterliegen dem Urheberrecht.
+        Eine Verwendung ohne schriftliche Genehmigung ist nicht gestattet.
     </p>
 
 </section>
 
 <footer>
-    <img src="logo2.jpg">
+    <img src="logo2.jpg" alt="">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
 </footer>
 
