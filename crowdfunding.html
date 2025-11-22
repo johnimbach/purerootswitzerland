@@ -186,7 +186,7 @@ header {
     opacity:1;
     box-shadow:var(--shadow);
     width:0;
-    transition: width 2.8s ease; /* langsamere, elegante Animation */
+    transition: width 2.8s ease; /* langsamere, ruhige Animation */
 }
 
 /* Untertitel */
@@ -351,7 +351,7 @@ function updateLineWidth() {
     if (!title || !line) return;
     line.style.width = title.offsetWidth + "px";
 }
-window.addEventListener("load", () => setTimeout(updateLineWidth, 600)); // etwas spätere, ruhige Startverzögerung
+window.addEventListener("load", () => setTimeout(updateLineWidth, 600)); // ruhige Startverzögerung
 window.addEventListener("resize", updateLineWidth);
 </script>
 
@@ -364,6 +364,59 @@ window.addEventListener("resize", updateLineWidth);
     </p>
 
     <a class="btn" href="#unterstuetzen">Jetzt unterstützen</a>
+</section>
+
+<!-- KOSTENABSCHNITT DIREKT NACH DEM ERSTEN BUTTON -->
+<section>
+    <h2>Wofür ich die Unterstützung benötige</h2>
+    <p class="section-text">
+        Die erste Phase des Projekts umfasst den Testanbau auf São Miguel, die Vorbereitung des Bodens
+        und den gesicherten Transport der ersten Ernte in die Schweiz. Alle Mittel werden transparent
+        eingesetzt – ohne Luxus, ohne Verschwendung.
+    </p>
+
+    <div class="section-text" style="text-align:left; margin:0 auto; max-width:700px;">
+
+        <p><strong>1. Tröpfchenbewässerungssystem – ca. 1’200 CHF</strong><br>
+        Schläuche, Tropfer, Filter und Anschlüsse für eine effiziente, wassersparende Bewässerung.</p>
+
+        <p><strong>2. Weizenfolie / Mulchfolie – ca. 850 CHF</strong><br>
+        Schutz des Bodens, weniger Unkraut und bessere Feuchtigkeitsspeicherung auf der Testfläche.</p>
+
+        <p><strong>3. Werkzeuge & Kleingeräte – ca. 600 CHF</strong><br>
+        Alles Wichtige für die tägliche Arbeit auf dem Feld (Spaten, Hacken, Kisten, Messer usw.).</p>
+
+        <p><strong>4. Pflanzmaterial (Bio-Ingwer) – ca. 1’000 CHF</strong><br>
+        Keimfähiger Bio-Ingwer zur Voranzucht und ersten Bepflanzung.</p>
+
+        <p><strong>5. Erde, Substrate & Kompost – ca. 900 CHF</strong><br>
+        Für die Voranzucht und zur Verbesserung der Bodenqualität im ersten Anbaujahr.</p>
+
+        <p><strong>6. Bodenanalyse & agronomische Beratung – ca. 450 CHF</strong><br>
+        Unterstützung durch lokale Expert:innen und die Universität der Azoren, um den Boden optimal
+        vorzubereiten.</p>
+
+        <p><strong>7. Transport der ersten Ernte (ca. 300 kg) von den Azoren in die Schweiz – ca. 1’100 CHF</strong><br>
+        Sammeltransport in 20-kg-Kisten: Seefracht von den Azoren zum Festland, Weitertransport per Lastwagen
+        in die Schweiz, Handling, Zollabwicklung und sichere Verpackung.</p>
+
+        <p><strong>8. Transport & Logistik auf der Insel – ca. 400 CHF</strong><br>
+        Fahrten zu Feldern, Materialhöfen, zur Abholung von Lieferungen und für Organisation vor Ort.</p>
+
+        <p><strong>9. Notfallreserve – ca. 600 CHF</strong><br>
+        Für unerwartete Ausgaben, Preisänderungen bei Material oder Transport und kleinere Reparaturen.</p>
+
+        <p style="margin-top:30px; font-weight:bold;">
+            Geplante Kosten gesamt: ca. 7’100 CHF
+        </p>
+
+        <p style="margin-top:10px;">
+            Fundingziel: <strong>8’000 CHF</strong><br>
+            Die Differenz dient als zusätzliche Sicherheitsreserve für Preisänderungen (Transport, Material)
+            und stellt sicher, dass die erste Ernte Ingwer wirklich in der Schweiz ankommt.
+        </p>
+
+    </div>
 </section>
 
 <section id="unterstuetzen">
@@ -391,54 +444,6 @@ window.addEventListener("resize", updateLineWidth);
     </div>
 </section>
 
-<!-- NEUER KOSTENABSCHNITT -->
-<section>
-    <h2>Wofür ich die Unterstützung benötige</h2>
-    <p class="section-text">
-        Die ersten 7’500 CHF werden vollständig in den Start des Testanbaus investiert.
-        Alles wird transparent eingesetzt – ohne Verschwendung, ohne unnötige Kosten.
-        So kann ich den ersten Bio-Ingwer von den Azoren aufbauen.
-    </p>
-
-    <div class="section-text" style="text-align:left; margin:0 auto; max-width:700px;">
-
-        <p><strong>1. Tröpfchenbewässerungssystem – ca. 1’200 CHF</strong><br>
-        Schläuche, Tropfer, Filter und Anschlüsse für eine effiziente, wassersparende Bewässerung.</p>
-
-        <p><strong>2. Weizenfolie / Mulchfolie – ca. 850 CHF</strong><br>
-        Schutz des Bodens, weniger Unkraut, bessere Feuchtigkeitsspeicherung.</p>
-
-        <p><strong>3. Werkzeuge & Kleingeräte – ca. 600 CHF</strong><br>
-        Alles Wichtige für die tägliche Arbeit auf dem Feld.</p>
-
-        <p><strong>4. Pflanzmaterial (Bio-Ingwer) – ca. 1’000 CHF</strong><br>
-        Keimfähiger Bio-Ingwer zur Voranzucht und ersten Bepflanzung.</p>
-
-        <p><strong>5. Erde, Substrate & Kompost – ca. 900 CHF</strong><br>
-        Für die Voranzucht und zur Verbesserung der Bodenqualität.</p>
-
-        <p><strong>6. Bodenanalyse & Beratung – ca. 450 CHF</strong><br>
-        Unterstützung durch lokale Experten und die Universität der Azoren.</p>
-
-        <p><strong>7. Verpackung & Etiketten – ca. 500 CHF</strong><br>
-        Für erste Muster, Probelieferungen und einen sauberen Auftritt.</p>
-
-        <p><strong>8. Transport / Logistik auf der Insel – ca. 400 CHF</strong><br>
-        Fahrten, Materialtransporte und Organisation vor Ort.</p>
-
-        <p><strong>9. Minimale Lebenshaltungskosten – ca. 450 CHF</strong><br>
-        Unterstützung für die erste Phase des Projektstarts.</p>
-
-        <p><strong>10. Notfallreserve – ca. 250 CHF</strong><br>
-        Für unerwartete Ausgaben oder Preisänderungen.</p>
-
-        <p style="margin-top:30px; font-weight:bold;">
-            Gesamttotal: 7’500 CHF
-        </p>
-
-    </div>
-</section>
-
 <section>
     <h2>Danke für deine Unterstützung</h2>
     <p class="section-text">
@@ -457,6 +462,8 @@ window.addEventListener("resize", updateLineWidth);
 
 </body>
 </html>
+
+
 
 
 
