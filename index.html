@@ -45,6 +45,7 @@ header {
     gap:16px;
 }
 
+/* Logo */
 .header-left img {
     width:62px;
     height:62px;
@@ -53,19 +54,47 @@ header {
     box-shadow:var(--shadow);
 }
 
-/* MOBILE: TITEL UNTER LOGO */
-.mobile-title {
+/* MOBILE VERSION */
+.mobile-header {
     display:none;
-    color:var(--cream);
-    font-size:1.1em;
-    font-weight:700;
-    letter-spacing:1.5px;
-    text-align:center;
-    width:100%;
-    margin-top:4px;
+    flex-direction:column;
+    align-items:center;
+    padding:14px 0;
+    gap:8px;
 }
 
-/* Navigation */
+/* Logo oben */
+.mobile-header img {
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* mobiler Titel */
+.mobile-header-title {
+    color:var(--cream);
+    font-size:1.25em;
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap; /* bleibt einzeilig */
+    text-align:center;
+}
+
+/* Navigation mobil */
+.mobile-nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+.mobile-nav a {
+    color:var(--cream);
+    text-decoration:none;
+    font-size:1em;
+}
+
+/* DESKTOP Navigation */
 .desktop-nav {
     display:flex;
     gap:26px;
@@ -131,7 +160,6 @@ header {
     );
 }
 
-/* ==== ZENTRIERTER HERO-TITEL ==== */
 .title-wrap {
     position:absolute;
     top:12%;
@@ -171,7 +199,6 @@ header {
     font-size:clamp(1.15rem, 2vw, 1.75rem);
     line-height:1.35;
     color:var(--cream);
-    white-space:normal;
 }
 
 /* ================= CONTENT ================= */
@@ -180,7 +207,6 @@ header {
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
         url("hintergrund.jpg") center/cover fixed;
     padding-bottom:80px;
-    width:100%;
 }
 
 section {
@@ -218,10 +244,11 @@ h2 {
     margin:0 auto;
     text-align:center;
 }
+
+/* BILDER – wieder rechteckig wie vorher */
 .feature img {
     width:78%;
-    height:200px; /* Gleich wie Bild 1 und 3 */
-    object-fit:cover;
+    height:auto;          /* natürliches Verhältnis */
     border-radius:14px;
     margin-bottom:12px;
     display:block;
@@ -287,12 +314,16 @@ footer img {
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
 
-    .header-right {
-        display:none;
+    .nav-container {
+        display:none; /* Desktop-Header ausblenden */
     }
 
-    .mobile-title {
-        display:block;
+    .mobile-header {
+        display:flex; /* Mobiler Header aktiviert */
+    }
+
+    .hero-title {
+        white-space:normal;
     }
 
     .side {
@@ -309,23 +340,35 @@ footer img {
         width:80%;
         margin:0 auto;
     }
-
-    .hero-title {
-        white-space:normal;
-    }
 }
 </style>
 </head>
 
 <body>
 
+<!-- ===== MOBILER HEADER ===== -->
+<div class="mobile-header">
+    <img src="logo2.jpg" alt="Mobile Logo">
+
+    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
+
+    <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="crowdfunding.html">Crowdfunding</a>
+        <a href="geschichte.html">Meine Geschichte</a>
+        <a href="updates.html">Updates</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+</div>
+
+<!-- ===== DESKTOP HEADER ===== -->
 <header>
     <div class="nav-container">
         <div class="header-left">
             <img src="logo2.jpg" alt="Pure Root Switzerland Logo">
         </div>
-
-        <div class="mobile-title">PURE ROOT SWITZERLAND</div>
 
         <nav class="desktop-nav">
             <a href="index.html">Home</a>
@@ -357,15 +400,13 @@ footer img {
 </div>
 
 <script>
+/* Dynamische Linie exakt so breit wie Titel */
 function updateLineWidth() {
     const title = document.getElementById("heroTitle");
     const line = document.getElementById("heroLine");
-
     if (!title || !line) return;
-
     line.style.width = title.offsetWidth + "px";
 }
-
 window.addEventListener("load", () => setTimeout(updateLineWidth, 100));
 window.addEventListener("resize", updateLineWidth);
 </script>
@@ -443,6 +484,8 @@ window.addEventListener("resize", updateLineWidth);
 
 </body>
 </html>
+
+
 
 
 
