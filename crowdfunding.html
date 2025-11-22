@@ -21,6 +21,7 @@ body {
     font-family: "Lora","Georgia",serif;
     background: var(--green-dark);
     color: var(--cream);
+    line-height:1.6;
 }
 
 /* ================= HEADER ================= */
@@ -33,21 +34,17 @@ header {
     border-bottom:1px solid rgba(255,255,255,0.1);
     width:100%;
 }
+
 .nav-container {
     max-width:1400px;
     margin:auto;
-    padding:14px 6%;
+    padding:12px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:16px;
 }
 
-/* Logo */
-.header-left {
-    display:flex;
-    align-items:center;
-    margin-left:-30px;
-}
 .header-left img {
     width:62px;
     height:62px;
@@ -56,11 +53,52 @@ header {
     box-shadow:var(--shadow);
 }
 
-/* Navigation */
+/* MOBILE HEADER */
+.mobile-header {
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    padding:14px 0;
+    gap:8px;
+}
+
+.mobile-header img {
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.mobile-header-title {
+    color:var(--cream);
+    font-size:1.25em;
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+    text-align:center;
+}
+
+.mobile-nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.mobile-nav a {
+    color:var(--cream);
+    text-decoration:none;
+    font-size:1em;
+}
+
+/* DESKTOP Navigation */
 .desktop-nav {
     display:flex;
     gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
+
 .desktop-nav a {
     color:var(--cream);
     text-decoration:none;
@@ -68,6 +106,7 @@ header {
     position:relative;
     font-size:1em;
 }
+
 .desktop-nav a::after {
     content:"";
     position:absolute;
@@ -76,22 +115,23 @@ header {
     background:var(--gold);
     transition:0.3s;
 }
+
 .desktop-nav a:hover::after { width:100%; }
 
-/* Titel rechts */
+/* Desktop Titel rechts */
 .header-right {
     color:var(--cream);
-    font-size:1.2em;
+    font-size:1.1em;
     font-weight:700;
     letter-spacing:1.5px;
     white-space:nowrap;
-    margin-right:-30px;
 }
 
 /* ================= HERO ================= */
 .hero {
     position:relative;
     height:90vh;
+    min-height:520px;
     overflow:hidden;
 }
 .hero img {
@@ -103,10 +143,12 @@ header {
     transform:scale(1.05);
     animation:slowzoom 12s ease forwards;
 }
+
 @keyframes slowzoom {
     0% { transform:scale(1.05); }
-    100% { transform:scale(1.0); }
+    100% { transform:scale(1.00); }
 }
+
 .hero-overlay {
     position:absolute;
     inset:0;
@@ -117,54 +159,46 @@ header {
     );
 }
 
-/* Titel */
-.hero-title {
+/* Hero Titel */
+.title-wrap {
     position:absolute;
     top:12%;
-    left:7%;
-    font-size:3.4em;
-    letter-spacing:0.12em;
-    font-weight:700;
-    color:var(--cream);
-    white-space:nowrap;
-    text-shadow:var(--shadow);
-    opacity:0;
-    animation:fadeTitle 1.8s ease-out forwards;
-    animation-delay:0.4s;
-}
-@keyframes fadeTitle {
-    0% { opacity:0; transform:translateY(-18px); }
-    100% { opacity:1; transform:translateY(0); }
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
 }
 
-/* Linie */
+.hero-title {
+    font-size:clamp(2rem, 3.7vw, 3.4em);
+    font-weight:700;
+    letter-spacing:0.12em;
+    white-space:nowrap;
+    color:var(--cream);
+    text-shadow:var(--shadow);
+}
+
+/* Dynamische Linie */
 .hero-line {
-    position:absolute;
-    top:21%;
-    left:7%;
     height:3px;
     background:var(--gold);
+    margin:10px auto 0;
+    opacity:1;
     box-shadow:var(--shadow);
     width:0;
-    opacity:0;
-    transition:width 1.2s ease-out, opacity 0.5s ease-out;
 }
 
 /* Untertitel */
 .hero-sub {
     position:absolute;
     bottom:10%;
-    right:6%;
-    font-size:1.9em;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:900px;
+    text-align:center;
+    font-size:clamp(1.15rem,2vw,1.75rem);
+    line-height:1.35;
     color:var(--cream);
-    white-space:nowrap;
-    opacity:0;
-    animation:fadeSub 1.8s ease-out forwards;
-    animation-delay:0.8s;
-}
-@keyframes fadeSub {
-    0% { opacity:0; transform:translateY(24px); }
-    100% { opacity:1; transform:translateY(0); }
 }
 
 /* ================= CONTENT ================= */
@@ -175,15 +209,27 @@ header {
     padding-bottom:80px;
 }
 
-/* SECTIONS */
 section {
     max-width:1200px;
     margin:0 auto;
-    padding:120px 10%;
+    padding:140px 10%;
     text-align:center;
 }
 
-/* BUTTON */
+/* Titel der Sections */
+h2 {
+    font-size:clamp(1.4rem, 2.3vw, 1.75rem);
+    margin-bottom:36px;
+    text-shadow:var(--shadow);
+}
+
+.section-text {
+    max-width:860px;
+    margin:0 auto 60px;
+    font-size:1.15em;
+}
+
+/* Buttons */
 .btn {
     display:inline-block;
     padding:14px 40px;
@@ -191,9 +237,10 @@ section {
     border:2px solid var(--gold);
     color:var(--gold);
     text-decoration:none;
-    font-size:1.15em;
+    font-size:1.05em;
     transition:0.3s;
 }
+
 .btn:hover {
     background:var(--gold);
     color:var(--green-dark);
@@ -206,14 +253,15 @@ section {
     justify-content:center;
     flex-wrap:wrap;
 }
+
 .pay-box {
     width:45%;
     min-width:260px;
     padding:28px;
-    border:2px solid var(--gold);
-    border-radius:16px;
-    background:rgba(0,0,0,0.35);
+    border-radius:20px;
+    background:rgba(0,0,0,0.45);
     box-shadow:var(--shadow);
+    border:1px solid rgba(255,255,255,0.15);
 }
 
 /* FOOTER */
@@ -222,20 +270,48 @@ footer {
     padding:50px 10px 40px;
     opacity:0.85;
 }
+
 footer img {
     width:60px;
     height:60px;
     border-radius:50%;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width:768px) {
+
+    .nav-container { display:none; }
+
+    .mobile-header { display:flex; }
+
+    .hero-title { white-space:normal; }
+
+    .pay-box { width:90%; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- MOBILE HEADER -->
+<div class="mobile-header">
+    <img src="logo2.jpg" alt="Mobile Logo">
+    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
+
+    <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="crowdfunding.html">Crowdfunding</a>
+        <a href="geschichte.html">Meine Geschichte</a>
+        <a href="updates.html">Updates</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+</div>
+
+<!-- DESKTOP HEADER -->
 <header>
     <div class="nav-container">
-
         <div class="header-left">
             <img src="logo2.jpg" alt="Logo">
         </div>
@@ -251,19 +327,32 @@ footer img {
         </nav>
 
         <div class="header-right">PURE ROOT SWITZERLAND</div>
-
     </div>
 </header>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <div class="hero">
-    <img src="landschaft.jpg" alt="Azoren Landschaft">
+    <img src="landschaft.jpg" alt="">
     <div class="hero-overlay"></div>
 
-    <div class="hero-title" id="title-text">PURE ROOT CROWDFUNDING</div>
-    <div class="hero-line" id="title-line"></div>
-    <div class="hero-sub">Ohne lange Transporte – Bio Suisse</div>
+    <div class="title-wrap">
+        <div class="hero-title" id="heroTitle">GEMEINSAM STARTEN</div>
+        <div class="hero-line" id="heroLine"></div>
+    </div>
+
+    <div class="hero-sub">Dein Beitrag zählt.</div>
 </div>
+
+<script>
+function updateLineWidth() {
+    const title = document.getElementById("heroTitle");
+    const line = document.getElementById("heroLine");
+    if (!title || !line) return;
+    line.style.width = title.offsetWidth + "px";
+}
+window.addEventListener("load", () => setTimeout(updateLineWidth,100));
+window.addEventListener("resize", updateLineWidth);
+</script>
 
 <div class="page-background">
 
@@ -277,7 +366,7 @@ footer img {
 </section>
 
 <section>
-    <h2>Unterstützen – so kannst du helfen</h2>
+    <h2 id="spenden">Unterstützen – so kannst du helfen</h2>
     <p class="section-text">Du kannst direkt via Banküberweisung oder TWINT unterstützen.</p>
 
     <div class="pay-container">
@@ -307,27 +396,15 @@ footer img {
 </section>
 
 <footer>
-    <img src="logo2.jpg">
+    <img src="logo2.jpg" alt="">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
 </footer>
 
 </div>
 
-<script>
-/* Linie exakt wie Index */
-function updateLine() {
-    const title = document.getElementById("title-text");
-    const line  = document.getElementById("title-line");
-    if (!title || !line) return;
-    line.style.width = title.offsetWidth + "px";
-    line.style.opacity = "1";
-}
-window.addEventListener("load", () => setTimeout(updateLine, 200));
-window.addEventListener("resize", updateLine);
-</script>
-
 </body>
 </html>
+
 
 
 
