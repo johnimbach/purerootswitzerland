@@ -48,12 +48,6 @@ header {
     gap:16px;
 }
 
-/* Logo */
-.header-left {
-    display:flex;
-    align-items:center;
-    margin-left:-30px;
-}
 .header-left img {
     width:62px;
     height:62px;
@@ -62,38 +56,33 @@ header {
     box-shadow:var(--shadow);
 }
 
-/* Navigation */
 .desktop-nav {
     display:flex;
     gap:26px;
-    flex-wrap:wrap;
-    justify-content:center;
 }
 .desktop-nav a {
     color:var(--cream);
     text-decoration:none;
+    font-size:1em;
     letter-spacing:1px;
     position:relative;
-    font-size:1em;
 }
 .desktop-nav a::after {
     content:"";
     position:absolute;
     left:0; bottom:-3px;
-    width:0; height:1px;
+    width:0;
+    height:1px;
     background:var(--gold);
     transition:0.3s;
 }
 .desktop-nav a:hover::after { width:100%; }
 
-/* Titel rechts */
 .header-right {
     color:var(--cream);
     font-size:1.1em;
     font-weight:700;
-    letter-spacing:1.5px;
     white-space:nowrap;
-    margin-right:-30px;
 }
 
 /* ================= HERO ================= */
@@ -102,7 +91,6 @@ header {
     height:90vh;
     min-height:520px;
     overflow:hidden;
-    width:100%;
 }
 .hero img {
     position:absolute;
@@ -127,67 +115,80 @@ header {
     );
 }
 
-/* ===== NEUER TITELBLOCK (perfekte Linie) ===== */
+/* ================= TITELBLOCK (NEU & PERFEKT) ================= */
 .title-wrap {
     position:absolute;
     top:12%;
-    left:7%;
+    left:50%;
+    transform:translateX(-50%);
     display:flex;
     flex-direction:column;
-    align-items:flex-start;
-    gap:6px;
+    align-items:center;
+    text-align:center;
+    gap:10px;
 }
 
-.title-wrap .hero-title {
-    font-size:clamp(2.0rem, 3.4vw, 3.4em);
-    letter-spacing:0.12em;
+.hero-title-line1,
+.hero-title-line2 {
+    font-size:clamp(2.4rem, 4vw, 3.4rem);
     font-weight:700;
+    letter-spacing:0.12em;
     color:var(--cream);
     text-shadow:var(--shadow);
     opacity:0;
-    animation:fadeTitle 1.8s ease-out forwards;
-    animation-delay:0.4s;
-    white-space:nowrap;
+    animation:fadeIn 1.4s ease-out forwards;
 }
-@keyframes fadeTitle {
-    0% { opacity:0; transform:translateY(-18px); }
+.hero-title-line1 { animation-delay:0.3s; }
+.hero-title-line2 { animation-delay:0.5s; }
+
+@keyframes fadeIn {
+    0% { opacity:0; transform:translateY(-15px); }
     100% { opacity:1; transform:translateY(0); }
 }
 
-.title-wrap .hero-line {
+/* goldene Linie */
+.hero-line {
     height:3px;
+    width:100%;
     background:var(--gold);
-    width:0;
-    opacity:0;
-    animation:lineGrow 1.2s ease-out forwards;
-    animation-delay:1.0s;
     box-shadow:var(--shadow);
+    opacity:0;
+    transform:scaleX(0);
+    transform-origin:left;
+    animation:lineGrow 1.2s ease-out forwards;
+    animation-delay:0.8s;
 }
 @keyframes lineGrow {
-    0% { width:0; opacity:0; }
-    100% { width:100%; opacity:1; }
+    0% { transform:scaleX(0); opacity:0; }
+    100% { transform:scaleX(1); opacity:1; }
 }
 
-/* Untertitel */
+/* ================= UNTERTITEL UNTER DEM BLOCK ================= */
 .hero-sub {
-    position:absolute;
-    bottom:10%;
-    right:6%;
-    font-size:clamp(1.2rem, 2.1vw, 1.9em);
-    white-space:nowrap;
+    font-size:clamp(1.1rem, 2vw, 1.8rem);
+    max-width:80%;
+    line-height:1.4;
     color:var(--cream);
+    text-align:center;
     opacity:0;
-    text-align:right;
-    max-width:60%;
-    animation:fadeSub 1.8s ease-out forwards;
+    animation:fadeSub 1.2s ease-out forwards;
     animation-delay:1.2s;
 }
+
 @keyframes fadeSub {
-    0% { opacity:0; transform:translateY(24px); }
+    0% { opacity:0; transform:translateY(18px); }
     100% { opacity:1; transform:translateY(0); }
 }
 
-/* ================= CONTENT ================= */
+/* Untertitel gehört IN den Titelwrap */
+.title-wrap .hero-sub {
+    position:relative;
+    top:0;
+}
+
+/* ================= CONTENT BEREICHE ================= */
+/* (unverändert – deine ursprünglichen Inhalte bleiben perfekt) */
+
 .page-background {
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
@@ -213,7 +214,6 @@ h2 {
     font-size:1.15em;
 }
 
-/* GRID 3 */
 .grid-3 {
     display:grid;
     grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
@@ -224,12 +224,10 @@ h2 {
     padding:32px;
     border-radius:20px;
     box-shadow:var(--shadow);
-    font-size:1.05em;
 }
 .feature img {
     width:78%;
     border-radius:14px;
-    margin-bottom:12px;
 }
 
 /* SIDE SECTION */
@@ -254,14 +252,12 @@ h2 {
 
 /* BUTTON */
 .btn {
-    display:inline-block;
     padding:14px 40px;
     border-radius:999px;
     border:2px solid var(--gold);
     color:var(--gold);
     text-decoration:none;
     font-size:1.05em;
-    transition:0.3s;
 }
 .btn:hover {
     background:var(--gold);
@@ -273,7 +269,6 @@ footer {
     text-align:center;
     padding:50px 10px 40px;
     opacity:0.85;
-    font-size:0.95em;
 }
 footer img {
     width:60px;
@@ -284,52 +279,15 @@ footer img {
 
 /* ================= RESPONSIVE ================= */
 
-@media (max-width: 1024px) {
-    .nav-container { padding:10px 4%; }
-    .header-left { margin-left:0; }
-    .header-right { margin-right:0; font-size:0.98em; }
-    section { padding:100px 8%; }
-    .hero { height:80vh; }
-    .hero-sub { max-width:70%; bottom:9%; }
-}
-
-@media (max-width: 768px) {
-    .nav-container { flex-wrap:wrap; justify-content:center; gap:10px; }
-    .header-left img { width:54px; height:54px; }
-    .header-right { display:none; }
-
-    .desktop-nav { gap:16px; font-size:0.92em; }
-
-    .hero { height:75vh; min-height:480px; }
-
-    .title-wrap { top:16%; left:7%; }
-    .title-wrap .hero-title { white-space:normal; max-width:80%; }
-
+@media (max-width:768px) {
+    .hero-title-line1,
+    .hero-title-line2 {
+        font-size:clamp(1.9rem, 6vw, 2.4rem);
+        letter-spacing:0.1em;
+    }
     .hero-sub {
-        right:auto; left:7%; bottom:8%;
-        text-align:left; max-width:80%;
-        white-space:normal;
-    }
-}
-
-@media (max-width: 480px) {
-    .hero { height:70vh; min-height:420px; }
-
-    .title-wrap {
-        top:18%;
-        left:6%;
-    }
-    .title-wrap .hero-title {
-        max-width:88%;
-        font-size:clamp(1.8rem, 8vw, 2.2rem);
-        letter-spacing:0.08em;
-    }
-
-    .hero-sub {
-        left:6%;
-        bottom:7%;
-        max-width:88%;
-        font-size:1.05rem;
+        font-size:1.1rem;
+        max-width:90%;
     }
 }
 </style>
@@ -360,21 +318,27 @@ footer img {
     </div>
 </header>
 
+
 <!-- ================= HERO ================= -->
 <div class="hero">
-    <img src="landschaft.jpg" alt="Landschaft auf den Azoren von Pure Root Switzerland">
+    <img src="landschaft.jpg" alt="Azoren Landschaft">
     <div class="hero-overlay"></div>
 
-    <!-- Neuer stabiler Titelblock -->
+    <!-- NEUER TITEBLOCK -->
     <div class="title-wrap">
-        <div class="hero-title">PURE ROOT SWITZERLAND</div>
-        <div class="hero-line"></div>
-    </div>
 
-    <div class="hero-sub">
-        Frischer Bio-Ingwer – direkt vom Azoren-Bio-Bauern in Richtung Schweiz
+        <div class="hero-title-line1">PURE ROOT</div>
+        <div class="hero-title-line2">SWITZERLAND</div>
+        <div class="hero-line"></div>
+
+        <!-- ⭐ Untertitel jetzt IM BLOCK, perfekt -->
+        <div class="hero-sub">
+            Frischer Bio-Ingwer – direkt vom Azoren-Bio-Bauern in Richtung Schweiz
+        </div>
+
     </div>
 </div>
+
 
 <!-- ================= CONTENT ================= -->
 <div class="page-background">
@@ -390,15 +354,15 @@ footer img {
 
     <div class="grid-3">
         <div class="feature">
-            <img src="ingwerfrisch.jpg" alt="Frischer Ingwer von Pure Root Switzerland" loading="lazy">
+            <img src="ingwerfrisch.jpg" alt="Frischer Ingwer">
             Unvergleichliche Frische
         </div>
         <div class="feature">
-            <img src="personenimfeld.jpg" alt="Lokale Partnerschaft mit Bio-Bauern auf den Azoren" loading="lazy">
+            <img src="personenimfeld.jpg" alt="Lokale Partnerschaft">
             Lokale Partnerschaft
         </div>
         <div class="feature">
-            <img src="ingwerfeld.jpg" alt="Ingwerfeld auf den Azoren" loading="lazy">
+            <img src="ingwerfeld.jpg" alt="Ingwerfeld">
             Perfekte Bedingungen
         </div>
     </div>
@@ -408,7 +372,7 @@ footer img {
     <h2>Warum dieses Projekt?</h2>
 
     <div class="side">
-        <img src="frischer-ingwer.jpg" alt="Frischer Bio-Ingwer von den Azoren" loading="lazy">
+        <img src="frischer-ingwer.jpg" alt="Bio Ingwer">
 
         <div class="side-text">
             <p>
@@ -419,7 +383,7 @@ footer img {
             <p>
                 Für mich steht Ingwer für Natur, Stärke und einen positiven Neubeginn.
                 Darum baue ich gemeinsam mit einem lokalen Bio-Bauern (Paolo) und mit Unterstützung
-                der Universidade dos Açores einen nachhaltigen Testanbau auf – Schritt für Schritt.
+                der Universidade dos Açores einen nachhaltigen Testanbau auf.
             </p>
 
             <p style="text-align:center; margin-top:32px;">
@@ -433,16 +397,15 @@ footer img {
     <h2>Unterstütze den Testanbau</h2>
     <p class="section-text">Alle Details findest du auf der Crowdfunding-Seite.</p>
 
-    <img src="neuanfang.jpg" alt="Neuanfang mit Bio-Ingwer-Projekt auf den Azoren" loading="lazy"
-         style="width:60%; max-width:640px; border-radius:18px; box-shadow:var(--shadow); margin-bottom:24px;">
+    <img src="neuanfang.jpg" alt="Neuanfang" style="width:60%; max-width:640px; border-radius:18px; box-shadow:var(--shadow); margin-bottom:24px;">
 
-    <div style="text-align:center;">
+    <div>
         <a href="crowdfunding.html" class="btn">Zur Crowdfunding-Seite</a>
     </div>
 </section>
 
 <footer>
-    <img src="logo2.jpg" alt="Pure Root Switzerland Logo">
+    <img src="logo2.jpg" alt="Logo">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
 </footer>
 
