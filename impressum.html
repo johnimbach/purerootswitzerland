@@ -23,78 +23,12 @@ body {
     color:var(--cream);
 }
 
-/* ================= HEADER – IDENTISCH ZU INDEX ================= */
-header {
-    position:sticky;
-    top:0;
-    z-index:40;
-    background:black; /* voll schwarz, wie du willst */
-    border-bottom:1px solid rgba(255,255,255,0.1);
-    width:100%;
-}
-
-.nav-container {
-    max-width:1400px;
-    margin:auto;
-    padding:14px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-/* Logo links */
-.header-left {
-    display:flex;
-    align-items:center;
-    margin-left:-30px;
-}
-.header-left img {
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    object-fit:cover;
-    box-shadow:var(--shadow);
-}
-
-/* Navigation */
-.desktop-nav {
-    display:flex;
-    gap:26px;
-}
-.desktop-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    letter-spacing:1px;
-    position:relative;
-    font-size:1em;
-}
-.desktop-nav a::after {
-    content:"";
-    position:absolute;
-    left:0; bottom:-3px;
-    width:0; height:1px;
-    background:var(--gold);
-    transition:0.3s;
-}
-.desktop-nav a:hover::after { width:100%; }
-
-/* Titel rechts */
-.header-right {
-    color:var(--cream);
-    font-size:1.2em;
-    font-weight:700;
-    letter-spacing:1.5px;
-    white-space:nowrap;
-    margin-right:-30px;
-}
-
 /* ================= PAGE BACKGROUND ================= */
 .page-background {
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
         url("hintergrund.jpg") center/cover fixed;
-    padding-top:160px;
-    padding-bottom:80px;
+    padding:160px 0 80px;
 }
 
 /* CONTENT BOX */
@@ -102,7 +36,7 @@ section {
     max-width:800px;
     margin:0 auto;
     padding:60px 10%;
-    background:rgba(0,0,0,0.32);
+    background:rgba(0,0,0,0.30);
     border-radius:16px;
     box-shadow:var(--shadow);
     backdrop-filter:blur(3px);
@@ -110,22 +44,22 @@ section {
 
 h1 {
     text-align:center;
-    font-size:2.6em;
+    font-size:clamp(2rem, 4vw, 2.6em);
     margin-bottom:32px;
     text-shadow:var(--shadow);
 }
 h2 {
-    font-size:1.4em;
-    margin-top:30px;
-    margin-bottom:10px;
+    font-size:clamp(1.2rem, 2.5vw, 1.4em);
+    margin-top:32px;
+    margin-bottom:14px;
     color:var(--gold);
 }
 p {
-    font-size:1.2em;
-    line-height:1.6;
-    margin-bottom:8px;
+    font-size:clamp(1rem, 2.3vw, 1.2em);
+    line-height:1.65;
+    margin-bottom:12px;
 }
-strong { color:var(--gold); }
+a { color:var(--gold); text-decoration:none; }
 
 /* FOOTER */
 footer {
@@ -138,33 +72,22 @@ footer img {
     height:60px;
     border-radius:50%;
 }
+
+/* MOBILE OPTIMIZATION */
+@media (max-width:768px) {
+    .page-background {
+        padding-top:130px;
+        padding-bottom:60px;
+    }
+
+    section {
+        padding:40px 8%;
+    }
+}
 </style>
 </head>
 
 <body>
-
-<!-- ================= HEADER ================= -->
-<header>
-    <div class="nav-container">
-
-        <div class="header-left">
-            <img src="logo2.jpg" alt="Logo">
-        </div>
-
-        <nav class="desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="crowdfunding.html">Crowdfunding</a>
-            <a href="geschichte.html">Meine Geschichte</a>
-            <a href="updates.html">Updates</a>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutz</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
-
-        <div class="header-right">PURE ROOT SWITZERLAND</div>
-
-    </div>
-</header>
 
 <!-- ================= CONTENT ================= -->
 <div class="page-background">
@@ -182,7 +105,7 @@ footer img {
 
     <h2>Kontakt</h2>
     <p>Telefon: +41 77 202 65 91</p>
-    <p>E-Mail: <a href="mailto:info@purerootswitzerland.ch" style="color:var(--gold); text-decoration:none;">info@purerootswitzerland.ch</a></p>
+    <p>E-Mail: <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a></p>
     <p>Web: purerootswitzerland.ch</p>
 
     <h2>Haftungsausschluss</h2>
@@ -193,17 +116,17 @@ footer img {
     </p>
 
     <p>
-        Haftungsansprüche gegen den Betreiber der Seite wegen Schäden materieller
-        oder immaterieller Art, die aus dem Zugriff oder der Nutzung bzw.
-        Nichtnutzung der veröffentlichten Informationen entstanden sind,
-        werden ausgeschlossen.
+        Haftungsansprüche gegen den Betreiber der Seite aufgrund von Schäden materieller
+        oder immaterieller Art, die durch den Zugriff oder die Nutzung bzw. Nichtnutzung
+        der veröffentlichten Informationen entstehen, werden ausgeschlossen.
     </p>
 
     <h2>Urheberrechte</h2>
     <p>
-        Die Inhalte (Texte, Bilder, Logos) auf dieser Website unterliegen dem Urheberrecht.
-        Eine Verwendung oder Vervielfältigung ist ohne ausdrückliche Zustimmung
-        des Rechteinhabers nicht gestattet.
+        Alle Inhalte dieser Website (Texte, Fotos, Grafiken, Logos)
+        unterliegen dem Urheberrecht.  
+        Eine Nutzung oder Vervielfältigung ist ohne ausdrückliche schriftliche Zustimmung
+        des Rechteinhabers nicht erlaubt.
     </p>
 
 </section>
@@ -217,5 +140,6 @@ footer img {
 
 </body>
 </html>
+
 
 
