@@ -219,7 +219,7 @@ h2 {
     box-shadow:var(--shadow);
     max-width:360px;
     margin:0 auto;
-    text-align:center; /* FIX → Untertitel korrekt */
+    text-align:center;
 }
 .feature img {
     width:78%;
@@ -282,7 +282,7 @@ footer img {
     margin-bottom:12px;
 }
 
-/* MOBILE */
+/* MOBILE FIXES */
 @media (max-width: 768px) {
 
     .header-right {
@@ -310,6 +310,20 @@ footer img {
 
     .hero-title {
         white-space:normal;
+    }
+
+    /* 🔥 FIX: Lokale Partnerschaft + Bild zentriert + einzeilig */
+    .feature img {
+        width:65% !important;
+    }
+
+    .feature {
+        font-size:0.95em;
+        text-align:center;
+    }
+
+    .feature:nth-child(2) {
+        white-space:nowrap;
     }
 }
 </style>
@@ -413,7 +427,6 @@ window.addEventListener("resize", updateLineWidth);
                 der Universidade dos Açores einen nachhaltigen Testanbau auf – Schritt für Schritt.
             </p>
 
-            <!-- Abstand korrigiert -->
             <p style="text-align:center; margin-top:70px;">
                 <a href="geschichte.html" class="btn">Meine Geschichte lesen</a>
             </p>
@@ -442,6 +455,7 @@ window.addEventListener("resize", updateLineWidth);
 
 </body>
 </html>
+
 
 
 
