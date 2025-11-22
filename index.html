@@ -6,8 +6,8 @@
 <title>Pure Root Switzerland – Organic Ginger</title>
 
 <!-- SEO -->
-<meta name="description" content="Pure Root Switzerland – frischer Bio-Ingwer von den Azoren. Testanbau mit lokalem Bio-Bauern und Unterstützung der Universidade dos Açores – für mehr Nähe, Qualität und Nachhaltigkeit in der Schweiz.">
-<meta name="keywords" content="Bio Ingwer, Azoren, Schweiz, frischer Ingwer, Organic Ginger, Pure Root Switzerland, nachhaltiger Anbau">
+<meta name="description" content="Pure Root Switzerland – nachhaltiges Bio-Ingwer-Testanbauprojekt auf den Azoren. Crowdfunding für einen regionalen, nachhaltigen Neubeginn.">
+<meta name="keywords" content="Crowdfunding, Bio Ingwer, nachhaltiger Testanbau, Azoren Projekt, Unterstützung, Pure Root Switzerland">
 
 <style>
 :root {
@@ -38,6 +38,7 @@ header {
     border-bottom:1px solid rgba(255,255,255,0.1);
     width:100%;
 }
+
 .nav-container {
     max-width:1400px;
     margin:auto;
@@ -92,6 +93,7 @@ header {
     min-height:520px;
     overflow:hidden;
 }
+
 .hero img {
     position:absolute;
     inset:0;
@@ -101,10 +103,12 @@ header {
     transform:scale(1.05);
     animation:slowzoom 12s ease forwards;
 }
+
 @keyframes slowzoom {
     0% { transform:scale(1.05); }
     100% { transform:scale(1.0); }
 }
+
 .hero-overlay {
     position:absolute;
     inset:0;
@@ -115,7 +119,7 @@ header {
     );
 }
 
-/* ================= TITELBLOCK (NEU & PERFEKT) ================= */
+/* ================= TITELBLOCK ================= */
 .title-wrap {
     position:absolute;
     top:12%;
@@ -138,6 +142,7 @@ header {
     opacity:0;
     animation:fadeIn 1.4s ease-out forwards;
 }
+
 .hero-title-line1 { animation-delay:0.3s; }
 .hero-title-line2 { animation-delay:0.5s; }
 
@@ -146,7 +151,6 @@ header {
     100% { opacity:1; transform:translateY(0); }
 }
 
-/* goldene Linie */
 .hero-line {
     height:3px;
     width:100%;
@@ -155,48 +159,72 @@ header {
     opacity:0;
     transform:scaleX(0);
     transform-origin:left;
-    animation:lineGrow 1.2s ease-out forwards;
+    animation:growline 1.2s ease-out forwards;
     animation-delay:0.8s;
 }
-@keyframes lineGrow {
+
+@keyframes growline {
     0% { transform:scaleX(0); opacity:0; }
     100% { transform:scaleX(1); opacity:1; }
 }
 
-/* ================= UNTERTITEL UNTER DEM BLOCK ================= */
+/* ================= UNTERTITEL ================= */
 .hero-sub {
-    font-size:clamp(1.1rem, 2vw, 1.8rem);
-    max-width:80%;
-    line-height:1.4;
-    color:var(--cream);
+    position:absolute;
+    bottom:12.5%;
+    left:50%;
+    transform:translateX(-50%);
     text-align:center;
+    width:90%;
+    max-width:900px;
+    
+    font-size:clamp(1.15rem, 2vw, 1.9rem);
+    line-height:1.35;
+    color:var(--cream);
+
     opacity:0;
-    animation:fadeSub 1.2s ease-out forwards;
+    animation:fadeSub 1.3s ease-out forwards;
     animation-delay:1.2s;
 }
 
 @keyframes fadeSub {
-    0% { opacity:0; transform:translateY(18px); }
+    0% { opacity:0; transform:translateY(22px); }
     100% { opacity:1; transform:translateY(0); }
 }
 
-/* Untertitel gehört IN den Titelwrap */
-.title-wrap .hero-sub {
-    position:relative;
-    top:0;
-}
-
-/* ================= CONTENT BEREICHE ================= */
-/* (unverändert – deine ursprünglichen Inhalte bleiben perfekt) */
-
+/* ================= CONTENT ================= */
 .page-background {
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
         url("hintergrund.jpg") center/cover fixed;
     padding-bottom:80px;
-    width:100%;
 }
 
+/* BUTTON FIXED FOR MOBILE */
+.btn {
+    padding:14px 40px;
+    border-radius:999px;
+    border:2px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    display:inline-block;
+    margin-top:10px;
+    font-size:1.05em;
+}
+
+.btn:hover {
+    background:var(--gold);
+    color:var(--green-dark);
+}
+
+@media (max-width:480px) {
+    .btn {
+        padding:12px 26px;
+        font-size:0.95em;
+    }
+}
+
+/* CONTENT LAYOUT */
 section {
     max-width:1200px;
     margin:0 auto;
@@ -208,6 +236,7 @@ h2 {
     margin-bottom:24px;
     text-shadow:var(--shadow);
 }
+
 .section-text {
     max-width:860px;
     margin:0 auto 48px;
@@ -230,7 +259,7 @@ h2 {
     border-radius:14px;
 }
 
-/* SIDE SECTION */
+/* SIDE */
 .side {
     display:flex;
     gap:40px;
@@ -246,22 +275,8 @@ h2 {
 .side-text {
     width:50%;
     min-width:260px;
-    text-align:left;
     font-size:1.1em;
-}
-
-/* BUTTON */
-.btn {
-    padding:14px 40px;
-    border-radius:999px;
-    border:2px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    font-size:1.05em;
-}
-.btn:hover {
-    background:var(--gold);
-    color:var(--green-dark);
+    text-align:left;
 }
 
 /* FOOTER */
@@ -276,30 +291,15 @@ footer img {
     border-radius:50%;
     margin-bottom:12px;
 }
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width:768px) {
-    .hero-title-line1,
-    .hero-title-line2 {
-        font-size:clamp(1.9rem, 6vw, 2.4rem);
-        letter-spacing:0.1em;
-    }
-    .hero-sub {
-        font-size:1.1rem;
-        max-width:90%;
-    }
-}
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
 <header>
     <div class="nav-container">
         <div class="header-left">
-            <img src="logo2.jpg" alt="Pure Root Switzerland Logo">
+            <img src="logo2.jpg" alt="Logo">
         </div>
 
         <nav class="desktop-nav">
@@ -312,35 +312,26 @@ footer img {
             <a href="kontakt.html">Kontakt</a>
         </nav>
 
-        <div class="header-right">
-            PURE ROOT SWITZERLAND
-        </div>
+        <div class="header-right">PURE ROOT SWITZERLAND</div>
     </div>
 </header>
 
-
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <div class="hero">
-    <img src="landschaft.jpg" alt="Azoren Landschaft">
+    <img src="landschaft.jpg" alt="Landschaft Azoren">
     <div class="hero-overlay"></div>
 
-    <!-- NEUER TITEBLOCK -->
     <div class="title-wrap">
-
         <div class="hero-title-line1">PURE ROOT</div>
         <div class="hero-title-line2">SWITZERLAND</div>
         <div class="hero-line"></div>
+    </div>
 
-        <!-- ⭐ Untertitel jetzt IM BLOCK, perfekt -->
-        <div class="hero-sub">
-            Frischer Bio-Ingwer – direkt vom Azoren-Bio-Bauern in Richtung Schweiz
-        </div>
-
+    <div class="hero-sub">
+        Hilf mit, einen nachhaltigen Bio-Ingwer-Testanbau auf den Azoren aufzubauen – jede Unterstützung zählt.
     </div>
 </div>
 
-
-<!-- ================= CONTENT ================= -->
 <div class="page-background">
 
 <section>
@@ -358,11 +349,11 @@ footer img {
             Unvergleichliche Frische
         </div>
         <div class="feature">
-            <img src="personenimfeld.jpg" alt="Lokale Partnerschaft">
+            <img src="personenimfeld.jpg" alt="Partnerschaft">
             Lokale Partnerschaft
         </div>
         <div class="feature">
-            <img src="ingwerfeld.jpg" alt="Ingwerfeld">
+            <img src="ingwerfeld.jpg" alt="Ingwerfeld Azoren">
             Perfekte Bedingungen
         </div>
     </div>
@@ -397,7 +388,8 @@ footer img {
     <h2>Unterstütze den Testanbau</h2>
     <p class="section-text">Alle Details findest du auf der Crowdfunding-Seite.</p>
 
-    <img src="neuanfang.jpg" alt="Neuanfang" style="width:60%; max-width:640px; border-radius:18px; box-shadow:var(--shadow); margin-bottom:24px;">
+    <img src="neuanfang.jpg" alt="Neuanfang"
+         style="width:60%; max-width:640px; border-radius:18px; box-shadow:var(--shadow); margin-bottom:24px;">
 
     <div>
         <a href="crowdfunding.html" class="btn">Zur Crowdfunding-Seite</a>
