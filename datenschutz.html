@@ -23,12 +23,13 @@ body {
     color:var(--cream);
 }
 
-/* ================= HEADER — IDENTISCH ZU INDEX ================= */
+/* ================= HEADER (wieder identisch wie Index) ================= */
 header {
-    position:sticky;
+    position: sticky;
     top:0;
     z-index:40;
-    background:black;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(255,255,255,0.1);
     width:100%;
 }
@@ -36,18 +37,14 @@ header {
 .nav-container {
     max-width:1400px;
     margin:auto;
-    padding:14px 6%;
+    padding:12px 6%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:16px;
 }
 
-/* Logo */
-.header-left {
-    display:flex;
-    align-items:center;
-    margin-left:-30px;
-}
+/* Desktop Logo */
 .header-left img {
     width:62px;
     height:62px;
@@ -56,11 +53,14 @@ header {
     box-shadow:var(--shadow);
 }
 
-/* Navigation */
+/* Desktop Navigation */
 .desktop-nav {
     display:flex;
     gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
 }
+
 .desktop-nav a {
     color:var(--cream);
     text-decoration:none;
@@ -68,6 +68,7 @@ header {
     position:relative;
     font-size:1em;
 }
+
 .desktop-nav a::after {
     content:"";
     position:absolute;
@@ -78,17 +79,53 @@ header {
 }
 .desktop-nav a:hover::after { width:100%; }
 
-/* Titel rechts */
 .header-right {
     color:var(--cream);
-    font-size:1.2em;
+    font-size:1.1em;
     font-weight:700;
     letter-spacing:1.5px;
     white-space:nowrap;
-    margin-right:-30px;
 }
 
-/* ================= PAGE BACKGROUND ================= */
+/* ================ MOBILE HEADER ================ */
+.mobile-header {
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    padding:14px 0;
+    gap:8px;
+}
+
+.mobile-header img {
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+.mobile-header-title {
+    color:var(--cream);
+    font-size:1.25em;
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+    text-align:center;
+}
+
+.mobile-nav {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:18px;
+}
+
+.mobile-nav a {
+    color:var(--cream);
+    text-decoration:none;
+    font-size:1em;
+}
+
+/* ================= BACKGROUND ================= */
 .page-background {
     min-height:100vh;
     width:100%;
@@ -99,7 +136,7 @@ header {
     padding-bottom:80px;
 }
 
-/* CONTENT BOX */
+/* ================= CONTENT BOX ================= */
 section {
     max-width:800px;
     margin:0 auto;
@@ -128,9 +165,8 @@ p, li {
     line-height:1.6;
 }
 ul { margin-left:18px; margin-bottom:12px; }
-strong { color:var(--gold); }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer {
     text-align:center;
     padding:50px 10px 40px;
@@ -141,12 +177,38 @@ footer img {
     height:60px;
     border-radius:50%;
 }
+
+/* ================ MOBILE OPTIMIZATION ================ */
+@media (max-width:768px) {
+    .nav-container { display:none; }
+    .mobile-header { display:flex; }
+
+    section {
+        padding:40px 8%;
+    }
+}
 </style>
 </head>
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- ================= MOBILE HEADER ================= -->
+<div class="mobile-header">
+    <img src="logo2.jpg" alt="Logo">
+    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
+
+    <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="crowdfunding.html">Crowdfunding</a>
+        <a href="geschichte.html">Meine Geschichte</a>
+        <a href="updates.html">Updates</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+    </nav>
+</div>
+
+<!-- ================= DESKTOP HEADER ================= -->
 <header>
     <div class="nav-container">
 
@@ -219,4 +281,5 @@ footer img {
 
 </body>
 </html>
+
 
