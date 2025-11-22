@@ -91,7 +91,7 @@ header {
     font-size:1em;
 }
 
-/* DESKTOP Navigation */
+/* DESKTOP NAVIGATION */
 .desktop-nav {
     display:flex;
     gap:26px;
@@ -133,6 +133,7 @@ header {
     height:90vh;
     min-height:520px;
     overflow:hidden;
+    width:100%;
 }
 .hero img {
     position:absolute;
@@ -146,7 +147,7 @@ header {
 
 @keyframes slowzoom {
     0% { transform:scale(1.05); }
-    100% { transform:scale(1.00); }
+    100% { transform:scale(1.0); }
 }
 
 .hero-overlay {
@@ -170,9 +171,9 @@ header {
 
 .hero-title {
     font-size:clamp(2rem, 3.7vw, 3.4em);
+    white-space:nowrap;
     font-weight:700;
     letter-spacing:0.12em;
-    white-space:nowrap;
     color:var(--cream);
     text-shadow:var(--shadow);
 }
@@ -185,6 +186,7 @@ header {
     opacity:1;
     box-shadow:var(--shadow);
     width:0;
+    transition: width 2.8s ease; /* langsamere, elegante Animation */
 }
 
 /* Untertitel */
@@ -196,7 +198,7 @@ header {
     width:90%;
     max-width:900px;
     text-align:center;
-    font-size:clamp(1.15rem,2vw,1.75rem);
+    font-size:clamp(1.15rem, 2vw, 1.75rem);
     line-height:1.35;
     color:var(--cream);
 }
@@ -216,7 +218,6 @@ section {
     text-align:center;
 }
 
-/* Titel der Sections */
 h2 {
     font-size:clamp(1.4rem, 2.3vw, 1.75rem);
     margin-bottom:36px;
@@ -227,23 +228,6 @@ h2 {
     max-width:860px;
     margin:0 auto 60px;
     font-size:1.15em;
-}
-
-/* Buttons */
-.btn {
-    display:inline-block;
-    padding:14px 40px;
-    border-radius:999px;
-    border:2px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    font-size:1.05em;
-    transition:0.3s;
-}
-
-.btn:hover {
-    background:var(--gold);
-    color:var(--green-dark);
 }
 
 /* PAYMENT BOXES */
@@ -264,6 +248,23 @@ h2 {
     border:1px solid rgba(255,255,255,0.15);
 }
 
+/* BUTTON */
+.btn {
+    display:inline-block;
+    padding:14px 40px;
+    border-radius:999px;
+    border:2px solid var(--gold);
+    color:var(--gold);
+    text-decoration:none;
+    font-size:1.05em;
+    transition:0.3s;
+}
+
+.btn:hover {
+    background:var(--gold);
+    color:var(--green-dark);
+}
+
 /* FOOTER */
 footer {
     text-align:center;
@@ -281,12 +282,10 @@ footer img {
 @media (max-width:768px) {
 
     .nav-container { display:none; }
-
     .mobile-header { display:flex; }
-
     .hero-title { white-space:normal; }
-
     .pay-box { width:90%; }
+
 }
 </style>
 </head>
@@ -340,7 +339,9 @@ footer img {
         <div class="hero-line" id="heroLine"></div>
     </div>
 
-    <div class="hero-sub">Dein Beitrag zählt.</div>
+    <div class="hero-sub">
+        Dein Beitrag zählt.
+    </div>
 </div>
 
 <script>
@@ -350,7 +351,7 @@ function updateLineWidth() {
     if (!title || !line) return;
     line.style.width = title.offsetWidth + "px";
 }
-window.addEventListener("load", () => setTimeout(updateLineWidth,100));
+window.addEventListener("load", () => setTimeout(updateLineWidth, 600)); // etwas spätere, ruhige Startverzögerung
 window.addEventListener("resize", updateLineWidth);
 </script>
 
@@ -362,15 +363,16 @@ window.addEventListener("resize", updateLineWidth);
         Hilf mit, den ersten <strong>europäischen Bio-Ingwer</strong> direkt von den Azoren in die Schweiz zu bringen.
     </p>
 
-    <a class="btn" href="#spenden">Jetzt unterstützen</a>
+    <a class="btn" href="#unterstuetzen">Jetzt unterstützen</a>
 </section>
 
-<section>
-    <h2 id="spenden">Unterstützen – so kannst du helfen</h2>
+<section id="unterstuetzen">
+    <h2>Unterstützen – so kannst du helfen</h2>
     <p class="section-text">Du kannst direkt via Banküberweisung oder TWINT unterstützen.</p>
 
     <div class="pay-container">
 
+        <!-- BANK BOX -->
         <div class="pay-box">
             <h3>Banküberweisung</h3>
             <p><strong>Kontoinhaber:</strong><br>John René Imbach</p>
@@ -379,6 +381,7 @@ window.addEventListener("resize", updateLineWidth);
             <p><strong>Verwendungszweck:</strong><br>Ingwer Projekt</p>
         </div>
 
+        <!-- TWINT BOX -->
         <div class="pay-box">
             <h3>TWINT</h3>
             <img src="qr.jpg" style="width:240px; border-radius:14px;">
@@ -388,9 +391,59 @@ window.addEventListener("resize", updateLineWidth);
     </div>
 </section>
 
+<!-- NEUER KOSTENABSCHNITT -->
+<section>
+    <h2>Wofür ich die Unterstützung benötige</h2>
+    <p class="section-text">
+        Die ersten 7’500 CHF werden vollständig in den Start des Testanbaus investiert.
+        Alles wird transparent eingesetzt – ohne Verschwendung, ohne unnötige Kosten.
+        So kann ich den ersten Bio-Ingwer von den Azoren aufbauen.
+    </p>
+
+    <div class="section-text" style="text-align:left; margin:0 auto; max-width:700px;">
+
+        <p><strong>1. Tröpfchenbewässerungssystem – ca. 1’200 CHF</strong><br>
+        Schläuche, Tropfer, Filter und Anschlüsse für eine effiziente, wassersparende Bewässerung.</p>
+
+        <p><strong>2. Weizenfolie / Mulchfolie – ca. 850 CHF</strong><br>
+        Schutz des Bodens, weniger Unkraut, bessere Feuchtigkeitsspeicherung.</p>
+
+        <p><strong>3. Werkzeuge & Kleingeräte – ca. 600 CHF</strong><br>
+        Alles Wichtige für die tägliche Arbeit auf dem Feld.</p>
+
+        <p><strong>4. Pflanzmaterial (Bio-Ingwer) – ca. 1’000 CHF</strong><br>
+        Keimfähiger Bio-Ingwer zur Voranzucht und ersten Bepflanzung.</p>
+
+        <p><strong>5. Erde, Substrate & Kompost – ca. 900 CHF</strong><br>
+        Für die Voranzucht und zur Verbesserung der Bodenqualität.</p>
+
+        <p><strong>6. Bodenanalyse & Beratung – ca. 450 CHF</strong><br>
+        Unterstützung durch lokale Experten und die Universität der Azoren.</p>
+
+        <p><strong>7. Verpackung & Etiketten – ca. 500 CHF</strong><br>
+        Für erste Muster, Probelieferungen und einen sauberen Auftritt.</p>
+
+        <p><strong>8. Transport / Logistik auf der Insel – ca. 400 CHF</strong><br>
+        Fahrten, Materialtransporte und Organisation vor Ort.</p>
+
+        <p><strong>9. Minimale Lebenshaltungskosten – ca. 450 CHF</strong><br>
+        Unterstützung für die erste Phase des Projektstarts.</p>
+
+        <p><strong>10. Notfallreserve – ca. 250 CHF</strong><br>
+        Für unerwartete Ausgaben oder Preisänderungen.</p>
+
+        <p style="margin-top:30px; font-weight:bold;">
+            Gesamttotal: 7’500 CHF
+        </p>
+
+    </div>
+</section>
+
 <section>
     <h2>Danke für deine Unterstützung</h2>
-    <p class="section-text">Jede Hilfe – ob groß oder klein – macht einen Unterschied.</p>
+    <p class="section-text">
+        Jede Hilfe – ob groß oder klein – macht einen Unterschied.
+    </p>
 
     <a href="danke.html" class="btn">Zur Dankeseite</a>
 </section>
@@ -404,6 +457,7 @@ window.addEventListener("resize", updateLineWidth);
 
 </body>
 </html>
+
 
 
 
