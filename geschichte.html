@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Meine Geschichte – Pure Root Switzerland</title>
 
 <style>
@@ -18,20 +18,20 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { max-width:100vw; overflow-x:hidden; }
 body {
-    font-family:"Lora","Georgia",serif;
-    background:var(--green-dark);
-    color:var(--cream);
+    font-family: "Lora","Georgia",serif;
+    background: var(--green-dark);
+    color: var(--cream);
     line-height:1.6;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 header {
-    position:sticky;
+    position: sticky;
     top:0;
     z-index:40;
     background:rgba(0,0,0,0.45);
-    border-bottom:1px solid rgba(255,255,255,0.1);
     backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
     width:100%;
 }
 
@@ -42,48 +42,15 @@ header {
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:16px;
 }
 
 .header-left img {
     width:62px;
     height:62px;
     border-radius:50%;
+    object-fit:cover;
     box-shadow:var(--shadow);
-}
-
-/* DESKTOP NAV */
-.desktop-nav {
-    display:flex;
-    gap:26px;
-}
-
-.desktop-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    font-size:1em;
-    letter-spacing:1px;
-    position:relative;
-}
-
-.desktop-nav a::after {
-    content:"";
-    position:absolute;
-    bottom:-3px;
-    left:0;
-    width:0;
-    height:1px;
-    background:var(--gold);
-    transition:0.3s;
-}
-
-.desktop-nav a:hover::after { width:100%; }
-
-.header-right {
-    color:var(--cream);
-    font-size:1.1em;
-    font-weight:700;
-    letter-spacing:1.5px;
-    white-space:nowrap;
 }
 
 /* MOBILE HEADER */
@@ -99,6 +66,7 @@ header {
     width:70px;
     height:70px;
     border-radius:50%;
+    object-fit:cover;
 }
 
 .mobile-header-title {
@@ -106,6 +74,7 @@ header {
     font-size:1.25em;
     font-weight:700;
     letter-spacing:1.5px;
+    white-space:nowrap;
     text-align:center;
 }
 
@@ -119,25 +88,65 @@ header {
 .mobile-nav a {
     color:var(--cream);
     text-decoration:none;
+    font-size:1em;
 }
 
-/* HERO */
+/* DESKTOP NAVIGATION */
+.desktop-nav {
+    display:flex;
+    gap:26px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.desktop-nav a {
+    color:var(--cream);
+    text-decoration:none;
+    letter-spacing:1px;
+    position:relative;
+    font-size:1em;
+}
+
+.desktop-nav a::after {
+    content:"";
+    position:absolute;
+    left:0; bottom:-3px;
+    width:0; height:1px;
+    background:var(--gold);
+    transition:0.3s;
+}
+
+.desktop-nav a:hover::after { width:100%; }
+
+/* Desktop Titel rechts */
+.header-right {
+    color:var(--cream);
+    font-size:1.1em;
+    font-weight:700;
+    letter-spacing:1.5px;
+    white-space:nowrap;
+}
+
+/* ================= HERO ================= */
 .hero {
     position:relative;
-    height:88vh;
+    height:90vh;
     min-height:520px;
     overflow:hidden;
+    width:100%;
 }
 
 .hero img {
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
     transform:scale(1.05);
-    animation:herozoom 12s ease forwards;
+    animation:slowzoom 12s ease forwards;
 }
 
-@keyframes herozoom {
+@keyframes slowzoom {
     0% { transform:scale(1.05); }
     100% { transform:scale(1.0); }
 }
@@ -147,11 +156,12 @@ header {
     inset:0;
     background:linear-gradient(
         rgba(0,0,0,0.05),
-        rgba(0,0,0,0.40) 40%,
+        rgba(0,0,0,0.4) 40%,
         rgba(0,0,0,0.85)
     );
 }
 
+/* Hero Titel */
 .title-wrap {
     position:absolute;
     top:12%;
@@ -163,20 +173,24 @@ header {
 .hero-title {
     font-size:clamp(2rem, 3.7vw, 3.4em);
     white-space:nowrap;
-    letter-spacing:0.12em;
     font-weight:700;
+    letter-spacing:0.12em;
+    color:var(--cream);
     text-shadow:var(--shadow);
 }
 
+/* Dynamische Linie */
 .hero-line {
     height:3px;
     background:var(--gold);
     margin:10px auto 0;
-    width:0;
+    opacity:1;
     box-shadow:var(--shadow);
-    transition:width 2.8s ease;
+    width:0;
+    transition: width 2.8s ease;
 }
 
+/* Untertitel */
 .hero-sub {
     position:absolute;
     bottom:10%;
@@ -185,10 +199,12 @@ header {
     width:90%;
     max-width:900px;
     text-align:center;
-    font-size:clamp(1.2rem,2vw,1.7rem);
+    font-size:clamp(1.15rem, 2vw, 1.75rem);
+    line-height:1.35;
+    color:var(--cream);
 }
 
-/* CONTENT */
+/* ================= CONTENT ================= */
 .page-background {
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
@@ -203,29 +219,37 @@ section {
     text-align:center;
 }
 
+h2 {
+    font-size:clamp(1.4rem, 2.3vw, 1.75rem);
+    margin-bottom:36px;
+    text-shadow:var(--shadow);
+}
+
 .section-text {
-    max-width:900px;
-    margin:0 auto 60px;
+    max-width:860px;
+    margin:0 auto 80px;
     font-size:1.15em;
 }
 
+/* Story images */
 .story-img {
     width:70%;
-    max-width:650px;
+    max-width:600px;
     border-radius:18px;
     box-shadow:var(--shadow);
     margin-bottom:40px;
 }
 
-/* BUTTON */
+/* Button */
 .btn {
+    display:inline-block;
     padding:14px 40px;
     border-radius:999px;
     border:2px solid var(--gold);
     color:var(--gold);
     text-decoration:none;
+    font-size:1.05em;
     transition:0.3s;
-    font-size:1.1em;
 }
 
 .btn:hover {
@@ -233,7 +257,7 @@ section {
     color:var(--green-dark);
 }
 
-/* FOOTER (MASTER) */
+/* ================= FOOTER (KORREKT) ================= */
 footer {
     text-align:center;
     padding:50px 10px 40px;
@@ -251,7 +275,21 @@ footer a {
     text-decoration:none;
 }
 
-/* MOBILE */
+footer a:hover {
+    color:var(--gold);
+}
+
+/* UNI-Link */
+a.uac-link {
+    color:#f1dca5;
+    font-weight:700;
+    text-decoration:none;
+}
+a.uac-link:hover {
+    text-decoration:underline;
+}
+
+/* Mobile */
 @media (max-width:768px) {
     .nav-container { display:none; }
     .mobile-header { display:flex; }
@@ -265,7 +303,7 @@ footer a {
 
 <!-- MOBILE HEADER -->
 <div class="mobile-header">
-    <img src="logo2.jpg" alt="">
+    <img src="logo2.jpg" alt="Mobile Logo">
     <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
 
     <nav class="mobile-nav">
@@ -281,7 +319,7 @@ footer a {
 <header>
     <div class="nav-container">
         <div class="header-left">
-            <img src="logo2.jpg" alt="">
+            <img src="logo2.jpg" alt="Logo">
         </div>
 
         <nav class="desktop-nav">
@@ -306,7 +344,9 @@ footer a {
         <div class="hero-line" id="heroLine"></div>
     </div>
 
-    <div class="hero-sub">Ein persönlicher Neuanfang</div>
+    <div class="hero-sub">
+        Ein Neustart mit Nachhaltigkeit
+    </div>
 </div>
 
 <script>
@@ -316,40 +356,52 @@ function updateLineWidth() {
     if (!title || !line) return;
     line.style.width = title.offsetWidth + "px";
 }
-window.addEventListener("load", () => setTimeout(updateLineWidth,600));
+window.addEventListener("load", () =>
+    setTimeout(updateLineWidth,600)
+);
 window.addEventListener("resize", updateLineWidth);
 </script>
 
-<!-- CONTENT -->
 <div class="page-background">
+
 <section>
+    <h2>Meine Geschichte</h2>
 
     <img src="meinfotosw.jpg" class="story-img" alt="">
 
     <p class="section-text">
-        Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt.
-        Die Genesung war ein langer Weg – körperlich, aber vor allem mental.
-        Diese Erfahrung hat mir gezeigt, wie wertvoll Gesundheit, Zeit und Natur wirklich sind.
+        Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt. 
+        Die Genesung war ein langer Weg – körperlich, aber vor allem mental.  
+        Heute bin ich dankbar, diesen Weg geschafft zu haben, und habe dabei eines verstanden:  
+        Ich möchte etwas tun, das Sinn macht und nachhaltig ist.
     </p>
 
     <p class="section-text">
-        Aus dieser neuen Perspektive entstand die Idee, etwas Nachhaltiges aufzubauen:
-        ein langfristiges Bio-Ingwerprojekt auf den Azoren – gemeinsam mit einem lokalen Bio-Landwirt,
-        und unterstützt durch die Universität der Azoren.
+        Genau daraus entstand die Idee für dieses Projekt.  
+        Ein Neuanfang mit Natur, Verantwortung und einer klaren Vision:  
+        frischen, nachhaltigen Bio-Ingwer auf den Azoren anbauen –  
+        zusammen mit Menschen, die ebenfalls an diesen Weg glauben.
+    </p>
+
+    <p class="section-text">
+        Ich habe auf São Miguel einen lokalen Bio-Bauern gefunden, der sofort von meinem Projekt überzeugt war
+        und mit mir zusammenarbeiten möchte.  
+        Gleichzeitig findet die 
+        <a class="uac-link" href="https://www.uac.pt/" target="_blank">Universidade dos Açores</a>
+        mein Vorhaben nachhaltig und sieht darin einen Mehrwert für die Insel.  
+        Wo immer möglich, unterstützt sie mich – nicht finanziell, aber durch Wissen, Motivation
+        und lokalen Rückhalt.
     </p>
 
     <img src="feldimsonnenaufgang.jpg" class="story-img" alt="">
 
-    <p class="section-text">
-        Das Projekt ist für mich mehr als Landwirtschaft.
-        Es ist ein Neuanfang, eine positive Vision und der Wunsch,
-        ein gesundes Naturprodukt nachhaltig und sinnvoll zu erzeugen.
-    </p>
-
-    <a href="crowdfunding.html" class="btn">Jetzt unterstützen</a>
+    <div style="text-align:center; margin-top:32px;">
+        <a href="crowdfunding.html" class="btn">Jetzt unterstützen</a>
+    </div>
 
 </section>
 
+<!-- FOOTER KORREKT (weiß, wie Index & Crowdfunding) -->
 <footer>
     <img src="logo2.jpg" alt="">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
