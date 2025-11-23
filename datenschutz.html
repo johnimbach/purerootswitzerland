@@ -21,17 +21,17 @@ body {
     font-family:"Lora","Georgia",serif;
     background:var(--green-dark);
     color:var(--cream);
+    line-height:1.6;
 }
 
-/* ================= HEADER (wieder identisch wie Index) ================= */
+/* HEADER */
 header {
-    position: sticky;
+    position:sticky;
     top:0;
     z-index:40;
     background:rgba(0,0,0,0.45);
     backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(255,255,255,0.1);
-    width:100%;
 }
 
 .nav-container {
@@ -41,42 +41,40 @@ header {
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:16px;
 }
 
-/* Desktop Logo */
 .header-left img {
     width:62px;
     height:62px;
     border-radius:50%;
-    object-fit:cover;
     box-shadow:var(--shadow);
 }
 
-/* Desktop Navigation */
+/* DESKTOP NAV */
 .desktop-nav {
     display:flex;
     gap:26px;
-    flex-wrap:wrap;
-    justify-content:center;
 }
 
 .desktop-nav a {
     color:var(--cream);
     text-decoration:none;
+    font-size:1em;
     letter-spacing:1px;
     position:relative;
-    font-size:1em;
 }
 
 .desktop-nav a::after {
     content:"";
     position:absolute;
-    left:0; bottom:-3px;
-    width:0; height:1px;
+    bottom:-3px;
+    left:0;
+    width:0;
+    height:1px;
     background:var(--gold);
     transition:0.3s;
 }
+
 .desktop-nav a:hover::after { width:100%; }
 
 .header-right {
@@ -87,7 +85,7 @@ header {
     white-space:nowrap;
 }
 
-/* ================ MOBILE HEADER ================ */
+/* MOBILE HEADER */
 .mobile-header {
     display:none;
     flex-direction:column;
@@ -100,7 +98,6 @@ header {
     width:70px;
     height:70px;
     border-radius:50%;
-    object-fit:cover;
 }
 
 .mobile-header-title {
@@ -108,8 +105,6 @@ header {
     font-size:1.25em;
     font-weight:700;
     letter-spacing:1.5px;
-    white-space:nowrap;
-    text-align:center;
 }
 
 .mobile-nav {
@@ -122,79 +117,141 @@ header {
 .mobile-nav a {
     color:var(--cream);
     text-decoration:none;
-    font-size:1em;
 }
 
-/* ================= BACKGROUND ================= */
-.page-background {
-    min-height:100vh;
+/* HERO */
+.hero {
+    position:relative;
+    height:88vh;
+    min-height:520px;
+    overflow:hidden;
+}
+
+.hero img {
     width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scale(1.05);
+    animation:herozoom 12s ease forwards;
+}
+
+@keyframes herozoom {
+    0% { transform:scale(1.05); }
+    100% { transform:scale(1.0); }
+}
+
+.hero-overlay {
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        rgba(0,0,0,0.05),
+        rgba(0,0,0,0.40) 40%,
+        rgba(0,0,0,0.85)
+    );
+}
+
+.title-wrap {
+    position:absolute;
+    top:12%;
+    left:50%;
+    transform:translateX(-50%);
+    text-align:center;
+}
+
+.hero-title {
+    font-size:clamp(2rem, 3.7vw, 3.4em);
+    white-space:nowrap;
+    letter-spacing:0.12em;
+    font-weight:700;
+    text-shadow:var(--shadow);
+}
+
+.hero-line {
+    height:3px;
+    background:var(--gold);
+    margin:10px auto 0;
+    width:0;
+    box-shadow:var(--shadow);
+    transition:width 2.8s ease;
+}
+
+.hero-sub {
+    position:absolute;
+    bottom:10%;
+    left:50%;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:900px;
+    text-align:center;
+    font-size:clamp(1.2rem,2vw,1.7rem);
+}
+
+/* CONTENT */
+.page-background {
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
         url("hintergrund.jpg") center/cover fixed;
-    padding-top:160px;
     padding-bottom:80px;
 }
 
-/* ================= CONTENT BOX ================= */
 section {
-    max-width:800px;
+    max-width:1200px;
     margin:0 auto;
-    padding:60px 10%;
-    background:rgba(0,0,0,0.32);
-    border-radius:16px;
-    box-shadow:var(--shadow);
-    backdrop-filter:blur(3px);
+    padding:140px 10%;
 }
 
-h1 {
-    text-align:center;
-    font-size:2.6em;
-    margin-bottom:32px;
-    letter-spacing:1.2px;
-    text-shadow:var(--shadow);
-}
 h2 {
-    font-size:1.4em;
-    margin-top:26px;
-    margin-bottom:10px;
-    color:var(--gold);
+    font-size:clamp(1.45rem, 2.3vw, 1.9rem);
+    margin-bottom:36px;
+    text-align:center;
 }
-p, li {
-    font-size:1.2em;
-    line-height:1.6;
-}
-ul { margin-left:18px; margin-bottom:12px; }
 
-/* ================= FOOTER ================= */
+.text-block {
+    max-width:900px;
+    margin:0 auto;
+    font-size:1.15em;
+    background:rgba(0,0,0,0.45);
+    padding:40px 36px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+.text-block p {
+    margin-bottom:16px;
+}
+
+/* FOOTER (MASTER) */
 footer {
     text-align:center;
     padding:50px 10px 40px;
-    opacity:0.85;
 }
+
 footer img {
     width:60px;
     height:60px;
     border-radius:50%;
 }
 
-/* ================ MOBILE OPTIMIZATION ================ */
+footer a {
+    color:var(--cream);
+    margin:0 10px;
+    text-decoration:none;
+}
+
+/* MOBILE */
 @media (max-width:768px) {
     .nav-container { display:none; }
     .mobile-header { display:flex; }
-
-    section {
-        padding:40px 8%;
-    }
+    .hero-title { white-space:normal; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= MOBILE HEADER ================= -->
+<!-- MOBILE HEADER -->
 <div class="mobile-header">
-    <img src="logo2.jpg" alt="Logo">
+    <img src="logo2.jpg" alt="">
     <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
 
     <nav class="mobile-nav">
@@ -202,18 +259,15 @@ footer img {
         <a href="crowdfunding.html">Crowdfunding</a>
         <a href="geschichte.html">Meine Geschichte</a>
         <a href="updates.html">Updates</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
 </div>
 
-<!-- ================= DESKTOP HEADER ================= -->
+<!-- DESKTOP HEADER -->
 <header>
     <div class="nav-container">
-
         <div class="header-left">
-            <img src="logo2.jpg" alt="Logo">
+            <img src="logo2.jpg" alt="">
         </div>
 
         <nav class="desktop-nav">
@@ -221,60 +275,77 @@ footer img {
             <a href="crowdfunding.html">Crowdfunding</a>
             <a href="geschichte.html">Meine Geschichte</a>
             <a href="updates.html">Updates</a>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutz</a>
             <a href="kontakt.html">Kontakt</a>
         </nav>
 
         <div class="header-right">PURE ROOT SWITZERLAND</div>
-
     </div>
 </header>
 
-<!-- ================= CONTENT ================= -->
-<div class="page-background">
+<!-- HERO -->
+<div class="hero">
+    <img src="landschaft.jpg" alt="">
+    <div class="hero-overlay"></div>
 
+    <div class="title-wrap">
+        <div class="hero-title" id="heroTitle">DATENSCHUTZ</div>
+        <div class="hero-line" id="heroLine"></div>
+    </div>
+
+    <div class="hero-sub">Informationen zum Schutz deiner Daten</div>
+</div>
+
+<script>
+function updateLineWidth() {
+    const title = document.getElementById("heroTitle");
+    const line = document.getElementById("heroLine");
+    if (!title || !line) return;
+    line.style.width = title.offsetWidth + "px";
+}
+window.addEventListener("load", () => setTimeout(updateLineWidth, 600));
+window.addEventListener("resize", updateLineWidth);
+</script>
+
+<div class="page-background">
 <section>
 
-    <h1>Datenschutzerklärung</h1>
+    <h2>Datenschutzerklärung</h2>
 
-    <h2>1. Verantwortliche Stelle</h2>
-    <p>Verantwortlich für die Datenverarbeitung:</p>
-    <p>
-        <strong>John René Imbach</strong><br>
-        Jurastrasse 12<br>
-        4626 Niederbuchsiten<br>
-        Schweiz<br>
-        E-Mail: <a href="mailto:info@purerootswitzerland.ch" style="color:var(--gold);">info@purerootswitzerland.ch</a>
-    </p>
+    <div class="text-block">
 
-    <h2>2. Allgemeines zur Datenerhebung</h2>
-    <p>Diese Website kann grundsätzlich ohne Angabe personenbezogener Daten genutzt werden.</p>
+        <p>
+            Wir nehmen den Schutz deiner persönlichen Daten sehr ernst und behandeln deine Daten
+            vertraulich sowie entsprechend der gesetzlichen Datenschutzvorschriften.
+        </p>
 
-    <h2>3. Kontaktaufnahme per E-Mail</h2>
-    <p>Bei der Kontaktaufnahme per E-Mail werden die übermittelten Daten zur Bearbeitung Ihrer Anfrage gespeichert.</p>
+        <p><strong>1. Verantwortlicher:</strong><br>
+        John René Imbach<br>
+        info@purerootswitzerland.ch</p>
 
-    <h2>4. Server-Logdaten</h2>
-    <p>Beim Besuch dieser Website werden automatisch technische Daten (z. B. IP-Adresse, Zeitstempel) vom Server protokolliert.</p>
+        <p><strong>2. Erhobene Daten:</strong><br>
+        Beim Besuch dieser Website werden automatisch technische Daten erfasst,
+        die zur sicheren Bereitstellung der Seite erforderlich sind.</p>
 
-    <h2>5. Cookies und Tracking</h2>
-    <p>Es werden aktuell keine Tracking-Tools oder Analyse-Cookies verwendet.</p>
+        <p><strong>3. Keine Weitergabe:</strong><br>
+        Deine Daten werden niemals verkauft oder ohne gesetzliche Grundlage weitergegeben.</p>
 
-    <h2>6. Deine Rechte</h2>
-    <ul>
-        <li>Auskunft über gespeicherte personenbezogene Daten</li>
-        <li>Berichtigung unrichtiger Daten</li>
-        <li>Löschung, sofern keine gesetzliche Aufbewahrungspflicht besteht</li>
-    </ul>
+        <p><strong>4. Rechte betroffener Personen:</strong><br>
+        Du hast jederzeit das Recht auf Auskunft, Berichtigung oder Löschung deiner Daten,
+        soweit keine gesetzlichen Pflichten entgegenstehen.</p>
 
-    <h2>7. Änderungen dieser Datenschutzerklärung</h2>
-    <p>Diese Datenschutzerklärung kann bei Bedarf aktualisiert werden.</p>
+        <p>Bei Fragen zum Datenschutz kannst du dich jederzeit an die oben genannte E-Mail-Adresse wenden.</p>
+
+    </div>
 
 </section>
 
 <footer>
-    <img src="logo2.jpg">
+    <img src="logo2.jpg" alt="">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
+    <p>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+    </p>
 </footer>
 
 </div>
