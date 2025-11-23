@@ -21,9 +21,10 @@ body {
     font-family:"Lora","Georgia",serif;
     background:var(--green-dark);
     color:var(--cream);
+    line-height:1.6;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header {
     position:sticky;
     top:0;
@@ -31,7 +32,6 @@ header {
     background:rgba(0,0,0,0.45);
     backdrop-filter:blur(10px);
     border-bottom:1px solid rgba(255,255,255,0.1);
-    width:100%;
 }
 
 .nav-container {
@@ -41,17 +41,16 @@ header {
     display:flex;
     justify-content:space-between;
     align-items:center;
-    gap:16px;
 }
 
 .header-left img {
     width:62px;
     height:62px;
     border-radius:50%;
-    object-fit:cover;
     box-shadow:var(--shadow);
 }
 
+/* DESKTOP NAV */
 .desktop-nav {
     display:flex;
     gap:26px;
@@ -68,17 +67,15 @@ header {
 .desktop-nav a::after {
     content:"";
     position:absolute;
-    left:0;
     bottom:-3px;
+    left:0;
     width:0;
     height:1px;
     background:var(--gold);
     transition:0.3s;
 }
 
-.desktop-nav a:hover::after {
-    width:100%;
-}
+.desktop-nav a:hover::after { width:100%; }
 
 .header-right {
     color:var(--cream);
@@ -101,7 +98,6 @@ header {
     width:70px;
     height:70px;
     border-radius:50%;
-    object-fit:cover;
 }
 
 .mobile-header-title {
@@ -121,14 +117,13 @@ header {
 .mobile-nav a {
     color:var(--cream);
     text-decoration:none;
-    font-size:1em;
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero {
     position:relative;
-    height:75vh;
-    min-height:480px;
+    height:88vh;
+    min-height:520px;
     overflow:hidden;
 }
 
@@ -150,7 +145,7 @@ header {
     inset:0;
     background:linear-gradient(
         rgba(0,0,0,0.05),
-        rgba(0,0,0,0.35) 35%,
+        rgba(0,0,0,0.40) 40%,
         rgba(0,0,0,0.85)
     );
 }
@@ -165,10 +160,9 @@ header {
 
 .hero-title {
     font-size:clamp(2rem, 3.7vw, 3.4em);
-    font-weight:700;
-    letter-spacing:0.12em;
     white-space:nowrap;
-    color:var(--cream);
+    letter-spacing:0.12em;
+    font-weight:700;
     text-shadow:var(--shadow);
 }
 
@@ -178,6 +172,7 @@ header {
     margin:10px auto 0;
     width:0;
     box-shadow:var(--shadow);
+    transition:width 2.8s ease;
 }
 
 .hero-sub {
@@ -188,92 +183,47 @@ header {
     width:90%;
     max-width:900px;
     text-align:center;
-    font-size:clamp(1.1rem, 2vw, 1.6rem);
-    color:var(--cream);
+    font-size:clamp(1.2rem,2vw,1.7rem);
 }
 
-/* ================= CONTENT ================= */
+/* CONTENT */
 .page-background {
     background:
         linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
         url("hintergrund.jpg") center/cover fixed;
-    padding:120px 0 80px;
+    padding-bottom:80px;
 }
 
 section {
     max-width:1200px;
     margin:0 auto;
-    padding:0 10%;
+    padding:140px 10%;
+    text-align:center;
 }
 
-.contact-container {
-    display:flex;
-    justify-content:center;
-    gap:50px;
-    flex-wrap:wrap;
+h2 {
+    font-size:clamp(1.4rem, 2.3vw, 1.75rem);
+    margin-bottom:36px;
 }
 
 .contact-box {
-    background:rgba(0,0,0,0.35);
-    padding:40px;
+    max-width:700px;
+    margin:0 auto;
+    background:rgba(0,0,0,0.45);
+    padding:40px 36px;
     border-radius:20px;
     box-shadow:var(--shadow);
-    width:460px;
-    max-width:100%;
-}
-
-.contact-box h2 {
-    color:var(--gold);
-    margin-bottom:26px;
-    font-size:1.6em;
-}
-
-p {
     font-size:1.15em;
-    margin-bottom:14px;
 }
 
-label {
-    font-size:1.1em;
-}
-
-input, textarea {
-    width:100%;
-    padding:14px;
-    margin-top:6px;
+.contact-box p {
     margin-bottom:18px;
-    border-radius:12px;
-    border:none;
-    background:#eee;
-    font-size:1em;
 }
 
-textarea {
-    height:140px;
-    resize:none;
-}
-
-.btn {
-    display:inline-block;
-    padding:14px 40px;
-    border-radius:999px;
-    border:2px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    font-size:1.1em;
-    transition:0.25s;
-}
-
-.btn:hover {
-    background:var(--gold);
-    color:var(--green-dark);
-}
-
-/* ================= FOOTER ================= */
+/* FOOTER (MASTER) */
 footer {
     text-align:center;
     padding:50px 10px 40px;
-    opacity:0.85;
 }
 
 footer img {
@@ -282,13 +232,17 @@ footer img {
     border-radius:50%;
 }
 
+footer a {
+    color:var(--cream);
+    margin:0 10px;
+    text-decoration:none;
+}
+
 /* MOBILE */
 @media (max-width:768px) {
     .nav-container { display:none; }
     .mobile-header { display:flex; }
     .hero-title { white-space:normal; }
-    .contact-container { flex-direction:column; align-items:center; }
-    .contact-box { width:100%; }
 }
 </style>
 </head>
@@ -297,7 +251,7 @@ footer img {
 
 <!-- MOBILE HEADER -->
 <div class="mobile-header">
-    <img src="logo2.jpg" alt="Logo">
+    <img src="logo2.jpg" alt="">
     <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
 
     <nav class="mobile-nav">
@@ -305,8 +259,6 @@ footer img {
         <a href="crowdfunding.html">Crowdfunding</a>
         <a href="geschichte.html">Meine Geschichte</a>
         <a href="updates.html">Updates</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
         <a href="kontakt.html">Kontakt</a>
     </nav>
 </div>
@@ -314,15 +266,15 @@ footer img {
 <!-- DESKTOP HEADER -->
 <header>
     <div class="nav-container">
-        <div class="header-left"><img src="logo2.jpg" alt="Logo"></div>
+        <div class="header-left">
+            <img src="logo2.jpg" alt="">
+        </div>
 
         <nav class="desktop-nav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
             <a href="geschichte.html">Meine Geschichte</a>
             <a href="updates.html">Updates</a>
-            <a href="impressum.html">Impressum</a>
-            <a href="datenschutz.html">Datenschutz</a>
             <a href="kontakt.html">Kontakt</a>
         </nav>
 
@@ -340,16 +292,21 @@ footer img {
         <div class="hero-line" id="heroLine"></div>
     </div>
 
-    <div class="hero-sub">Wir freuen uns über jede Nachricht</div>
+    <div class="hero-sub">
+        So kannst du mich erreichen
+    </div>
 </div>
 
 <script>
 function updateLineWidth() {
     const title = document.getElementById("heroTitle");
     const line = document.getElementById("heroLine");
-    if (title && line) line.style.width = title.offsetWidth + "px";
+    if (!title || !line) return;
+    line.style.width = title.offsetWidth + "px";
 }
-window.addEventListener("load", () => setTimeout(updateLineWidth,100));
+window.addEventListener("load", () =>
+    setTimeout(updateLineWidth, 600)
+);
 window.addEventListener("resize", updateLineWidth);
 </script>
 
@@ -357,45 +314,13 @@ window.addEventListener("resize", updateLineWidth);
 <div class="page-background">
 <section>
 
-    <div class="contact-container">
+    <h2>Kontaktinformationen</h2>
 
-        <!-- KONTAKTBOX -->
-        <div class="contact-box">
-            <h2>Kontaktinformationen</h2>
-
-            <p><strong>John René Imbach</strong></p>
-            <p>Jurastrasse 12<br>4626 Niederbuchsiten<br>Schweiz</p>
-
-            <p><strong>Telefon:</strong><br>+41 77 202 65 91</p>
-
-            <p><strong>E-Mail:</strong><br>
-                <a href="mailto:info@purerootswitzerland.ch" style="color:var(--gold);">
-                    info@purerootswitzerland.ch
-                </a>
-            </p>
-
-            <p><strong>Website:</strong><br>purerootswitzerland.ch</p>
-        </div>
-
-        <!-- FORMULAR -->
-        <div class="contact-box">
-            <h2>Nachricht senden</h2>
-
-            <form method="post" action="#">
-
-                <label>Dein Name:</label>
-                <input type="text" required>
-
-                <label>Deine E-Mail:</label>
-                <input type="email" required>
-
-                <label>Nachricht:</label>
-                <textarea required></textarea>
-
-                <button type="submit" class="btn">Senden</button>
-            </form>
-        </div>
-
+    <div class="contact-box">
+        <p><strong>John René Imbach</strong></p>
+        <p>E-Mail: info@purerootswitzerland.ch</p>
+        <p>Standort: Schweiz & Azoren</p>
+        <p>Ich freue mich über jede Nachricht und beantworte dein Anliegen so schnell wie möglich.</p>
     </div>
 
 </section>
@@ -403,10 +328,15 @@ window.addEventListener("resize", updateLineWidth);
 <footer>
     <img src="logo2.jpg" alt="">
     <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
+    <p>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+    </p>
 </footer>
 
 </div>
 
 </body>
 </html>
+
 
