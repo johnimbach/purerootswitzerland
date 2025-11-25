@@ -23,6 +23,14 @@ body {
     line-height:1.55;
 }
 
+/* Fix gegen grünen Balken unter Action-Bereich */
+.page-wrapper {
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+    background:var(--green-dark);
+}
+
 /* HEADER */
 header {
     position:sticky;
@@ -141,7 +149,24 @@ nav.desktop-nav a:hover::after { width:100%; }
     color:var(--gold);
 }
 
-/* BUTTON */
+.hero-title {
+    font-size:clamp(2.2rem,4vw,3rem);
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+}
+
+.hero-subtitle {
+    font-size:1rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+}
+
+.hero-text {
+    font-size:1rem;
+    max-width:620px;
+    margin:auto;
+}
+
 .btn-primary {
     display:inline-block;
     background:var(--gold);
@@ -149,7 +174,6 @@ nav.desktop-nav a:hover::after { width:100%; }
     padding:12px 38px;
     border-radius:999px;
     font-size:0.95rem;
-    text-decoration:none;
     letter-spacing:0.08em;
     font-weight:600;
     margin-top:10px;
@@ -160,7 +184,7 @@ nav.desktop-nav a:hover::after { width:100%; }
     background:
         linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.70)),
         url("hintergrund.jpg") center/cover fixed;
-    padding: 60px 0;
+    padding: 60px 0 80px 0;
 }
 
 .inner {
@@ -242,8 +266,8 @@ nav.desktop-nav a:hover::after { width:100%; }
 /* FOOTER */
 footer {
     background:#0d1209;
-    padding:60px 0 50px;
-    margin-top:80px;
+    padding:60px 0 60px;
+    margin-top:auto;
 }
 
 .footer-inner {
@@ -253,7 +277,7 @@ footer {
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:18px;
+    gap:16px;
 }
 
 .footer-logo {
@@ -267,27 +291,23 @@ footer {
 .footer-nav a {
     display:block;
     color:var(--cream);
-    margin:4px 0;
+    text-decoration:none;
+    margin:3px 0;
 }
 
 .footer-location,
 .footer-email,
-.footer-copy {
+.footer-copy,
+.footer-copy2 {
     color:var(--cream);
+    text-align:center;
 }
 
-/* MOBILE PORTRAIT */
+/* MOBILE PORTRAIT FIX */
 @media(max-width:820px) and (orientation:portrait) {
 
-    .hero-inner { text-align:center; }
-
-    .section-lead,
-    .section-heading,
-    .intro-funding,
-    .highlight-card,
-    .cta-bottom p {
-        text-align:center;
-    }
+    nav.desktop-nav { display:none; }
+    .hamburger { display:flex; }
 
     .highlight-grid {
         grid-template-columns:1fr;
@@ -298,14 +318,17 @@ footer {
         text-align:center;
     }
 
-    nav.desktop-nav { display:none; }
-    .hamburger { display:flex; }
+    .hero-inner {
+        text-align:center;
+    }
 }
 </style>
 </head>
 
 <body>
+<div class="page-wrapper">
 
+<!-- HEADER -->
 <header>
     <div class="nav-wrapper">
 
@@ -336,8 +359,8 @@ footer {
 
 <script>
 function toggleMenu(){
-    const menu = document.getElementById("mobileMenu");
-    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+    const m=document.getElementById("mobileMenu");
+    m.style.display = (m.style.display==="flex") ? "none" : "flex";
 }
 </script>
 
@@ -412,7 +435,6 @@ function toggleMenu(){
             <div>
                 <p>
                     Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt.
-                    In dieser Zeit habe ich beschlossen, meine Energie in etwas zu stecken, das Sinn macht.
                 </p>
 
                 <p>
@@ -466,13 +488,17 @@ function toggleMenu(){
             <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a>
         </div>
 
-        <div class="footer-copy">© 2025 Pure Root Switzerland – Organic Ginger</div>
+        <div class="footer-copy">© 2025 Pure Root Switzerland</div>
+        <div class="footer-copy2">Organic Ginger</div>
 
     </div>
 </footer>
 
+</div>
 </body>
 </html>
+
+
 
 
 
