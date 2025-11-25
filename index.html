@@ -25,7 +25,6 @@
         }
 
         img { max-width: 100%; height: auto; display: block; }
-
         a { color: inherit; text-decoration: none; }
 
         .page-wrapper {
@@ -95,8 +94,8 @@
             content: "";
             position: absolute;
             left: 0;
-            bottom: 0;
-            width: 0;
+            bottom: 0px;
+            width: 0%;
             height: 1px;
             background: var(--gold);
             transition: width 0.3s ease;
@@ -501,6 +500,63 @@
                 text-align: left;
             }
         }
+
+        /* FOOTER LOGO & OVERLAY */
+        .footer-logo-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-logo {
+            width: 78px;
+            height: 78px;
+            border-radius: 50%;
+            border: 3px solid #000;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.25s ease;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.08);
+        }
+
+        .overlay-bg {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.78);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .overlay-bg.show {
+            display: flex;
+        }
+
+        .overlay-box {
+            max-width: 620px;
+            padding: 2rem;
+            text-align: center;
+            color: #fff;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .overlay-logo {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 5px solid #000;
+            object-fit: cover;
+            margin-bottom: 1.4rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to   { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
@@ -511,7 +567,7 @@
         <div class="header-inner">
             <div class="logo-block">
                 <div class="logo-main">PURE ROOT SWITZERLAND</div>
-                <div class="logo-sub">SWISS ORGANIC GINGER</div>
+                <div class="logo-sub">ORGANIC GINGER</div>
             </div>
 
             <button class="nav-toggle" aria-label="Navigation öffnen" onclick="toggleNav()">
@@ -529,7 +585,6 @@
 
     <!-- HERO -->
     <section class="hero" id="top">
-        <!-- Dein neues Hero-Bild (Option C – bitte sicherstellen, dass die Datei im gleichen Ordner liegt) -->
         <img src="fruchtbarkeit.webp" alt="Fruchtbare Landschaft auf São Miguel (Azoren)" class="hero-bg">
 
         <div class="hero-overlay"></div>
@@ -639,7 +694,6 @@
             </div>
 
             <div class="story-image-frame">
-                <!-- Hier dein bestehendes Bild, Dateiname ggf. anpassen -->
                 <img src="frischer-ingwer.jpg" loading="lazy" alt="Frischer Bio-Ingwer auf dunklem Hintergrund">
             </div>
         </div>
@@ -671,6 +725,10 @@
                 </div>
             </div>
 
+            <div class="footer-logo-wrap">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Pure Root Switzerland Logo">
+            </div>
+
             <div class="footer-contact">
                 <div>Luzern, Switzerland</div>
                 <div>
@@ -682,6 +740,20 @@
     </footer>
 </div>
 
+<!-- LOGO OVERLAY -->
+<div class="overlay-bg" id="overlayBox">
+    <div class="overlay-box">
+        <img src="logo2.jpg" class="overlay-logo" alt="Großes Logo Pure Root Switzerland">
+        <p style="font-size:1.05rem; line-height:1.6;">
+            <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
+            Danach bleibt meist nur Importware aus Peru oder China – lange unterwegs, wenig aromatisch 
+            und nicht nachhaltig.<br><br>
+            Mein Projekt möchte das ändern: nachhaltig angebauter Bio-Ingwer aus europäischer Nähe – 
+            frisch, aromatisch, geschmacklich deutlich intensiver und erstmals das ganze Jahr über verfügbar.
+        </p>
+    </div>
+</div>
+
 <script>
     // Mobile Navigation
     function toggleNav() {
@@ -691,9 +763,35 @@
 
     // Jahr im Footer automatisch
     document.getElementById("yearSpan").textContent = new Date().getFullYear();
+
+    // Logo-Overlay: Hover (Desktop) und Klick (auch Mobile)
+    const footerLogo = document.getElementById("footerLogo");
+    const overlayBox = document.getElementById("overlayBox");
+
+    if (footerLogo && overlayBox) {
+        // Hover öffnet Overlay (Desktop)
+        footerLogo.addEventListener("mouseenter", () => {
+            overlayBox.classList.add("show");
+        });
+
+        // Klick öffnet Overlay (Mobile & Desktop)
+        footerLogo.addEventListener("click", () => {
+            overlayBox.classList.add("show");
+        });
+
+        // Klick irgendwo auf Overlay schließt es
+        overlayBox.addEventListener("click", () => {
+            overlayBox.classList.remove("show");
+        });
+    }
 </script>
 </body>
 </html>
+
+
+
+
+
 
 
 
