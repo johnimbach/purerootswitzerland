@@ -137,17 +137,18 @@
 
         .hero-text { max-width:620px; font-size:.98rem; margin-top:.4rem; }
 
+        /* BUTTON FIX — Hero-Button exakt gleich wie unten */
+        .hero-cta-row .btn-primary {
+            padding:0.65rem 1.8rem;
+            font-size:0.9rem;
+            letter-spacing:0.14em;
+        }
+
         .hero-cta-row {
             margin-top:.5rem;
             display:inline-flex;
             flex-wrap:wrap;
             gap:.75rem;
-        }
-
-        .hero-cta-row .btn-primary {
-            padding:0.55rem 1.4rem;
-            font-size:0.82rem;
-            letter-spacing:0.12em;
         }
 
         .btn-primary {
@@ -251,15 +252,21 @@
             font-size:.85rem;
         }
 
+        /* FOOTER FIX — Logo zentrieren */
         .footer-inner {
             max-width:1100px;
             margin:0 auto;
             padding:0 1.5rem;
-            display:flex;
-            flex-wrap:wrap;
-            gap:.9rem;
+            display:grid;
+            grid-template-columns:1fr auto 1fr;
             align-items:center;
-            justify-content:space-between;
+            text-align:center;
+        }
+
+        .footer-logo-wrap {
+            display:flex;
+            justify-content:center;
+            align-items:center;
         }
 
         .footer-logo {
@@ -270,7 +277,9 @@
             object-fit:cover;
         }
 
-        .footer-contact { text-align:left; }
+        .footer-left { text-align:left; }
+        .footer-contact { text-align:right; }
+
     </style>
 </head>
 
@@ -429,16 +438,16 @@
     <footer class="site-footer">
         <div class="footer-inner">
 
-            <div class="footer-logo-wrap">
-                <img src="logo2.jpg" class="footer-logo" alt="">
-            </div>
-
             <div class="footer-left">
                 <div>&copy; <span id="yearSpan"></span> Pure Root Switzerland – Organic Ginger</div>
                 <div class="footer-nav">
                     <a href="impressum.html">Impressum</a>
                     <a href="datenschutz.html">Datenschutz</a>
                 </div>
+            </div>
+
+            <div class="footer-logo-wrap">
+                <img src="logo2.jpg" class="footer-logo" alt="">
             </div>
 
             <div class="footer-contact">
@@ -457,6 +466,7 @@
 
 </body>
 </html>
+
 
 
 
