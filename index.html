@@ -30,6 +30,9 @@
         .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
         .inner { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
+        /* ---------------------------------------------
+            HEADER – Desktop bleibt UNVERÄNDERT
+        --------------------------------------------- */
         header.site-header {
             position: sticky;
             top: 0;
@@ -72,6 +75,7 @@
         nav.main-nav a:hover::after,
         nav.main-nav a.active::after { width:100%; }
 
+        /* Hamburger – schwarzer Hintergrund */
         .mobile-toggle {
             display:none;
             width:34px;
@@ -82,24 +86,28 @@
         }
         .mobile-toggle span {
             height:4px;
-            background:var(--cream);
+            background:#ffffff;
             border-radius:3px;
         }
 
         .mobile-menu {
             display:none;
             flex-direction:column;
-            background:rgba(0,0,0,0.85);
-            padding:20px;
+            background:#000000;
+            padding:25px 0;
             text-align:center;
+            gap:10px;
         }
         .mobile-menu a {
-            padding:12px 0;
+            padding:14px 0;
             font-size:1rem;
-            letter-spacing:0.12em;
+            letter-spacing:0.16em;
             text-transform:uppercase;
         }
 
+        /* ---------------------------------------------
+            HERO
+        --------------------------------------------- */
         .hero {
             position: relative;
             overflow: hidden;
@@ -122,8 +130,9 @@
         .hero-overlay {
             position:absolute;
             inset:0;
-            background:radial-gradient(circle at 20% 20%,rgba(0,0,0,0.15),transparent 40%),
-                       linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.75));
+            background:
+                radial-gradient(circle at 20% 20%,rgba(0,0,0,0.15),transparent 40%),
+                linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.75));
             z-index:-1;
         }
 
@@ -131,35 +140,46 @@
             position:relative;
             max-width:1100px;
             width:100%;
-            padding:4.5rem 1.5rem 3.5rem;
+            padding:5.5rem 1.5rem 3.5rem;
             display:flex;
             flex-direction:column;
-            gap:.9rem;
+            gap:1.1rem;
         }
 
         .hero-tagline {
-            font-size:.85rem;
+            font-size:.95rem;
             letter-spacing:.22em;
             text-transform:uppercase;
             color:var(--gold);
         }
 
         .hero-title {
-            font-size:clamp(2.2rem,4vw,2.9rem);
+            font-size:clamp(2.4rem,4.2vw,3.1rem);
             letter-spacing:.2em;
             text-transform:uppercase;
         }
 
         .hero-subtitle {
-            font-size:.9rem;
+            font-size:1rem;
             letter-spacing:.16em;
             text-transform:uppercase;
             color:#f8f3dd;
         }
 
-        .hero-text { max-width:620px; font-size:.98rem; margin-top:.4rem; text-align:left; }
+        .hero-text { 
+            max-width:620px; 
+            font-size:1rem; 
+            margin-top:.4rem; 
+            text-align:left;
+            line-height:1.65;
+        }
 
-        .hero-cta-row { margin-top:.5rem; display:inline-flex; flex-wrap:wrap; gap:.75rem; }
+        .hero-cta-row { 
+            margin-top:.8rem; 
+            display:inline-flex; 
+            flex-wrap:wrap; 
+            gap:.75rem; 
+        }
 
         .btn-primary {
             padding:0.65rem 1.8rem;
@@ -176,6 +196,8 @@
             white-space:nowrap;
         }
         .btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 24px rgba(0,0,0,0.5); }
+
+        /* --------------------------------------------- */
 
         section { padding:2.5rem 0; }
         section.section-tight { padding:2rem 0; }
@@ -209,65 +231,87 @@
             box-shadow:0 0 14px rgba(0,0,0,0.28);
         }
 
+        /* ---------------------------------------------
+            STORY
+        --------------------------------------------- */
+        .story-layout {
+            display:flex;
+            gap:2.5rem;
+            align-items:flex-start;
+        }
+        .story-image-frame img { border-radius:1rem; }
+
+        /* ---------------------------------------------
+            FOOTER (NEUE VERSION)
+        --------------------------------------------- */
         footer.site-footer {
-            background:#10140c;
+            background:#000;
             margin-top:auto;
-            padding:1.6rem 0 1.2rem;
-            font-size:.85rem;
+            padding:2.2rem 0 2rem;
+            font-size:.9rem;
+            color:#eee;
         }
 
         .footer-inner {
-            max-width:1100px;
+            max-width:700px;
             margin:0 auto;
             padding:0 1.5rem;
-            display:grid;
-            grid-template-columns:1fr auto 1fr;
+            display:flex;
+            flex-direction:column;
             align-items:center;
             text-align:center;
+            gap:16px;
         }
 
-        .footer-logo-wrap { display:flex; justify-content:center; }
         .footer-logo {
-            width:78px;
-            height:78px;
+            width:80px;
+            height:80px;
             border-radius:50%;
-            border:3px solid #000;
             object-fit:cover;
+            border:3px solid #111;
         }
 
-        .footer-left { text-align:left; }
-        .footer-contact { text-align:right; }
-
+        /* ---------------------------------------------
+            MOBILE STYLES (Nur Portrait)
+        --------------------------------------------- */
         @media (max-width: 768px) and (orientation: portrait) {
 
             nav.main-nav { display:none; }
             .mobile-toggle { display:flex; }
 
-            .hero-inner { text-align:center; }
-            .hero-text { text-align:center; margin:0 auto; }
+            .hero-inner { 
+                text-align:center; 
+                align-items:center;
+                padding-top:6.2rem;
+            }
+            .hero-text { 
+                text-align:center; 
+                margin:0 auto; 
+                line-height:1.7;
+                font-size:1.02rem;
+            }
 
-            .hero-tagline,
-            .hero-title,
-            .hero-subtitle { text-align:center; }
+            .btn-primary {
+                padding:0.6rem 1.4rem;
+                font-size:.85rem;
+            }
 
             .highlight-grid {
                 grid-template-columns:1fr;
                 gap:1.4rem;
             }
 
-            .footer-inner {
-                display:flex;
+            .story-layout {
                 flex-direction:column;
-                text-align:center;
-                gap:12px;
             }
-            .footer-left,
-            .footer-contact { text-align:center; }
 
-            .btn-primary {
-                padding:0.65rem 1.8rem;
-                font-size:.9rem;
+            .story-image-frame img {
+                width:80%;
+                margin:0 auto;
             }
+
+            .footer-logo { width:68px; height:68px; }
+
         }
     </style>
 </head>
@@ -330,7 +374,6 @@
     <!-- ACTION -->
     <section class="action-area">
 
-        <!-- INTRO -->
         <section class="intro-section section-tight">
             <div class="inner">
                 <h2 class="section-heading">Was dieses Projekt ausmacht</h2>
@@ -341,16 +384,10 @@
                     Knospe-zertifizierten Ingwer aus europäischer Nähe in die Schweiz zu liefern.
                 </p>
 
-                <div class="intro-funding">
-                    <p>
-                        <strong>Mit deinem Beitrag finanzierst du</strong> den ersten nachhaltigen Testanbau auf São Miguel –
-                        inklusive Bio-Zertifizierung, Bewässerungssystem und Start-Infrastruktur.
-                    </p>
-                </div>
+                <p><strong>Mit deinem Beitrag finanzierst du</strong> den ersten nachhaltigen Testanbau auf São Miguel – inklusive Bio-Zertifizierung, Bewässerungssystem und Start-Infrastruktur.</p>
             </div>
         </section>
 
-        <!-- HIGHLIGHTS -->
         <section class="highlights section-tight">
             <div class="inner">
                 <h2 class="section-heading">Drei Gründe für dieses Projekt</h2>
@@ -395,25 +432,11 @@
                 <div>
                     <h2 class="section-heading">Warum dieses Projekt persönlich ist</h2>
 
-                    <p>
-                        Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt.
-                        In dieser Zeit habe ich beschlossen, meine Energie in etwas zu stecken,
-                        das Sinn macht: ein nachhaltiges Projekt, das Gesundheit, Boden und Menschen verbindet.
-                    </p>
+                    <p>Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt. In dieser Zeit habe ich beschlossen, meine Energie in etwas zu stecken, das Sinn macht: ein nachhaltiges Projekt, das Gesundheit, Boden und Menschen verbindet.</p>
 
-                    <p>
-                        Bio-Ingwer ist für mich mehr als ein Produkt – er steht für Erdung, Wärme und Kraft.
-                        Der Testanbau auf São Miguel ist der erste Schritt.
-                        Mit deiner Unterstützung kann daraus ein langfristig tragfähiges Projekt entstehen.
-                    </p>
+                    <p>Bio-Ingwer ist für mich mehr als ein Produkt – er steht für Erdung, Wärme und Kraft. Der Testanbau auf São Miguel ist der erste Schritt. Mit deiner Unterstützung kann daraus ein langfristig tragfähiges Projekt entstehen.</p>
 
-                    <p>
-                        Unterstützt wird das Projekt perspektivisch auch wissenschaftlich,
-                        unter anderem durch Kontakte zur
-                        <a href="https://www.uac.pt/" target="_blank" rel="noopener noreferrer">
-                            Universidade dos Açores
-                        </a>.
-                    </p>
+                    <p>Unterstützt wird das Projekt perspektivisch auch wissenschaftlich, unter anderem durch Kontakte zur <a href="https://www.uac.pt/" target="_blank" rel="noopener noreferrer">Universidade dos Açores</a>.</p>
                 </div>
 
                 <div class="story-image-frame">
@@ -428,12 +451,7 @@
             <div class="inner">
                 <h2 class="section-heading">Jetzt den Testanbau möglich machen</h2>
 
-                <p>
-                    Dieses Crowdfunding ist der Startpunkt.
-                    Wenn der Testanbau gelingt, entsteht aus einem Feldversuch Schritt für Schritt
-                    ein stabiles Projekt für frischen Bio-Ingwer aus europäischer Nähe.
-                    Jeder Beitrag – klein oder groß – hilft.
-                </p>
+                <p>Dieses Crowdfunding ist der Startpunkt. Wenn der Testanbau gelingt, entsteht aus einem Feldversuch Schritt für Schritt ein stabiles Projekt für frischen Bio-Ingwer aus europäischer Nähe. Jeder Beitrag – klein oder groß – hilft.</p>
 
                 <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
 
@@ -442,24 +460,22 @@
 
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER (NEUE VERSION) -->
     <footer class="site-footer">
         <div class="footer-inner">
 
-            <div class="footer-left">
-                <div>&copy; <span id="yearSpan"></span> Pure Root Switzerland</div>
-                <div>Organic Ginger</div>
-                <div><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
+            <img src="logo2.jpg" class="footer-logo">
+
+            <div>
+                <a href="impressum.html">Impressum</a> · 
+                <a href="datenschutz.html">Datenschutz</a>
             </div>
 
-            <div class="footer-logo-wrap">
-                <img src="logo2.jpg" class="footer-logo">
-            </div>
+            <div><a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a></div>
 
-            <div class="footer-contact">
-                <div>Luzern, Switzerland</div>
-                <div><a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a></div>
-            </div>
+            <div>Luzern, Switzerland</div>
+
+            <div>&copy; 2025 Pure Root Switzerland</div>
 
         </div>
     </footer>
@@ -471,11 +487,12 @@ function toggleMenu() {
     const m = document.getElementById("mobileMenu");
     m.style.display = (m.style.display === "flex") ? "none" : "flex";
 }
-document.getElementById("yearSpan").textContent = new Date().getFullYear();
 </script>
 
 </body>
 </html>
+
+
 
 
 
