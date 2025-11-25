@@ -58,12 +58,7 @@
             letter-spacing: .08em;
             text-transform: uppercase;
         }
-
-        nav.main-nav a {
-            position: relative;
-            padding-bottom: .1rem;
-        }
-
+        nav.main-nav a { position: relative; padding-bottom: .1rem; }
         nav.main-nav a::after {
             content:"";
             position:absolute;
@@ -74,9 +69,36 @@
             background:var(--gold);
             transition:width .3s ease;
         }
-
         nav.main-nav a:hover::after,
         nav.main-nav a.active::after { width:100%; }
+
+        .mobile-toggle {
+            display:none;
+            width:34px;
+            height:28px;
+            flex-direction:column;
+            justify-content:space-between;
+            cursor:pointer;
+        }
+        .mobile-toggle span {
+            height:4px;
+            background:var(--cream);
+            border-radius:3px;
+        }
+
+        .mobile-menu {
+            display:none;
+            flex-direction:column;
+            background:rgba(0,0,0,0.85);
+            padding:20px;
+            text-align:center;
+        }
+        .mobile-menu a {
+            padding:12px 0;
+            font-size:1rem;
+            letter-spacing:0.12em;
+            text-transform:uppercase;
+        }
 
         .hero {
             position: relative;
@@ -135,26 +157,11 @@
             color:#f8f3dd;
         }
 
-        .hero-text { max-width:620px; font-size:.98rem; margin-top:.4rem; }
+        .hero-text { max-width:620px; font-size:.98rem; margin-top:.4rem; text-align:left; }
 
-        /* BUTTON FIX — Hero-Button exakt gleich wie unten */
-        .hero-cta-row .btn-primary {
-            padding:0.65rem 1.8rem;
-            font-size:0.9rem;
-            letter-spacing:0.14em;
-        }
-
-        .hero-cta-row {
-            margin-top:.5rem;
-            display:inline-flex;
-            flex-wrap:wrap;
-            gap:.75rem;
-        }
+        .hero-cta-row { margin-top:.5rem; display:inline-flex; flex-wrap:wrap; gap:.75rem; }
 
         .btn-primary {
-            display:inline-flex;
-            align-items:center;
-            justify-content:center;
             padding:0.65rem 1.8rem;
             border-radius:999px;
             background:var(--gold);
@@ -168,11 +175,7 @@
             transition:transform .15s ease, box-shadow .15s ease;
             white-space:nowrap;
         }
-
-        .btn-primary:hover {
-            transform:translateY(-1px);
-            box-shadow:0 0 24px rgba(0,0,0,0.5);
-        }
+        .btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 24px rgba(0,0,0,0.5); }
 
         section { padding:2.5rem 0; }
         section.section-tight { padding:2rem 0; }
@@ -185,30 +188,13 @@
             color:var(--white);
         }
 
-        .section-heading span { color:var(--white); }
-
-        p.section-lead {
-            font-size:1rem;
-            max-width:720px;
-            margin-bottom:1.4rem;
-        }
+        p.section-lead { font-size:1rem; max-width:720px; margin-bottom:1.4rem; }
 
         .action-area {
             background:
             linear-gradient(rgba(0,0,0,0.50),rgba(0,0,0,0.70)),
             url("hintergrund.jpg") center/cover fixed;
         }
-
-        .intro-section { background:transparent; }
-
-        .intro-funding {
-            background:rgba(0,0,0,0.16);
-            border-radius:.9rem;
-            padding:1.25rem 1.3rem;
-            margin-top:.4rem;
-        }
-
-        .highlights { background:transparent; }
 
         .highlight-grid {
             display:grid;
@@ -223,28 +209,6 @@
             box-shadow:0 0 14px rgba(0,0,0,0.28);
         }
 
-        .highlight-title { font-size:.95rem; letter-spacing:.18em; text-transform:uppercase; margin-bottom:.6rem; color:var(--white); }
-        .highlight-text { font-size:.95rem; }
-
-        .story { background:transparent; }
-
-        .story-layout {
-            display:grid;
-            grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
-            gap:1.8rem;
-            align-items:center;
-        }
-
-        .story-image-frame {
-            border-radius:1.4rem;
-            overflow:hidden;
-            box-shadow:0 0 18px rgba(0,0,0,0.45);
-        }
-
-        .cta-bottom { background:transparent; text-align:center; }
-
-        .cta-bottom .btn-primary { margin-top:1.5rem; }
-
         footer.site-footer {
             background:#10140c;
             margin-top:auto;
@@ -252,7 +216,6 @@
             font-size:.85rem;
         }
 
-        /* FOOTER FIX — Logo zentrieren */
         .footer-inner {
             max-width:1100px;
             margin:0 auto;
@@ -263,12 +226,7 @@
             text-align:center;
         }
 
-        .footer-logo-wrap {
-            display:flex;
-            justify-content:center;
-            align-items:center;
-        }
-
+        .footer-logo-wrap { display:flex; justify-content:center; }
         .footer-logo {
             width:78px;
             height:78px;
@@ -280,6 +238,37 @@
         .footer-left { text-align:left; }
         .footer-contact { text-align:right; }
 
+        @media (max-width: 768px) and (orientation: portrait) {
+
+            nav.main-nav { display:none; }
+            .mobile-toggle { display:flex; }
+
+            .hero-inner { text-align:center; }
+            .hero-text { text-align:center; margin:0 auto; }
+
+            .hero-tagline,
+            .hero-title,
+            .hero-subtitle { text-align:center; }
+
+            .highlight-grid {
+                grid-template-columns:1fr;
+                gap:1.4rem;
+            }
+
+            .footer-inner {
+                display:flex;
+                flex-direction:column;
+                text-align:center;
+                gap:12px;
+            }
+            .footer-left,
+            .footer-contact { text-align:center; }
+
+            .btn-primary {
+                padding:0.65rem 1.8rem;
+                font-size:.9rem;
+            }
+        }
     </style>
 </head>
 
@@ -293,6 +282,10 @@
                 <div class="logo-sub">ORGANIC GINGER</div>
             </div>
 
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+
             <nav class="main-nav">
                 <a href="index.html" class="active">Home</a>
                 <a href="crowdfunding.html">Crowdfunding</a>
@@ -301,8 +294,17 @@
                 <a href="kontakt.html">Kontakt</a>
             </nav>
         </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="crowdfunding.html">Crowdfunding</a>
+            <a href="geschichte.html">Geschichte</a>
+            <a href="updates.html">Updates</a>
+            <a href="kontakt.html">Kontakt</a>
+        </div>
     </header>
 
+    <!-- HERO -->
     <section class="hero" id="top">
         <img src="fruchtbarkeit.webp" class="hero-bg">
         <div class="hero-overlay"></div>
@@ -325,11 +327,13 @@
         </div>
     </section>
 
+    <!-- ACTION -->
     <section class="action-area">
 
+        <!-- INTRO -->
         <section class="intro-section section-tight">
             <div class="inner">
-                <h2 class="section-heading">Was <span>dieses Projekt</span> ausmacht</h2>
+                <h2 class="section-heading">Was dieses Projekt ausmacht</h2>
 
                 <p class="section-lead">
                     Auf São Miguel (Azoren) möchte ich gemeinsam mit einem heimischen Biolandwirt
@@ -346,9 +350,10 @@
             </div>
         </section>
 
+        <!-- HIGHLIGHTS -->
         <section class="highlights section-tight">
             <div class="inner">
-                <h2 class="section-heading">Drei <span>Gründe</span> für dieses Projekt</h2>
+                <h2 class="section-heading">Drei Gründe für dieses Projekt</h2>
 
                 <div class="highlight-grid">
 
@@ -383,11 +388,12 @@
             </div>
         </section>
 
+        <!-- STORY -->
         <section class="story">
             <div class="inner story-layout">
 
                 <div>
-                    <h2 class="section-heading">Warum <span>dieses Projekt</span> persönlich ist</h2>
+                    <h2 class="section-heading">Warum dieses Projekt persönlich ist</h2>
 
                     <p>
                         Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt.
@@ -417,9 +423,10 @@
             </div>
         </section>
 
+        <!-- CTA -->
         <section class="cta-bottom section-tight">
             <div class="inner">
-                <h2 class="section-heading">Jetzt <span>den Testanbau</span> möglich machen</h2>
+                <h2 class="section-heading">Jetzt den Testanbau möglich machen</h2>
 
                 <p>
                     Dieses Crowdfunding ist der Startpunkt.
@@ -435,24 +442,23 @@
 
     </section>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-inner">
 
             <div class="footer-left">
-                <div>&copy; <span id="yearSpan"></span> Pure Root Switzerland – Organic Ginger</div>
-                <div class="footer-nav">
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
-                </div>
+                <div>&copy; <span id="yearSpan"></span> Pure Root Switzerland</div>
+                <div>Organic Ginger</div>
+                <div><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
             </div>
 
             <div class="footer-logo-wrap">
-                <img src="logo2.jpg" class="footer-logo" alt="">
+                <img src="logo2.jpg" class="footer-logo">
             </div>
 
             <div class="footer-contact">
                 <div>Luzern, Switzerland</div>
-                <div>E-Mail: <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a></div>
+                <div><a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a></div>
             </div>
 
         </div>
@@ -461,11 +467,17 @@
 </div>
 
 <script>
-    document.getElementById("yearSpan").textContent = new Date().getFullYear();
+function toggleMenu() {
+    const m = document.getElementById("mobileMenu");
+    m.style.display = (m.style.display === "flex") ? "none" : "flex";
+}
+document.getElementById("yearSpan").textContent = new Date().getFullYear();
 </script>
 
 </body>
 </html>
+
+
 
 
 
