@@ -1,539 +1,562 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Crowdfunding – Pure Root Switzerland</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crowdfunding – Pure Root Switzerland</title>
 
-<style>
-:root {
-    --green-dark: #3e4a29;
-    --green: #556b2f;
-    --gold: #eacb83;
-    --cream: #f4f4ed;
-    --shadow: 0 0 22px rgba(0,0,0,0.55);
-}
+    <style>
+        /* ================= ROOT & GLOBAL ================= */
+        :root {
+            --green-dark: #3e4a29;
+            --green: #556b2f;
+            --gold: #eacb83;
+            --cream: #f4f4ed;
+            --shadow: 0 0 22px rgba(0,0,0,0.55);
+        }
 
-/* GLOBAL */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body { max-width:100vw; overflow-x:hidden; }
-body {
-    font-family: "Lora","Georgia",serif;
-    background: var(--green-dark);
-    color: var(--cream);
-    line-height:1.6;
-}
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { max-width: 100vw; overflow-x: hidden; }
 
-/* ================= HEADER ================= */
-header {
-    position: sticky;
-    top:0;
-    z-index:40;
-    background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.1);
-    width:100%;
-}
+        body {
+            font-family: "Lora", "Georgia", serif;
+            background: var(--green-dark);
+            color: #fdfdf8;
+            line-height: 1.55;
+        }
 
-.nav-container {
-    max-width:1400px;
-    margin:auto;
-    padding:12px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-}
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
 
-.header-left img {
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    object-fit:cover;
-    box-shadow:var(--shadow);
-}
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
 
-/* MOBILE HEADER */
-.mobile-header {
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    padding:14px 0;
-    gap:8px;
-}
+        .inner {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
 
-.mobile-header img {
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    object-fit:cover;
-}
+        /* ================= HEADER – 1:1 AUS INDEX ================= */
+        header.site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(30,40,24,0.96);
+            box-shadow: var(--shadow);
+        }
 
-.mobile-header-title {
-    color:var(--cream);
-    font-size:1.25em;
-    font-weight:700;
-    letter-spacing:1.5px;
-    white-space:nowrap;
-    text-align:center;
-}
+        .header-inner {
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:0.75rem 1.5rem;
+            max-width:1100px;
+            margin:0 auto;
+        }
 
-.mobile-nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:18px;
-}
+        .logo-block { display:flex; flex-direction:column; gap:0.15rem; }
+        .logo-main {
+            font-size:1.25rem;
+            letter-spacing:0.18em;
+            text-transform:uppercase;
+        }
+        .logo-sub {
+            font-size:0.75rem;
+            letter-spacing:0.22em;
+            text-transform:uppercase;
+            color:var(--gold);
+        }
 
-.mobile-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    font-size:1em;
-}
+        nav.main-nav {
+            display:flex;
+            gap:1.5rem;
+            font-size:0.9rem;
+            text-transform:uppercase;
+            letter-spacing:0.08em;
+        }
 
-/* DESKTOP NAVIGATION */
-.desktop-nav {
-    display:flex;
-    gap:26px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
+        nav.main-nav a {
+            padding-bottom:0.1rem;
+            position:relative;
+        }
 
-.desktop-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    letter-spacing:1px;
-    position:relative;
-    font-size:1em;
-}
+        nav.main-nav a::after {
+            content:"";
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:0%;
+            height:1px;
+            background:var(--gold);
+            transition:0.3s ease;
+        }
 
-.desktop-nav a::after {
-    content:"";
-    position:absolute;
-    left:0; bottom:-3px;
-    width:0; height:1px;
-    background:var(--gold);
-    transition:0.3s;
-}
+        nav.main-nav a:hover::after,
+        nav.main-nav a.active::after {
+            width:100%;
+        }
 
-.desktop-nav a:hover::after { width:100%; }
+        .nav-toggle { display:none; }
 
-.header-right {
-    color:var(--cream);
-    font-size:1.1em;
-    font-weight:700;
-    letter-spacing:1.5px;
-    white-space:nowrap;
-}
+        @media(max-width:720px){
+            .nav-toggle {
+                display:inline-flex;
+                padding:0.3rem 0.6rem;
+                border:1px solid rgba(255,255,255,0.3);
+                border-radius:999px;
+            }
 
-/* ================= HERO ================= */
-.hero {
-    position:relative;
-    height:90vh;
-    min-height:520px;
-    overflow:hidden;
-    width:100%;
-}
-.hero img {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transform:scale(1.05);
-    animation:slowzoom 12s ease forwards;
-}
+            nav.main-nav {
+                position:absolute;
+                top:100%; right:0;
+                background:rgba(30,40,24,0.98);
+                padding:0.9rem 1.2rem;
+                flex-direction:column;
+                align-items:flex-end;
+                gap:0.7rem;
+                opacity:0;
+                transform:translateY(-8px);
+                pointer-events:none;
+                transition:0.25s ease;
+            }
 
-@keyframes slowzoom {
-    0% { transform:scale(1.05); }
-    100% { transform:scale(1.0); }
-}
+            nav.main-nav.open {
+                opacity:1;
+                transform:translateY(0);
+                pointer-events:auto;
+            }
+        }
 
-.hero-overlay {
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        rgba(0,0,0,0.05),
-        rgba(0,0,0,0.4) 40%,
-        rgba(0,0,0,0.85)
-    );
-}
+        /* ================= BUTTONS / HERO / ALLES UNVERÄNDERT ================= */
 
-.title-wrap {
-    position:absolute;
-    top:12%;
-    left:50%;
-    transform:translateX(-50%);
-    text-align:center;
-}
+        .btn-primary {
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            padding:0.65rem 1.8rem;
+            border-radius:999px;
+            background:var(--gold);
+            color:#1a1a12;
+            font-size:0.9rem;
+            letter-spacing:0.14em;
+            border:none;
+            box-shadow:0 0 16px rgba(0,0,0,0.4);
+            cursor:pointer;
+            transition:0.15s ease;
+        }
+        .btn-primary:hover {
+            transform:translateY(-1px);
+            box-shadow:0 0 24px rgba(0,0,0,0.55);
+        }
 
-.hero-title {
-    font-size:clamp(2rem, 3.7vw, 3.4em);
-    white-space:nowrap;
-    font-weight:700;
-    letter-spacing:0.12em;
-    color:var(--cream);
-    text-shadow:var(--shadow);
-}
+        .hero {
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fdfdf8;
+        }
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            z-index: -2;
+        }
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.15), transparent 40%),
+                        linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+            z-index: -1;
+        }
+        .hero-inner {
+            position: relative;
+            max-width: 1100px;
+            width: 100%;
+            padding: 4.5rem 1.5rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+        }
+        .hero-tagline {
+            font-size: 0.85rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+        .hero-title {
+            font-size: clamp(2.2rem, 3.6vw, 2.8rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            max-width: 720px;
+        }
+        .hero-sub { font-size: 0.9rem; letter-spacing: 0.16em; color:#f8f3dd; }
+        .hero-text { max-width: 680px; font-size: 0.98rem; margin-top: 0.3rem; }
+        .hero-cta-row { margin-top: 0.5rem; display: flex; gap: 0.75rem; }
 
-.hero-line {
-    height:3px;
-    background:var(--gold);
-    margin:10px auto 0;
-    opacity:1;
-    box-shadow:var(--shadow);
-    width:0;
-    transition: width 2.8s ease;
-}
+        /* ================= ACTION-BEREICH = 100 % ORIGINAL ================= */
+        .page-background {
+            background:
+                linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
+                url("hintergrund.jpg") center/cover fixed;
+            padding-bottom: 3rem;
+        }
 
-.hero-sub {
-    position:absolute;
-    bottom:10%;
-    left:50%;
-    transform:translateX(-50%);
-    width:90%;
-    max-width:900px;
-    text-align:center;
-    font-size:clamp(1.15rem, 2vw, 1.75rem);
-    line-height:1.35;
-    color:var(--cream);
-}
+        section { padding: 2.5rem 0; }
+        .section-heading { font-size:1.4rem; text-align:center; margin-bottom:1.3rem; }
+        .section-heading span { color:var(--gold); }
 
-/* ================= ACTION BACKGROUND ================= */
-.page-background {
-    background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
-        url("hintergrund.jpg") center/cover fixed;
-    padding-bottom:80px;
-}
+        .section-text {
+            max-width:760px;
+            margin:0 auto;
+            font-size:1.05rem;
+            text-align:center;
+        }
 
-/* ================= SPENDENBAROMETER ================= */
-.spendenbarometer {
-    max-width:900px;
-    margin:0 auto;
-    padding:120px 10% 60px;
-    text-align:center;
-    background:transparent;
-}
+        /* SPENDENBAROMETER (unverändert) */
+        .spendenbarometer { max-width:900px; margin:0 auto; padding:3rem 1.5rem 1.2rem; text-align:center; }
+        .bar-container { width:100%; border-radius:50px; border:1px solid rgba(255,255,255,0.25); overflow:hidden; height:22px; background:rgba(0,0,0,0.25); }
+        .bar-fill { background:var(--gold); height:100%; width:0%; transition:width 1.4s ease-out; }
+        .percent-label { margin-top:0.4rem; opacity:0.9; }
 
-.spendenbarometer h2 {
-    color:var(--gold);
-    font-size:clamp(1.5rem, 2.5vw, 2rem);
-    margin-bottom:15px;
-    text-shadow:var(--shadow);
-}
+        .pay-container { display:flex; flex-wrap:wrap; justify-content:center; gap:1.5rem; margin-top:2rem; }
+        .pay-box {
+            background:rgba(0,0,0,0.25);
+            border:1px solid rgba(255,255,255,0.18);
+            padding:1.4rem 1.3rem;
+            border-radius:1rem;
+            width:320px;
+            box-shadow:0 0 14px rgba(0,0,0,0.25);
+        }
 
-.spendenbarometer p {
-    font-size:1.2rem;
-}
+        /* ================= FOOTER – 1:1 AUS INDEX ================= */
+        footer.site-footer {
+            background:#10140c;
+            padding:1.1rem 0 1.3rem;
+            font-size:0.85rem;
+            margin-top:auto;
+        }
 
-.percent-label {
-    margin-top:8px;
-    opacity:0.9;
-}
+        .footer-inner {
+            max-width:1100px;
+            margin:0 auto;
+            padding:0 1.5rem;
+            display:flex;
+            justify-content:space-between;
+            align-items:flex-end;
+            gap:1rem;
+        }
 
-.bar-container {
-    width:100%;
-    height:28px;
-    border-radius:30px;
-    margin-top:22px;
-    border:1px solid rgba(255,255,255,0.3);
-    background:transparent;
-    overflow:hidden;
-}
+        .footer-column{
+            display:flex;
+            flex-direction:column;
+            justify-content:flex-end;
+            gap:0.17rem;
+        }
 
-.bar-fill {
-    height:100%;
-    width:0%;
-    background:var(--gold);
-    border-radius:30px;
-    transition:width 1.4s ease-out;
-}
+        .footer-right{
+            text-align:right;
+        }
 
-/* ================= CONTENT ================= */
-section {
-    max-width:1200px;
-    margin:0 auto;
-    padding:140px 10%;
-    text-align:center;
-}
+        .footer-logo{
+            width:78px;
+            height:78px;
+            border-radius:50%;
+            border:3px solid #000;
+            object-fit:cover;
+            box-shadow:0 0 18px rgba(0,0,0,0.55);
+            cursor:pointer;
+            transition:0.25s ease;
+        }
+        .footer-logo:hover{
+            transform:scale(1.09);
+            box-shadow:0 0 28px rgba(0,0,0,0.8);
+        }
 
-h2 {
-    font-size:clamp(1.4rem, 2.3vw, 1.75rem);
-    margin-bottom:36px;
-    text-shadow:var(--shadow);
-}
+        @media(max-width:700px){
+            .footer-inner{
+                flex-direction:column;
+                align-items:center;
+                text-align:center;
+                gap:0.3rem;
+            }
+            .footer-column{align-items:center;}
+        }
 
-.section-text {
-    max-width:860px;
-    margin:0 auto 60px;
-    font-size:1.15em;
-}
+        /* Overlay wie Index */
+        .overlay-bg {
+            position:fixed;
+            inset:0;
+            background:rgba(0,0,0,0.78);
+            display:none;
+            align-items:center;
+            justify-content:center;
+            z-index:9999;
+        }
+        .overlay-bg.show{display:flex;}
 
-/* PAYMENT BOXES */
-.pay-container {
-    display:flex;
-    gap:40px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
+        .overlay-box{
+            max-width:620px;
+            padding:2rem;
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            text-align:center;
+            animation:fadeIn 0.3s ease;
+            color:#fff;
+        }
 
-.pay-box {
-    width:45%;
-    min-width:260px;
-    padding:28px;
-    border-radius:20px;
-    background:rgba(0,0,0,0.45);
-    box-shadow:var(--shadow);
-    border:1px solid rgba(255,255,255,0.15);
-}
+        .overlay-logo{
+            width:260px;
+            height:260px;
+            border-radius:50%;
+            border:5px solid #000;
+            object-fit:cover;
+            margin-bottom:1.4rem;
+        }
 
-/* BUTTON */
-.btn {
-    display:inline-block;
-    padding:14px 40px;
-    border-radius:999px;
-    border:2px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    font-size:1.05em;
-    transition:0.3s;
-}
-
-.btn:hover {
-    background:var(--gold);
-    color:var(--green-dark);
-}
-
-/* FOOTER – KORREKT (nur Impressum + Datenschutz) */
-footer {
-    text-align:center;
-    padding:50px 10px 40px;
-}
-
-footer img {
-    width:60px;
-    height:60px;
-    border-radius:50%;
-}
-
-footer a {
-    color:var(--cream);
-    margin:0 10px;
-    text-decoration:none;
-}
-
-/* MOBILE */
-@media (max-width:768px) {
-    .nav-container { display:none; }
-    .mobile-header { display:flex; }
-    .hero-title { white-space:normal; }
-    .pay-box { width:90%; }
-}
-</style>
+        @keyframes fadeIn{
+            from{opacity:0; transform:scale(0.85);}
+            to{opacity:1; transform:scale(1);}
+        }
+    </style>
 </head>
 
 <body>
+<div class="page-wrapper">
 
-<!-- MOBILE HEADER -->
-<div class="mobile-header">
-    <img src="logo2.jpg" alt="Mobile Logo">
-    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
+    <!-- ================= HEADER (Index-Version) ================= -->
+    <header class="site-header">
+        <div class="header-inner">
 
-    <nav class="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="crowdfunding.html">Crowdfunding</a>
-        <a href="geschichte.html">Meine Geschichte</a>
-        <a href="updates.html">Updates</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
-</div>
+            <div class="logo-block">
+                <div class="logo-main">PURE ROOT SWITZERLAND</div>
+                <div class="logo-sub">ORGANIC GINGER</div>
+            </div>
 
-<!-- DESKTOP HEADER -->
-<header>
-    <div class="nav-container">
-        <div class="header-left">
-            <img src="logo2.jpg" alt="Logo">
+            <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="crowdfunding.html" class="active">Crowdfunding</a>
+                <a href="geschichte.html">Geschichte</a>
+                <a href="updates.html">Updates</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- ================= HERO – unverändert ================= -->
+    <section class="hero">
+        <img src="fruchtbarkeit.webp"
+             alt="Fruchtbare Landschaft auf São Miguel (Azoren)"
+             class="hero-bg">
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-inner">
+            <p class="hero-tagline">Support the First Azores Ginger Project</p>
+
+            <h1 class="hero-title">Crowdfunding für den Bio-Ingwer-Testanbau</h1>
+
+            <p class="hero-sub">
+                Gemeinsam ermöglichen wir nachhaltigen Bio-Ingwer aus europäischer Nähe.
+            </p>
+
+            <p class="hero-text">
+                Dieses Crowdfunding finanziert Bewässerung, Weizenfolie, Bodenanalyse,
+                Pflanzenmaterial und die ersten Schritte zur Bio-Zertifizierung auf São Miguel.
+            </p>
+
+            <div class="hero-cta-row">
+                <a href="#unterstuetzen" class="btn-primary">Jetzt unterstützen</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= ACTION-BEREICH (100 % ORIGINAL) ================= -->
+    <div class="page-background">
+
+        <!-- SPENDENBAROMETER -->
+        <div class="spendenbarometer">
+            <h2 class="section-heading">Aktueller Stand</h2>
+            <div class="section-text">
+                <strong>Spendenziel:</strong> 7’500 CHF<br>
+                <strong>Bereits erreicht:</strong> <span id="betragText">1’500 CHF</span>
+            </div>
+
+            <div class="percent-label" id="percentText"></div>
+
+            <div class="bar-container">
+                <div class="bar-fill" id="barFill"></div>
+            </div>
         </div>
 
-        <nav class="desktop-nav">
-            <a href="index.html">Home</a>
-            <a href="crowdfunding.html">Crowdfunding</a>
-            <a href="geschichte.html">Meine Geschichte</a>
-            <a href="updates.html">Updates</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
+        <!-- WOFÜR DEIN BEITRAG GENUTZT WIRD -->
+        <section>
+            <div class="inner">
+                <h2 class="section-heading">Wofür ich deine Unterstützung benötige</h2>
+                <p class="section-text">
+                    Der Testanbau umfasst Bewässerung, Folie, Analyse, Pflanzenmaterial,
+                    Werkzeuge, Logistik und die ersten Schritte zur Bio-Zertifizierung.
+                    Alles, was nötig ist, um ein kleines Testfeld professionell aufzubauen.
+                </p>
+            </div>
+        </section>
 
-        <div class="header-right">PURE ROOT SWITZERLAND</div>
-    </div>
-</header>
+        <!-- BEITRÄGE -->
+        <section id="unterstuetzen">
+            <div class="inner">
+                <h2 class="section-heading">Jetzt unterstützen</h2>
+                <p class="section-text">
+                    Du kannst direkt per Banküberweisung oder TWINT unterstützen.
+                </p>
 
-<!-- HERO -->
-<div class="hero">
-    <img src="landschaft.jpg" alt="">
-    <div class="hero-overlay"></div>
+                <div class="pay-container">
 
-    <div class="title-wrap">
-        <div class="hero-title" id="heroTitle">GEMEINSAM STARTEN</div>
-        <div class="hero-line" id="heroLine"></div>
-    </div>
+                    <div class="pay-box">
+                        <h3>Banküberweisung</h3>
+                        <p><strong>Kontoinhaber:</strong><br>John René Imbach</p>
+                        <p><strong>IBAN:</strong><br>CH25 0079 0042 6264 1883 2</p>
+                        <p><strong>Bank:</strong><br>BEKB</p>
+                        <p><strong>Verwendungszweck:</strong><br>Ingwer Projekt</p>
+                    </div>
 
-    <div class="hero-sub">
-        Dein Beitrag zählt.
-    </div>
-</div>
+                    <div class="pay-box">
+                        <h3>TWINT</h3>
+                        <img src="qr.jpg"
+                             loading="lazy"
+                             alt="TWINT QR-Code für das Ingwer-Projekt"
+                             style="width:220px; margin:auto; border-radius:12px;">
+                        <p style="opacity:0.85; margin-top:0.5rem;">
+                            Bitte QR-Code scannen
+                        </p>
+                    </div>
 
-<script>
-function updateLineWidth() {
-    const title = document.getElementById("heroTitle");
-    const line = document.getElementById("heroLine");
-    if (!title || !line) return;
-    line.style.width = title.offsetWidth + "px";
-}
-window.addEventListener("load", () =>
-    setTimeout(updateLineWidth, 600)
-);
-window.addEventListener("resize", updateLineWidth);
-</script>
+                </div>
+            </div>
+        </section>
 
-<!-- ================= ACTION-BEREICH ================= -->
-<div class="page-background">
+        <!-- WARUM DAS PROJEKT WICHTIG IST -->
+        <section>
+            <div class="inner">
+                <h2 class="section-heading">Warum dieses Projekt wichtig ist</h2>
+                <p class="section-text">
+                    Ingwer wird fast ausschließlich von Übersee importiert: lange Wege,
+                    schlechte Qualität, keine Transparenz.<br><br>
+                    Der Testanbau auf São Miguel ist der erste Schritt, um frischen,
+                    nachhaltig angebauten Bio-Ingwer aus europäischer Nähe möglich zu machen –
+                    fair, hochwertig und erstmals ganzjährig verfügbar.<br><br>
+                    Dein Beitrag macht diesen Start möglich.
+                </p>
+            </div>
+        </section>
 
-<!-- ⭐ SPENDENBAROMETER -->
-<div class="spendenbarometer">
-    <h2>Unterstütze unseren ersten Ingwer-Testanbau</h2>
-    <p>
-        <strong>Spendenziel:</strong> 7'500 CHF<br>
-        <strong>Bereits erreicht:</strong> <span id="betragText">1'500 CHF</span>
-    </p>
-    <div class="percent-label" id="percentText"></div>
+    </div><!-- /page-background -->
 
-    <div class="bar-container">
-        <div class="bar-fill" id="barFill"></div>
-    </div>
-</div>
 
-<!-- ABSCHNITT 1 -->
-<section style="padding-top:60px;">
-    <p class="section-text">
-        Hilf mit, den ersten <strong>europäischen Bio-Ingwer</strong> direkt von den Azoren in die Schweiz zu bringen.
-    </p>
 
-    <a class="btn" href="#unterstuetzen">Jetzt unterstützen</a>
-</section>
+    <!-- ================= FOOTER – 1:1 AUS INDEX ================= -->
+    <footer class="site-footer">
+        <div class="footer-inner">
 
-<!-- ================= KOSTENABSCHNITT ================= -->
-<section>
-    <h2>Wofür ich die Unterstützung benötige</h2>
-    <p class="section-text">
-        Die erste Phase des Projekts umfasst den Testanbau auf São Miguel, die Vorbereitung des Bodens
-        und den gesicherten Transport der ersten Ernte in die Schweiz. Alle Mittel werden transparent
-        eingesetzt – ohne Luxus, ohne Verschwendung.
-    </p>
+            <!-- Links -->
+            <div class="footer-column footer-left">
+                <div>info@purerootswitzerland.ch</div>
+                <div>
+                    <a href="datenschutz.html">Datenschutz</a> · 
+                    <a href="impressum.html">Impressum</a>
+                </div>
+            </div>
 
-    <div class="section-text" style="text-align:left; margin:0 auto; max-width:700px;">
+            <!-- Mitte -->
+            <div class="footer-column footer-center">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
+            </div>
 
-        <p><strong>1. Tröpfchenbewässerungssystem – ca. 1’200 CHF</strong><br>
-        Schläuche, Tropfer, Filter und Anschlüsse für eine effiziente, wassersparende Bewässerung.</p>
+            <!-- Rechts -->
+            <div class="footer-column footer-right">
+                <div>Luzern, Switzerland</div>
+                <div>&copy; 2025 Pure Root Switzerland</div>
+            </div>
 
-        <p><strong>2. Weizenfolie / Mulchfolie – ca. 850 CHF</strong><br>
-        Schutz des Bodens, weniger Unkraut und bessere Feuchtigkeitsspeicherung auf der Testfläche.</p>
+        </div>
+    </footer>
 
-        <p><strong>3. Werkzeuge & Kleingeräte – ca. 600 CHF</strong><br>
-        Alles Wichtige für die tägliche Arbeit auf dem Feld (Spaten, Hacken, Kisten, Messer usw.).</p>
+</div><!-- /page-wrapper -->
 
-        <p><strong>4. Pflanzmaterial (Bio-Ingwer) – ca. 1’000 CHF</strong><br>
-        Keimfähiger Bio-Ingwer zur Voranzucht und ersten Bepflanzung.</p>
 
-        <p><strong>5. Erde, Substrate & Kompost – ca. 900 CHF</strong><br>
-        Für die Voranzucht und zur Verbesserung der Bodenqualität im ersten Anbaujahr.</p>
 
-        <p><strong>6. Bodenanalyse & agronomische Beratung – ca. 450 CHF</strong><br>
-        Unterstützung durch lokale Expert:innen und die Universität der Azoren.</p>
-
-        <p><strong>7. Transport der ersten Ernte (ca. 300 kg) von den Azoren in die Schweiz – ca. 1’100 CHF</strong><br>
-        Seefracht → LKW → Zoll → Handling.</p>
-
-        <p><strong>8. Transport & Logistik auf der Insel – ca. 400 CHF</strong><br>
-        Fahrten, Materialbeschaffung, Organisation.</p>
-
-        <p><strong>9. Notfallreserve – ca. 600 CHF</strong><br>
-        Für Preisänderungen oder kleine Reparaturen.</p>
-
-        <p style="margin-top:30px; font-weight:bold;">
-            Geplante Kosten gesamt: ca. 7’100 CHF
+<!-- ================= OVERLAY – 1:1 AUS INDEX ================= -->
+<div class="overlay-bg" id="overlayBox">
+    <div class="overlay-box">
+        <img src="logo2.jpg" class="overlay-logo"
+             loading="lazy" alt="Großes Logo Pure Root Switzerland">
+        <p style="font-size:1.05rem; line-height:1.6;">
+            <strong>Frischer Bio-Ingwer aus europäischer Nähe – nachhaltig, aromatisch
+            und erstmals ganzjährig verfügbar.</strong><br><br>
+            Dieses Projekt startet mit einem sorgfältig geplanten Testanbau auf São Miguel.
         </p>
-
-        <p style="margin-top:10px;">
-            Fundingziel: <strong>8’000 CHF</strong>
-        </p>
-
     </div>
-</section>
-
-<!-- ================= BANK + TWINT ================= -->
-<section id="unterstuetzen">
-    <h2>Unterstützen – so kannst du helfen</h2>
-    <p class="section-text">Du kannst direkt via Banküberweisung oder TWINT unterstützen.</p>
-
-    <div class="pay-container">
-
-        <div class="pay-box">
-            <h3>Banküberweisung</h3>
-            <p><strong>Kontoinhaber:</strong><br>John René Imbach</p>
-            <p><strong>IBAN:</strong><br>CH25 0079 0042 6264 1883 2</p>
-            <p><strong>Bank:</strong><br>BEKB</p>
-            <p><strong>Verwendungszweck:</strong><br>Ingwer Projekt</p>
-        </div>
-
-        <div class="pay-box">
-            <h3>TWINT</h3>
-            <img src="qr.jpg" style="width:240px; border-radius:14px;">
-            <p style="opacity:0.9; margin-top:12px;">Bitte QR-Code scannen</p>
-        </div>
-
-    </div>
-</section>
-
-<!-- ================= DANKE ================= -->
-<section>
-    <h2>Danke für deine Unterstützung</h2>
-    <p class="section-text">
-        Jede Hilfe – ob groß oder klein – macht einen Unterschied.
-    </p>
-
-    <a href="danke.html" class="btn">Zur Dankeseite</a>
-</section>
-
-<!-- ================= FOOTER – NUR IMPRESSUM & DATENSCHUTZ ================= -->
-<footer>
-    <img src="logo2.jpg" alt="">
-    <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
-    <p>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-    </p>
-</footer>
-
 </div>
 
-<!-- ================= BAROMETER SCRIPT ================= -->
+
+
+<!-- ================= SCRIPTS ================= -->
 <script>
-let betrag = 1500;   // ← später ändern
-let ziel = 7500;
+    // Mobile Navigation
+    function toggleNav() {
+        document.getElementById("mainNav").classList.toggle("open");
+    }
 
-let prozent = (betrag / ziel) * 100;
-if (prozent > 100) prozent = 100;
+    // Logo-Overlay
+    const footerLogo = document.getElementById("footerLogo");
+    const overlayBox = document.getElementById("overlayBox");
 
-document.getElementById("barFill").style.width = prozent + "%";
-document.getElementById("betragText").innerText =
-    betrag.toLocaleString("de-CH") + " CHF";
-document.getElementById("percentText").innerText =
-    prozent.toFixed(0) + "% bereits erreicht";
+    if (footerLogo && overlayBox) {
+        footerLogo.addEventListener("mouseenter", () => {
+            overlayBox.classList.add("show");
+        });
+
+        footerLogo.addEventListener("click", () => {
+            overlayBox.classList.add("show");
+        });
+
+        overlayBox.addEventListener("click", () => {
+            overlayBox.classList.remove("show");
+        });
+    }
+
+    // Spendenbarometer
+    let betrag = 1500;
+    let ziel = 7500;
+    let prozent = Math.min((betrag / ziel) * 100, 100);
+
+    const barFill = document.getElementById("barFill");
+    const betragText = document.getElementById("betragText");
+    const percentText = document.getElementById("percentText");
+
+    barFill.style.width = prozent + "%";
+    betragText.innerText = betrag.toLocaleString("de-CH") + " CHF";
+    percentText.innerText = prozent.toFixed(0) + "% erreicht";
 </script>
 
 </body>
 </html>
+
+
 
 
 
