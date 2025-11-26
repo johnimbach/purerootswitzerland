@@ -36,7 +36,7 @@ a { color:inherit; text-decoration:none; }
     flex-direction:column;
 }
 
-/* ================= HEADER ================= */
+/* ================= HEADER (NICHT ÄNDERN!) ================= */
 header.site-header {
     position:sticky;
     top:0;
@@ -46,19 +46,18 @@ header.site-header {
 }
 
 .header-inner {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0.75rem 1.5rem;
     max-width:1100px;
     margin:0 auto;
+    padding:0.75rem 1.5rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo-block { display:flex; flex-direction:column; gap:0.1rem; }
 .logo-main { font-size:1.25rem; letter-spacing:0.18em; text-transform:uppercase; }
 .logo-sub  { font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); }
 
-/* ================= NAVIGATION ================= */
 nav.main-nav {
     display:flex;
     gap:1.5rem;
@@ -67,64 +66,35 @@ nav.main-nav {
     letter-spacing:0.08em;
 }
 
-nav.main-nav a { position:relative; padding-bottom:0.1rem; }
+nav.main-nav a {
+    position:relative;
+    padding-bottom:0.1rem;
+}
 
 nav.main-nav a::after {
     content:"";
     position:absolute;
     left:0;
     bottom:0;
-    width:0%;
+    width:0;
     height:1px;
     background:var(--gold);
     transition:0.3s ease;
 }
 
 nav.main-nav a:hover::after,
-nav.main-nav a.active::after { width:100%; }
-
-.nav-toggle {
-    display:none;
-    padding:0.3rem 0.6rem;
-    border-radius:999px;
-    border:1px solid rgba(255,255,255,0.3);
-    background:transparent;
-    color:#fff;
-    font-size:0.8rem;
-    letter-spacing:0.16em;
-    text-transform:uppercase;
-    cursor:pointer;
+nav.main-nav a.active::after {
+    width:100%;
 }
 
-@media(max-width:720px){
-    nav.main-nav {
-        position:absolute;
-        top:100%; right:0;
-        background:rgba(30,40,24,0.98);
-        padding:0.75rem 1.25rem 0.9rem;
-        flex-direction:column;
-        align-items:flex-end;
-        gap:0.6rem;
-        transform:translateY(-10px);
-        opacity:0;
-        pointer-events:none;
-        transition:opacity .25s, transform .25s;
-    }
-    nav.main-nav.open {
-        transform:translateY(0);
-        opacity:1;
-        pointer-events:auto;
-    }
-    .nav-toggle { display:inline-flex; }
-}
+.nav-toggle { display:none; }
 
-/* ================= HERO — perfekt wie Index ================= */
+/* ================= HERO ================= */
 .hero {
     position:relative;
     min-height:80vh;
     display:flex;
     align-items:center;
-    justify-content:flex-start;
 }
 
 .hero-bg {
@@ -145,76 +115,42 @@ nav.main-nav a.active::after { width:100%; }
 
 .hero-inner {
     max-width:1100px;
-    padding:4.5rem 1.5rem 3.5rem;
+    padding:4.5rem 1.5rem;
     display:flex;
     flex-direction:column;
     gap:0.9rem;
     text-align:left;
 
-    /* ⭐ DIESE ZEILE MACHT DIE PERFEKTE FLUCHT LINIE ⭐ */
+    /* Desktop perfekte Fluchtlinie */
     padding-left: calc((100vw - 1100px) / 2 + 1.5rem);
 }
 
-@media(max-width:720px){
-    .hero-inner { text-align:center; padding-left:1.5rem; }
-}
-
-.hero-tagline { font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); }
+.hero-tagline { color:var(--gold); font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; }
 .hero-title { font-size:clamp(2.2rem,4vw,2.9rem); letter-spacing:0.2em; text-transform:uppercase; }
 .hero-subtitle { font-size:0.9rem; letter-spacing:0.16em; text-transform:uppercase; color:#f8f3dd; }
-.hero-text { max-width:620px; font-size:0.98rem; margin-top:0.4rem; }
+.hero-text { max-width:620px; }
 
-.hero-cta-row { margin-top:0.5rem; display:flex; flex-wrap:wrap; gap:0.75rem; }
-
-.btn-primary {
-    padding:0.65rem 1.8rem;
-    border-radius:999px;
-    border:none;
-    background:var(--gold);
-    color:#18140b;
-    font-size:0.9rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    cursor:pointer;
-    box-shadow:0 0 18px rgba(0,0,0,0.5);
-    transition:0.22s ease;
-}
-.btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 24px rgba(0,0,0,0.7); }
-
-/* ================= STORY-BEREICH ================= */
+/* ================= STORY ================= */
 .page-background {
     background:linear-gradient(rgba(0,0,0,0.48),rgba(0,0,0,0.72)), url("hintergrund.jpg") center/cover fixed;
     padding-bottom:80px;
 }
 
-section { padding:2.5rem 0; }
-
 .story-layout {
-    display:flex;
-    align-items:flex-start;
-    gap:2.6rem;
     max-width:1100px;
     margin:0 auto;
-    padding:0 1.5rem;
+    padding:2.5rem 1.5rem;
+    display:flex;
+    gap:2.5rem;
 }
 
 .story-img {
     width:38%;
     max-width:380px;
     border-radius:1.4rem;
-    box-shadow:0 0 22px rgba(0,0,0,0.55);
 }
 
 .story-text-block { flex:1; }
-
-@media(max-width:900px){
-    .story-layout {
-        flex-direction:column;
-        align-items:center;
-        text-align:left;
-    }
-    .story-img { width:75%; max-width:420px; }
-}
 
 .section-heading { font-size:1.4rem; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:1.5rem; }
 .section-heading span { color:var(--gold); }
@@ -233,33 +169,67 @@ footer.site-footer {
     margin:0 auto;
     padding:0 1.5rem;
     display:flex;
-    flex-wrap:wrap;
-    gap:0.9rem;
-    align-items:center;
     justify-content:space-between;
+    gap:1.2rem;
 }
 
-.footer-left { display:flex; flex-direction:column; gap:0.25rem; }
+.footer-left {
+    display:flex;
+    flex-direction:column;
+    gap:0.3rem;
+}
 
-.footer-nav { display:flex; gap:0.8rem; flex-wrap:wrap; font-size:0.85rem; opacity:0.95; }
-
-.footer-logo-wrap { display:flex; justify-content:center; }
+.footer-nav { display:flex; gap:0.8rem; opacity:0.95; }
 
 .footer-logo {
-    width:78px; height:78px;
+    width:78px;
+    height:78px;
     border-radius:50%;
     border:3px solid #000;
     object-fit:cover;
     cursor:pointer;
-    transition:0.25s ease;
 }
-.footer-logo:hover { transform:scale(1.08); }
 
-.footer-contact { text-align:right; font-size:0.85rem; }
+.footer-contact { text-align:right; }
 
+/* ================= MOBILE – ALLES ZENTRIERT (AUSSER NAVIGATION) ================= */
 @media(max-width:720px){
-    .footer-inner { flex-direction:column; align-items:flex-start; gap:0.6rem; }
-    .footer-contact { text-align:left; }
+
+    /* HERO */
+    .hero-inner {
+        text-align:center !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        padding-left:1.5rem !important;
+    }
+
+    /* STORY */
+    .story-layout {
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .story-text-block,
+    .section-text,
+    .section-heading {
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    /* FOOTER */
+    .footer-inner {
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+    }
+
+    .footer-left,
+    .footer-contact {
+        text-align:center;
+        align-items:center;
+    }
 }
 
 /* ================= OVERLAY ================= */
@@ -270,8 +240,8 @@ footer.site-footer {
     display:none;
     align-items:center;
     justify-content:center;
-    z-index:9999;
 }
+
 .overlay-bg.show { display:flex; }
 
 .overlay-box {
@@ -279,22 +249,14 @@ footer.site-footer {
     padding:2rem;
     text-align:center;
     color:#fff;
-    animation:fadeIn 0.3s ease;
 }
 
 .overlay-logo {
     width:260px;
     height:260px;
+    object-fit:cover;
     border-radius:50%;
     border:5px solid #000;
-    object-fit:cover;
-    margin-bottom:1.4rem;
-    box-shadow:0 0 26px rgba(0,0,0,0.7);
-}
-
-@keyframes fadeIn {
-    from{ opacity:0; transform:scale(0.85);}
-    to  { opacity:1; transform:scale(1);  }
 }
     </style>
 </head>
@@ -303,7 +265,7 @@ footer.site-footer {
 
 <div class="page-wrapper">
 
-<!-- HEADER -->
+<!-- HEADER (NICHT ZENTRIEREN!) -->
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-block">
@@ -311,9 +273,7 @@ footer.site-footer {
             <div class="logo-sub">ORGANIC GINGER</div>
         </div>
 
-        <button class="nav-toggle" onclick="toggleNav()">Menü</button>
-
-        <nav class="main-nav" id="mainNav">
+        <nav class="main-nav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
             <a href="geschichte.html" class="active">Geschichte</a>
@@ -326,12 +286,10 @@ footer.site-footer {
 <!-- HERO -->
 <section class="hero">
     <img class="hero-bg" src="fruchtbarkeit.webp" alt="" fetchpriority="high">
-
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
         <p class="hero-tagline">A New Beginning</p>
-
         <h1 class="hero-title">Meine Geschichte</h1>
         <p class="hero-subtitle">Ein persönlicher Weg zu Pure Root Switzerland</p>
 
@@ -346,17 +304,15 @@ footer.site-footer {
     </div>
 </section>
 
-<!-- STORY-BEREICH -->
+<!-- STORY -->
 <div class="page-background">
     <section id="story">
         <div class="story-layout">
 
-            <img src="meinfotosw.jpg" loading="lazy" alt="John Imbach" class="story-img">
+            <img src="meinfotosw.jpg" loading="lazy" class="story-img">
 
             <div class="story-text-block">
-                <h2 class="section-heading">
-                    Warum <span>dieses Projekt</span> persönlich ist
-                </h2>
+                <h2 class="section-heading">Warum <span>dieses Projekt</span> persönlich ist</h2>
 
                 <p class="section-text">
                     Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt.
@@ -369,15 +325,9 @@ footer.site-footer {
                     nachhaltigen Bio-Ingwer auf den Azoren anzubauen.
                 </p>
 
-                <p class="section-text">
-                    Die <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold); text-decoration:underline;">
-                        Universidade dos Açores
-                    </a>
-                    begleitet mein Projekt mit Wissen und lokalem Rückhalt.
-                </p>
-
                 <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
             </div>
+
         </div>
     </section>
 </div>
@@ -385,58 +335,50 @@ footer.site-footer {
 <!-- FOOTER -->
 <footer class="site-footer">
     <div class="footer-inner">
+
         <div class="footer-left">
-            <div><a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a></div>
+            <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a>
             <div class="footer-nav">
                 <a href="datenschutz.html">Datenschutz</a> ·
                 <a href="impressum.html">Impressum</a>
             </div>
         </div>
 
-        <div class="footer-logo-wrap">
-            <img src="logo2.jpg" loading="lazy" class="footer-logo" id="footerLogo" alt="">
-        </div>
+        <img src="logo2.jpg" loading="lazy" class="footer-logo" id="footerLogo">
 
         <div class="footer-contact">
             <div>Luzern, Switzerland</div>
-            <div>&copy; <span id="yearSpan"></span> Pure Root Switzerland</div>
+            <div>&copy; 2025 Pure Root Switzerland</div>
         </div>
     </div>
 </footer>
 
 </div>
 
-<!-- OVERLAY + SCRIPT -->
+<!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" loading="lazy" class="overlay-logo" alt="">
-        <p style="font-size:1.05rem; line-height:1.6;">
+        <img src="logo2.jpg" class="overlay-logo">
+        <p>
             <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
-            Danach bleibt meist nur Importware aus Übersee.  
+            Danach bleibt meist nur Importware aus Übersee.<br>
             Dieses Projekt setzt auf nachhaltigen Anbau aus europäischer Nähe.
         </p>
     </div>
 </div>
 
 <script>
-function toggleNav(){
-    document.getElementById("mainNav").classList.toggle("open");
-}
-
-document.getElementById("yearSpan").textContent = new Date().getFullYear();
-
 const footerLogo = document.getElementById("footerLogo");
 const overlayBox = document.getElementById("overlayBox");
 
-if(footerLogo && overlayBox){
-    footerLogo.addEventListener("mouseenter",()=>overlayBox.classList.add("show"));
-    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
-    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
-}
+footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
 </script>
 
 </body>
 </html>
+
+
 
 
 
