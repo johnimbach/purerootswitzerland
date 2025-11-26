@@ -150,6 +150,13 @@ nav.main-nav a.active::after {
     display:inline-block;
 }
 
+/* DESKTOP: Abstand vom Text vergrößern */
+@media(min-width:721px){
+    .hero-cta-row {
+        margin-top:1.5rem;
+    }
+}
+
 .btn-primary:hover {
     transform:translateY(-1px);
     box-shadow:0 0 24px rgba(0,0,0,0.55);
@@ -188,14 +195,34 @@ nav.main-nav a.active::after {
     margin: 0 auto;
 }
 
-/* Desktop links */
+/* DESKTOP links */
 @media(min-width:721px){
     .hero-inner { text-align:left; }
 }
 
-/* MOBILE HERO – zentriert */
+/* MOBILE HERO – Bild unter dem Text */
 @media(max-width:720px){
-    .hero-inner { text-align:center; }
+    .hero {
+        display:flex;
+        flex-direction:column;
+        padding-top:2rem;
+    }
+
+    .hero-bg {
+        position:relative;
+        height:320px;
+        order:2;
+    }
+
+    .hero-overlay { display:none; }
+
+    .hero-inner {
+        order:1;
+        text-align:center;
+        z-index:5;
+        padding-bottom:1.5rem;
+    }
+
     .hero-tagline,
     .hero-title,
     .hero-subtitle,
@@ -203,6 +230,7 @@ nav.main-nav a.active::after {
         margin-left:auto;
         margin-right:auto;
     }
+
     .hero-cta-row { justify-content:center; }
 }
 
@@ -220,14 +248,15 @@ nav.main-nav a.active::after {
     gap:2.4rem;
 }
 
+/* TITEL im Actionbereich: jetzt immer weiß */
 .section-heading {
     font-size:1.5rem;
     letter-spacing:0.15em;
     margin-bottom:1.1rem;
+    color:#ffffff !important;
 }
-
 .section-heading span {
-    color:var(--gold);
+    color:#ffffff !important;
 }
 
 .section-lead {
@@ -336,7 +365,7 @@ footer.site-footer {
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 
-/* MOBILE FOOTER (unverändert) */
+/* FOOTER MOBILE (unverändert) */
 @media(max-width:700px){
     .footer-inner {
         flex-direction:column;
@@ -382,11 +411,6 @@ footer.site-footer {
     margin-left:auto;
     margin-right:auto;
 }
-
-/* MOBILE STORY GRID FIX */
-@media(max-width:720px){
-    .highlight-grid { grid-template-columns:1fr; }
-}
 </style>
 </head>
 
@@ -401,9 +425,7 @@ footer.site-footer {
                 <div class="logo-main">PURE ROOT SWITZERLAND</div>
                 <div class="logo-sub">ORGANIC GINGER</div>
             </div>
-
             <button class="nav-toggle" onclick="toggleNav()">Menü</button>
-
             <nav class="main-nav" id="mainNav">
                 <a href="index.html" class="active">Home</a>
                 <a href="crowdfunding.html">Crowdfunding</a>
@@ -436,7 +458,7 @@ footer.site-footer {
         </div>
     </section>
 
-    <!-- ACTION SECTION -->
+    <!-- ACTION -->
     <section class="action-section">
         <div class="inner action-inner">
 
@@ -451,7 +473,6 @@ footer.site-footer {
 
                 <p>
                     <strong>Mit deinem Beitrag finanzierst du</strong> den ersten nachhaltigen Testanbau –
-
                     inklusive Bio-Zertifizierung, Bewässerungssystem und Start-Infrastruktur.
                 </p>
             </div>
@@ -517,7 +538,6 @@ footer.site-footer {
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-inner">
-
             <div class="footer-column footer-left">
                 <div>info@purerootswitzerland.ch</div>
                 <div>
@@ -534,7 +554,6 @@ footer.site-footer {
                 <div>Luzern, Switzerland</div>
                 <div>&copy; 2025 Pure Root Switzerland</div>
             </div>
-
         </div>
     </footer>
 
