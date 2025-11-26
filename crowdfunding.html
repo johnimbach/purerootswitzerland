@@ -13,7 +13,7 @@
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
-/* GLOBAL */
+/* ---------------- GLOBAL ---------------- */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { max-width: 100vw; overflow-x: hidden; }
 body {
@@ -34,7 +34,7 @@ a { color:inherit; text-decoration:none; }
     padding:0 1.5rem;
 }
 
-/* HEADER */
+/* ---------------- HEADER ---------------- */
 header.site-header {
     position:sticky;
     top:0;
@@ -42,6 +42,7 @@ header.site-header {
     background:rgba(30,40,24,0.96);
     box-shadow:var(--shadow);
 }
+
 .header-inner {
     display:flex;
     align-items:center;
@@ -50,17 +51,8 @@ header.site-header {
 }
 
 .logo-block { display:flex; flex-direction:column; }
-.logo-main {
-    font-size:1.25rem;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-}
-.logo-sub {
-    font-size:0.75rem;
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-    color:var(--gold);
-}
+.logo-main { font-size:1.25rem; letter-spacing:0.18em; text-transform:uppercase; }
+.logo-sub  { font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); }
 
 /* NAVIGATION */
 nav.main-nav {
@@ -69,6 +61,7 @@ nav.main-nav {
     font-size:0.9rem;
     text-transform:uppercase;
 }
+
 nav.main-nav a {
     padding-bottom:0.1rem;
     position:relative;
@@ -100,8 +93,7 @@ nav.main-nav a.active::after {
     }
 
     nav.main-nav {
-        position:absolute;
-        top:100%; right:0;
+        position:absolute; top:100%; right:0;
         padding:1rem 1.2rem;
         flex-direction:column;
         align-items:flex-end;
@@ -113,13 +105,11 @@ nav.main-nav a.active::after {
     }
 
     nav.main-nav.open {
-        opacity:1;
-        pointer-events:auto;
-        transform:translateY(0);
+        opacity:1; pointer-events:auto; transform:translateY(0);
     }
 }
 
-/* BUTTON */
+/* ---------------- BUTTON ---------------- */
 .btn-primary {
     padding:0.65rem 1.8rem;
     background:var(--gold);
@@ -132,7 +122,7 @@ nav.main-nav a.active::after {
     box-shadow:0 0 16px rgba(0,0,0,0.4);
 }
 
-/* HERO */
+/* ---------------- HERO ---------------- */
 .hero {
     min-height:65vh;
     position:relative;
@@ -162,41 +152,24 @@ nav.main-nav a.active::after {
     margin:0 auto;
 }
 
-/* DESKTOP HERO: LINKS */
+/* DESKTOP HERO LINKS */
 @media(min-width:721px){
     .hero-inner { text-align:left; }
     .hero-cta-row { justify-content:flex-start; }
 }
 
-/* MOBILE HERO: ZENTRIERT */
+/* MOBILE HERO ZENTRIERT */
 @media(max-width:720px){
     .hero-inner { text-align:center; }
     .hero-cta-row { justify-content:center; }
 }
 
-.hero-tagline {
-    font-size:0.85rem;
-    color:var(--gold);
-    letter-spacing:0.22em;
-    text-transform:uppercase;
-}
-.hero-title {
-    font-size:clamp(2.1rem,4vw,3rem);
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    margin-top:0.5rem;
-}
-.hero-text {
-    max-width:700px;
-    margin-top:0.7rem;
-    line-height:1.6;
-}
-.hero-cta-row {
-    margin-top:1.2rem;
-    display:flex;
-}
+.hero-tagline { font-size:0.85rem; color:var(--gold); letter-spacing:0.22em; }
+.hero-title   { font-size:clamp(2.1rem,4vw,3rem); letter-spacing:0.2em; text-transform:uppercase; margin-top:0.5rem; }
+.hero-text    { max-width:700px; margin-top:0.7rem; line-height:1.6; }
+.hero-cta-row { margin-top:1.2rem; display:flex; }
 
-/* ACTION-BEREICH – UNVERÄNDERT */
+/* ---------------- ACTION-BEREICH (UNVERÄNDERT) ---------------- */
 .action-section {
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
@@ -204,7 +177,8 @@ nav.main-nav a.active::after {
     padding:2.8rem 0 3rem;
 }
 
-/* FOOTER – IDENTISCH ZUR INDEX-SEITE */
+/* ---------------- FOOTER (EXAKT WIE INDEX) ---------------- */
+
 footer.site-footer {
     background:#10140c;
     padding:1.1rem 0 1.3rem;
@@ -227,7 +201,7 @@ footer.site-footer {
     gap:0.17rem;
 }
 
-.footer-left { text-align:left; }
+.footer-left  { text-align:left; }
 .footer-right { text-align:right; }
 .footer-center { align-items:center; }
 
@@ -240,7 +214,7 @@ footer.site-footer {
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 
-/* MOBILE FOOTER */
+/* MOBILE FOOTER ZENTRIERT */
 @media(max-width:700px){
     .footer-inner {
         flex-direction:column;
@@ -300,7 +274,7 @@ footer.site-footer {
     </div>
 </section>
 
-<!-- ACTION-BEREICH (1:1 von deiner Datei, unverändert) -->
+<!-- ACTION-BEREICH (1:1 UNVERÄNDERT AUS DEINER DATEI) -->
 <section class="action-section">
     <div class="inner">
 
@@ -337,7 +311,7 @@ footer.site-footer {
     </div>
 </section>
 
-<!-- FOOTER (IDENTISCH WIE INDEX) -->
+<!-- FOOTER (INDEX VERSION) -->
 <footer class="site-footer">
     <div class="footer-inner">
 
@@ -371,6 +345,8 @@ function toggleNav(){
 
 </body>
 </html>
+
+
 
 
 
