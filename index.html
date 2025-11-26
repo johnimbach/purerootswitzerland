@@ -67,7 +67,7 @@ header.site-header {
 }
 .logo-sub {
     font-size:0.75rem;
-    letter-letter-spacing:0.22em;
+    letter-spacing:0.22em;
     text-transform:uppercase;
     color:var(--gold);
 }
@@ -296,13 +296,22 @@ nav.main-nav a.active::after {
     align-items:center;
 }
 
+/* ⭐ KORREKTES INGWER-FOTO (EXAKT WIE VORHER) */
 .story-image-frame {
-    width:100%;
-    max-width:460px;
-    border-radius:1rem;
+    border-radius:1.4rem;
     overflow:hidden;
     box-shadow:0 0 18px rgba(0,0,0,0.45);
-    margin:0 auto;
+    max-width:320px;
+    max-height:190px;
+    margin:auto;
+    background:#0f140c;
+}
+
+.story-image-frame img {
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    background:#0f140c;
 }
 
 /* CTA */
@@ -335,9 +344,7 @@ footer.site-footer {
 .footer-left { text-align:left; }
 .footer-right { text-align:right; }
 
-.footer-center {
-    align-items:center;
-}
+.footer-center { align-items:center; }
 
 .footer-logo {
     width:78px;
@@ -549,6 +556,8 @@ function toggleNav(){
 
 </body>
 </html>
+
+
 
 
 
