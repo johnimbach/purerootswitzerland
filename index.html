@@ -54,7 +54,7 @@
 
         .logo-block { display: flex; flex-direction: column; }
         .logo-main { font-size: 1.25rem; letter-spacing: 0.18em; text-transform: uppercase; }
-        .logo-sub { font-size: 0.75rem; letter-spacing: 0.22em; color: var(--gold); }
+        .logo-sub { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
 
         nav.main-nav {
             display: flex; gap: 1.5rem;
@@ -154,9 +154,8 @@
         .section-heading {
             font-size:1.45rem; letter-spacing:0.17em;
             text-transform:uppercase;
-            margin-bottom:1.1rem; /* wieder korrekter großer Abstand */
+            margin-bottom:1.1rem;
         }
-
         .section-heading span { color:#fff; }
 
         .section-lead {
@@ -166,7 +165,7 @@
         }
 
         /* -----------------------------------------
-           STORY-BILD (proportional kleinere Höhe)
+           STORY-BILD – PROPORTIONAL & NICHT VERZERRT
         ----------------------------------------- */
         .story-layout {
             display:grid;
@@ -179,21 +178,27 @@
             border-radius:1.4rem;
             overflow:hidden;
             box-shadow:0 0 18px rgba(0,0,0,0.45);
-            max-height:190px;   /* entspricht ca. 7 Textzeilen */
             width:100%;
         }
 
         .story-image-frame img {
-            width:100%;
-            height:100%;
-            object-fit:cover;
-            object-position:center;
+            max-height:190px;          /* ca. Höhe von 7 Textzeilen auf Desktop */
+            width:auto;
+            max-width:100%;
+            height:auto;               /* immer proportional */
+            display:block;
         }
 
         @media(max-width:900px){
             .story-layout { grid-template-columns:1fr; }
-            .section-heading, .story-layout p { text-align:center; }
-            .story-image-frame { max-height:none; }
+            .section-heading,
+            .story-layout p { text-align:center; }
+
+            .story-image-frame img {
+                max-height:none;      /* mobil darf grösser sein */
+                width:100%;
+                height:auto;
+            }
         }
 
         /* -----------------------------------------
@@ -203,10 +208,6 @@
             display:grid; grid-template-columns:repeat(3,1fr);
             gap:1.6rem;
         }
-        @media(max-width:900px){
-            .highlight-grid { grid-template-columns:1fr; text-align:center; }
-        }
-
         .highlight-card {
             background:rgba(0,0,0,0.18);
             border-radius:1rem;
@@ -221,6 +222,11 @@
             margin-bottom:0.6rem;
         }
 
+        @media(max-width:900px){
+            .highlight-grid { grid-template-columns:1fr; }
+            .highlight-card { text-align:center; }
+        }
+
         /* -----------------------------------------
            CTA
         ----------------------------------------- */
@@ -228,12 +234,23 @@
         .cta-btn-row { margin-top:1.5rem; }
 
         /* -----------------------------------------
-           FOOTER (perfekt zentriert + richtige Abstände)
+           ACTION-BEREICH – MOBILE ZENTRIERUNG
+        ----------------------------------------- */
+        @media(max-width:900px){
+            .action-section .inner > div { text-align:center; }
+            .action-section p {
+                margin-left:auto;
+                margin-right:auto;
+            }
+        }
+
+        /* -----------------------------------------
+           FOOTER (Abstände enger, mobil zentriert)
         ----------------------------------------- */
         footer.site-footer {
             background:#10140c;
             margin-top:auto;
-            padding:1.4rem 0 1.2rem;
+            padding:1.2rem 0 1.1rem;
             font-size:0.85rem;
         }
 
@@ -243,26 +260,26 @@
             display:flex;
             flex-direction:column;
             align-items:center;
-            gap:0.6rem;
+            gap:0.35rem;   /* enger */
             text-align:center;
         }
 
-        /* Zeile 1 – kompakt */
-        .footer-top {
+        .footer-top,
+        .footer-bottom {
             display:flex;
             justify-content:space-between;
             width:100%;
         }
 
-        /* Abstand reduziert */
-        .footer-top div { margin:0; }
+        .footer-top div,
+        .footer-bottom div { margin:0; }
 
-        /* Logo exakt zentriert */
+        /* Logo perfekt zentriert */
         .footer-logo-wrapper {
             display:flex;
             justify-content:center;
             width:100%;
-            margin:0.3rem 0;
+            margin:0.15rem 0;  /* kleiner Abstand */
         }
 
         .footer-logo {
@@ -280,22 +297,13 @@
             box-shadow:0 0 28px rgba(0,0,0,0.8);
         }
 
-        /* Zeile 3 – kompakt */
-        .footer-bottom {
-            display:flex;
-            justify-content:space-between;
-            width:100%;
-        }
-
-        /* Abstand stark reduziert */
-        .footer-bottom div { margin:0; }
-
         @media(max-width:600px){
             .footer-top,
             .footer-bottom {
                 flex-direction:column;
-                gap:0.2rem;
+                gap:0.15rem;          /* sehr kleine vertikale Abstände */
                 text-align:center;
+                align-items:center;
             }
         }
 
@@ -438,7 +446,7 @@
                     </div>
 
                     <div class="story-image-frame">
-                        <img src="frischer-ingwer.jpg" alt="">
+                        <img src="frischer-ingwer.jpg" alt="Frischer Ingwer">
                     </div>
                 </div>
             </div>
@@ -470,7 +478,7 @@
 
             <!-- LOGO -->
             <div class="footer-logo-wrapper">
-                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Logo Pure Root Switzerland">
             </div>
 
             <!-- Zeile 3 -->
@@ -518,6 +526,8 @@ overlayBox.addEventListener("click",()=> overlayBox.classList.remove("show"));
 
 </body>
 </html>
+
+
 
 
 
