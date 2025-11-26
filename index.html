@@ -192,6 +192,7 @@ nav.main-nav a.active::after {
     margin: 0 auto;
 }
 
+/* MOBILE HERO */
 @media(max-width:720px){
     .hero-inner { text-align:center; }
     .hero-tagline, .hero-title, .hero-subtitle, .hero-text {
@@ -199,6 +200,11 @@ nav.main-nav a.active::after {
         margin-right:auto;
     }
     .hero-cta-row { justify-content:center; }
+}
+
+/* 🔥 MOBILE: BUTTON-ABSTAND HINZUGEFÜGT */
+@media(max-width:720px){
+    .hero-cta-row { margin-top:1.5rem; }
 }
 
 /* ACTION SECTION */
@@ -222,9 +228,7 @@ nav.main-nav a.active::after {
     margin-bottom:1.1rem;
     color:#ffffff !important;
 }
-.section-heading span {
-    color:#ffffff !important;
-}
+.section-heading span { color:#ffffff !important; }
 
 /* STORY-BILD unter Text */
 .story-layout {
@@ -239,7 +243,7 @@ nav.main-nav a.active::after {
     .section-lead { margin-left:auto; margin-right:auto; }
 }
 
-/* HIGHLIGHTS: IMMER untereinander */
+/* HIGHLIGHTS: untereinander */
 .highlight-grid {
     display:grid;
     grid-template-columns:1fr;
@@ -462,7 +466,6 @@ footer.site-footer {
                         </p>
                     </div>
 
-                    <!-- Bild unter Text -->
                     <div class="story-image-frame">
                         <img src="frischer-ingwer.jpg" alt="Frischer Ingwer">
                     </div>
@@ -539,6 +542,7 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
 
 
 
