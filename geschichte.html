@@ -16,47 +16,56 @@
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
-* { margin:0; padding:0; box-sizing:border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html, body { max-width:100vw; overflow-x:hidden; }
+html, body { max-width: 100vw; overflow-x: hidden; }
 
 body {
-    font-family:"Lora","Georgia",serif;
-    background:var(--green-dark);
-    color:#fdfdf8;
-    line-height:1.6;
+    font-family: "Lora", "Georgia", serif;
+    background: var(--green-dark);
+    color: #fdfdf8;
+    line-height: 1.6;
 }
 
-img { max-width:100%; display:block; }
-a { color:inherit; text-decoration:none; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
 
 .page-wrapper {
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* ================= HEADER (NICHT ÄNDERN!) ================= */
+/* ================= HEADER – EXAKT WIE INDEX ================= */
 header.site-header {
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:rgba(30,40,24,0.96);
-    box-shadow:var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(30,40,24,0.96);
+    box-shadow: var(--shadow);
 }
 
 .header-inner {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.75rem 1.5rem;
     max-width:1100px;
     margin:0 auto;
-    padding:0.75rem 1.5rem;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
 }
 
-.logo-block { display:flex; flex-direction:column; gap:0.1rem; }
-.logo-main { font-size:1.25rem; letter-spacing:0.18em; text-transform:uppercase; }
-.logo-sub  { font-size:0.75rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); }
+.logo-block { display:flex; flex-direction:column; gap:0.15rem; }
+.logo-main {
+    font-size:1.25rem;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+}
+.logo-sub {
+    font-size:0.75rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+}
 
 nav.main-nav {
     display:flex;
@@ -67,8 +76,8 @@ nav.main-nav {
 }
 
 nav.main-nav a {
-    position:relative;
     padding-bottom:0.1rem;
+    position:relative;
 }
 
 nav.main-nav a::after {
@@ -76,7 +85,7 @@ nav.main-nav a::after {
     position:absolute;
     left:0;
     bottom:0;
-    width:0;
+    width:0%;
     height:1px;
     background:var(--gold);
     transition:0.3s ease;
@@ -89,294 +98,313 @@ nav.main-nav a.active::after {
 
 .nav-toggle { display:none; }
 
+@media(max-width:720px){
+    .nav-toggle {
+        display:inline-flex;
+        padding:0.3rem 0.6rem;
+        border:1px solid rgba(255,255,255,0.3);
+        border-radius:999px;
+        background:transparent;
+        color:#fff;
+        font-size:0.8rem;
+        letter-spacing:0.16em;
+        text-transform:uppercase;
+        cursor:pointer;
+    }
+
+    nav.main-nav {
+        position:absolute;
+        top:100%; right:0;
+        background:rgba(30,40,24,0.98);
+        padding:0.9rem 1.2rem;
+        flex-direction:column;
+        align-items:flex-end;
+        gap:0.7rem;
+        opacity:0;
+        transform:translateY(-8px);
+        pointer-events:none;
+        transition:0.25s ease;
+    }
+
+    nav.main-nav.open {
+        opacity:1;
+        transform:translateY(0);
+        pointer-events:auto;
+    }
+}
+
 /* ================= HERO ================= */
 .hero {
-    position:relative;
-    min-height:80vh;
-    display:flex;
-    align-items:center;
+    position: relative;
+    overflow: hidden;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: #fdfdf8;
 }
 
 .hero-bg {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: -2;
 }
 
 .hero-overlay {
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to bottom,rgba(0,0,0,0.55),rgba(0,0,0,0.75));
-    z-index:-1;
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(0,0,0,0.15), transparent 40%),
+        linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
+    z-index: -1;
 }
 
 .hero-inner {
-    max-width:1100px;
-    padding:4.5rem 1.5rem;
-    display:flex;
-    flex-direction:column;
-    gap:0.9rem;
-    text-align:left;
-
-    /* Desktop perfekte Fluchtlinie */
-    padding-left: calc((100vw - 1100px) / 2 + 1.5rem);
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    padding: 4.5rem 1.5rem 3.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    text-align: left;
 }
 
-.hero-tagline { color:var(--gold); font-size:0.85rem; letter-spacing:0.22em; text-transform:uppercase; }
-.hero-title { font-size:clamp(2.2rem,4vw,2.9rem); letter-spacing:0.2em; text-transform:uppercase; }
-.hero-subtitle { font-size:0.9rem; letter-spacing:0.16em; text-transform:uppercase; color:#f8f3dd; }
-.hero-text { max-width:620px; }
+.hero-tagline {
+    font-size: 0.85rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
 
-/* ================= STORY ================= */
+.hero-title {
+    font-size: clamp(2.2rem, 4vw, 2.9rem);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #f8f3dd;
+}
+
+.hero-text {
+    max-width: 620px;
+    font-size: 0.98rem;
+    margin-top: 0.4rem;
+}
+
+.hero-cta-row {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.65rem 1.8rem;
+    border-radius: 999px;
+    border: none;
+    background: var(--gold);
+    color: #18140b;
+    font-size: 0.9rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 0 18px rgba(0,0,0,0.5);
+    transition: 0.22s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 24px rgba(0,0,0,0.7);
+}
+
+@media (max-width: 720px) {
+    .hero {
+        min-height: 88vh;
+        justify-content: center;
+    }
+
+    .hero-inner {
+        text-align: center;
+    }
+
+    .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta-row {
+        justify-content: center;
+    }
+}
+
+/* ================= STORY-BEREICH ================= */
 .page-background {
-    background:linear-gradient(rgba(0,0,0,0.48),rgba(0,0,0,0.72)), url("hintergrund.jpg") center/cover fixed;
-    padding-bottom:80px;
+    background:
+        linear-gradient(rgba(0,0,0,0.48), rgba(0,0,0,0.72)),
+        url("hintergrund.jpg") center/cover fixed;
+    padding-bottom: 80px;
+}
+
+section {
+    padding: 2.5rem 0;
 }
 
 .story-layout {
-    max-width:1100px;
-    margin:0 auto;
-    padding:2.5rem 1.5rem;
-    display:flex;
-    gap:2.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 2.6rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
 }
 
 .story-img {
-    width:38%;
-    max-width:380px;
-    border-radius:1.4rem;
+    width: 38%;
+    max-width: 380px;
+    border-radius: 1.4rem;
+    box-shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
-.story-text-block { flex:1; }
+.story-text-block {
+    flex: 1;
+}
 
-.section-heading { font-size:1.4rem; letter-spacing:0.18em; text-transform:uppercase; margin-bottom:1.5rem; }
-.section-heading span { color:var(--gold); }
-.section-text { max-width:720px; margin-bottom:1.4rem; }
+@media (max-width: 900px) {
+    .story-layout {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+    }
+
+    .story-img {
+        width: 75%;
+        max-width: 420px;
+    }
+}
+
+.section-heading {
+    font-size: 1.4rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.section-heading span {
+    color: var(--gold);
+}
+
+.section-text {
+    max-width: 720px;
+    margin-bottom: 1.4rem;
+}
 
 /* ================= FOOTER ================= */
 footer.site-footer {
-    background:#10140c;
-    margin-top:auto;
-    padding:1.6rem 0 1.2rem;
-    font-size:0.85rem;
+    background: #10140c;
+    margin-top: auto;
+    padding: 1.6rem 0 1.2rem;
+    font-size: 0.85rem;
 }
 
 .footer-inner {
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 1.5rem;
-    display:flex;
-    justify-content:space-between;
-    gap:1.2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .footer-left {
-    display:flex;
-    flex-direction:column;
-    gap:0.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
 }
 
-.footer-nav { display:flex; gap:0.8rem; opacity:0.95; }
+.footer-nav {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    opacity: 0.95;
+}
+
+.footer-logo-wrap {
+    display: flex;
+    justify-content: center;
+}
 
 .footer-logo {
-    width:78px;
-    height:78px;
-    border-radius:50%;
-    border:3px solid #000;
-    object-fit:cover;
-    cursor:pointer;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    border: 3px solid #000;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.25s ease;
 }
 
-.footer-contact { text-align:right; }
+.footer-logo:hover {
+    transform: scale(1.08);
+}
 
-/* ================= MOBILE – ALLES ZENTRIERT (AUSSER NAVIGATION) ================= */
-@media(max-width:720px){
+.footer-contact {
+    text-align: right;
+    font-size: 0.85rem;
+}
 
-    /* HERO */
-    .hero-inner {
-        text-align:center !important;
-        margin-left:auto !important;
-        margin-right:auto !important;
-        padding-left:1.5rem !important;
-    }
+.footer-contact a {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
 
-    /* STORY */
+@media (max-width: 720px) {
     .story-layout {
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
 
     .story-text-block,
     .section-text,
     .section-heading {
-        text-align:center;
-        margin-left:auto;
-        margin-right:auto;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    /* FOOTER */
     .footer-inner {
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.6rem;
+        text-align: center;
     }
 
-    .footer-left,
     .footer-contact {
-        text-align:center;
-        align-items:center;
+        text-align: center;
     }
 }
 
-/* ================= OVERLAY ================= */
+/* ================= OVERLAY (Logo-Info) ================= */
 .overlay-bg {
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.78);
-    display:none;
-    align-items:center;
-    justify-content:center;
-}
+    position: fixe
 
-.overlay-bg.show { display:flex; }
 
-.overlay-box {
-    max-width:620px;
-    padding:2rem;
-    text-align:center;
-    color:#fff;
-}
-
-.overlay-logo {
-    width:260px;
-    height:260px;
-    object-fit:cover;
-    border-radius:50%;
-    border:5px solid #000;
-}
-    </style>
-</head>
-
-<body>
-
-<div class="page-wrapper">
-
-<!-- HEADER (NICHT ZENTRIEREN!) -->
-<header class="site-header">
-    <div class="header-inner">
-        <div class="logo-block">
-            <div class="logo-main">PURE ROOT SWITZERLAND</div>
-            <div class="logo-sub">ORGANIC GINGER</div>
-        </div>
-
-        <nav class="main-nav">
-            <a href="index.html">Home</a>
-            <a href="crowdfunding.html">Crowdfunding</a>
-            <a href="geschichte.html" class="active">Geschichte</a>
-            <a href="updates.html">Updates</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
-    </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-    <img class="hero-bg" src="fruchtbarkeit.webp" alt="" fetchpriority="high">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-inner">
-        <p class="hero-tagline">A New Beginning</p>
-        <h1 class="hero-title">Meine Geschichte</h1>
-        <p class="hero-subtitle">Ein persönlicher Weg zu Pure Root Switzerland</p>
-
-        <p class="hero-text">
-            Nach meiner Krebserkrankung wollte ich etwas tun, das Sinn ergibt –  
-            etwas, das nachhaltig ist, Menschen verbindet und Zukunft schafft.
-        </p>
-
-        <div class="hero-cta-row">
-            <a href="#story" class="btn-primary">Weiterlesen</a>
-        </div>
-    </div>
-</section>
-
-<!-- STORY -->
-<div class="page-background">
-    <section id="story">
-        <div class="story-layout">
-
-            <img src="meinfotosw.jpg" loading="lazy" class="story-img">
-
-            <div class="story-text-block">
-                <h2 class="section-heading">Warum <span>dieses Projekt</span> persönlich ist</h2>
-
-                <p class="section-text">
-                    Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt.
-                    Die Genesung war ein langer Weg – körperlich, aber auch mental.
-                </p>
-
-                <p class="section-text">
-                    Genau daraus entstand die Idee für dieses Projekt:
-                    ein Neuanfang mit Natur, Verantwortung und einer klaren Vision –
-                    nachhaltigen Bio-Ingwer auf den Azoren anzubauen.
-                </p>
-
-                <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
-            </div>
-
-        </div>
-    </section>
-</div>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="footer-inner">
-
-        <div class="footer-left">
-            <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a>
-            <div class="footer-nav">
-                <a href="datenschutz.html">Datenschutz</a> ·
-                <a href="impressum.html">Impressum</a>
-            </div>
-        </div>
-
-        <img src="logo2.jpg" loading="lazy" class="footer-logo" id="footerLogo">
-
-        <div class="footer-contact">
-            <div>Luzern, Switzerland</div>
-            <div>&copy; 2025 Pure Root Switzerland</div>
-        </div>
-    </div>
-</footer>
-
-</div>
-
-<!-- OVERLAY -->
-<div class="overlay-bg" id="overlayBox">
-    <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo">
-        <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
-            Danach bleibt meist nur Importware aus Übersee.<br>
-            Dieses Projekt setzt auf nachhaltigen Anbau aus europäischer Nähe.
-        </p>
-    </div>
-</div>
-
-<script>
-const footerLogo = document.getElementById("footerLogo");
-const overlayBox = document.getElementById("overlayBox");
-
-footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
-overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
-</script>
-
-</body>
-</html>
 
 
 
