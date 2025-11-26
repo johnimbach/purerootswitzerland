@@ -296,6 +296,7 @@ nav.main-nav a.active::after {
     align-items:center;
 }
 
+/* KORREKTES INGWER-FOTO */
 .story-image-frame {
     border-radius:1.4rem;
     overflow:hidden;
@@ -374,10 +375,7 @@ footer.site-footer {
     }
 }
 
-/* ------------------
-   OVERLAY (Logo Info)
-------------------- */
-
+/* OVERLAY (Logo Info) – NEU */
 .overlay-bg {
     position: fixed;
     inset: 0;
@@ -385,6 +383,7 @@ footer.site-footer {
     display: none;
     align-items: center;
     justify-content: center;
+    text-align:center;
     z-index: 9999;
 }
 
@@ -406,6 +405,9 @@ footer.site-footer {
     border: 5px solid #000;
     object-fit: cover;
     margin-bottom: 1.4rem;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
 }
 </style>
 </head>
@@ -595,6 +597,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
