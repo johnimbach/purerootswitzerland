@@ -28,7 +28,7 @@
 
         .inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
 
-        /* HEADER – wie Index */
+        /* HEADER */
         header.site-header {
             position:sticky;
             top:0;
@@ -99,9 +99,7 @@
             box-shadow:0 0 16px rgba(0,0,0,0.4);
         }
 
-        /* -------------------------------------------
-           HERO – jetzt Desktop linksbündig wie Index
-        -------------------------------------------- */
+        /* HERO */
         .hero {
             position:relative;
             min-height:80vh;
@@ -127,14 +125,10 @@
             padding:4.5rem 1.5rem 3rem;
         }
 
-        /* DESKTOP = LINKS */
         @media(min-width:721px){
             .hero-inner { text-align:left; }
-            .hero-text { margin-left:0; }
             .hero-cta-row { justify-content:flex-start; }
         }
-
-        /* MOBILE = ZENTRIERT (unverändert) */
         @media(max-width:720px){
             .hero-inner { text-align:center; }
             .hero-cta-row { justify-content:center; }
@@ -146,251 +140,10 @@
         .hero-text    { max-width:700px; margin-top:0.8rem; opacity:0.95; }
         .hero-cta-row { margin-top:1.8rem; display:flex; }
 
-        /* ACTION-BEREICH (unverändert) */
-        .page-background {
-            background:
-                linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-                url("hintergrund.jpg") center/cover fixed;
-            padding-bottom:3rem;
-        }
+        /* ACTION-BEREICH */
+        .pag
 
-        section { padding:2.4rem 0; }
-        .section-heading { text-align:center; margin-bottom:1.2rem; letter-spacing:0.14em; }
-        .section-text { text-align:center; max-width:760px; margin:0 auto; opacity:0.95; }
 
-        .spendenbarometer {
-            max-width:900px; margin:0 auto;
-            padding:3rem 1rem 1rem;
-            text-align:center;
-        }
-
-        .bar-container {
-            width:100%; height:22px;
-            border-radius:50px;
-            border:1px solid rgba(255,255,255,0.25);
-            background:rgba(0,0,0,0.25);
-            overflow:hidden;
-        }
-        .bar-fill {
-            height:100%; width:0%; background:var(--gold);
-            transition:width 1.4s ease-out;
-        }
-
-        .pay-container {
-            display:flex; flex-wrap:wrap;
-            justify-content:center; gap:1.4rem;
-            margin-top:2rem;
-        }
-        .pay-box {
-            width:320px;
-            background:rgba(0,0,0,0.25);
-            border:1px solid rgba(255,255,255,0.18);
-            border-radius:1rem;
-            padding:1.4rem; text-align:center;
-        }
-
-        /* FOOTER – wie Index */
-        footer.site-footer {
-            background:#10140c;
-            padding:1.1rem 0 1.3rem;
-            margin-top:auto;
-            font-size:0.85rem;
-        }
-        .footer-inner {
-            max-width:1100px; margin:0 auto;
-            padding:0 1.5rem;
-            display:flex; justify-content:space-between; align-items:flex-end;
-        }
-        .footer-column { display:flex; flex-direction:column; gap:0.17rem; }
-        .footer-left  { align-items:flex-start; text-align:left; }
-        .footer-center{ align-items:center; }
-        .footer-right { align-items:flex-end; text-align:right; }
-
-        .footer-logo {
-            width:78px; height:78px;
-            border-radius:50%; border:3px solid #000;
-            object-fit:cover;
-            box-shadow:0 0 18px rgba(0,0,0,0.55);
-        }
-
-        @media(max-width:700px){
-            .footer-inner {
-                flex-direction:column;
-                align-items:center;
-                text-align:center;
-                gap:0.4rem;
-            }
-            .footer-column { align-items:center; }
-        }
-    </style>
-</head>
-
-<body>
-
-<div class="page-wrapper">
-
-    <!-- HEADER -->
-    <header class="site-header">
-        <div class="header-inner">
-
-            <div class="logo-block">
-                <div class="logo-main">PURE ROOT SWITZERLAND</div>
-                <div class="logo-sub">ORGANIC GINGER</div>
-            </div>
-
-            <button class="nav-toggle" onclick="toggleNav()">Menü</button>
-
-            <nav class="main-nav" id="mainNav">
-                <a href="index.html">Home</a>
-                <a href="crowdfunding.html" class="active">Crowdfunding</a>
-                <a href="geschichte.html">Geschichte</a>
-                <a href="updates.html">Updates</a>
-                <a href="kontakt.html">Kontakt</a>
-            </nav>
-
-        </div>
-    </header>
-
-    <!-- HERO (Desktop jetzt linksbündig) -->
-    <section class="hero">
-        <img src="fruchtbarkeit.webp" class="hero-bg">
-        <div class="hero-overlay"></div>
-
-        <div class="hero-inner">
-
-            <p class="hero-tagline">Support the First Azores Ginger Project</p>
-
-            <h1 class="hero-title">Crowdfunding für den Bio-Ingwer-Testanbau</h1>
-
-            <p class="hero-sub">
-                Gemeinsam ermöglichen wir nachhaltigen Bio-Ingwer aus europäischer Nähe.
-            </p>
-
-            <p class="hero-text">
-                Dieses Crowdfunding finanziert Bewässerung, Weizenfolie, Bodenanalyse,
-                Pflanzenmaterial und die ersten Schritte zur Bio-Zertifizierung.
-            </p>
-
-            <div class="hero-cta-row">
-                <a href="#unterstuetzen" class="btn-primary">Jetzt unterstützen</a>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ACTION-BEREICH (komplett unverändert) -->
-    <div class="page-background">
-
-        <div class="spendenbarometer">
-            <h2 class="section-heading">Aktueller Stand</h2>
-
-            <div class="section-text">
-                <strong>Spendenziel:</strong> 7’500 CHF<br>
-                <strong>Bereits erreicht:</strong> <span id="betragText">1’500 CHF</span>
-            </div>
-
-            <div id="percentText" class="percent-label"></div>
-
-            <div class="bar-container">
-                <div class="bar-fill" id="barFill"></div>
-            </div>
-        </div>
-
-        <section>
-            <div class="inner">
-                <h2 class="section-heading">Wofür ich deine Unterstützung benötige</h2>
-                <p class="section-text">
-                    Der Testanbau umfasst Bewässerung, Folie, Analyse,
-                    Pflanzenmaterial, Werkzeuge, Logistik und die ersten Schritte
-                    zur Bio-Zertifizierung.
-                </p>
-            </div>
-        </section>
-
-        <section id="unterstuetzen">
-            <div class="inner">
-
-                <h2 class="section-heading">Jetzt unterstützen</h2>
-                <p class="section-text">
-                    Du kannst direkt per Banküberweisung oder TWINT unterstützen.
-                </p>
-
-                <div class="pay-container">
-
-                    <div class="pay-box">
-                        <h3>Banküberweisung</h3>
-                        <p><strong>Kontoinhaber:</strong><br>John René Imbach</p>
-                        <p><strong>IBAN:</strong><br>CH25 0079 0042 6264 1883 2</p>
-                        <p><strong>Bank:</strong><br>BEKB</p>
-                        <p><strong>Verwendungszweck:</strong><br>Ingwer Projekt</p>
-                    </div>
-
-                    <div class="pay-box">
-                        <h3>TWINT</h3>
-                        <img src="qr.jpg" style="width:220px; border-radius:12px; margin:auto;">
-                        <p style="opacity:0.85; margin-top:0.5rem;">Bitte QR-Code scannen</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="inner">
-                <h2 class="section-heading">Warum dieses Projekt wichtig ist</h2>
-                <p class="section-text">
-                    Fast aller Ingwer kommt von Übersee – lange Wege,
-                    geringere Frische.
-                    São Miguel ermöglicht nachhaltig angebauten Bio-Ingwer
-                    aus europäischer Nähe.
-                </p>
-            </div>
-        </section>
-
-    </div>
-
-    <!-- FOOTER (wie Index) -->
-    <footer class="site-footer">
-        <div class="footer-inner">
-
-            <div class="footer-column footer-left">
-                <div>info@purerootswitzerland.ch</div>
-                <div>
-                    <a href="datenschutz.html">Datenschutz</a> ·
-                    <a href="impressum.html">Impressum</a>
-                </div>
-            </div>
-
-            <div class="footer-column footer-center">
-                <img src="logo2.jpg" class="footer-logo" alt="">
-            </div>
-
-            <div class="footer-column footer-right">
-                <div>Luzern, Switzerland</div>
-                <div>© 2025 Pure Root Switzerland</div>
-            </div>
-
-        </div>
-    </footer>
-
-</div>
-
-<script>
-function toggleNav(){
-    document.getElementById("mainNav").classList.toggle("open");
-}
-
-let betrag = 1500;
-let ziel = 7500;
-let prozent = Math.min((betrag/ziel)*100,100);
-
-document.getElementById("barFill").style.width = prozent + "%";
-document.getElementById("betragText").innerText = betrag.toLocaleString("de-CH") + " CHF";
-document.getElementById("percentText").innerText = prozent.toFixed(0) + "% erreicht";
-</script>
-
-</body>
-</html>
 
 
 
