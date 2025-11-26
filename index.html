@@ -296,7 +296,6 @@ nav.main-nav a.active::after {
     align-items:center;
 }
 
-/* KORREKTES INGWER-FOTO */
 .story-image-frame {
     border-radius:1.4rem;
     overflow:hidden;
@@ -375,28 +374,38 @@ footer.site-footer {
     }
 }
 
-/* MOBILE: ACTION-BEREICH ZENTRIEREN */
-@media(max-width:720px){
+/* ------------------
+   OVERLAY (Logo Info)
+------------------- */
 
-    .section-heading,
-    .section-lead,
-    .action-inner p,
-    .highlight-card,
-    .cta-block {
-        text-align:center;
-    }
+.overlay-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.78);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
 
-    .highlight-grid {
-        grid-template-columns:1fr;
-    }
+.overlay-bg.show {
+    display: flex;
+}
 
-    .story-layout {
-        grid-template-columns:1fr;
-    }
+.overlay-box {
+    max-width: 620px;
+    padding: 2rem;
+    text-align: center;
+    color: #fff;
+}
 
-    .story-image-frame {
-        margin:0 auto;
-    }
+.overlay-logo {
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    object-fit: cover;
+    margin-bottom: 1.4rem;
 }
 </style>
 </head>
@@ -555,16 +564,39 @@ footer.site-footer {
         </div>
     </footer>
 
+    <!-- OVERLAY -->
+    <div class="overlay-bg" id="overlayBox">
+        <div class="overlay-box">
+            <img src="logo2.jpg" class="overlay-logo" alt="">
+            <p>
+                <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
+                Danach bleibt meist nur Importware aus Übersee – lange unterwegs, weniger frisch.<br><br>
+                Dieses Projekt möchte das ändern: nachhaltig angebauter Bio-Ingwer aus europäischer Nähe.
+            </p>
+        </div>
+    </div>
+
 </div>
 
 <script>
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
+
+const footerLogo = document.getElementById("footerLogo");
+const overlayBox = document.getElementById("overlayBox");
+
+if (footerLogo && overlayBox) {
+    footerLogo.addEventListener("mouseenter", () => overlayBox.classList.add("show"));
+    footerLogo.addEventListener("click", () => overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
+}
 </script>
 
 </body>
 </html>
+
+
 
 
 
