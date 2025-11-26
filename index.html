@@ -233,20 +233,20 @@ section { padding:2.4rem 0; }
     line-height:1.6;
 }
 
-/* HIGHLIGHTS GRID */
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3, 1fr);
     gap:1.5rem;
     margin-top:2rem;
 }
+
 .highlight-card {
     background:rgba(0,0,0,0.25);
     padding:1.4rem;
     border:1px solid rgba(255,255,255,0.18);
     border-radius:1rem;
-    text-align:left;
 }
+
 .highlight-title {
     font-size:1.15rem;
     margin-bottom:0.6rem;
@@ -260,6 +260,7 @@ section { padding:2.4rem 0; }
     gap:2rem;
     margin-top:2rem;
 }
+
 .story-image-frame {
     width:100%;
     max-width:460px;
@@ -271,7 +272,6 @@ section { padding:2.4rem 0; }
 /* CTA BLOCK */
 .cta-block {
     margin-top:3rem;
-    text-align:left;
 }
 
 /* FOOTER */
@@ -281,26 +281,23 @@ footer.site-footer {
     font-size:0.85rem;
     margin-top:auto;
 }
+
 .footer-inner {
     max-width:1100px;
     margin:0 auto;
     padding:0 1.5rem;
-
-    /* ===== ZENTRIERTER FOOTER ===== */
     display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-    gap:0.7rem;
+    justify-content:space-between;
+    align-items:flex-end;
 }
 
 .footer-column {
     display:flex;
     flex-direction:column;
     gap:0.17rem;
-    align-items:center;
-    text-align:center;
 }
+
+.footer-right { text-align:right; }
 
 .footer-logo {
     width:78px;
@@ -312,7 +309,7 @@ footer.site-footer {
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 
-/* MOBILE: ACTION-BEREICH ZENTRIEREN */
+/* ⭐ MOBILE: ACTION-BEREICH KOMPLETT ZENTRIEREN */
 @media(max-width:720px){
 
     .action-heading,
@@ -366,7 +363,7 @@ footer.site-footer {
 
     <!-- HERO -->
     <section class="hero">
-        <img src="hero.jpg" class="hero-bg" alt="">
+        <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
         <div class="hero-overlay"></div>
 
         <div class="hero-inner">
@@ -388,7 +385,6 @@ footer.site-footer {
     <!-- ACTION BEREICH -->
     <div class="page-background">
 
-        <!-- Abschnitt 1 -->
         <section>
             <div class="inner">
                 <h2 class="action-heading">Was dieses Projekt ausmacht</h2>
@@ -398,6 +394,7 @@ footer.site-footer {
                 </p>
 
                 <div class="highlight-grid">
+
                     <div class="highlight-card">
                         <h3 class="highlight-title">1. Frisch & Aromatisch</h3>
                         <p>Azorischer Ingwer ist weicher, aromatischer und nachhaltiger als importierte Ware.</p>
@@ -412,7 +409,9 @@ footer.site-footer {
                         <h3 class="highlight-title">3. Europäische Produktion</h3>
                         <p>Bio-Anbau im milden Atlantik-Klima mit zwölf möglichen Ernten pro Jahr.</p>
                     </div>
+
                 </div>
+
             </div>
         </section>
 
@@ -420,6 +419,7 @@ footer.site-footer {
         <section>
             <div class="inner">
                 <div class="story-layout">
+
                     <div>
                         <h2 class="action-heading">Warum dieses Projekt besonders ist</h2>
                         <p class="action-text">
@@ -432,6 +432,7 @@ footer.site-footer {
                     <div class="story-image-frame">
                         <img src="story.jpg" alt="">
                     </div>
+
                 </div>
             </div>
         </section>
@@ -469,7 +470,7 @@ footer.site-footer {
                 <img src="logo2.jpg" id="footerLogo" class="footer-logo">
             </div>
 
-            <div class="footer-column">
+            <div class="footer-column footer-right">
                 <div>Luzern, Switzerland</div>
                 <div>© 2025 Pure Root Switzerland</div>
             </div>
@@ -487,6 +488,8 @@ function toggleNav(){
 
 </body>
 </html>
+
+
 
 
 
