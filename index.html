@@ -302,7 +302,7 @@ nav.main-nav a.active::after {
 .cta-block { margin-top:0.5rem; }
 .cta-btn-row { margin-top:0.9rem; }
 
-/* FOOTER */
+/* FOOTER – ORIGINAL NICHT ZENTRIERT */
 footer.site-footer {
     background:#10140c;
     padding:1.1rem 0 1.3rem;
@@ -327,7 +327,6 @@ footer.site-footer {
 
 .footer-left { text-align:left; }
 .footer-right { text-align:right; }
-
 .footer-center { align-items:center; }
 
 .footer-logo {
@@ -340,7 +339,7 @@ footer.site-footer {
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 
-/* MOBILE – ALLES UNTER DER NAVIGATION ZENTRIEREN */
+/* MOBILE – ALLES AUSSER FOOTER ZENTRIEREN */
 @media(max-width:720px){
 
     /* HERO */
@@ -379,14 +378,27 @@ footer.site-footer {
         margin:0 auto;
     }
 
-    /* FOOTER */
-    .footer-inner,
-    .footer-column,
-    .footer-left,
-    .footer-right {
+    /* FOOTER – NICHT ZENTRIERT, WIE VORHER */
+    .footer-inner {
+        flex-direction:column;
+        align-items:flex-start;
+        text-align:left;
+        gap:0.7rem;
+    }
+
+    .footer-left {
+        text-align:left;
+        align-items:flex-start;
+    }
+
+    .footer-center {
         text-align:center;
-        justify-content:center;
         align-items:center;
+    }
+
+    .footer-right {
+        text-align:left;
+        align-items:flex-start;
     }
 }
 
@@ -551,7 +563,7 @@ footer.site-footer {
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER — ORIGINAL NICHT ZENTRIERT -->
     <footer class="site-footer">
         <div class="footer-inner">
 
@@ -609,6 +621,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
