@@ -26,410 +26,232 @@
         }
 
         img { max-width: 100%; height: auto; display: block; }
-
         a { color: inherit; text-decoration: none; }
 
-        .page-wrapper {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+        .page-wrapper { min-height: 100vh; display: flex; flex-direction: column; }
+        .inner { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
 
-        .inner {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* HEADER & NAV */
+        /* HEADER */
         header.site-header {
             position: sticky;
             top: 0;
-            z-index: 50;
             background: rgba(30, 40, 24, 0.96);
             box-shadow: var(--shadow);
+            z-index: 50;
         }
 
         .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.75rem 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.75rem 1.5rem; max-width: 1100px; margin: 0 auto;
         }
 
         .logo-block { display: flex; flex-direction: column; gap: 0.15rem; }
-
-        .logo-main {
-            font-size: 1.25rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-        }
-
-        .logo-sub {
-            font-size: 0.75rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
+        .logo-main { font-size: 1.25rem; letter-spacing: 0.18em; text-transform: uppercase; }
+        .logo-sub { font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); }
 
         nav.main-nav {
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.9rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            display: flex; gap: 1.5rem;
+            font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase;
         }
 
         nav.main-nav a {
-            position: relative;
-            padding-bottom: 0.1rem;
+            position: relative; padding-bottom: 0.1rem;
         }
 
         nav.main-nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0px;
-            width: 0%;
-            height: 1px;
-            background: var(--gold);
+            content:""; position:absolute; left:0; bottom:0;
+            width:0%; height:1px; background:var(--gold);
             transition: width 0.3s ease;
         }
 
         nav.main-nav a:hover::after,
-        nav.main-nav a.active::after {
-            width: 100%;
-        }
+        nav.main-nav a.active::after { width:100%; }
 
-        .nav-toggle {
-            display: none;
-            cursor: pointer;
-            padding: 0.25rem 0.5rem;
-            border-radius: 999px;
-            border: 1px solid rgba(255,255,255,0.2);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-        }
+        .nav-toggle { display:none; }
 
-        @media (max-width: 720px) {
+        @media (max-width:720px){
+            .nav-toggle { display:inline-flex; cursor:pointer; padding:0.25rem 0.5rem; }
             nav.main-nav {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background: rgba(30, 40, 24, 0.98);
-                padding: 0.75rem 1.25rem 0.9rem;
-                flex-direction: column;
-                align-items: flex-end;
-                gap: 0.6rem;
-                transform: translateY(-10px);
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity 0.25s ease, transform 0.25s ease;
+                position:absolute; top:100%; right:0;
+                background:rgba(30,40,24,0.98);
+                flex-direction:column; padding:0.75rem 1.25rem;
+                opacity:0; pointer-events:none; transform:translateY(-10px);
+                transition:0.25s ease;
             }
-
-            nav.main-nav.open {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .nav-toggle { display: inline-flex; }
+            nav.main-nav.open { opacity:1; pointer-events:auto; transform:translateY(0); }
         }
 
-        /* BUTTONS */
+        /* BUTTON */
         .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.65rem 1.8rem;
-            border-radius: 999px;
-            background: var(--gold);
-            color: #1a1a12;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            border: none;
-            box-shadow: 0 0 16px rgba(0,0,0,0.4);
-            cursor: pointer;
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            white-space: nowrap;
+            padding:0.65rem 1.8rem; border-radius:999px;
+            background:var(--gold); color:#1a1a12;
+            font-size:0.9rem; letter-spacing:0.14em; text-transform:uppercase;
+            box-shadow:0 0 16px rgba(0,0,0,0.4);
+            transition:0.15s ease; cursor:pointer;
         }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 0 24px rgba(0,0,0,0.5);
-        }
+        .btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 24px rgba(0,0,0,0.5); }
 
         /* HERO */
         .hero {
-            position: relative;
-            overflow: hidden;
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fdfdf8;
+            min-height:80vh; display:flex; align-items:center; justify-content:center;
+            position:relative; color:#fff;
         }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-        }
-
+        .hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; }
         .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(0,0,0,0.15), transparent 40%),
-                        linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.75));
-            z-index: -1;
+            position:absolute; inset:0; z-index:-1;
+            background:linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.75));
         }
+        .hero-inner { max-width:1100px; padding:4.5rem 1.5rem 3.5rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .hero-tagline { color:var(--gold); font-size:0.85rem; letter-spacing:0.22em; }
+        .hero-title { font-size:clamp(2.2rem,4vw,2.9rem); letter-spacing:0.2em; text-transform:uppercase; }
+        .hero-subtitle { color:#f8f3dd; letter-spacing:0.16em; text-transform:uppercase; }
 
-        .hero-inner {
-            max-width: 1100px;
-            padding: 4.5rem 1.5rem 3.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.9rem;
-        }
+        .hero-cta-row { margin-top:1.5rem; }
 
-        .hero-tagline {
-            font-size: 0.85rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--gold);
-        }
-
-        .hero-title {
-            font-size: clamp(2.2rem, 4vw, 2.9rem);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        .hero-subtitle {
-            font-size: 0.9rem;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            color: #f8f3dd;
-        }
-
-        .hero-text { max-width: 620px; }
-
-        .hero-cta-row {
-            margin-top: 1.5rem;
-        }
-
-        /* SECTIONS */
-        section { padding: 2.5rem 0; }
-        section.section-tight { padding: 2rem 0; }
-
-        .section-heading {
-            font-size: 1.4rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .section-heading span { color: var(--gold); }
-
-        p.section-lead {
-            font-size: 1rem;
-            max-width: 720px;
-            margin-bottom: 1.4rem;
-        }
-
-        /* ACTION-BEREICH MIT HINTERGRUNDBILD */
+        /* ACTION-BEREICH */
         .action-section {
-            position: relative;
-            padding: 2.5rem 0 2.8rem;
-            overflow: hidden;
+            padding:2.5rem 0 2.8rem; position:relative; overflow:hidden;
         }
-
         .action-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: url("hintergrund.jpg") center center / cover no-repeat;
-            z-index: -2;
+            content:""; position:absolute; inset:0;
+            background:url("hintergrund.jpg") center/cover no-repeat;
+            z-index:-2;
         }
-
         .action-section::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(10, 18, 10, 0.7);
-            z-index: -1;
+            content:""; position:absolute; inset:0;
+            background:rgba(10,18,10,0.7); z-index:-1;
         }
 
-        .action-inner {
-            display: flex;
-            flex-direction: column;
-            gap: 2.5rem;
-        }
+        .action-inner { display:flex; flex-direction:column; gap:2.8rem; }
 
-        .action-block {
-            /* sorgt für ähnliche Abstände wie vorher */
-        }
+        .action-section .section-heading span { color:#fff !important; }
 
-        /* Nur in diesem Bereich: goldene Teile in Überschriften werden weiß */
-        .action-section .section-heading span {
-            color: #ffffff;
-        }
-
-        /* HIGHLIGHTS */
-        .highlights-block { }
-
-        .highlight-grid {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 1.6rem;
-        }
-
-        .highlight-card {
-            background: rgba(0,0,0,0.18);
-            border-radius: 1rem;
-            padding: 1.5rem 1.4rem 1.4rem;
-            box-shadow: 0 0 14px rgba(0,0,0,0.28);
-        }
-
-        .highlight-title {
-            font-size: 0.95rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            margin-bottom: 0.6rem;
-            color: var(--gold);
-        }
-
-        /* STORY IM ACTION-BEREICH */
-        .story-block { }
-
+        /* STORY — Bild exakt kleiner */
         .story-layout {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-            gap: 1.8rem;
-            align-items: center;
+            display:grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
+            gap:1.2rem; align-items:start;
         }
 
         .story-image-frame {
-            border-radius: 1.4rem;
-            overflow: hidden;
-            box-shadow: 0 0 18px rgba(0,0,0,0.45);
+            max-height:205px; /* entspricht ~7 Zeilen Text */
+            border-radius:1.4rem;
+            overflow:hidden;
+            box-shadow:0 0 18px rgba(0,0,0,0.45);
         }
 
-        @media (max-width: 900px) {
-            .story-layout { grid-template-columns: 1fr; }
+        .story-image-frame img {
+            width:100%; height:100%; object-fit:cover; object-position:center;
         }
 
-        /* CTA-TEIL IM ACTION-BEREICH */
-        .cta-block {
-            text-align: center;
+        @media(max-width:900px){
+            .story-layout{ grid-template-columns:1fr; }
+            .story-image-frame{ max-height:none; }
         }
 
-        .cta-block p {
-            max-width: 720px;
-            margin: 0 auto;
-        }
+        /* CTA */
+        .cta-block { text-align:center; }
+        .cta-btn-row { margin-top:1.5rem; }
 
-        .cta-btn-row {
-            margin-top: 1.5rem; /* gleicher Abstand wie im Hero */
-        }
-
-        /* FOOTER */
+        /* FOOTER NEU – GENAU NACH DEINER VORGABE */
         footer.site-footer {
-            background: #10140c;
-            margin-top: auto;
-            padding: 1.6rem 0 1.2rem;
-            font-size: 0.85rem;
+            background:#10140c;
+            margin-top:auto;
+            padding:1.6rem 0 1.2rem;
+            font-size:0.85rem;
         }
 
         .footer-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.75rem 1.5rem;
+            max-width:1100px;
+            margin:0 auto;
+            padding:0 1.5rem;
+
+            /* Footer in 3 Zeilen – perfekt zentriert */
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+            gap:0.7rem;
         }
 
-        .footer-left { display: flex; flex-direction: column; gap: 0.25rem; }
-
-        .footer-nav a {
-            margin-right: 0.9rem;
+        /* Zeile 1 */
+        .footer-top {
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            max-width:750px;
+            text-align:center;
         }
 
-        .footer-center {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .footer-contact {
-            text-align: left;
-        }
-
-        /* LOGO */
+        /* Zeile 2 – Logo exakt mittig */
         .footer-logo-wrapper {
-            margin: 0;
+            width:100%;
+            display:flex;
+            justify-content:center;
+            margin:0.2rem 0;
         }
 
         .footer-logo {
-            width: 78px;
-            height: 78px;
-            border-radius: 50%;
-            border: 3px solid #000;
-            cursor: pointer;
-            transition: transform 0.25s ease;
-            object-fit: cover;
+            width:78px;
+            height:78px;
+            border-radius:50%;
+            border:3px solid #000;
+            object-fit:cover;
+            cursor:pointer;
+
+            /* Hohl-Effekt */
+            box-shadow:0 0 18px rgba(0,0,0,0.55);
+            transition:0.25s ease;
+        }
+        .footer-logo:hover {
+            transform:scale(1.09);
+            box-shadow:0 0 28px rgba(0,0,0,0.8);
         }
 
-        .footer-logo:hover { transform: scale(1.09); }
+        /* Zeile 3 */
+        .footer-bottom {
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            max-width:750px;
+            text-align:center;
+        }
+
+        /* Links-Rechts Abstand bei kleinen Screens */
+        @media(max-width:600px){
+            .footer-top,
+            .footer-bottom {
+                flex-direction:column;
+                gap:0.4rem;
+                text-align:center;
+            }
+        }
 
         /* OVERLAY */
         .overlay-bg {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.78);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
+            position:fixed; inset:0; display:none;
+            align-items:center; justify-content:center;
+            background:rgba(0,0,0,0.78); z-index:9999;
         }
-
-        .overlay-bg.show { display: flex; }
+        .overlay-bg.show { display:flex; }
 
         .overlay-box {
-            max-width: 620px;
-            padding: 2rem;
-            text-align: center;
-            color: #fff;
-            animation: fadeIn 0.3s ease;
+            max-width:620px; padding:2rem; text-align:center;
+            color:#fff; animation:fadeIn 0.3s ease;
         }
 
         .overlay-logo {
-            width: 260px;
-            height: 260px;
-            border-radius: 50%;
-            border: 5px solid #000;
-            object-fit: cover;
-            margin-bottom: 1.4rem;
+            width:260px; height:260px;
+            border-radius:50%; border:5px solid #000;
+            object-fit:cover; margin-bottom:1.4rem;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.85); }
-            to { opacity: 1; transform: scale(1); }
+            from{ opacity:0; transform:scale(0.85); }
+            to{ opacity:1; transform:scale(1); }
         }
     </style>
 </head>
 <body>
+
 <div class="page-wrapper">
 
     <!-- HEADER -->
@@ -461,6 +283,7 @@
             <p class="hero-tagline">Fresh from the Azores</p>
             <h1 class="hero-title">Pure Root Switzerland</h1>
             <p class="hero-subtitle">Organic Ginger – aus europäischer Nähe</p>
+
             <p class="hero-text">
                 Frischer, europäischer Bio-Ingwer von den Azoren – nachhaltig angebaut 
                 und mit viel Herz in die Schweiz gebracht. Das Projekt startet mit einem 
@@ -473,12 +296,12 @@
         </div>
     </section>
 
-    <!-- GESAMTER ACTION-BEREICH MIT HINTERGRUND -->
+    <!-- ACTION-BEREICH -->
     <section class="action-section">
         <div class="inner action-inner">
 
-            <!-- Block 1: Was dieses Projekt ausmacht -->
-            <div class="action-block intro-block">
+            <!-- Block 1 -->
+            <div class="action-block">
                 <h2 class="section-heading">Was <span>dieses Projekt</span> ausmacht</h2>
 
                 <p class="section-lead">
@@ -487,17 +310,15 @@
                     Knospe-zertifizierten Ingwer aus europäischer Nähe in die Schweiz zu liefern.
                 </p>
 
-                <div class="intro-funding">
-                    <p>
-                        <strong>Mit deinem Beitrag finanzierst du</strong> den ersten nachhaltigen 
-                        Testanbau auf São Miguel – inklusive Bio-Zertifizierung, Bewässerungssystem 
-                        und Start-Infrastruktur.
-                    </p>
-                </div>
+                <p>
+                    <strong>Mit deinem Beitrag finanzierst du</strong> den ersten nachhaltigen 
+                    Testanbau auf São Miguel – inklusive Bio-Zertifizierung, Bewässerungssystem 
+                    und Start-Infrastruktur.
+                </p>
             </div>
 
-            <!-- Block 2: Drei Gründe für dieses Projekt -->
-            <div class="action-block highlights-block">
+            <!-- Block 2 -->
+            <div class="action-block">
                 <h2 class="section-heading">Drei <span>Gründe</span> für dieses Projekt</h2>
 
                 <div class="highlight-grid">
@@ -518,8 +339,8 @@
                 </div>
             </div>
 
-            <!-- Block 3: Warum dieses Projekt persönlich ist -->
-            <div class="action-block story-block">
+            <!-- Block 3 -->
+            <div class="action-block">
                 <h2 class="section-heading">Warum <span>dieses Projekt</span> persönlich ist</h2>
 
                 <div class="story-layout">
@@ -530,24 +351,24 @@
 
                         <p>
                             Unterstützt wird das Projekt unter anderem durch Kontakte zur
-                            <a href="https://www.uac.pt/" target="_blank" rel="noopener">Universidade dos Açores</a>.
+                            <a href="https://www.uac.pt/" target="_blank">Universidade dos Açores</a>.
                         </p>
                     </div>
 
                     <div class="story-image-frame">
-                        <img src="frischer-ingwer.jpg" loading="lazy" alt="">
+                        <img src="frischer-ingwer.jpg" alt="">
                     </div>
                 </div>
             </div>
 
-            <!-- Block 4: Jetzt den Testanbau möglich machen -->
+            <!-- Block 4 -->
             <div class="action-block cta-block">
-                <h2 class="section-heading">
-                    Jetzt <span>den Testanbau</span> möglich machen
-                </h2>
+                <h2 class="section-heading">Jetzt <span>den Testanbau</span> möglich machen</h2>
+
                 <p>
                     Dieses Crowdfunding ist der Startpunkt. Wenn der Testanbau gelingt, entsteht Schritt für Schritt ein stabiles Projekt für frischen Bio-Ingwer aus europäischer Nähe.
                 </p>
+
                 <div class="cta-btn-row">
                     <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
                 </div>
@@ -556,27 +377,29 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- FOOTER – FINAL VERSION -->
     <footer class="site-footer">
         <div class="footer-inner">
 
-            <div class="footer-left">
-                <div>&copy; <span id="yearSpan"></span> Pure Root Switzerland – Organic Ginger</div>
-                <div class="footer-nav">
-                    <a href="impressum.html">Impressum</a>
-                    <a href="datenschutz.html">Datenschutz</a>
-                </div>
+            <!-- Zeile 1 -->
+            <div class="footer-top">
+                <div>info@purerootswitzerland.ch</div>
+                <div>Luzern, Switzerland</div>
             </div>
 
-            <!-- LOGO + TEXT RECHTS DANEBEN -->
-            <div class="footer-center">
-                <div class="footer-logo-wrapper">
-                    <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Pure Root Logo">
+            <!-- LOGO ZENTRIERT -->
+            <div class="footer-logo-wrapper">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
+            </div>
+
+            <!-- Zeile 3 -->
+            <div class="footer-bottom">
+                <div>
+                    <a href="datenschutz.html">Datenschutz</a> &nbsp;&nbsp;
+                    <a href="impressum.html">Impressum</a>
                 </div>
-                <div class="footer-contact">
-                    Luzern, Switzerland<br>
-                    <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a>
-                </div>
+
+                <div>&copy; 2025 Pure Root Switzerland</div>
             </div>
 
         </div>
@@ -587,9 +410,8 @@
 <!-- LOGO OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo" alt="Pure Root Logo gross">
-
-        <p style="font-size:1.05rem; line-height:1.6;">
+        <img src="logo2.jpg" class="overlay-logo" alt="">
+        <p style="font-size:1.06rem; line-height:1.6;">
             <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
             Danach bleibt meist nur Importware aus Peru oder China – lange unterwegs, wenig aromatisch 
             und nicht nachhaltig.<br><br>
@@ -600,33 +422,21 @@
 </div>
 
 <script>
-    // Mobile Navigation
-    function toggleNav() {
+    function toggleNav(){
         document.getElementById("mainNav").classList.toggle("open");
     }
 
-    // Jahr im Footer
-    document.getElementById("yearSpan").textContent = new Date().getFullYear();
-
-    // Hover + Klick Overlay
     const footerLogo = document.getElementById("footerLogo");
     const overlayBox = document.getElementById("overlayBox");
 
-    footerLogo.addEventListener("mouseenter", () => {
-        overlayBox.classList.add("show");
-    });
-
-    footerLogo.addEventListener("click", () => {
-        overlayBox.classList.add("show");
-    });
-
-    overlayBox.addEventListener("click", () => {
-        overlayBox.classList.remove("show");
-    });
+    footerLogo.addEventListener("mouseenter",()=> overlayBox.classList.add("show"));
+    footerLogo.addEventListener("click",()=> overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=> overlayBox.classList.remove("show"));
 </script>
 
 </body>
 </html>
+
 
 
 
