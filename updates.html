@@ -39,7 +39,7 @@
             padding: 0 1.5rem;
         }
 
-        /* HEADER – wie Index */
+        /* ================= HEADER – IDENTISCH MIT INDEX ================= */
         header.site-header {
             position: sticky;
             top: 0;
@@ -76,6 +76,7 @@
             color: var(--gold);
         }
 
+        /* NAVIGATION — 1:1 wie Index */
         nav.main-nav {
             display: flex;
             gap: 1.5rem;
@@ -97,7 +98,7 @@
             width: 0;
             height: 1px;
             background: var(--gold);
-            transition: width 0.3s ease;
+            transition: 0.3s ease;
         }
 
         nav.main-nav a:hover::after,
@@ -105,7 +106,18 @@
             width: 100%;
         }
 
-        /* HERO */
+        /* MOBILE NAVIGATION — wie Index (zentriert, untereinander) */
+        @media(max-width:720px){
+            nav.main-nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.9rem;
+                margin-top: 0.9rem;
+            }
+        }
+
+
+        /* ================= HERO ================= */
         .hero {
             position: relative;
             overflow: hidden;
@@ -140,6 +152,7 @@
             display: flex;
             flex-direction: column;
             gap: 0.9rem;
+            text-align: left;
         }
 
         .hero-tagline {
@@ -167,7 +180,17 @@
             font-size: 1rem;
         }
 
-        /* ACTION */
+        @media(max-width:720px){
+            .hero-inner {
+                text-align: center;
+            }
+            .hero-text {
+                margin-left:auto;
+                margin-right:auto;
+            }
+        }
+
+        /* ================= ACTION AREA ================= */
         .action-area {
             background:
                 linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.68)),
@@ -201,7 +224,19 @@
             line-height: 1.6;
         }
 
-        /* FOOTER – wie Index */
+        @media(max-width:720px){
+            .action-area .inner,
+            .update-block,
+            .update-text,
+            .update-title,
+            .update-date {
+                text-align:center;
+                margin-left:auto;
+                margin-right:auto;
+            }
+        }
+
+        /* ================= FOOTER – wie Index ================= */
         footer.site-footer {
             background: #10140c;
             padding: 1.6rem 0 1.2rem;
@@ -245,40 +280,7 @@
             box-shadow:0 0 24px rgba(0,0,0,0.8);
         }
 
-
-        /* MOBILE – Navigation wie Index, alles zentriert */
         @media(max-width:720px){
-
-            /* NAVIGATION – zentriert wie Index */
-            nav.main-nav {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 0.8rem !important;
-            }
-
-            /* HERO – zentrieren */
-            .hero-inner {
-                text-align:center;
-                margin-left:auto;
-                margin-right:auto;
-            }
-            .hero-text {
-                margin-left:auto;
-                margin-right:auto;
-            }
-
-            /* ACTION – zentrieren */
-            .action-area .inner,
-            .update-block,
-            .update-text,
-            .update-title,
-            .update-date {
-                text-align:center;
-                margin-left:auto;
-                margin-right:auto;
-            }
-
-            /* FOOTER – zentrieren */
             .footer-inner {
                 flex-direction:column;
                 align-items:center;
@@ -289,7 +291,7 @@
             }
         }
 
-        /* OVERLAY */
+        /* ================= OVERLAY ================= */
         .overlay-bg {
             position: fixed;
             inset: 0;
@@ -322,7 +324,9 @@
 
 <div class="page-wrapper">
 
-    <!-- HEADER -->
+    <!-- ========================================================= -->
+    <!-- HEADER – Navigation wie Index -->
+    <!-- ========================================================= -->
     <header class="site-header">
         <div class="header-inner">
 
@@ -342,7 +346,9 @@
         </div>
     </header>
 
+    <!-- ========================================================= -->
     <!-- HERO -->
+    <!-- ========================================================= -->
     <section class="hero">
         <img src="fruchtbarkeit.webp" class="hero-bg" alt="" fetchpriority="high">
         <div class="hero-overlay"></div>
@@ -363,7 +369,9 @@
         </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- ACTION AREA -->
+    <!-- ========================================================= -->
     <section class="action-area">
         <div class="inner">
 
@@ -401,11 +409,12 @@
         </div>
     </section>
 
+    <!-- ========================================================= -->
     <!-- FOOTER -->
+    <!-- ========================================================= -->
     <footer class="site-footer">
         <div class="footer-inner">
 
-            <!-- LINKS -->
             <div class="footer-left">
                 <div><a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a></div>
                 <div>
@@ -414,12 +423,10 @@
                 </div>
             </div>
 
-            <!-- LOGO -->
             <div class="footer-logo-wrap">
                 <img src="logo2.jpg" loading="lazy" class="footer-logo" id="footerLogo">
             </div>
 
-            <!-- RECHTS -->
             <div class="footer-right">
                 <div>Luzern, Switzerland</div>
                 <div>&copy; 2025 Pure Root Switzerland</div>
@@ -430,7 +437,9 @@
 
 </div>
 
+<!-- ========================================================= -->
 <!-- OVERLAY -->
+<!-- ========================================================= -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
@@ -443,8 +452,6 @@
 </div>
 
 <script>
-document.getElementById("yearSpan")?.textContent = new Date().getFullYear();
-
 const footerLogo = document.getElementById("footerLogo");
 const overlayBox = document.getElementById("overlayBox");
 
@@ -455,6 +462,7 @@ overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
 
 </body>
 </html>
+
 
 
 
