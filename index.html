@@ -113,7 +113,7 @@
         .hero {
             min-height:80vh;
             display:flex; align-items:center; justify-content:center;
-            position:relative; text-align:left;
+            position:relative;
         }
 
         .hero-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; }
@@ -123,12 +123,16 @@
             max-width:1100px;
             padding:4.5rem 1.5rem 3.5rem;
             display:flex; flex-direction:column; gap:0.9rem;
+            text-align:left;
+        }
+
+        @media(max-width:720px){
+            .hero-inner { text-align:center; }
         }
 
         .hero-tagline { font-size:0.85rem; letter-spacing:0.22em; color:var(--gold); text-transform:uppercase; }
         .hero-title { font-size:clamp(2.2rem,4vw,2.9rem); letter-spacing:0.2em; text-transform:uppercase; }
         .hero-subtitle { color:#f8f3dd; letter-spacing:0.16em; text-transform:uppercase; }
-
         .hero-cta-row { margin-top:1.5rem; }
 
         /* -----------------------------------------
@@ -165,7 +169,7 @@
         }
 
         /* -----------------------------------------
-           STORY-BILD – PROPORTIONAL & NICHT VERZERRT
+           STORY-BILD – PROPORTIONAL & KORREKT
         ----------------------------------------- */
         .story-layout {
             display:grid;
@@ -182,22 +186,18 @@
         }
 
         .story-image-frame img {
-            max-height:190px;          /* ca. Höhe von 7 Textzeilen auf Desktop */
-            width:auto;
-            max-width:100%;
-            height:auto;               /* immer proportional */
-            display:block;
+            width:100%;
+            height:auto;
+            max-height:230px; /* entspricht ~7 Zeilen */
+            object-fit:cover;
+            object-position:center;
         }
 
         @media(max-width:900px){
-            .story-layout { grid-template-columns:1fr; }
-            .section-heading,
-            .story-layout p { text-align:center; }
+            .story-layout { grid-template-columns:1fr; text-align:center; }
 
             .story-image-frame img {
-                max-height:none;      /* mobil darf grösser sein */
-                width:100%;
-                height:auto;
+                max-height:none;
             }
         }
 
@@ -223,8 +223,7 @@
         }
 
         @media(max-width:900px){
-            .highlight-grid { grid-template-columns:1fr; }
-            .highlight-card { text-align:center; }
+            .highlight-grid { grid-template-columns:1fr; text-align:center; }
         }
 
         /* -----------------------------------------
@@ -234,23 +233,12 @@
         .cta-btn-row { margin-top:1.5rem; }
 
         /* -----------------------------------------
-           ACTION-BEREICH – MOBILE ZENTRIERUNG
-        ----------------------------------------- */
-        @media(max-width:900px){
-            .action-section .inner > div { text-align:center; }
-            .action-section p {
-                margin-left:auto;
-                margin-right:auto;
-            }
-        }
-
-        /* -----------------------------------------
-           FOOTER (Abstände enger, mobil zentriert)
+           FOOTER – EXTREM KLEINE ABSTÄNDE
         ----------------------------------------- */
         footer.site-footer {
             background:#10140c;
             margin-top:auto;
-            padding:1.2rem 0 1.1rem;
+            padding:0.4rem 0;
             font-size:0.85rem;
         }
 
@@ -260,7 +248,7 @@
             display:flex;
             flex-direction:column;
             align-items:center;
-            gap:0.35rem;   /* enger */
+            gap:0.05rem; /* extrem eng */
             text-align:center;
         }
 
@@ -269,17 +257,17 @@
             display:flex;
             justify-content:space-between;
             width:100%;
+            margin:0;
         }
 
         .footer-top div,
         .footer-bottom div { margin:0; }
 
-        /* Logo perfekt zentriert */
         .footer-logo-wrapper {
             display:flex;
             justify-content:center;
             width:100%;
-            margin:0.15rem 0;  /* kleiner Abstand */
+            margin:0.05rem 0; /* eng */
         }
 
         .footer-logo {
@@ -289,7 +277,7 @@
             border:3px solid #000;
             object-fit:cover;
             cursor:pointer;
-            box-shadow:0 0 18px rgba(0,0,0,0.55); /* Hohleffekt */
+            box-shadow:0 0 18px rgba(0,0,0,0.55);
             transition:0.25s ease;
         }
         .footer-logo:hover {
@@ -301,10 +289,11 @@
             .footer-top,
             .footer-bottom {
                 flex-direction:column;
-                gap:0.15rem;          /* sehr kleine vertikale Abstände */
+                gap:0.1rem;
                 text-align:center;
                 align-items:center;
             }
+            .footer-logo-wrapper { margin:0.1rem 0; }
         }
 
         /* -----------------------------------------
@@ -476,15 +465,15 @@
                 <div>Luzern, Switzerland</div>
             </div>
 
-            <!-- LOGO -->
+            <!-- Logo -->
             <div class="footer-logo-wrapper">
-                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Logo Pure Root Switzerland">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
             </div>
 
             <!-- Zeile 3 -->
             <div class="footer-bottom">
                 <div>
-                    <a href="datenschutz.html">Datenschutz</a> &nbsp;&nbsp;
+                    <a href="datenschutz.html">Datenschutz</a>&nbsp;&nbsp;
                     <a href="impressum.html">Impressum</a>
                 </div>
 
@@ -526,6 +515,8 @@ overlayBox.addEventListener("click",()=> overlayBox.classList.remove("show"));
 
 </body>
 </html>
+
+
 
 
 
