@@ -187,6 +187,14 @@ nav.main-nav a.active::after {
     margin:0 auto;
 }
 
+/* EXAKT wie vorher: Text links sauber ausgerichtet */
+@media(min-width:721px){
+    .hero-inner {
+        padding-left:1.5rem;
+        text-align:left;
+    }
+}
+
 .hero-tagline {
     font-size:0.85rem;
     color:var(--gold);
@@ -219,6 +227,17 @@ nav.main-nav a.active::after {
     margin-top:1.1rem;
     display:flex;
     justify-content:flex-start;
+}
+
+/* MOBILE HERO */
+@media(max-width:720px){
+    .hero-inner {
+        text-align:center;
+        padding-top:4rem;
+    }
+    .hero-cta-row {
+        justify-content:center;
+    }
 }
 
 /* ACTION SECTION */
@@ -273,7 +292,7 @@ nav.main-nav a.active::after {
     color:var(--gold);
 }
 
-/* STORY SECTION */
+/* STORY */
 .story-layout {
     display:grid;
     grid-template-columns:1.3fr 1fr;
@@ -295,17 +314,39 @@ nav.main-nav a.active::after {
     width:100%;
     height:100%;
     object-fit:contain;
-    background:#0f140c;
+}
+
+/* MOBILE – ACTION & STORY ZENTRIERT */
+@media(max-width:720px){
+    .section-heading,
+    .section-lead,
+    .highlight-card,
+    .action-inner p {
+        text-align:center;
+    }
+
+    .highlight-grid {
+        grid-template-columns:1fr;
+    }
+
+    .story-layout {
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .story-image-frame {
+        margin:0 auto;
+    }
 }
 
 /* CTA */
 .cta-block { margin-top:0.5rem; }
 .cta-btn-row { margin-top:0.9rem; }
 
-/* FOOTER – ORIGINAL NICHT ZENTRIERT */
+/* FOOTER – ZENTRIERT */
 footer.site-footer {
     background:#10140c;
-    padding:1.1rem 0 1.3rem;
+    padding:1.3rem 0 1.5rem;
     font-size:0.85rem;
     margin-top:auto;
 }
@@ -315,19 +356,12 @@ footer.site-footer {
     margin:0 auto;
     padding:0 1.5rem;
     display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
-}
-
-.footer-column {
-    display:flex;
     flex-direction:column;
-    gap:0.17rem;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap:0.5rem;
 }
-
-.footer-left { text-align:left; }
-.footer-right { text-align:right; }
-.footer-center { align-items:center; }
 
 .footer-logo {
     width:78px;
@@ -335,103 +369,12 @@ footer.site-footer {
     border-radius:50%;
     border:3px solid #000;
     object-fit:cover;
-    cursor:pointer;
-    box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 
-/* MOBILE – ALLES AUSSER FOOTER ZENTRIEREN */
-@media(max-width:720px){
-
-    /* HERO */
-    .hero-inner {
-        text-align:center;
-    }
-    .hero-text {
-        margin-left:auto;
-        margin-right:auto;
-    }
-    .hero-cta-row {
-        justify-content:center;
-    }
-
-    /* ACTION */
-    .section-heading,
-    .section-lead,
-    .action-inner p,
-    .highlight-card,
-    .cta-block,
-    .cta-block p {
-        text-align:center;
-    }
-
-    .highlight-grid {
-        grid-template-columns:1fr;
-    }
-
-    /* STORY */
-    .story-layout {
-        grid-template-columns:1fr;
-        text-align:center;
-    }
-
-    .story-image-frame {
-        margin:0 auto;
-    }
-
-    /* FOOTER – NICHT ZENTRIERT, WIE VORHER */
-    .footer-inner {
-        flex-direction:column;
-        align-items:flex-start;
-        text-align:left;
-        gap:0.7rem;
-    }
-
-    .footer-left {
-        text-align:left;
-        align-items:flex-start;
-    }
-
-    .footer-center {
-        text-align:center;
-        align-items:center;
-    }
-
-    .footer-right {
-        text-align:left;
-        align-items:flex-start;
-    }
-}
-
-/* OVERLAY */
-.overlay-bg {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.78);
-    display: none;
-    align-items: center;
-    justify-content: center;
+.footer-center,
+.footer-left,
+.footer-right {
     text-align:center;
-    z-index: 9999;
-}
-.overlay-bg.show { display:flex; }
-
-.overlay-box {
-    max-width: 620px;
-    padding: 2rem;
-    text-align: center;
-    color: #fff;
-}
-
-.overlay-logo {
-    width: 260px;
-    height: 260px;
-    border-radius: 50%;
-    border: 5px solid #000;
-    object-fit: cover;
-    margin-bottom: 1.4rem;
-    display:block;
-    margin-left:auto;
-    margin-right:auto;
 }
 </style>
 </head>
@@ -486,7 +429,6 @@ footer.site-footer {
     <section class="action-section">
         <div class="inner action-inner">
 
-            <!-- Block 1 -->
             <div>
                 <h2 class="section-heading">Was <span>dieses Projekt</span> ausmacht</h2>
 
@@ -502,7 +444,6 @@ footer.site-footer {
                 </p>
             </div>
 
-            <!-- Block 2 -->
             <div>
                 <h2 class="section-heading">Drei <span>Gründe</span> für dieses Projekt</h2>
 
@@ -524,7 +465,6 @@ footer.site-footer {
                 </div>
             </div>
 
-            <!-- Block 3 -->
             <div>
                 <h2 class="section-heading">Warum <span>dieses Projekt</span> persönlich ist</h2>
 
@@ -546,7 +486,6 @@ footer.site-footer {
                 </div>
             </div>
 
-            <!-- Block 4 -->
             <div class="cta-block">
                 <h2 class="section-heading">Jetzt <span>den Testanbau</span> möglich machen</h2>
 
@@ -563,12 +502,11 @@ footer.site-footer {
         </div>
     </section>
 
-    <!-- FOOTER — ORIGINAL NICHT ZENTRIERT -->
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-inner">
 
-            <!-- Links -->
-            <div class="footer-column footer-left">
+            <div class="footer-left">
                 <div>info@purerootswitzerland.ch</div>
                 <div>
                     <a href="datenschutz.html">Datenschutz</a> ·
@@ -576,13 +514,11 @@ footer.site-footer {
                 </div>
             </div>
 
-            <!-- Mitte -->
-            <div class="footer-column footer-center">
-                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Pure Root Switzerland Logo">
+            <div class="footer-center">
+                <img src="logo2.jpg" class="footer-logo" alt="Logo">
             </div>
 
-            <!-- Rechts -->
-            <div class="footer-column footer-right">
+            <div class="footer-right">
                 <div>Luzern, Switzerland</div>
                 <div>&copy; 2025 Pure Root Switzerland</div>
             </div>
@@ -590,37 +526,18 @@ footer.site-footer {
         </div>
     </footer>
 
-    <!-- OVERLAY -->
-    <div class="overlay-bg" id="overlayBox">
-        <div class="overlay-box">
-            <img src="logo2.jpg" class="overlay-logo" alt="">
-            <p>
-                <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
-                Danach bleibt meist nur Importware aus Übersee – lange unterwegs, weniger frisch.<br><br>
-                Dieses Projekt möchte das ändern: nachhaltig angebauter Bio-Ingwer aus europäischer Nähe.
-            </p>
-        </div>
-    </div>
-
 </div>
 
 <script>
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
-
-const footerLogo = document.getElementById("footerLogo");
-const overlayBox = document.getElementById("overlayBox");
-
-if (footerLogo && overlayBox) {
-    footerLogo.addEventListener("mouseenter", () => overlayBox.classList.add("show"));
-    footerLogo.addEventListener("click", () => overlayBox.classList.add("show"));
-    overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
-}
 </script>
 
 </body>
 </html>
+
+
 
 
 
