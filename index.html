@@ -25,6 +25,7 @@
         }
 
         img { max-width: 100%; height: auto; display: block; }
+
         a { color: inherit; text-decoration: none; }
 
         .page-wrapper {
@@ -40,7 +41,7 @@
             padding: 0 1.5rem;
         }
 
-        /* HEADER & NAVIGATION – gleich lassen wie auf den anderen Seiten */
+        /* HEADER & NAV */
         header.site-header {
             position: sticky;
             top: 0;
@@ -58,11 +59,7 @@
             margin: 0 auto;
         }
 
-        .logo-block {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-        }
+        .logo-block { display: flex; flex-direction: column; gap: 0.15rem; }
 
         .logo-main {
             font-size: 1.25rem;
@@ -106,7 +103,6 @@
             width: 100%;
         }
 
-        /* Mobile Nav – sehr simpel, Menü bleibt aber optisch ähnlich */
         .nav-toggle {
             display: none;
             cursor: pointer;
@@ -140,11 +136,7 @@
                 pointer-events: auto;
             }
 
-            .nav-toggle {
-                display: inline-flex;
-                align-items: center;
-                gap: 0.25rem;
-            }
+            .nav-toggle { display: inline-flex; }
         }
 
         /* BUTTONS */
@@ -171,7 +163,7 @@
             box-shadow: 0 0 24px rgba(0,0,0,0.5);
         }
 
-        /* HERO – Option C, Desktop Cover, Mobile gezielter & kompakter */
+        /* HERO */
         .hero {
             position: relative;
             overflow: hidden;
@@ -187,8 +179,7 @@
             inset: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;              /* Desktop: schönes Panorama */
-            object-position: center center;
+            object-fit: cover;
             z-index: -2;
         }
 
@@ -201,13 +192,11 @@
         }
 
         .hero-inner {
-            position: relative;
             max-width: 1100px;
-            width: 100%;
             padding: 4.5rem 1.5rem 3.5rem;
             display: flex;
             flex-direction: column;
-            gap: 0.9rem;  /* enger als vorher */
+            gap: 0.9rem;
         }
 
         .hero-tagline {
@@ -230,74 +219,11 @@
             color: #f8f3dd;
         }
 
-        .hero-text {
-            max-width: 620px;
-            font-size: 0.98rem;
-            margin-top: 0.4rem;
-        }
+        .hero-text { max-width: 620px; }
 
-        .hero-cta-row {
-            margin-top: 0.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-        }
-
-        @media (max-width: 900px) {
-            .hero {
-                min-height: 88vh;
-            }
-
-            .hero-inner {
-                padding-top: 4rem;
-                padding-bottom: 3rem;
-            }
-        }
-
-        @media (max-width: 720px) {
-            .hero {
-                min-height: 100vh;
-            }
-
-            .hero-bg {
-                object-fit: contain;       /* WICHTIG: Mehr vom Bild sichtbar auf Handy */
-                background: #000;
-            }
-
-            .hero-inner {
-                padding-top: 4.5rem;
-                padding-bottom: 2.25rem;
-                gap: 0.65rem;              /* Abstände enger */
-            }
-
-            .hero-title {
-                font-size: 1.9rem;
-                letter-spacing: 0.16em;
-            }
-
-            .hero-subtitle {
-                font-size: 0.8rem;
-                letter-spacing: 0.14em;
-            }
-
-            .hero-text {
-                font-size: 0.9rem;
-                max-width: 100%;
-            }
-
-            .hero-cta-row {
-                margin-top: 0.4rem;
-            }
-        }
-
-        /* SECTIONS ALLGEMEIN */
-        section {
-            padding: 2.5rem 0;
-        }
-
-        section.section-tight {
-            padding: 2rem 0; /* etwas kompakter */
-        }
+        /* SECTIONS */
+        section { padding: 2.5rem 0; }
+        section.section-tight { padding: 2rem 0; }
 
         .section-heading {
             font-size: 1.4rem;
@@ -306,9 +232,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .section-heading span {
-            color: var(--gold);
-        }
+        .section-heading span { color: var(--gold); }
 
         p.section-lead {
             font-size: 1rem;
@@ -316,37 +240,8 @@
             margin-bottom: 1.4rem;
         }
 
-        /* Intro-Bereich direkt nach dem Hero */
-        .intro-section {
-            background: #26311f;
-        }
-
-        .intro-funding {
-            background: rgba(0,0,0,0.16);
-            border-radius: 0.9rem;
-            padding: 1.25rem 1.3rem;
-            margin-top: 0.4rem;
-        }
-
-        .intro-funding p {
-            margin: 0;
-        }
-
-        .intro-funding strong {
-            color: var(--gold);
-        }
-
-        @media (max-width: 720px) {
-            .intro-section .inner {
-                padding-top: 1.4rem;
-                padding-bottom: 1.7rem;
-            }
-        }
-
-        /* 3 HIGHLIGHTS – Frische, Partnerschaft, Azoren-Boden */
-        .highlights {
-            background: #2f3c24;
-        }
+        /* HIGHLIGHTS */
+        .highlights { background: #2f3c24; }
 
         .highlight-grid {
             display: grid;
@@ -369,34 +264,14 @@
             color: var(--gold);
         }
 
-        .highlight-text {
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 900px) {
-            .highlight-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* STORY / PERSÖNLICHER TEIL */
-        .story {
-            background: #253020;
-        }
+        /* STORY */
+        .story { background: #253020; }
 
         .story-layout {
             display: grid;
             grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
             gap: 1.8rem;
             align-items: center;
-        }
-
-        .story p {
-            margin-bottom: 0.9rem;
-        }
-
-        .story p:last-child {
-            margin-bottom: 0;
         }
 
         .story-image-frame {
@@ -406,30 +281,16 @@
         }
 
         @media (max-width: 900px) {
-            .story-layout {
-                grid-template-columns: 1fr;
-            }
+            .story-layout { grid-template-columns: 1fr; }
         }
 
-        @media (max-width: 720px) {
-            .story {
-                padding-top: 2.2rem;
-                padding-bottom: 2.1rem;
-            }
-        }
-
-        /* CTA unten auf der Seite */
+        /* CTA */
         .cta-bottom {
             background: #202818;
             text-align: center;
         }
 
-        .cta-bottom p {
-            max-width: 620px;
-            margin: 0 auto 1rem;
-        }
-
-        /* FOOTER – wie auf anderen Seiten */
+        /* FOOTER — ORIGINALLOOK + LOGO */
         footer.site-footer {
             background: #10140c;
             margin-top: auto;
@@ -442,70 +303,23 @@
             margin: 0 auto;
             padding: 0 1.5rem;
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.9rem;
-            align-items: center;
             justify-content: space-between;
-        }
-
-        .footer-left {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
-        }
-
-        .footer-nav {
-            display: flex;
-            gap: 1rem;
+            align-items: center;
             flex-wrap: wrap;
         }
 
-        .footer-nav a {
-            position: relative;
-        }
-
-        .footer-nav a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: width 0.25s ease;
-        }
-
-        .footer-nav a:hover::after {
-            width: 100%;
-        }
+        .footer-left { display: flex; flex-direction: column; gap: 0.25rem; }
 
         .footer-contact {
             text-align: right;
         }
 
-        .footer-contact a {
-            text-decoration: underline;
-            text-decoration-thickness: 1px;
-            text-underline-offset: 3px;
-        }
-
-        @media (max-width: 720px) {
-            .footer-inner {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 0.6rem;
-            }
-
-            .footer-contact {
-                text-align: left;
-            }
-        }
-
-        /* FOOTER LOGO & OVERLAY */
-        .footer-logo-wrap {
+        /* LOGO */
+        .footer-logo-wrapper {
+            flex-basis: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            margin: -0.4rem 0 0.2rem;
         }
 
         .footer-logo {
@@ -513,15 +327,14 @@
             height: 78px;
             border-radius: 50%;
             border: 3px solid #000;
-            object-fit: cover;
             cursor: pointer;
             transition: transform 0.25s ease;
+            object-fit: cover;
         }
 
-        .footer-logo:hover {
-            transform: scale(1.08);
-        }
+        .footer-logo:hover { transform: scale(1.09); }
 
+        /* OVERLAY */
         .overlay-bg {
             position: fixed;
             inset: 0;
@@ -532,9 +345,7 @@
             z-index: 9999;
         }
 
-        .overlay-bg.show {
-            display: flex;
-        }
+        .overlay-bg.show { display: flex; }
 
         .overlay-box {
             max-width: 620px;
@@ -555,7 +366,7 @@
 
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.85); }
-            to   { opacity: 1; transform: scale(1); }
+            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -570,9 +381,7 @@
                 <div class="logo-sub">ORGANIC GINGER</div>
             </div>
 
-            <button class="nav-toggle" aria-label="Navigation öffnen" onclick="toggleNav()">
-                Menü
-            </button>
+            <button class="nav-toggle" onclick="toggleNav()">Menü</button>
 
             <nav class="main-nav" id="mainNav">
                 <a href="index.html" class="active">Home</a>
@@ -584,21 +393,18 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero" id="top">
-        <img src="fruchtbarkeit.webp" alt="Fruchtbare Landschaft auf São Miguel (Azoren)" class="hero-bg">
-
+    <section class="hero">
+        <img src="fruchtbarkeit.webp" class="hero-bg">
         <div class="hero-overlay"></div>
 
         <div class="hero-inner">
             <p class="hero-tagline">Fresh from the Azores</p>
-
             <h1 class="hero-title">Pure Root Switzerland</h1>
             <p class="hero-subtitle">Organic Ginger – aus europäischer Nähe</p>
-
             <p class="hero-text">
-                Frischer, europäischer Bio-Ingwer von den Azoren – nachhaltig angebaut, transparent produziert 
-                und mit viel Herz in die Schweiz gebracht. Dieses Projekt startet mit einem sorgfältig geplanten 
-                Testanbau auf São Miguel.
+                Frischer, europäischer Bio-Ingwer von den Azoren – nachhaltig angebaut 
+                und mit viel Herz in die Schweiz gebracht. Das Projekt startet mit einem 
+                sorgfältig geplanten Testanbau.
             </p>
 
             <div class="hero-cta-row">
@@ -607,108 +413,81 @@
         </div>
     </section>
 
-    <!-- INTRO / KURZE ERKLÄRUNG + DEIN SATZ -->
+    <!-- INTRO -->
     <section class="intro-section section-tight">
         <div class="inner">
-            <h2 class="section-heading">
-                Was <span>dieses Projekt</span> ausmacht
-            </h2>
+            <h2 class="section-heading">Was <span>dieses Projekt</span> ausmacht</h2>
 
             <p class="section-lead">
-                Auf São Miguel (Azoren) möchte ich gemeinsam mit einem heimischen Biolandwirt einen langfristigen 
-                Bio-Ingwerhof aufbauen – mit dem Ziel, später frischen, Knospe-zertifizierten Ingwer aus 
-                europäischer Nähe in die Schweiz zu liefern.
+                Auf São Miguel (Azoren) möchte ich gemeinsam mit einem heimischen Biolandwirt 
+                einen langfristigen Bio-Ingwerhof aufbauen – mit dem Ziel, später frischen, 
+                Knospe-zertifizierten Ingwer aus europäischer Nähe in die Schweiz zu liefern.
             </p>
 
             <div class="intro-funding">
                 <p>
-                    <strong>Mit deinem Beitrag finanzierst du</strong> den ersten nachhaltigen Testanbau auf São Miguel – 
-                    inklusive Bio-Zertifizierung, Bewässerungssystem und Start-Infrastruktur.
+                    <strong>Mit deinem Beitrag finanzierst du</strong> den ersten nachhaltigen 
+                    Testanbau auf São Miguel – inklusive Bio-Zertifizierung, Bewässerungssystem 
+                    und Start-Infrastruktur.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- 3 HIGHLIGHTS -->
+    <!-- HIGHLIGHTS -->
     <section class="highlights section-tight">
         <div class="inner">
-            <h2 class="section-heading">
-                Drei <span>Gründe</span> für dieses Projekt
-            </h2>
+            <h2 class="section-heading">Drei <span>Gründe</span> für dieses Projekt</h2>
 
             <div class="highlight-grid">
                 <article class="highlight-card">
                     <h3 class="highlight-title">Unvergleichliche Frische</h3>
-                    <p class="highlight-text">
-                        Ingwer aus Übersee ist oft wochen- oder monatelang unterwegs. Der Anbau auf São Miguel 
-                        ermöglicht deutlich kürzere Wege in die Schweiz – für frischen, aromatischen Bio-Ingwer 
-                        mit vollem Geschmack.
-                    </p>
+                    <p>Ingwer aus Übersee ist oft wochenlang unterwegs. São Miguel ermöglicht kurze Wege für frischen, aromatischen Bio-Ingwer.</p>
                 </article>
 
                 <article class="highlight-card">
                     <h3 class="highlight-title">Lokale Partnerschaft</h3>
-                    <p class="highlight-text">
-                        Das Projekt entsteht in enger Zusammenarbeit mit einem lokalen Biolandwirt und soll 
-                        langfristig faire, stabile Einkommen vor Ort schaffen – fern von anonymer Massenproduktion.
-                    </p>
+                    <p>Das Projekt entsteht in enger Zusammenarbeit mit einem lokalen Biolandwirt – fair, transparent und nachhaltig.</p>
                 </article>
 
                 <article class="highlight-card">
                     <h3 class="highlight-title">Azoren-Boden</h3>
-                    <p class="highlight-text">
-                        Vulkanische Böden, milde Temperaturen und viel Feuchtigkeit machen São Miguel zu einem der 
-                        spannendsten Standorte für hochwertigen Bio-Ingwer in Europa. Dein Beitrag hilft, dieses 
-                        Potenzial verantwortungsvoll zu nutzen.
-                    </p>
+                    <p>Vulkanische Böden und ein mildes Klima machen São Miguel ideal für hochwertigen Bio-Ingwer.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <!-- STORY / PERSÖNLICHE GESCHICHTE -->
+    <!-- STORY -->
     <section class="story">
         <div class="inner story-layout">
             <div>
-                <h2 class="section-heading">
-                    Warum <span>dieses Projekt</span> persönlich ist
-                </h2>
+                <h2 class="section-heading">Warum <span>dieses Projekt</span> persönlich ist</h2>
+
+                <p>Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt. In dieser Zeit entstand der Wunsch, etwas Sinnvolles aufzubauen.</p>
+
+                <p>Bio-Ingwer bedeutet für mich Wärme, Kraft und Erdung. Der Testanbau auf São Miguel ist der erste Schritt – mit deiner Unterstützung kann daraus ein langfristiges Projekt werden.</p>
 
                 <p>
-                    Mein Leben wurde durch eine Krebserkrankung komplett auf den Kopf gestellt. In dieser Zeit 
-                    habe ich beschlossen, meine Energie in etwas zu stecken, das Sinn macht: ein nachhaltiges 
-                    Projekt, das Gesundheit, Boden und Menschen verbindet.
-                </p>
-
-                <p>
-                    Bio-Ingwer ist für mich mehr als ein Produkt – er steht für Erdung, Wärme und Kraft. Der 
-                    Testanbau auf São Miguel ist der erste Schritt. Mit deiner Unterstützung kann daraus ein 
-                    langfristig tragfähiges Projekt entstehen.
-                </p>
-
-                <p>
-                    Unterstützt wird das Projekt perspektivisch auch wissenschaftlich, unter anderem durch Kontakte 
-                    zur <a href="https://www.uac.pt/" target="_blank" rel="noopener noreferrer">
-                    Universidade dos Açores</a>.
+                    Unterstützt wird das Projekt unter anderem durch Kontakte zur
+                    <a href="https://www.uac.pt/" target="_blank">Universidade dos Açores</a>.
                 </p>
             </div>
 
             <div class="story-image-frame">
-                <img src="frischer-ingwer.jpg" loading="lazy" alt="Frischer Bio-Ingwer auf dunklem Hintergrund">
+                <img src="frischer-ingwer.jpg" loading="lazy" alt="">
             </div>
         </div>
     </section>
 
-    <!-- CTA UNTEN – zweiter Button -->
+    <!-- CTA -->
     <section class="cta-bottom section-tight">
         <div class="inner">
             <h2 class="section-heading">
                 Jetzt <span>den Testanbau</span> möglich machen
             </h2>
             <p>
-                Dieses Crowdfunding ist der Startpunkt. Wenn der Testanbau gelingt, entsteht aus einem Feldversuch 
-                Schritt für Schritt ein stabiles Projekt für frischen Bio-Ingwer aus europäischer Nähe. 
-                Jeder Beitrag – klein oder groß – hilft.
+                Dieses Crowdfunding ist der Startpunkt. Wenn der Testanbau gelingt, entsteht Schritt für Schritt ein stabiles Projekt für frischen Bio-Ingwer aus europäischer Nähe.
             </p>
             <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
         </div>
@@ -717,6 +496,7 @@
     <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-inner">
+
             <div class="footer-left">
                 <div>&copy; <span id="yearSpan"></span> Pure Root Switzerland – Organic Ginger</div>
                 <div class="footer-nav">
@@ -725,25 +505,26 @@
                 </div>
             </div>
 
-            <div class="footer-logo-wrap">
-                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Pure Root Switzerland Logo">
+            <!-- ZENTRIERTES LOGO (KORREKT POSITIONIERT) -->
+            <div class="footer-logo-wrapper">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo">
             </div>
 
             <div class="footer-contact">
-                <div>Luzern, Switzerland</div>
-                <div>
-                    E-Mail: <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a> · 
-                    Tel: +41 77 202 65 91
-                </div>
+                Luzern, Switzerland<br>
+                <a href="mailto:info@purerootswitzerland.ch">info@purerootswitzerland.ch</a> · +41 77 202 65 91
             </div>
+
         </div>
     </footer>
+
 </div>
 
 <!-- LOGO OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo" alt="Großes Logo Pure Root Switzerland">
+        <img src="logo2.jpg" class="overlay-logo">
+
         <p style="font-size:1.05rem; line-height:1.6;">
             <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
             Danach bleibt meist nur Importware aus Peru oder China – lange unterwegs, wenig aromatisch 
@@ -757,36 +538,34 @@
 <script>
     // Mobile Navigation
     function toggleNav() {
-        const nav = document.getElementById("mainNav");
-        nav.classList.toggle("open");
+        document.getElementById("mainNav").classList.toggle("open");
     }
 
-    // Jahr im Footer automatisch
+    // Jahr im Footer
     document.getElementById("yearSpan").textContent = new Date().getFullYear();
 
-    // Logo-Overlay: Hover (Desktop) und Klick (auch Mobile)
+    // Hover + Klick Overlay
     const footerLogo = document.getElementById("footerLogo");
     const overlayBox = document.getElementById("overlayBox");
 
-    if (footerLogo && overlayBox) {
-        // Hover öffnet Overlay (Desktop)
-        footerLogo.addEventListener("mouseenter", () => {
-            overlayBox.classList.add("show");
-        });
+    footerLogo.addEventListener("mouseenter", () => {
+        overlayBox.classList.add("show");
+    });
 
-        // Klick öffnet Overlay (Mobile & Desktop)
-        footerLogo.addEventListener("click", () => {
-            overlayBox.classList.add("show");
-        });
+    footerLogo.addEventListener("click", () => {
+        overlayBox.classList.add("show");
+    });
 
-        // Klick irgendwo auf Overlay schließt es
-        overlayBox.addEventListener("click", () => {
-            overlayBox.classList.remove("show");
-        });
-    }
+    overlayBox.addEventListener("click", () => {
+        overlayBox.classList.remove("show");
+    });
+
 </script>
+
 </body>
 </html>
+
+
 
 
 
