@@ -132,7 +132,7 @@
             }
         }
 
-        /* BUTTONS */
+        /* BUTTON */
         .btn-primary {
             display:inline-flex;
             justify-content:center;
@@ -199,7 +199,7 @@
 
         .hero-title {
             font-size:clamp(2.2rem,4vw,2.9rem);
-            letter-letter spacing:0.2em;
+            letter-spacing:0.2em;
             text-transform:uppercase;
         }
 
@@ -253,7 +253,7 @@
             margin-bottom:1.3rem;
         }
 
-        /* STORY PART */
+        /* STORY LAYOUT */
         .story-layout {
             display:grid;
             grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);
@@ -261,23 +261,27 @@
             align-items:start;
         }
 
+        /* >>> NEUES INGWER-FOTO – PROPORTIONAL KLEINER UND KOMPLETT SICHTBAR <<< */
         .story-image-frame {
             border-radius:1.4rem;
             overflow:hidden;
             box-shadow:0 0 18px rgba(0,0,0,0.45);
-            max-height:190px; /* <<<<<<<<<<<< VERKLEINERT !!! */
+            max-width:320px;
+            max-height:190px;
+            margin:auto;
+            background:#0f140c;
         }
 
         .story-image-frame img {
             width:100%;
             height:100%;
-            object-fit:cover;
-            object-position:center;
+            object-fit:contain;  /* GANZES BILD SICHTBAR */
+            background:#0f140c;
         }
 
         @media(max-width:900px){
             .story-layout{grid-template-columns:1fr;}
-            .story-image-frame{max-height:none;}
+            .story-image-frame{margin:0 auto;}
         }
 
         /* HIGHLIGHTS */
@@ -380,7 +384,10 @@
         .overlay-box{
             max-width:620px;
             padding:2rem;
-            text-align:center;
+            display:flex;               
+            flex-direction:column;      
+            align-items:center;         
+            text-align:center;          
             animation:fadeIn 0.3s ease;
             color:#fff;
         }
@@ -539,10 +546,9 @@
                 <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
             </div>
 
-            <!-- Rechts – zwei Zeilen + rechtsbündig -->
+            <!-- Rechts – EINZEILIG + rechtsbündig -->
             <div class="footer-column footer-right">
-                <div>Luzern,</div>
-                <div>Switzerland</div>
+                <div>Luzern, Switzerland</div>
                 <div>&copy; 2025 Pure Root Switzerland</div>
             </div>
 
@@ -577,6 +583,8 @@
 
 </body>
 </html>
+
+
 
 
 
