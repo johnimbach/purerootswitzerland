@@ -39,7 +39,7 @@
             padding: 0 1.5rem;
         }
 
-        /* HEADER – exakt wie Index */
+        /* HEADER – wie Index */
         header.site-header {
             position: sticky;
             top: 0;
@@ -201,7 +201,7 @@
             line-height: 1.6;
         }
 
-        /* FOOTER – exakt wie Index */
+        /* FOOTER – wie Index */
         footer.site-footer {
             background: #10140c;
             padding: 1.6rem 0 1.2rem;
@@ -216,14 +216,18 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            gap: 1rem;
             flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .footer-left {
             display: flex;
             flex-direction: column;
             gap: 0.17rem;
+        }
+
+        .footer-right {
+            text-align: right;
         }
 
         .footer-logo {
@@ -241,22 +245,48 @@
             box-shadow:0 0 24px rgba(0,0,0,0.8);
         }
 
-        .footer-right {
-            text-align: right;
-        }
 
-        .footer-left a {
-            text-decoration: underline;
-            text-underline-offset: 2px;
-        }
-
+        /* MOBILE – Navigation wie Index, alles zentriert */
         @media(max-width:720px){
+
+            /* NAVIGATION – zentriert wie Index */
+            nav.main-nav {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 0.8rem !important;
+            }
+
+            /* HERO – zentrieren */
+            .hero-inner {
+                text-align:center;
+                margin-left:auto;
+                margin-right:auto;
+            }
+            .hero-text {
+                margin-left:auto;
+                margin-right:auto;
+            }
+
+            /* ACTION – zentrieren */
+            .action-area .inner,
+            .update-block,
+            .update-text,
+            .update-title,
+            .update-date {
+                text-align:center;
+                margin-left:auto;
+                margin-right:auto;
+            }
+
+            /* FOOTER – zentrieren */
             .footer-inner {
                 flex-direction:column;
                 align-items:center;
                 text-align:center;
             }
-            .footer-right { text-align:center; }
+            .footer-right {
+                text-align:center;
+            }
         }
 
         /* OVERLAY */
@@ -425,6 +455,8 @@ overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
 
 </body>
 </html>
+
+
 
 
 
