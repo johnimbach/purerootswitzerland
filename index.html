@@ -73,7 +73,8 @@ a{text-decoration:none;color:inherit;}
     width:0%;height:1px;background:var(--gold);
     transition:0.3s ease;
 }
-.main-nav a:hover::after,.main-nav a.active::after{width:100%;}
+.main-nav a:hover::after,
+.main-nav a.active::after{width:100%;}
 
 .nav-toggle{display:none;}
 
@@ -128,19 +129,30 @@ a{text-decoration:none;color:inherit;}
     align-items:center;
 }
 .hero-bg{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;z-index:-2;
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
 }
 .hero-overlay{
-    position:absolute;inset:0;z-index:-1;
+    position:absolute;
+    inset:0;
+    z-index:-1;
     background:linear-gradient(to bottom,rgba(0,0,0,0.45),rgba(0,0,0,0.8));
 }
+
+/* HERO INNER – kein transform mehr */
 .hero-inner{
     padding:5.4rem 0 3.6rem;
 }
+
 .hero-tagline{
-    font-size:1.25rem;letter-spacing:0.32em;
-    color:var(--gold);text-transform:uppercase;
+    font-size:1.25rem;
+    letter-spacing:0.32em;
+    color:var(--gold);
+    text-transform:uppercase;
     margin-bottom:1.3rem;
 }
 .hero-title{
@@ -156,17 +168,19 @@ a{text-decoration:none;color:inherit;}
 /* MOBILE HERO */
 @media(max-width:720px){
     .hero{
-        text-align:center;flex-direction:column;
+        text-align:center;
         padding-top:2rem;
+        flex-direction:column;
     }
     .hero-bg{
-        position:relative;height:330px;order:2;
+        position:relative;height:330px;
     }
     .hero-overlay{display:none;}
-    .hero .inner{
-        order:1;padding-bottom:2.4rem;
+
+    .hero-inner{
+        padding:2rem 0 2.4rem;
     }
-    .hero-inner{padding:0;}
+
     .hero-tagline{font-size:1.05rem;margin-bottom:1rem;}
     .hero-title{font-size:2.1rem;margin-bottom:0.9rem;}
     .hero-subtitle{font-size:1.15rem;margin-bottom:1.25rem;}
@@ -277,7 +291,8 @@ a{text-decoration:none;color:inherit;}
 
 .footer-logo{
     width:78px;height:78px;
-    border-radius:50%;border:3px solid #000;
+    border-radius:50%;
+    border:3px solid #000;
     object-fit:cover;cursor:pointer;
     margin-bottom:0.55rem;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
@@ -309,11 +324,11 @@ a{text-decoration:none;color:inherit;}
 }
 .overlay-logo{
     width:260px;height:260px;border-radius:50%;
-    border:5px solid #000;object-fit:cover;
+    border:5px solid #000;
+    object-fit:cover;
     margin:0 auto 1.4rem auto;
 }
 
-/* PERFORMANCE MOBILE BACKGROUND */
 @media(max-width:720px){
     .action-section{
         background-attachment:scroll;
@@ -322,6 +337,7 @@ a{text-decoration:none;color:inherit;}
 }
 </style>
 </head>
+
 
 <body>
 
@@ -346,27 +362,38 @@ a{text-decoration:none;color:inherit;}
     </div>
 </header>
 
+
 <section class="hero">
     <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
     <div class="hero-overlay"></div>
 
     <div class="inner">
         <div class="hero-inner">
+
             <p class="hero-tagline">Fresh from the Azores</p>
+
             <h1 class="hero-title">Pure Root Switzerland</h1>
-            <p class="hero-subtitle">Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut</p>
+
+            <p class="hero-subtitle">
+                Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut
+            </p>
+
             <p class="hero-text">
                 Auf den Azoren entsteht ein einzigartiges Projekt: frischer, europäischer Bio-Ingwer,
                 angebaut in vulkanischem Boden, geerntet in kleinen Mengen und mit viel Hingabe
                 in die Schweiz gebracht. Jede Wurzel erzählt eine Geschichte – und der Testanbau ist
                 der erste Schritt zu einer langfristigen, nachhaltigen Produktion.
             </p>
+
             <div class="hero-cta-row">
                 <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
             </div>
+
         </div>
     </div>
 </section>
+
+
 
 <section class="action-section">
     <div class="inner action-inner">
@@ -427,7 +454,9 @@ a{text-decoration:none;color:inherit;}
 
                     <p>
                         Unterstützt wird das Projekt durch wertvolle Kontakte zur
-                        <a href="https://www.uac.pt/" target="_blank" rel="noopener noreferrer">Universidade dos Açores</a>.
+                        <a href="https://www.uac.pt/" target="_blank" rel="noopener noreferrer">
+                            Universidade dos Açores
+                        </a>.
                     </p>
                 </div>
 
@@ -452,6 +481,7 @@ a{text-decoration:none;color:inherit;}
     </div>
 </section>
 
+
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-column footer-left">
@@ -473,6 +503,7 @@ a{text-decoration:none;color:inherit;}
     </div>
 </footer>
 
+
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
@@ -484,7 +515,9 @@ a{text-decoration:none;color:inherit;}
     </div>
 </div>
 
+
 </div>
+
 
 <script>
 function toggleNav(){
@@ -502,8 +535,11 @@ if(footerLogo && overlayBox){
 }
 </script>
 
+
 </body>
 </html>
+
+
 
 
 
