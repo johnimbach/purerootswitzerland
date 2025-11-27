@@ -36,7 +36,7 @@ a { color:inherit; text-decoration:none; }
     padding:0 1.5rem;
 }
 
-/* HEADER (Desktop only) */
+/* HEADER (Desktop) */
 header.site-header {
     position:sticky;
     top:0;
@@ -70,7 +70,7 @@ header.site-header {
     color:var(--gold);
 }
 
-/* NAVIGATION (Desktop only) */
+/* NAVIGATION Desktop */
 nav.main-nav {
     display:flex;
     gap:1.8rem;
@@ -97,6 +97,19 @@ nav.main-nav a.active::after {
     width:100%;
 }
 
+/* MOBILE NAV TOGGLE */
+.nav-toggle {
+    display:none;
+    border:1px solid rgba(255,255,255,0.35);
+    background:transparent;
+    color:#fff;
+    padding:0.35rem 0.7rem;
+    border-radius:999px;
+    font-size:0.78rem;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+}
+
 /* BUTTON */
 .btn-primary {
     padding:0.8rem 2rem;
@@ -117,7 +130,7 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO (Desktop only) */
+/* HERO (Desktop) */
 .hero {
     min-height:82vh;
     position:relative;
@@ -153,7 +166,6 @@ nav.main-nav a.active::after {
     letter-spacing:0.28em;
     text-transform:uppercase;
     margin-bottom:1rem;
-    opacity:0.95;
     color:var(--gold);
 }
 .hero-title {
@@ -226,6 +238,10 @@ nav.main-nav a.active::after {
     background:#0f140c;
 }
 
+/* CTA */
+.cta-block { margin-top:1.4rem; }
+.cta-btn-row { margin-top:1.2rem; }
+
 /* FOOTER */
 footer.site-footer {
     background:#10140c;
@@ -240,6 +256,11 @@ footer.site-footer {
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
+}
+.footer-column {
+    display:flex;
+    flex-direction:column;
+    gap:0.25rem;
 }
 .footer-logo {
     width:78px;
@@ -278,6 +299,121 @@ footer.site-footer {
     margin-bottom: 1.4rem;
 }
 
+/* ===========================================================
+   MOBILE – NEU AUFGEBAUT NACH CROWDFUNDING-MUSTER
+   =========================================================== */
+@media(max-width:720px){
+
+    /* Header kompakter, Nav-Toggle sichtbar */
+    .header-inner {
+        padding:0.7rem 1rem;
+    }
+
+    .logo-main {
+        font-size:1.2rem;
+        letter-spacing:0.19em;
+    }
+    .logo-sub {
+        font-size:0.75rem;
+        letter-spacing:0.22em;
+    }
+
+    .nav-toggle {
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    nav.main-nav {
+        position:absolute;
+        top:100%;
+        right:0;
+        padding:1rem 1.2rem;
+        flex-direction:column;
+        align-items:flex-end;
+        gap:0.9rem;
+        background:rgba(30,40,24,0.98);
+        opacity:0;
+        pointer-events:none;
+        transform:translateY(-10px);
+        transition:0.25s ease;
+    }
+
+    nav.main-nav.open {
+        opacity:1;
+        pointer-events:auto;
+        transform:translateY(0);
+    }
+
+    /* HERO – Text zentriert wie Crowdfunding */
+    .hero {
+        min-height:auto;
+        display:block;
+        padding-top:1.2rem;
+    }
+
+    .hero-inner {
+        padding:2rem 1.4rem 1.6rem;
+        text-align:center;
+    }
+
+    .hero-text {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-cta-row {
+        display:flex;
+        justify-content:center;
+        margin-top:1.2rem;
+    }
+
+    /* Hintergrundbild bleibt vollflächig, Overlay bleibt */
+    .hero-bg {
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    /* ACTION, HIGHLIGHTS, STORY – alles untereinander & zentriert */
+    .action-inner {
+        text-align:center;
+        padding:0 1.4rem;
+    }
+
+    .section-lead {
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .highlight-grid {
+        grid-template-columns:1fr;
+        gap:2rem;
+        margin-top:1.8rem;
+    }
+
+    .story-layout {
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:1.8rem;
+    }
+
+    .story-image-frame {
+        max-width:320px;
+        max-height:none;
+        margin:0 auto;
+    }
+
+    /* FOOTER – zentriert, untereinander */
+    .footer-inner {
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:0.8rem;
+    }
+}
 </style>
 </head>
 
@@ -293,7 +429,9 @@ footer.site-footer {
                 <div class="logo-sub">ORGANIC GINGER</div>
             </div>
 
-            <nav class="main-nav">
+            <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+
+            <nav class="main-nav" id="mainNav">
                 <a href="index.html" class="active">Home</a>
                 <a href="crowdfunding.html">Crowdfunding</a>
                 <a href="geschichte.html">Geschichte</a>
@@ -311,7 +449,9 @@ footer.site-footer {
         <div class="hero-inner">
             <p class="hero-tagline">Fresh from the Azores</p>
             <h1 class="hero-title">Pure Root Switzerland</h1>
-            <p class="hero-subtitle">Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut</p>
+            <p class="hero-subtitle">
+                Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut
+            </p>
 
             <p class="hero-text">
                 Auf den Azoren entsteht ein einzigartiges Projekt: frischer, europäischer Bio-Ingwer,
@@ -448,6 +588,13 @@ footer.site-footer {
 </div>
 
 <script>
+function toggleNav(){
+    const nav = document.getElementById("mainNav");
+    if(nav){
+        nav.classList.toggle("open");
+    }
+}
+
 const footerLogo = document.getElementById("footerLogo");
 const overlayBox = document.getElementById("overlayBox");
 
@@ -460,6 +607,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
