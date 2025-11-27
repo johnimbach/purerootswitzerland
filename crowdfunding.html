@@ -210,7 +210,10 @@
         }
         .footer-column { display:flex; flex-direction:column; gap:0.17rem; }
         .footer-left  { align-items:flex-start; text-align:left; }
-        .footer-center{ align-items:center; }
+        .footer-center{
+            align-items:center;
+            position:relative;
+        }
         .footer-right { align-items:flex-end; text-align:right; }
 
         .footer-logo {
@@ -220,16 +223,15 @@
             object-fit:cover;
             box-shadow:0 0 18px rgba(0,0,0,0.55);
             transition:transform 0.3s ease, box-shadow 0.3s ease;
-            position:relative;
         }
 
-        .footer-logo:hover {
+        .footer-center:hover .footer-logo {
             transform:scale(1.06);
             box-shadow:0 0 24px rgba(255,255,255,0.55);
         }
 
-        .footer-logo:hover::after {
-            content: attr(title);
+        .footer-center:hover::after {
+            content: "Pure Root Switzerland";
             position:absolute;
             bottom:100%;
             left:50%;
@@ -421,6 +423,8 @@ document.getElementById("percentText").innerText = prozent.toFixed(0) + "% errei
 
 </body>
 </html>
+
+
 
 
 
