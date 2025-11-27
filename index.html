@@ -56,7 +56,6 @@ header.site-header {
 }
 
 .logo-block { display:flex; flex-direction:column; gap:0.2rem; }
-
 .logo-main {
     font-size:1.45rem;
     letter-spacing:0.21em;
@@ -123,7 +122,6 @@ nav.main-nav a.active::after {
         transform:translateY(-8px);
         transition:0.25s ease;
     }
-
     nav.main-nav.open {
         opacity:1;
         pointer-events:auto;
@@ -146,7 +144,6 @@ nav.main-nav a.active::after {
     transition:0.15s;
     display:inline-block;
 }
-
 .btn-primary:hover {
     transform:translateY(-1px);
     box-shadow:0 0 26px rgba(0,0,0,0.55);
@@ -185,14 +182,14 @@ nav.main-nav a.active::after {
     margin:0 auto;
 }
 
-/* golden tagline - DESKTOP CHANGE (requested) */
+/* HERO TEXT */
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
     text-transform:uppercase;
     margin-bottom:1rem;
     opacity:0.95;
-    color:var(--gold); /* GOLD FIX */
+    color:var(--gold); /* GOLD WIE GEWÜNSCHT */
 }
 
 .hero-title {
@@ -211,35 +208,39 @@ nav.main-nav a.active::after {
     margin-bottom:1.4rem;
 }
 
-/* MOBILE HERO */
+/* MOBILE HERO — komplett sauber zentriert */
 @media(max-width:720px){
     .hero {
+        display:flex;
         flex-direction:column;
-        padding-top:2rem;
+        align-items:center;
+        padding-top:1.5rem;
         text-align:center;
     }
 
     .hero-inner {
         order:1;
-        padding-bottom:2rem;
+        padding:1.5rem 1.5rem 2rem;
+        z-index:10;
     }
 
     .hero-bg {
-        order:2;
         position:relative;
         height:330px;
+        order:2;
     }
 
-    .hero-text,
-    .hero-title,
-    .hero-subtitle,
-    .hero-tagline {
+    .hero-overlay { display:none; }
+
+    .hero-text {
         margin-left:auto;
         margin-right:auto;
     }
+
+    .hero-cta-row { justify-content:center; }
 }
 
-/* ACTION */
+/* ACTION SECTION */
 .action-section {
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
@@ -282,7 +283,7 @@ nav.main-nav a.active::after {
     color:var(--gold);
 }
 
-/* MOBILE HIGHLIGHTS */
+/* MOBILE ACTION */
 @media(max-width:720px){
     .highlight-grid {
         grid-template-columns:1fr;
@@ -419,7 +420,9 @@ footer.site-footer {
 
             <h1 class="hero-title">Pure Root Switzerland</h1>
 
-            <p class="hero-subtitle">Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut</p>
+            <p class="hero-subtitle">
+                Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut
+            </p>
 
             <p class="hero-text">
                 Auf den Azoren entsteht ein einzigartiges Projekt: frischer, europäischer Bio-Ingwer,
@@ -462,17 +465,25 @@ footer.site-footer {
                 <div class="highlight-grid">
                     <article class="highlight-card">
                         <h3 class="highlight-title">Unvergleichliche Frische</h3>
-                        <p>Ingwer aus Übersee ist oft wochenlang unterwegs. Auf den Azoren dauert der Weg nur wenige Stunden – ein riesiger Vorteil für Qualität und Geschmack.</p>
+                        <p>
+                            Ingwer aus Übersee ist oft wochenlang unterwegs.
+                            Auf den Azoren dauert der Weg nur wenige Stunden – ein riesiger Vorteil.
+                        </p>
                     </article>
 
                     <article class="highlight-card">
                         <h3 class="highlight-title">Lokale Partnerschaft</h3>
-                        <p>Das Projekt entsteht in enger Zusammenarbeit mit einem heimischen Biolandwirt – transparent, fair und ökologisch. Wertschöpfung bleibt dort, wo sie entsteht.</p>
+                        <p>
+                            Das Projekt entsteht in enger Zusammenarbeit mit einem heimischen Biolandwirt –
+                            transparent, fair und ökologisch.
+                        </p>
                     </article>
 
                     <article class="highlight-card">
                         <h3 class="highlight-title">Azoren-Boden</h3>
-                        <p>Vulkanische Böden fördern kräftiges Wachstum und einen intensiven Geschmack. Ein natürlicher Standortvorteil, der Ingwer in dieser Qualität möglich macht.</p>
+                        <p>
+                            Vulkanische Böden fördern kräftiges Wachstum und einen intensiven Geschmack.
+                        </p>
                     </article>
                 </div>
             </div>
@@ -489,15 +500,13 @@ footer.site-footer {
                         </p>
 
                         <p>
-                            Bio-Ingwer bedeutet für mich Wärme, Kraft und Erdung. Der Testanbau ist weit
-                            mehr als Landwirtschaft – er ist ein Neuanfang, eine Vision und die Chance,
-                            ein hochwertiges Produkt aus ehrlicher Arbeit zu schaffen.
+                            Bio-Ingwer bedeutet für mich Wärme, Kraft und Erdung.
+                            Der Testanbau ist weit mehr als Landwirtschaft – er ist ein Neuanfang.
                         </p>
 
                         <p>
                             Unterstützt wird das Projekt durch wertvolle Kontakte zur
-                            <a href="https://www.uac.pt/" target="_blank">Universidade dos Açores</a>,
-                            die bei Forschung, Bodenanalysen und Beratung helfen.
+                            <a href="https://www.uac.pt/" target="_blank">Universidade dos Açores</a>.
                         </p>
                     </div>
 
@@ -511,10 +520,8 @@ footer.site-footer {
                 <h2 class="section-heading">Jetzt <span>den Testanbau</span> möglich machen</h2>
 
                 <p>
-                    Jeder Beitrag – klein oder groß – unterstützt Bewässerung, Start-Infrastruktur,
-                    Bio-Zertifizierung und die erste Pflanzphase. Wenn der Testanbau gelingt,
-                    entsteht daraus ein langfristiges und stabiles Projekt für frischen Bio-Ingwer
-                    aus europäischer Nähe.
+                    Jeder Beitrag – klein oder groß – unterstützt Bewässerung,
+                    Start-Infrastruktur und Bio-Zertifizierung.
                 </p>
 
                 <div class="cta-btn-row">
@@ -537,7 +544,7 @@ footer.site-footer {
             </div>
 
             <div class="footer-column footer-center">
-                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Pure Root Switzerland Logo">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="Logo">
             </div>
 
             <div class="footer-column footer-right">
@@ -577,6 +584,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
