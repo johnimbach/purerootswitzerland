@@ -220,11 +220,27 @@
             object-fit:cover;
             box-shadow:0 0 18px rgba(0,0,0,0.55);
             transition:transform 0.3s ease, box-shadow 0.3s ease;
+            position:relative;
         }
 
         .footer-logo:hover {
             transform:scale(1.06);
             box-shadow:0 0 24px rgba(255,255,255,0.55);
+        }
+
+        .footer-logo:hover::after {
+            content: attr(title);
+            position:absolute;
+            bottom:100%;
+            left:50%;
+            transform:translateX(-50%);
+            background:rgba(0,0,0,0.85);
+            color:white;
+            padding:0.35rem 0.7rem;
+            border-radius:6px;
+            white-space:nowrap;
+            font-size:0.75rem;
+            margin-bottom:6px;
         }
 
         @media(max-width:700px){
@@ -376,7 +392,7 @@
             </div>
 
             <div class="footer-column footer-center">
-                <img src="logo2.jpg" class="footer-logo" loading="lazy" alt="">
+                <img src="logo2.jpg" class="footer-logo" loading="lazy" alt="" title="Pure Root Switzerland">
             </div>
 
             <div class="footer-column footer-right">
@@ -405,6 +421,8 @@ document.getElementById("percentText").innerText = prozent.toFixed(0) + "% errei
 
 </body>
 </html>
+
+
 
 
 
