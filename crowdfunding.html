@@ -22,10 +22,9 @@
         }
 
         img { max-width:100%; display:block; }
-        a { color:inherit; text-decoration:none; }
+        a { color:inherit; text-decoration:none; cursor:pointer; }
 
         .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
-
         .inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
 
         /* HEADER */
@@ -140,7 +139,7 @@
         .hero-text    { max-width:700px; margin-top:0.8rem; opacity:0.95; }
         .hero-cta-row { margin-top:1.8rem; display:flex; }
 
-        /* ACTION-BEREICH */
+        /* CONTENT BACKGROUND */
         .page-background {
             background:
                 linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
@@ -210,10 +209,7 @@
         }
         .footer-column { display:flex; flex-direction:column; gap:0.17rem; }
         .footer-left  { align-items:flex-start; text-align:left; }
-        .footer-center{
-            align-items:center;
-            position:relative;
-        }
+        .footer-center{ align-items:center; position:relative; }
         .footer-right { align-items:flex-end; text-align:right; }
 
         .footer-logo {
@@ -221,28 +217,45 @@
             border-radius:50%;
             border:3px solid #000;
             object-fit:cover;
+            cursor:pointer;
             box-shadow:0 0 18px rgba(0,0,0,0.55);
             transition:transform 0.3s ease, box-shadow 0.3s ease;
         }
-
-        .footer-center:hover .footer-logo {
+        .footer-logo:hover {
             transform:scale(1.06);
             box-shadow:0 0 24px rgba(255,255,255,0.55);
         }
 
-        .footer-center:hover::after {
-            content: "Pure Root Switzerland";
-            position:absolute;
-            bottom:100%;
-            left:50%;
-            transform:translateX(-50%);
-            background:rgba(0,0,0,0.85);
-            color:white;
-            padding:0.35rem 0.7rem;
-            border-radius:6px;
-            white-space:nowrap;
-            font-size:0.75rem;
-            margin-bottom:6px;
+        /* UNIVERSAL OVERLAY */
+        .overlay-bg {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.78);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            text-align:center;
+            z-index: 9999;
+        }
+        .overlay-bg.show { display: flex; }
+
+        .overlay-box {
+            max-width: 620px;
+            padding: 2rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .overlay-logo {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 5px solid #000;
+            object-fit: cover;
+            margin-bottom: 1.4rem;
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
         }
 
         @media(max-width:700px){
@@ -310,7 +323,7 @@
         </div>
     </section>
 
-    <!-- ACTION-BEREICH -->
+    <!-- CONTENT -->
     <div class="page-background">
 
         <div class="spendenbarometer">
@@ -394,7 +407,7 @@
             </div>
 
             <div class="footer-column footer-center">
-                <img src="logo2.jpg" class="footer-logo" loading="lazy" alt="" title="Pure Root Switzerland">
+                <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
             </div>
 
             <div class="footer-column footer-right">
@@ -405,11 +418,32 @@
         </div>
     </footer>
 
+    <!-- OVERLAY -->
+    <div class="overlay-bg" id="overlayBox">
+        <div class="overlay-box">
+            <img src="logo2.jpg" class="overlay-logo" alt="">
+            <p>
+                <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong><br><br>
+                Danach bleibt meist nur Importware aus Übersee – lange unterwegs, weniger frisch.<br><br>
+                Dieses Projekt möchte das ändern: nachhaltig angebauter Bio-Ingwer aus europäischer Nähe.
+            </p>
+        </div>
+    </div>
+
 </div>
 
 <script>
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
+}
+
+const footerLogo = document.getElementById("footerLogo");
+const overlayBox = document.getElementById("overlayBox");
+
+if (footerLogo && overlayBox) {
+    footerLogo.addEventListener("mouseenter", () => overlayBox.classList.add("show"));
+    footerLogo.addEventListener("click", () => overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
 }
 
 let betrag = 1500;
@@ -423,6 +457,8 @@ document.getElementById("percentText").innerText = prozent.toFixed(0) + "% errei
 
 </body>
 </html>
+
+
 
 
 
