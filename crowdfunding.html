@@ -8,7 +8,6 @@
 <style>
 :root {
     --green-dark: #3e4a29;
-    --green: #556b2f;
     --gold: #eacb83;
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
@@ -105,21 +104,20 @@ nav.main-nav a.active::after { width:100%; }
     position:relative;
     display:flex;
     align-items:center;
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
-.hero-bg {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-}
+
+.hero-bg { display:none; }
+
 .hero-overlay {
     position:absolute;
     inset:0;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.48), rgba(0,0,0,0.78));
+    background:linear-gradient(to bottom,
+                rgba(0,0,0,0.48),
+                rgba(0,0,0,0.78));
     z-index:-1;
 }
+
 .hero-inner {
     max-width:1100px;
     width:100%;
@@ -133,26 +131,30 @@ nav.main-nav a.active::after { width:100%; }
     text-transform:uppercase;
     margin-bottom:1rem;
     opacity:0.95;
-    color:var(--gold);
+    color:#ffffff;
 }
-.hero-title { font-size:3rem; margin-bottom:0.5rem; }
+.hero-title { font-size:3rem; margin-bottom:0.5rem; color:white; }
 .hero-subtitle {
     font-size:1.4rem;
     opacity:0.96;
     margin-bottom:1.2rem;
+    color:white;
 }
-.hero-text { max-width:720px; margin-bottom:1.4rem; }
+.hero-text {
+    max-width:720px;
+    margin-bottom:1.4rem;
+    color:white;
+}
 
-/* MOBILE HERO: Hintergrundbild */
 @media(max-width:720px){
     .hero {
         flex-direction:column;
         padding-top:2rem;
         background:url("fruchtbarkeit.webp") center/cover no-repeat;
+        text-align:center;
     }
-    .hero-bg { display:none; }
-    .hero-overlay { display:none; }
-    .hero-inner { order:1; text-align:left; z-index:5; padding-bottom:2rem; }
+    .hero-inner { text-align:center; padding-bottom:2rem; }
+    .hero-text { margin-left:auto; margin-right:auto; }
 }
 
 .action-section {
@@ -196,9 +198,16 @@ nav.main-nav a.active::after { width:100%; }
     color:var(--gold);
 }
 
-@media(max-width:900px){
-    .highlight-grid { grid-template-columns:1fr; text-align:center; }
-    .highlight-card { text-align:center; }
+@media(max-width:720px){
+    .section-heading,
+    .section-lead,
+    .highlight-card,
+    .cta-block {
+        text-align:center;
+    }
+    .highlight-grid {
+        grid-template-columns:1fr;
+    }
 }
 
 .cta-block { margin-top:3rem; text-align:left; }
@@ -284,6 +293,7 @@ footer.site-footer {
 </header>
 
 <section class="hero">
+    <div class="hero-overlay"></div>
     <div class="hero-inner">
         <p class="hero-tagline">Support the Vision</p>
         <h1 class="hero-title">Crowdfunding</h1>
@@ -292,6 +302,7 @@ footer.site-footer {
             Dieses Crowdfunding ermöglicht Bewässerung, Start-Infrastruktur,
             erste Zertifizierungen und die Vorbereitung des Ingwer-Testanbaus.
         </p>
+        <a href="#" class="btn-primary">Jetzt unterstützen</a>
     </div>
 </section>
 
@@ -303,39 +314,31 @@ footer.site-footer {
         <p class="section-lead">
             Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
             europäischen Bio-Ingwer-Projekts mit fairer Produktion und
-            kurzen Transportwegen. Jede Spende stärkt die lokale Landwirtschaft
-            auf den Azoren und bringt frischen Bio-Ingwer direkt in die Schweiz –
-            ohne unnötige Zwischenlagerung, ohne Übersee-Ware und ohne lange Transportzeiten.
+            kurzen Transportwegen.
         </p>
 
         <p class="section-lead">
             Der Testanbau legt den Grundstein für eine spätere Produktion von mehreren Tonnen
-            Bio-Ingwer pro Jahr. Deine Unterstützung hilft uns, eine stabile, faire und
-            nachhaltige Struktur aufzubauen, die langfristig sowohl Landwirten als auch
-            Konsument:innen zugutekommt.
+            Bio-Ingwer pro Jahr.
         </p>
 
         <div class="highlight-grid">
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bewässerung</h3>
-                <p>Installation eines effizienten Systems, um konstante Qualität sicherzustellen.</p>
+                <p>Installation eines effizienten Systems.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
-                <p>Präzise Untersuchung des vulkanischen Bodens auf São Miguel.</p>
+                <p>Untersuchung des vulkanischen Bodens.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bio-Zertifizierung</h3>
-                <p>Grundlage für einen langfristig fairen, transparenten Anbau.</p>
+                <p>Grundlage für einen fairen Anbau.</p>
             </article>
 
-        </div>
-
-        <div class="cta-block">
-            <a href="#" class="btn-primary">Jetzt unterstützen</a>
         </div>
 
     </div>
@@ -390,6 +393,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
