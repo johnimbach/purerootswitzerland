@@ -27,6 +27,7 @@
         .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
         .inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
 
+        /* HEADER */
         header.site-header {
             position:sticky;
             top:0;
@@ -97,6 +98,7 @@
             box-shadow:0 0 16px rgba(0,0,0,0.4);
         }
 
+        /* HERO */
         .hero {
             position:relative;
             min-height:80vh;
@@ -129,9 +131,6 @@
         @media(max-width:720px){
             .hero-inner { text-align:center; }
             .hero-cta-row { justify-content:center; }
-
-            /* FIX: Hero-Titel zentriert */
-            .hero-title { text-align:center; }
         }
 
         .hero-tagline { font-size:0.85rem; letter-spacing:0.22em; color:var(--gold); text-transform:uppercase; }
@@ -140,6 +139,7 @@
         .hero-text    { max-width:700px; margin-top:0.8rem; opacity:0.95; }
         .hero-cta-row { margin-top:1.8rem; display:flex; }
 
+        /* CONTENT BACKGROUND */
         .page-background {
             background:
                 linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
@@ -195,6 +195,7 @@
             text-align:center;
         }
 
+        /* FOOTER */
         footer.site-footer {
             background:#10140c;
             padding:1.1rem 0 1.3rem;
@@ -207,6 +208,9 @@
             display:flex; justify-content:space-between; align-items:flex-end;
         }
         .footer-column { display:flex; flex-direction:column; gap:0.17rem; }
+        .footer-left  { align-items:flex-start; text-align:left; }
+        .footer-center{ align-items:center; position:relative; }
+        .footer-right { align-items:flex-end; text-align:right; }
 
         .footer-logo {
             width:78px; height:78px;
@@ -215,8 +219,14 @@
             object-fit:cover;
             cursor:pointer;
             box-shadow:0 0 18px rgba(0,0,0,0.55);
+            transition:transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .footer-logo:hover {
+            transform:scale(1.06);
+            box-shadow:0 0 24px rgba(255,255,255,0.55);
         }
 
+        /* UNIVERSAL OVERLAY */
         .overlay-bg {
             position: fixed;
             inset: 0;
@@ -255,6 +265,7 @@
                 text-align:center;
                 gap:0.4rem;
             }
+            .footer-column { align-items:center; }
         }
     </style>
 </head>
@@ -383,6 +394,7 @@
 
     </div>
 
+    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="footer-inner">
 
@@ -406,6 +418,7 @@
         </div>
     </footer>
 
+    <!-- OVERLAY -->
     <div class="overlay-bg" id="overlayBox">
         <div class="overlay-box">
             <img src="logo2.jpg" class="overlay-logo" alt="">
@@ -444,6 +457,7 @@ document.getElementById("percentText").innerText = prozent.toFixed(0) + "% errei
 
 </body>
 </html>
+
 
 
 
