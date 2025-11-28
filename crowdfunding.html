@@ -10,8 +10,6 @@
     --green-dark: #3e4a29;
     --green: #556b2f;
     --gold: #eacb83;
-    --cream: #f4f4ed;
-    --white: #ffffff;
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
@@ -128,6 +126,7 @@ nav.main-nav a.active::after { width:100%; }
     padding:5rem 1.5rem 3rem;
     margin:0 auto;
 }
+
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
@@ -144,9 +143,14 @@ nav.main-nav a.active::after { width:100%; }
 }
 .hero-text { max-width:720px; margin-bottom:1.4rem; }
 
+/* MOBILE HERO: Hintergrundbild */
 @media(max-width:720px){
-    .hero { flex-direction:column; padding-top:2rem; }
-    .hero-bg { position:relative; height:330px; order:2; }
+    .hero {
+        flex-direction:column;
+        padding-top:2rem;
+        background:url("fruchtbarkeit.webp") center/cover no-repeat;
+    }
+    .hero-bg { display:none; }
     .hero-overlay { display:none; }
     .hero-inner { order:1; text-align:left; z-index:5; padding-bottom:2rem; }
 }
@@ -156,40 +160,48 @@ nav.main-nav a.active::after { width:100%; }
     url("hintergrund.jpg") center/cover;
     padding:3.2rem 0 3.4rem;
 }
+
 .section-heading {
     font-size:2rem;
     letter-spacing:0.14em;
     margin-bottom:1.3rem;
-    text-align:center;
+    text-align:left;
 }
 .section-heading span { color:var(--gold); }
+
 .section-lead {
     max-width:780px;
     opacity:0.95;
     line-height:1.65;
-    margin:0 auto 1.3rem;
-    text-align:center;
+    margin:0 0 1.3rem 0;
+    text-align:left;
 }
 
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1.8rem;
-    margin-top:1.8rem;
+    gap:2.2rem;
+    margin-top:2rem;
 }
 .highlight-card {
     background:rgba(0,0,0,0.25);
-    padding:1.6rem;
+    padding:1.8rem;
     border-radius:1.1rem;
     border:1px solid rgba(255,255,255,0.18);
+    text-align:left;
 }
-.highlight-title { font-size:1.25rem; margin-bottom:0.7rem; color:var(--gold); }
+.highlight-title {
+    font-size:1.35rem;
+    margin-bottom:0.8rem;
+    color:var(--gold);
+}
 
 @media(max-width:900px){
-    .highlight-grid { grid-template-columns:1fr; }
+    .highlight-grid { grid-template-columns:1fr; text-align:center; }
+    .highlight-card { text-align:center; }
 }
 
-.cta-block { margin-top:2rem; text-align:center; }
+.cta-block { margin-top:3rem; text-align:left; }
 
 footer.site-footer {
     background:#10140c;
@@ -272,9 +284,6 @@ footer.site-footer {
 </header>
 
 <section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
-    <div class="hero-overlay"></div>
-
     <div class="hero-inner">
         <p class="hero-tagline">Support the Vision</p>
         <h1 class="hero-title">Crowdfunding</h1>
@@ -294,7 +303,16 @@ footer.site-footer {
         <p class="section-lead">
             Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
             europäischen Bio-Ingwer-Projekts mit fairer Produktion und
-            kurzen Transportwegen.
+            kurzen Transportwegen. Jede Spende stärkt die lokale Landwirtschaft
+            auf den Azoren und bringt frischen Bio-Ingwer direkt in die Schweiz –
+            ohne unnötige Zwischenlagerung, ohne Übersee-Ware und ohne lange Transportzeiten.
+        </p>
+
+        <p class="section-lead">
+            Der Testanbau legt den Grundstein für eine spätere Produktion von mehreren Tonnen
+            Bio-Ingwer pro Jahr. Deine Unterstützung hilft uns, eine stabile, faire und
+            nachhaltige Struktur aufzubauen, die langfristig sowohl Landwirten als auch
+            Konsument:innen zugutekommt.
         </p>
 
         <div class="highlight-grid">
@@ -306,7 +324,7 @@ footer.site-footer {
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
-                <p>Professionelle Untersuchung des vulkanischen Bodens auf São Miguel.</p>
+                <p>Präzise Untersuchung des vulkanischen Bodens auf São Miguel.</p>
             </article>
 
             <article class="highlight-card">
@@ -362,16 +380,18 @@ footer.site-footer {
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
-const footerLogo=document.getElementById("footerLogo");
-const overlayBox=document.getElementById("overlayBox");
-if(footerLogo&&overlayBox){
-    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
-    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
+const footerLogo = document.getElementById("footerLogo");
+const overlayBox = document.getElementById("overlayBox");
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click", ()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click", ()=>overlayBox.classList.remove("show"));
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
