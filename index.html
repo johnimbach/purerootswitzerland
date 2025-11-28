@@ -105,10 +105,11 @@ nav.main-nav a.active::after {
 @media(max-width:720px){
     .nav-toggle {
         display:inline-flex;
-        padding:0.4rem 0.7rem;
-        border:1px solid rgba(255,255,255,0.3);
+        padding:0.45rem 0.9rem;
+        border:1px solid rgba(255,255,255,0.35);
         border-radius:999px;
         color:#fff;
+        font-size:0.9rem;
         background:transparent;
     }
 
@@ -155,12 +156,6 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-@media(min-width:721px){
-    .hero-cta-row {
-        margin-top:2rem;
-    }
-}
-
 /* HERO */
 .hero {
     min-height:82vh;
@@ -191,17 +186,16 @@ nav.main-nav a.active::after {
     max-width:1100px;
     width:100%;
     padding:5rem 1.5rem 3rem;
-    margin: 0 auto;
+    margin:0 auto;
 }
 
-/* HERO TEXT */
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
     text-transform:uppercase;
     margin-bottom:1rem;
     opacity:0.95;
-    color:var(--gold);   /* <-- GOLDEN TEXT (NEU) */
+    color:var(--gold);
 }
 
 .hero-title {
@@ -223,8 +217,16 @@ nav.main-nav a.active::after {
 /* MOBILE HERO */
 @media(max-width:720px){
     .hero {
-        flex-direction:column;
+        text-align:center;
         padding-top:2rem;
+        flex-direction:column;
+    }
+
+    .hero-inner {
+        order:1;
+        z-index:5;
+        padding-bottom:2rem;
+        text-align:center;
     }
 
     .hero-bg {
@@ -234,13 +236,6 @@ nav.main-nav a.active::after {
     }
 
     .hero-overlay { display:none; }
-
-    .hero-inner {
-        order:1;
-        text-align:left;
-        z-index:5;
-        padding-bottom:2rem;
-    }
 }
 
 /* ACTION SECTION */
@@ -251,19 +246,10 @@ nav.main-nav a.active::after {
     padding:3.2rem 0 3.4rem;
 }
 
-@media(max-width:720px){
-    .action-section {
-        background:
-          linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-          url("hintergrund.jpg") center/cover no-repeat;
-    }
-}
-
 .section-heading {
     font-size:2rem;
     letter-spacing:0.14em;
     margin-bottom:1.3rem;
-    color:#ffffff !important;
 }
 
 .section-lead {
@@ -273,7 +259,6 @@ nav.main-nav a.active::after {
     margin-bottom:1.3rem;
 }
 
-/* HIGHLIGHTS */
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -281,20 +266,19 @@ nav.main-nav a.active::after {
     margin-top:1.8rem;
 }
 
-.highlight-card {
-    background:rgba(0,0,0,0.25);
-    padding:1.6rem;
-    border-radius:1.1rem;
-    border:1px solid rgba(255,255,255,0.18);
+@media(max-width:720px){
+    .section-heading,
+    .section-lead,
+    .action-section p {
+        text-align:center;
+    }
+
+    .highlight-grid {
+        grid-template-columns:1fr;
+    }
 }
 
-.highlight-title {
-    font-size:1.25rem;
-    margin-bottom:0.7rem;
-    color:var(--gold);
-}
-
-/* STORY SECTION */
+/* STORY */
 .story-layout {
     display:grid;
     grid-template-columns:1.3fr 1fr;
@@ -302,19 +286,12 @@ nav.main-nav a.active::after {
     align-items:center;
 }
 
-.story-image-frame {
-    border-radius:1.4rem;
-    overflow:hidden;
-    box-shadow:0 0 18px rgba(0,0,0,0.45);
-    max-width:340px;
-    max-height:200px;
-    margin:auto;
-    background:#0f140c;
+@media(max-width:720px){
+    .story-layout {
+        grid-template-columns:1fr;
+        text-align:center;
+    }
 }
-
-/* CTA BOTTOM */
-.cta-block { margin-top:1.4rem; }
-.cta-btn-row { margin-top:1.2rem; }
 
 /* FOOTER */
 footer.site-footer {
@@ -341,6 +318,21 @@ footer.site-footer {
     object-fit:cover;
     cursor:pointer;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
+}
+
+/* MOBILE FOOTER — Optimiert & kompaktes Design */
+@media(max-width:720px){
+    .footer-inner {
+        flex-direction:column;
+        text-align:center;
+        gap:0.7rem;
+        padding-bottom:1.6rem;
+    }
+
+    /* LOGO im Footer auf Mobile entfernen */
+    .footer-center {
+        display:none;
+    }
 }
 
 /* OVERLAY */
@@ -397,6 +389,7 @@ footer.site-footer {
         </div>
     </header>
 
+
     <!-- HERO -->
     <section class="hero">
         <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
@@ -404,7 +397,6 @@ footer.site-footer {
 
         <div class="hero-inner">
 
-            <!-- GOLDENE TAGLINE (NEU) -->
             <p class="hero-tagline">Fresh from the Azores</p>
 
             <h1 class="hero-title">Pure Root Switzerland</h1>
@@ -416,8 +408,7 @@ footer.site-footer {
             <p class="hero-text">
                 Auf den Azoren entsteht ein einzigartiges Projekt: frischer, europäischer Bio-Ingwer,
                 angebaut in vulkanischem Boden, geerntet in kleinen Mengen und mit viel Hingabe
-                in die Schweiz gebracht. Jede Wurzel erzählt eine Geschichte – und der Testanbau ist
-                der erste Schritt zu einer langfristigen, nachhaltigen Produktion.
+                in die Schweiz gebracht.
             </p>
 
             <div class="hero-cta-row">
@@ -426,78 +417,65 @@ footer.site-footer {
         </div>
     </section>
 
+
     <!-- ACTION -->
     <section class="action-section">
         <div class="inner action-inner">
 
             <div>
-                <h2 class="section-heading">Was <span>dieses Projekt</span> ausmacht</h2>
+                <h2 class="section-heading">Was dieses Projekt ausmacht</h2>
 
                 <p class="section-lead">
                     Auf São Miguel (Azoren) entsteht gemeinsam mit einem lokalen Biolandwirt
-                    ein langfristiger Bio-Ingwerhof. Das Ziel: frischen, Knospe-zertifizierten
-                    Ingwer aus europäischer Nähe zu liefern – ohne lange Transportwege,
-                    ohne Übersee-Lagerzeiten und mit maximaler Frische.
+                    ein langfristiger Bio-Ingwerhof.
                 </p>
 
                 <p>
-                    Der Testanbau umfasst Bewässerung, erste Bodenanalyse, Bio-Zertifizierung
-                    und den Aufbau einer kleinen Start-Infrastruktur. Jede Phase wird
-                    dokumentiert, optimiert und dient als Grundlage für die spätere
-                    Großproduktion mit bis zu mehreren Tonnen monatlich.
+                    Jede Phase wird dokumentiert, optimiert und dient als Grundlage der späteren Großproduktion.
                 </p>
             </div>
 
             <div>
-                <h2 class="section-heading">Drei <span>Gründe</span> für dieses Projekt</h2>
+                <h2 class="section-heading">Drei Gründe</h2>
 
                 <div class="highlight-grid">
 
                     <article class="highlight-card">
                         <h3 class="highlight-title">Unvergleichliche Frische</h3>
-                        <p>Ingwer aus Übersee ist oft wochenlang unterwegs. Auf den Azoren dauert der Weg nur wenige Stunden – ein riesiger Vorteil für Qualität und Geschmack.</p>
+                        <p>Weg nur wenige Stunden statt wochenlange Übersee-Lagerzeiten.</p>
                     </article>
 
                     <article class="highlight-card">
                         <h3 class="highlight-title">Lokale Partnerschaft</h3>
-                        <p>Das Projekt entsteht in enger Zusammenarbeit mit einem heimischen Biolandwirt – transparent, fair und ökologologisch. Wertschöpfung bleibt dort, wo sie entsteht.</p>
+                        <p>Fair, transparent, ökologisch – echte regionale Wertschöpfung.</p>
                     </article>
 
                     <article class="highlight-card">
                         <h3 class="highlight-title">Azoren-Boden</h3>
-                        <p>Vulkanische Böden fördern kräftiges Wachstum und einen intensiven Geschmack. Ein natürlicher Standortvorteil, der Ingwer in dieser Qualität möglich macht.</p>
+                        <p>Vulkanische Böden fördern intensiven Geschmack und starkes Wachstum.</p>
                     </article>
 
                 </div>
             </div>
 
             <div>
-                <h2 class="section-heading">Warum <span>dieses Projekt</span> persönlich ist</h2>
+                <h2 class="section-heading">Warum dieses Projekt persönlich ist</h2>
 
                 <div class="story-layout">
 
                     <div>
                         <p>
-                            Nach einer schweren Krebserkrankung hat sich mein Leben grundlegend verändert.
-                            In dieser Zeit entstand der Wunsch, etwas Sinnvolles und Nachhaltiges aufzubauen –
-                            etwas, das Menschen stärkt und gleichzeitig im Einklang mit der Natur steht.
+                            Nach einer schweren Krebserkrankung hat sich mein Leben verändert.
                         </p>
 
                         <p>
-                            Bio-Ingwer bedeutet für mich Wärme, Kraft und Erdung. Der Testanbau ist weit
-                            mehr als Landwirtschaft – er ist ein Neuanfang, eine Vision und die Chance,
-                            ein hochwertiges Produkt aus ehrlicher Arbeit zu schaffen.
-                        </p>
-
-                        <p>
-                            Unterstützt wird das Projekt durch wertvolle Kontakte zur
-                            <a href="https://www.uac.pt/" target="_blank" rel="noopener noreferrer">Universidade dos Açores</a>.
+                            Bio-Ingwer steht für Kraft, Erdung und Wärme – und dieses Projekt ist ein Neuanfang.
                         </p>
                     </div>
 
                     <div class="story-image-frame">
                         <img src="frischer-ingwer.jpg"
-                             alt="Frischer Bio-Ingwer aus nachhaltigem Anbau"
+                             alt="Frischer Bio-Ingwer"
                              loading="lazy"
                              decoding="async">
                     </div>
@@ -506,13 +484,10 @@ footer.site-footer {
             </div>
 
             <div class="cta-block">
-                <h2 class="section-heading">Jetzt <span>den Testanbau</span> möglich machen</h2>
+                <h2 class="section-heading">Jetzt Testanbau möglich machen</h2>
 
                 <p>
-                    Jeder Beitrag – klein oder groß – unterstützt Bewässerung, Start-Infrastruktur,
-                    Bio-Zertifizierung und die erste Pflanzphase. Wenn der Testanbau gelingt,
-                    entsteht daraus ein langfristiges und stabiles Projekt für frischen Bio-Ingwer
-                    aus europäischer Nähe.
+                    Jeder Beitrag unterstützt Infrastruktur, Bewässerung und die erste Pflanzphase.
                 </p>
 
                 <div class="cta-btn-row">
@@ -522,6 +497,7 @@ footer.site-footer {
 
         </div>
     </section>
+
 
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -540,8 +516,7 @@ footer.site-footer {
                      class="footer-logo"
                      id="footerLogo"
                      loading="lazy"
-                     decoding="async"
-                     alt="Pure Root Switzerland Logo">
+                     decoding="async">
             </div>
 
             <div class="footer-column footer-right">
@@ -557,13 +532,13 @@ footer.site-footer {
             <img src="logo2.jpg"
                  class="overlay-logo"
                  loading="lazy"
-                 decoding="async"
-                 alt="Pure Root Switzerland Logo Groß">
+                 decoding="async">
+
             <p>
-                <strong>Frischer Ingwer ist in der Schweiz nur für kurze Zeit im Jahr wirklich frisch erhältlich.</strong><br><br>
-                Pure Root Switzerland möchte das ändern – mit nachhaltigem Bio-Anbau auf den Azoren,
-                kurzen Transportwegen und einer direkten Verbindung in die Schweiz.<br><br>
-                So entsteht ein Produkt mit klarer Herkunft, hoher Qualität und echter Nähe.
+                <strong>Frischer Ingwer – endlich ganzjährig frisch verfügbar.</strong>
+                <br><br>
+                Pure Root Switzerland verbindet nachhaltigen Anbau auf den Azoren
+                mit kurzen Transportwegen direkt in die Schweiz.
             </p>
         </div>
     </div>
@@ -586,6 +561,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
