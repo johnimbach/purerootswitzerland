@@ -6,44 +6,59 @@
 <title>Pure Root Switzerland – Organic Ginger</title>
 
 <style>
-/* -----------------------------------------------------------
-   OPTIMIERTE VARIABLEN / GLOBAL
------------------------------------------------------------ */
 :root {
-    --dark: #3e4a29;
+    --green-dark: #3e4a29;
+    --green: #556b2f;
     --gold: #eacb83;
+    --cream: #f4f4ed;
     --white: #ffffff;
+    --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
+/* GLOBAL */
 * { margin:0; padding:0; box-sizing:border-box; }
+html, body { max-width:100vw; overflow-x:hidden; }
 body {
     font-family:"Lora","Georgia",serif;
-    background:var(--dark);
+    background:var(--green-dark);
     color:#fdfdf8;
     line-height:1.65;
     font-size:1.05rem;
-    overflow-x:hidden;
 }
+
 img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
 
-/* -----------------------------------------------------------
-   HEADER + NAV
------------------------------------------------------------ */
-header {
+.page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
+.inner {
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 1.5rem;
+}
+
+/* HEADER */
+header.site-header {
     position:sticky;
     top:0;
     z-index:50;
     background:rgba(30,40,24,0.95);
+    box-shadow:var(--shadow);
 }
 
 .header-inner {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.95rem 1.5rem;
     max-width:1100px;
     margin:0 auto;
-    padding:0.9rem 1.3rem;
+}
+
+.logo-block {
     display:flex;
-    justify-content:space-between;
-    align-items:center;
+    flex-direction:column;
+    gap:0.2rem;
 }
 
 .logo-main {
@@ -53,59 +68,65 @@ header {
 }
 .logo-sub {
     font-size:0.9rem;
-    color:var(--gold);
     letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--gold);
 }
 
-/* NAV */
+/* NAVIGATION */
 nav.main-nav {
     display:flex;
-    gap:1.7rem;
-    text-transform:uppercase;
+    gap:1.8rem;
     letter-spacing:0.1em;
+    font-size:1rem;
+    text-transform:uppercase;
 }
-nav a {
-    position:relative;
+nav.main-nav a {
     padding-bottom:0.1rem;
+    position:relative;
 }
-nav a::after {
+nav.main-nav a::after {
     content:"";
     position:absolute;
     left:0; bottom:0;
     width:0%;
     height:1px;
     background:var(--gold);
-    transition:0.3s;
+    transition:0.3s ease;
 }
-nav a:hover::after, nav a.active::after { width:100%; }
+nav.main-nav a:hover::after,
+nav.main-nav a.active::after {
+    width:100%;
+}
 
 /* MOBILE NAV */
 .nav-toggle { display:none; }
 
 @media(max-width:720px){
     .nav-toggle {
-        display:block;
-        padding:0.4rem 0.8rem;
-        border:1px solid rgba(255,255,255,0.4);
+        display:inline-flex;
+        padding:0.4rem 0.7rem;
+        border:1px solid rgba(255,255,255,0.3);
         border-radius:999px;
-        background:transparent;
         color:#fff;
-        font-size:1rem;
+        background:transparent;
     }
 
     nav.main-nav {
         position:absolute;
-        right:0;
         top:100%;
-        background:rgba(20,25,17,0.98);
+        right:0;
+        padding:1.2rem 1.4rem;
         flex-direction:column;
-        gap:1.1rem;
-        padding:1.3rem 1.4rem;
+        align-items:flex-end;
+        gap:1rem;
+        background:rgba(30,40,24,0.98);
         opacity:0;
         pointer-events:none;
-        transform:translateY(-10px);
-        transition:0.25s;
+        transform:translateY(-8px);
+        transition:0.25s ease;
     }
+
     nav.main-nav.open {
         opacity:1;
         pointer-events:auto;
@@ -113,31 +134,28 @@ nav a:hover::after, nav a.active::after { width:100%; }
     }
 }
 
-/* -----------------------------------------------------------
-   BUTTON
------------------------------------------------------------ */
+/* BUTTON */
 .btn-primary {
     padding:0.8rem 2rem;
     background:var(--gold);
-    color:#1a1a12;
-    border:none;
     border-radius:999px;
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-    cursor:pointer;
-    display:inline-block;
+    color:#1a1a12;
     font-size:1rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    border:none;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+    cursor:pointer;
+    transition:0.15s;
+    display:inline-block;
 }
 
-/* -----------------------------------------------------------
-   HERO
------------------------------------------------------------ */
+/* HERO */
 .hero {
-    position:relative;
     min-height:82vh;
+    position:relative;
     display:flex;
     align-items:center;
-    justify-content:center;
 }
 
 .hero-bg {
@@ -148,76 +166,110 @@ nav a:hover::after, nav a.active::after { width:100%; }
     object-fit:cover;
     z-index:-2;
 }
+
 .hero-overlay {
     position:absolute;
     inset:0;
-    background:linear-gradient(to bottom, rgba(0,0,0,0.48), rgba(0,0,0,0.78));
+    background:linear-gradient(to bottom,
+               rgba(0,0,0,0.48),
+               rgba(0,0,0,0.78));
     z-index:-1;
 }
 
 .hero-inner {
-    max-width:900px;
-    margin:auto;
-    padding:4rem 1.3rem 3rem;
+    max-width:1100px;
+    width:100%;
+    padding:5rem 1.5rem 3rem;
+    margin:0 auto;
 }
 
-/* MOBILE HERO – zentriert */
+/* HERO TEXT */
+.hero-tagline {
+    font-size:1.25rem;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    margin-bottom:1rem;
+    opacity:0.95;
+    color:var(--gold);
+}
+
+.hero-title {
+    font-size:3rem;
+    margin-bottom:0.5rem;
+}
+
+.hero-subtitle {
+    font-size:1.4rem;
+    opacity:0.96;
+    margin-bottom:1.2rem;
+}
+
+.hero-text {
+    max-width:720px;
+    margin-bottom:1.4rem;
+}
+
+/* MOBILE HERO */
 @media(max-width:720px){
-    .hero-inner { text-align:center !important; }
+    .hero {
+        flex-direction:column;
+        padding-top:2rem;
+    }
+
+    .hero-bg {
+        position:relative;
+        height:330px;
+        order:2;
+    }
+
+    .hero-overlay { display:none; }
+
+    .hero-inner {
+        order:1;
+        text-align:center;
+        z-index:5;
+        padding-bottom:2rem;
+    }
 }
 
-/* -----------------------------------------------------------
-   ACTION SECTION (zentriert mobil)
------------------------------------------------------------ */
+/* ACTION SECTION */
 .action-section {
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-      url("hintergrund.jpg") center/cover no-repeat;
-    padding:3rem 0;
+      url("hintergrund.jpg") center/cover;
+    padding:3.2rem 0 3.4rem;
 }
 
-.inner {
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 1.3rem;
-}
-
+/* HEADINGS */
 .section-heading {
     font-size:2rem;
     letter-spacing:0.14em;
-    margin-bottom:1.2rem;
+    margin-bottom:1.3rem;
+    color:#ffffff !important;
 }
 
-.section-lead {
-    opacity:0.95;
-    margin-bottom:1.2rem;
-}
-
-/* -----------------------------------------------------------
-   HIGHLIGHTS – 1 Spalte mobil
------------------------------------------------------------ */
+/* HIGHLIGHTS */
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:1.5rem;
+    gap:1.8rem;
+    margin-top:1.8rem;
 }
 
 .highlight-card {
     background:rgba(0,0,0,0.25);
-    padding:1.4rem;
-    border-radius:1rem;
+    padding:1.6rem;
+    border-radius:1.1rem;
     border:1px solid rgba(255,255,255,0.18);
 }
-.highlight-title { color:var(--gold); margin-bottom:0.6rem; }
 
-@media(max-width:720px){
-    .highlight-grid { grid-template-columns:1fr !important; }
-    .highlight-card { text-align:center; }
+.highlight-title {
+    font-size:1.25rem;
+    margin-bottom:0.7rem;
+    color:var(--gold);
 }
 
-/* -----------------------------------------------------------
-   STORY – mobil untereinander & zentriert
------------------------------------------------------------ */
+/* STORY SECTION */
 .story-layout {
     display:grid;
     grid-template-columns:1.3fr 1fr;
@@ -226,226 +278,314 @@ nav a:hover::after, nav a.active::after { width:100%; }
 }
 
 .story-image-frame {
-    max-width:340px;
-    margin:auto;
     border-radius:1.4rem;
     overflow:hidden;
+    box-shadow:0 0 18px rgba(0,0,0,0.45);
+    max-width:340px;
+    max-height:200px;
+    margin:auto;
+    background:#0f140c;
 }
 
+/* MOBILE STORY */
 @media(max-width:720px){
     .story-layout {
-        grid-template-columns:1fr !important;
+        grid-template-columns:1fr;
         text-align:center;
     }
 }
 
-/* -----------------------------------------------------------
-   CTA
------------------------------------------------------------ */
+/* CTA */
 .cta-btn-row { margin-top:1.2rem; text-align:center; }
 
-/* -----------------------------------------------------------
-   FOOTER – NEUE MOBILE VERSION
------------------------------------------------------------ */
-footer {
+/* ORIGINAL DESKTOP FOOTER */
+footer.site-footer {
     background:#10140c;
-    padding:1.8rem 0 2rem;
-    margin-top:3rem;
+    padding:1.3rem 0 1.5rem;
+    font-size:0.95rem;
+    margin-top:auto;
 }
 
 .footer-inner {
-    max-width:900px;
-    margin:auto;
-    padding:0 1.3rem;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 1.5rem;
     display:flex;
     justify-content:space-between;
     align-items:flex-end;
 }
 
-/* Mobile Footer komplett zentriert */
-@media(max-width:720px){
-    .footer-inner { 
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        gap:1rem;
-    }
-}
-
 .footer-logo {
-    width:80px;
-    height:80px;
+    width:78px;
+    height:78px;
     border-radius:50%;
+    border:3px solid #000;
     object-fit:cover;
     cursor:pointer;
+    box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 
 /* -----------------------------------------------------------
-   OVERLAY
+   PREMIUM MOBILE FOOTER – OPTION C
 ----------------------------------------------------------- */
-.overlay-bg {
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.78);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:9999;
+@media(max-width:720px){
+
+    .footer-inner {
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+        text-align:center !important;
+        gap:0.8rem !important;
+        padding-top:2rem !important;
+        padding-bottom:2rem !important;
+    }
+
+    .footer-logo {
+        width:72px !important;
+        height:72px !important;
+        border-radius:50%;
+        object-fit:cover;
+        cursor:pointer;
+        margin-bottom:0.3rem;
+    }
+
+    /* Markenzeile */
+    .footer-brand-main {
+        font-size:0.9rem;
+        letter-spacing:0.22em;
+        text-transform:uppercase;
+        color:#f7f7f0;
+    }
+    .footer-brand-sub {
+        font-size:0.75rem;
+        letter-spacing:0.24em;
+        text-transform:uppercase;
+        color:var(--gold);
+        margin-top:-0.15rem;
+    }
+
+    /* Rechtliches */
+    .footer-links {
+        font-size:0.82rem;
+        opacity:0.9;
+        margin-top:0.2rem;
+    }
+
+    /* Email */
+    .footer-email {
+        font-size:0.82rem;
+        opacity:0.9;
+    }
+
+    /* Ort + Jahr */
+    .footer-copy {
+        font-size:0.78rem;
+        opacity:0.85;
+        margin-top:0.2rem;
+    }
+
+    /* Link-Styling */
+    .footer-links a {
+        text-decoration:none;
+    }
 }
-.overlay-bg.show { display:flex; }
+
+/* OVERLAY */
+.overlay-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.78);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align:center;
+    z-index: 9999;
+}
+.overlay-bg.show { display: flex; }
 
 .overlay-box {
-    max-width:600px;
-    padding:2rem 1.5rem;
+    max-width: 660px;
+    padding: 2rem 2rem 2.6rem;
+    color: #fff;
     text-align:center;
-    color:#fff;
 }
+
 .overlay-logo {
-    width:230px;
-    height:230px;
-    border-radius:50%;
-    object-fit:cover;
-    margin:0 auto 1.3rem;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    object-fit: cover;
+    margin: 0 auto 1.4rem;
+    box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<header>
-    <div class="header-inner">
-        <div>
-            <div class="logo-main">PURE ROOT SWITZERLAND</div>
-            <div class="logo-sub">ORGANIC GINGER</div>
+<div class="page-wrapper">
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-block">
+                <div class="logo-main">PURE ROOT SWITZERLAND</div>
+                <div class="logo-sub">ORGANIC GINGER</div>
+            </div>
+            <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" class="active">Home</a>
+                <a href="crowdfunding.html">Crowdfunding</a>
+                <a href="geschichte.html">Geschichte</a>
+                <a href="updates.html">Updates</a>
+                <a href="kontakt.html">Kontakt</a>
+            </nav>
         </div>
-        <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+    </header>
 
-        <nav class="main-nav" id="mainNav">
-            <a href="index.html" class="active">Home</a>
-            <a href="crowdfunding.html">Crowdfunding</a>
-            <a href="geschichte.html">Geschichte</a>
-            <a href="updates.html">Updates</a>
-            <a href="kontakt.html">Kontakt</a>
-        </nav>
-    </div>
-</header>
+    <!-- HERO -->
+    <section class="hero">
+        <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
+        <div class="hero-overlay"></div>
 
-<!-- HERO -->
-<section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg" loading="lazy" decoding="async">
-    <div class="hero-overlay"></div>
-
-    <div class="hero-inner">
-        <p class="hero-tagline" style="color:var(--gold);letter-spacing:0.28em;">Fresh from the Azores</p>
-        <h1 class="hero-title">Pure Root Switzerland</h1>
-        <p class="hero-subtitle">Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut</p>
-        <p class="hero-text">
-            Auf den Azoren entsteht ein einzigartiges Projekt: frischer, europäischer Bio-Ingwer,
-            angebaut in vulkanischem Boden, geerntet in kleinen Mengen und mit viel Hingabe
-            in die Schweiz gebracht.
-        </p>
-        <div class="hero-cta-row" style="text-align:center;">
-            <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
-        </div>
-    </div>
-</section>
-
-<!-- ACTION -->
-<section class="action-section">
-    <div class="inner">
-
-        <div style="text-align:center;">
-            <h2 class="section-heading">Was dieses Projekt ausmacht</h2>
-            <p class="section-lead">
-                Auf São Miguel entsteht gemeinsam mit einem lokalen Biolandwirt ein langfristiger
-                Bio-Ingwerhof.
+        <div class="hero-inner">
+            <p class="hero-tagline">Fresh from the Azores</p>
+            <h1 class="hero-title">Pure Root Switzerland</h1>
+            <p class="hero-subtitle">Bio-Ingwer aus europäischer Nähe – frisch, nachhaltig und fair angebaut</p>
+            <p class="hero-text">
+                Auf den Azoren entsteht ein einzigartiges Projekt: frischer, europäischer Bio-Ingwer,
+                angebaut in vulkanischem Boden, geerntet in kleinen Mengen und mit viel Hingabe
+                in die Schweiz gebracht. Jede Wurzel erzählt eine Geschichte.
             </p>
-        </div>
-
-        <div style="text-align:center;">
-            <h2 class="section-heading">Drei Gründe für dieses Projekt</h2>
-
-            <div class="highlight-grid">
-                <article class="highlight-card">
-                    <h3 class="highlight-title">Unvergleichliche Frische</h3>
-                    <p>Ingwer aus Übersee ist oft wochenlang unterwegs.</p>
-                </article>
-
-                <article class="highlight-card">
-                    <h3 class="highlight-title">Lokale Partnerschaft</h3>
-                    <p>In enger Zusammenarbeit mit einem heimischen Biolandwirt.</p>
-                </article>
-
-                <article class="highlight-card">
-                    <h3 class="highlight-title">Azoren-Boden</h3>
-                    <p>Vulkanische Böden fördern kräftiges Wachstum.</p>
-                </article>
-            </div>
-        </div>
-
-        <div style="text-align:center; margin-top:2rem;">
-            <h2 class="section-heading">Warum dieses Projekt persönlich ist</h2>
-
-            <div class="story-layout">
-                <div>
-                    <p>Nach einer schweren Krebserkrankung hat sich mein Leben verändert.</p>
-                    <p>Bio-Ingwer bedeutet für mich Wärme, Kraft und Erdung.</p>
-                </div>
-
-                <div class="story-image-frame">
-                    <img src="frischer-ingwer.jpg" loading="lazy" decoding="async">
-                </div>
-            </div>
-        </div>
-
-        <div style="text-align:center; margin-top:2rem;">
-            <h2 class="section-heading">Jetzt den Testanbau möglich machen</h2>
-            <p>Jeder Beitrag unterstützt Bewässerung und Start-Infrastruktur.</p>
-
-            <div class="cta-btn-row">
+            <div class="hero-cta-row">
                 <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
             </div>
         </div>
+    </section>
 
-    </div>
-</section>
+    <!-- ACTION -->
+    <section class="action-section">
+        <div class="inner action-inner">
 
-<!-- FOOTER (optimiert) -->
-<footer>
-    <div class="footer-inner">
+            <div>
+                <h2 class="section-heading">Was dieses Projekt ausmacht</h2>
 
-        <!-- 1. LOGO -->
-        <img src="logo2.jpg" class="footer-logo" id="footerLogo" loading="lazy" decoding="async">
+                <p class="section-lead">
+                    Auf São Miguel entsteht gemeinsam mit einem lokalen Biolandwirt
+                    ein langfristiger Bio-Ingwerhof.
+                </p>
 
-        <!-- 2. Datenschutz / Impressum -->
-        <div>
-            <a href="datenschutz.html">Datenschutz</a><br>
-            <a href="impressum.html">Impressum</a>
+                <p>
+                    Der Testanbau umfasst Bewässerung, erste Bodenanalyse,
+                    Bio-Zertifizierung und den Aufbau einer kleinen Infrastruktur.
+                </p>
+            </div>
+
+            <div>
+                <h2 class="section-heading">Drei Gründe für dieses Projekt</h2>
+
+                <div class="highlight-grid">
+                    <article class="highlight-card">
+                        <h3 class="highlight-title">Unvergleichliche Frische</h3>
+                        <p>Ingwer aus Übersee ist wochenlang unterwegs.</p>
+                    </article>
+
+                    <article class="highlight-card">
+                        <h3 class="highlight-title">Lokale Partnerschaft</h3>
+                        <p>Fair, transparent, ökologisch – Wertschöpfung vor Ort.</p>
+                    </article>
+
+                    <article class="highlight-card">
+                        <h3 class="highlight-title">Azoren-Boden</h3>
+                        <p>Vulkanischer Boden bringt außergewöhnliche Qualität.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="section-heading">Warum dieses Projekt persönlich ist</h2>
+
+                <div class="story-layout">
+                    <div>
+                        <p>
+                            Nach einer schweren Krebserkrankung entstand der Wunsch,
+                            etwas Sinnvolles und Nachhaltiges aufzubauen.
+                        </p>
+
+                        <p>
+                            Bio-Ingwer bedeutet für mich Wärme, Kraft und Erdung.
+                        </p>
+                    </div>
+
+                    <div class="story-image-frame">
+                        <img src="frischer-ingwer.jpg" alt="Frischer Bio-Ingwer" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-block">
+                <h2 class="section-heading">Jetzt den Testanbau möglich machen</h2>
+
+                <p>
+                    Jeder Beitrag unterstützt Bewässerung, Infrastruktur und die erste Pflanzphase.
+                </p>
+
+                <div class="cta-btn-row">
+                    <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
+                </div>
+            </div>
+
         </div>
+    </section>
 
-        <!-- 3. Email -->
-        <div>info@purerootswitzerland.ch</div>
+    <!-- FOOTER (NEU: OPTION C) -->
+    <footer class="site-footer">
+        <div class="footer-inner">
 
-        <!-- 4. Ort -->
-        <div>Luzern, Switzerland</div>
+            <!-- LOGO -->
+            <img src="logo2.jpg"
+                 class="footer-logo"
+                 id="footerLogo"
+                 loading="lazy"
+                 decoding="async"
+                 alt="Pure Root Switzerland Logo">
 
-        <!-- 5. Jahr -->
-        <div>© 2025 Pure Root Switzerland</div>
+            <!-- Markenzeile -->
+            <div class="footer-brand">
+                <div class="footer-brand-main">PURE ROOT SWITZERLAND</div>
+                <div class="footer-brand-sub">ORGANIC GINGER</div>
+            </div>
 
+            <!-- Rechtliches -->
+            <div class="footer-links">
+                <a href="datenschutz.html">Datenschutz</a> · 
+                <a href="impressum.html">Impressum</a>
+            </div>
+
+            <!-- Email -->
+            <div class="footer-email">info@purerootswitzerland.ch</div>
+
+            <!-- Ort + Jahr -->
+            <div class="footer-copy">Luzern • © 2025 Pure Root Switzerland</div>
+
+        </div>
+    </footer>
+
+    <div class="overlay-bg" id="overlayBox">
+        <div class="overlay-box">
+            <img src="logo2.jpg"
+                 class="overlay-logo"
+                 loading="lazy"
+                 decoding="async"
+                 alt="">
+            <p>
+                Pure Root Switzerland möchte nachhaltigen Bio-Ingwer aus den Azoren
+                mit kurzen Transportwegen direkt in die Schweiz bringen.
+            </p>
+        </div>
     </div>
-</footer>
 
-<!-- OVERLAY -->
-<div class="overlay-bg" id="overlayBox">
-    <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo" loading="lazy">
-        <p>
-            Pure Root Switzerland bringt frischen Bio-Ingwer aus den Azoren direkt in die Schweiz –
-            nachhaltig, fair, transparent.
-        </p>
-    </div>
 </div>
 
 <script>
@@ -464,6 +604,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
