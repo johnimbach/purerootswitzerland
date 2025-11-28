@@ -1,390 +1,342 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kontakt – Pure Root Switzerland</title>
 
 <style>
 :root {
-    --green-dark: #3e4a29;
-    --green: #556b2f;
-    --gold: #eacb83;
-    --cream: #f4f4ed;
-    --shadow: 0 0 22px rgba(0,0,0,0.55);
+    --green-dark:#3e4a29;
+    --green:#556b2f;
+    --gold:#eacb83;
+    --cream:#f4f4ed;
+    --white:#ffffff;
+    --shadow:0 0 22px rgba(0,0,0,0.55);
 }
 
 /* GLOBAL */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body { max-width:100vw; overflow-x:hidden; }
-body {
-    font-family: "Lora","Georgia",serif;
-    background: var(--green-dark);
-    color: var(--cream);
-    line-height:1.6;
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{max-width:100vw;overflow-x:hidden;}
+body{
+    font-family:"Lora","Georgia",serif;
+    background:var(--green-dark);
+    color:#fdfdf8;
+    line-height:1.65;
+    font-size:1.05rem;
+    text-align:left;
 }
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
 
-/* ================= HEADER ================= */
-header {
-    position: sticky;
-    top:0;
-    z-index:40;
-    background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.1);
-    width:100%;
+.page-wrapper{min-height:100vh;display:flex;flex-direction:column;}
+.inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+
+/* HEADER */
+header.site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(30,40,24,0.95);box-shadow:var(--shadow);
 }
-
-.nav-container {
-    max-width:1400px;
-    margin:auto;
-    padding:12px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
+.header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0.95rem 1.5rem;max-width:1100px;margin:0 auto;
 }
+.logo-block{display:flex;flex-direction:column;gap:0.2rem;}
+.logo-main{font-size:1.45rem;letter-spacing:0.21em;text-transform:uppercase;}
+.logo-sub{font-size:0.9rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);}
 
-.header-left img {
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    object-fit:cover;
-    box-shadow:var(--shadow);
+/* NAV */
+nav.main-nav{
+    display:flex;gap:1.8rem;
+    letter-spacing:0.1em;font-size:1rem;text-transform:uppercase;
 }
-
-/* MOBILE HEADER */
-.mobile-header {
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    padding:14px 0;
-    gap:8px;
+nav.main-nav a{
+    padding-bottom:0.1rem;position:relative;
 }
-
-.mobile-header img {
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-.mobile-header-title {
-    color:var(--cream);
-    font-size:1.25em;
-    font-weight:700;
-    letter-spacing:1.5px;
-    white-space:nowrap;
-    text-align:center;
-}
-
-.mobile-nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:18px;
-}
-
-.mobile-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    font-size:1em;
-}
-
-/* DESKTOP NAVIGATION */
-.desktop-nav {
-    display:flex;
-    gap:26px;
-    flex-wrap:wrap;
-    justify-content:center;
-}
-
-.desktop-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    letter-spacing:1px;
-    position:relative;
-    font-size:1em;
-}
-
-.desktop-nav a::after {
-    content:"";
-    position:absolute;
-    left:0; bottom:-3px;
-    width:0; height:1px;
-    background:var(--gold);
+nav.main-nav a::after{
+    content:"";position:absolute;left:0;bottom:0;
+    width:0%;height:1px;background:var(--gold);
     transition:0.3s;
 }
+nav.main-nav a:hover::after,
+nav.main-nav a.active::after{width:100%;}
 
-.desktop-nav a:hover::after { width:100%; }
-
-.header-right {
-    color:var(--cream);
-    font-size:1.1em;
-    font-weight:700;
-    letter-spacing:1.5px;
-    white-space:nowrap;
+/* MOBILE NAV */
+.nav-toggle{display:none;}
+@media(max-width:720px){
+    .nav-toggle{
+        display:inline-flex;padding:0.4rem 0.7rem;
+        border:1px solid rgba(255,255,255,0.3);
+        border-radius:999px;background:transparent;color:#fff;
+    }
+    nav.main-nav{
+        position:absolute;top:100%;right:0;
+        background:rgba(30,40,24,0.98);
+        padding:1.2rem 1.4rem;
+        flex-direction:column;align-items:flex-end;
+        gap:1rem;opacity:0;pointer-events:none;
+        transform:translateY(-8px);transition:0.25s;
+    }
+    nav.main-nav.open{
+        opacity:1;pointer-events:auto;transform:translateY(0);
+    }
 }
 
-/* ================= HERO ================= */
-.hero {
-    position:relative;
-    height:90vh;
-    min-height:520px;
-    overflow:hidden;
-    width:100%;
+/* BUTTON */
+.btn-primary{
+    padding:0.8rem 2rem;background:var(--gold);border-radius:999px;
+    color:#1a1a12;font-size:1rem;letter-spacing:0.14em;
+    text-transform:uppercase;border:none;cursor:pointer;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);transition:0.15s;
+}
+.btn-primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-.hero img {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transform:scale(1.05);
-    animation:slowzoom 12s ease forwards;
+/* HERO */
+.hero{
+    min-height:82vh;position:relative;display:flex;align-items:center;
+}
+.hero-bg{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;z-index:-2;
+}
+.hero-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.48),rgba(0,0,0,0.78));
+    z-index:-1;
+}
+.hero-inner{
+    max-width:1100px;width:100%;padding:5rem 1.5rem 3rem;
+    margin:0 auto;text-align:left;
+}
+.hero-tagline{
+    font-size:1.25rem;letter-spacing:0.28em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1rem;
+}
+.hero-title{
+    font-size:3rem;margin-bottom:0.5rem;
+}
+.hero-subtitle{
+    font-size:1.4rem;margin-bottom:1.4rem;
+    opacity:0.95;
+}
+.hero-text{
+    max-width:720px;margin-bottom:1.4rem;
 }
 
-@keyframes slowzoom {
-    0% { transform:scale(1.05); }
-    100% { transform:scale(1.0); }
+/* MOBILE HERO */
+@media(max-width:720px){
+    .hero{flex-direction:column;padding-top:2rem;}
+    .hero-bg{position:relative;height:330px;order:2;}
+    .hero-overlay{display:none;}
+    .hero-inner{order:1;z-index:5;padding-bottom:2rem;}
 }
 
-.hero-overlay {
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        rgba(0,0,0,0.05),
-        rgba(0,0,0,0.4) 40%,
-        rgba(0,0,0,0.85)
-    );
-}
-
-.title-wrap {
-    position:absolute;
-    top:12%;
-    left:50%;
-    transform:translateX(-50%);
-    text-align:center;
-}
-
-.hero-title {
-    font-size:clamp(2rem,3.7vw,3.4em);
-    white-space:nowrap;
-    font-weight:700;
-    letter-spacing:0.12em;
-    color:var(--cream);
-    text-shadow:var(--shadow);
-}
-
-.hero-line {
-    height:3px;
-    background:var(--gold);
-    margin:10px auto 0;
-    opacity:1;
-    box-shadow:var(--shadow);
-    width:0;
-    transition:width 2.8s ease;
-}
-
-.hero-sub {
-    position:absolute;
-    bottom:10%;
-    left:50%;
-    transform:translateX(-50%);
-    width:90%;
-    max-width:900px;
-    text-align:center;
-    font-size:clamp(1.15rem,2vw,1.75rem);
-    line-height:1.35;
-    color:var(--cream);
-}
-
-/* ================= CONTENT ================= */
-.page-background {
+/* CONTACT SECTION */
+.contact-section{
     background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)),
-        url("hintergrund.jpg") center/cover fixed;
-    padding-bottom:80px;
+      linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),
+      url("hintergrund.jpg") center/cover;
+    padding:3rem 0 3.4rem;
 }
 
-section {
-    max-width:1200px;
-    margin:0 auto;
-    padding:140px 10%;
-    text-align:center;
+.contact-intro{
+    max-width:780px;margin-bottom:2rem;opacity:0.96;
 }
 
-h2 {
-    font-size:clamp(1.4rem,2.3vw,1.75rem);
-    margin-bottom:36px;
-    text-shadow:var(--shadow);
+/* FORM */
+form.contact-form{
+    max-width:700px;margin-top:1.2rem;
+}
+form.contact-form label{
+    display:block;margin-bottom:0.35rem;
+    letter-spacing:0.08em;text-transform:uppercase;
+    font-size:0.9rem;color:var(--gold);
+}
+form.contact-form input,
+form.contact-form textarea{
+    width:100%;padding:0.9rem 1rem;margin-bottom:1.3rem;
+    border-radius:0.6rem;border:none;
+    background:rgba(255,255,255,0.1);
+    color:#fff;font-size:1rem;
+    box-shadow:0 0 12px rgba(0,0,0,0.25) inset;
+}
+form.contact-form textarea{
+    height:170px;resize:none;
 }
 
-.section-text {
-    max-width:860px;
-    margin:0 auto 80px;
-    font-size:1.15em;
+/* FOOTER */
+footer.site-footer{
+    background:#10140c;padding:1.3rem 0 1.5rem;
+    font-size:0.95rem;margin-top:auto;
+}
+.footer-inner{
+    max-width:1100px;margin:0 auto;padding:0 1.5rem;
+    display:flex;justify-content:space-between;align-items:flex-end;
+}
+.footer-logo{
+    width:78px;height:78px;border-radius:50%;
+    border:3px solid #000;object-fit:cover;
+    cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 
-/* Kontakt Box */
-.contact-box {
-    background:rgba(0,0,0,0.45);
-    padding:40px;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    margin-bottom:60px;
+@media(max-width:720px){
+    .footer-inner{
+        flex-direction:column;align-items:center;
+        gap:1rem;text-align:left;
+    }
 }
 
-.contact-box p {
-    font-size:1.2em;
+/* OVERLAY */
+.overlay-bg{
+    position:fixed;inset:0;background:rgba(0,0,0,0.78);
+    display:none;align-items:center;justify-content:center;
+    text-align:center;z-index:9999;
 }
+.overlay-bg.show{display:flex;}
 
-/* Button */
-.btn {
-    display:inline-block;
-    padding:14px 40px;
-    border-radius:999px;
-    border:2px solid var(--gold);
-    color:var(--gold);
-    text-decoration:none;
-    font-size:1.05em;
-    transition:0.3s;
+.overlay-box{
+    max-width:660px;padding:2rem 2rem 2.6rem;
+    color:#fff;text-align:center;
 }
-
-.btn:hover {
-    background:var(--gold);
-    color:var(--green-dark);
-}
-
-/* ================= FOOTER ================= */
-footer {
-    text-align:center;
-    padding:50px 10px 40px;
-}
-
-footer img {
-    width:60px;
-    height:60px;
-    border-radius:50%;
-}
-
-footer a {
-    color:var(--cream);
-    margin:0 10px;
-    text-decoration:none;
-}
-
-footer a:hover {
-    color:var(--gold);
-}
-
-/* MOBILE */
-@media (max-width:768px) {
-    .nav-container { display:none; }
-    .mobile-header { display:flex; }
-    .hero-title { white-space:normal; }
+.overlay-logo{
+    width:260px;height:260px;border-radius:50%;
+    border:5px solid #000;object-fit:cover;
+    margin:0 auto 1.4rem;
+    box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
 </style>
 </head>
 
 <body>
 
-<!-- MOBILE HEADER -->
-<div class="mobile-header">
-    <img src="logo2.jpg" alt="">
-    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
+<div class="page-wrapper">
 
-    <nav class="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="crowdfunding.html">Crowdfunding</a>
-        <a href="geschichte.html">Meine Geschichte</a>
-        <a href="updates.html">Updates</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
-</div>
-
-<!-- DESKTOP HEADER -->
-<header>
-    <div class="nav-container">
-        <div class="header-left">
-            <img src="logo2.jpg" alt="Logo">
+<!-- HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="logo-block">
+            <div class="logo-main">PURE ROOT SWITZERLAND</div>
+            <div class="logo-sub">ORGANIC GINGER</div>
         </div>
-
-        <nav class="desktop-nav">
+        <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+        <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
-            <a href="geschichte.html">Meine Geschichte</a>
+            <a href="geschichte.html">Geschichte</a>
             <a href="updates.html">Updates</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="kontakt.html" class="active">Kontakt</a>
         </nav>
-
-        <div class="header-right">PURE ROOT SWITZERLAND</div>
     </div>
 </header>
 
 <!-- HERO -->
-<div class="hero">
-    <img src="landschaft.jpg" alt="">
+<section class="hero">
+    <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
     <div class="hero-overlay"></div>
+    <div class="hero-inner">
 
-    <div class="title-wrap">
-        <div class="hero-title" id="heroTitle">KONTAKT</div>
-        <div class="hero-line" id="heroLine"></div>
+        <p class="hero-tagline">Let's Connect</p>
+
+        <h1 class="hero-title">Lass uns in Kontakt bleiben</h1>
+
+        <p class="hero-subtitle">
+            Ob Fragen, Ideen oder Interesse am Projekt – deine Nachricht erreicht mich direkt.
+        </p>
+
+        <p class="hero-text">
+            Ich freue mich über jeden Austausch, jede Anregung und jede Unterstützung.
+            Gerade in dieser frühen Phase bedeutet persönlicher Kontakt sehr viel.
+        </p>
+
     </div>
+</section>
 
-    <div class="hero-sub">
-        Ich freue mich auf deine Nachricht.
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+    <div class="inner">
+
+        <p class="contact-intro">
+            Nutze das Formular unten, um mir direkt zu schreiben.
+            Ich antworte so schnell wie möglich – meistens noch am gleichen Tag.
+        </p>
+
+        <form class="contact-form" action="#" method="post">
+
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" required>
+
+            <label for="email">E-Mail</label>
+            <input id="email" type="email" name="email" required>
+
+            <label for="telefon">Telefon (optional)</label>
+            <input id="telefon" type="text" name="telefon">
+
+            <label for="nachricht">Nachricht</label>
+            <textarea id="nachricht" name="nachricht" required></textarea>
+
+            <button type="submit" class="btn-primary">Nachricht senden</button>
+
+        </form>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-inner">
+
+        <div class="footer-column footer-left">
+            <div>info@purerootswitzerland.ch</div>
+            <div>
+                <a href="datenschutz.html">Datenschutz</a> ·
+                <a href="impressum.html">Impressum</a>
+            </div>
+        </div>
+
+        <div class="footer-column footer-center">
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo">
+        </div>
+
+        <div class="footer-column footer-right">
+            <div>Luzern, Switzerland</div>
+            <div>&copy; 2025 Pure Root Switzerland</div>
+        </div>
+
+    </div>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay-bg" id="overlayBox">
+    <div class="overlay-box">
+        <img src="logo2.jpg" class="overlay-logo" alt="">
+        <p>
+            <strong>Pure Root Switzerland steht für Nähe, Ehrlichkeit und echten Austausch.</strong><br><br>
+            Jede Nachricht hilft, das Projekt weiterzuentwickeln – ob Feedback, Fragen oder
+            Ideen. Danke, dass du dir Zeit nimmst, mich zu kontaktieren.
+        </p>
     </div>
 </div>
 
 <script>
-function updateLineWidth() {
-    const title = document.getElementById("heroTitle");
-    const line = document.getElementById("heroLine");
-    if (!title || !line) return;
-    line.style.width = title.offsetWidth + "px";
+function toggleNav(){
+    document.getElementById("mainNav").classList.toggle("open");
 }
-window.addEventListener("load", () =>
-    setTimeout(updateLineWidth, 600)
-);
-window.addEventListener("resize", updateLineWidth);
+
+const footerLogo=document.getElementById("footerLogo");
+const overlayBox=document.getElementById("overlayBox");
+
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
+}
 </script>
-
-<div class="page-background">
-
-<section>
-    <h2>So erreichst du mich</h2>
-
-    <div class="contact-box">
-        <p><strong>Email:</strong>
-            <a href="mailto:info@purerootswitzerland.ch" style="color:var(--cream); text-decoration:none;">
-                info@purerootswitzerland.ch
-            </a>
-        </p>
-
-        <p><strong>Telefon:</strong> +41 77 202 65 91</p>
-
-        <p><strong>Ort:</strong> Luzern, Switzerland</p>
-    </div>
-
-    <a href="mailto:info@purerootswitzerland.ch" class="btn">E-Mail senden</a>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <img src="logo2.jpg" alt="">
-    <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
-    <p>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-    </p>
-</footer>
-
-</div>
 
 </body>
 </html>
+
 
 
 
