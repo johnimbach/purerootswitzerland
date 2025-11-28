@@ -35,6 +35,7 @@ a { text-decoration:none; color:inherit; }
     padding:0 1.5rem;
 }
 
+/* HEADER */
 header.site-header {
     position:sticky;
     top:0;
@@ -63,6 +64,7 @@ header.site-header {
     color:var(--gold);
 }
 
+/* NAV */
 nav.main-nav {
     display:flex;
     gap:1.8rem;
@@ -89,6 +91,7 @@ nav.main-nav a.active::after {
     width:100%;
 }
 
+/* MOBILE MENU */
 .nav-toggle { display:none; }
 
 @media(max-width:720px){
@@ -122,6 +125,7 @@ nav.main-nav a.active::after {
     }
 }
 
+/* BUTTON */
 .btn-primary {
     padding:0.8rem 2rem;
     background:var(--gold);
@@ -140,19 +144,14 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
+/* HERO — IMAGE AS BACKGROUND */
 .hero {
     min-height:82vh;
     position:relative;
     display:flex;
     align-items:center;
-}
-.hero-bg {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
+
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay {
     position:absolute;
@@ -160,9 +159,12 @@ nav.main-nav a.active::after {
     background:linear-gradient(to bottom,
         rgba(0,0,0,0.48),
         rgba(0,0,0,0.78));
-    z-index:-1;
+    z-index:1;
 }
+
 .hero-inner {
+    position:relative;
+    z-index:2;
     max-width:1100px;
     width:100%;
     padding:5rem 1.5rem 3rem;
@@ -195,21 +197,16 @@ nav.main-nav a.active::after {
         flex-direction:column;
         padding-top:2rem;
         text-align:center;
+        background:url("fruchtbarkeit.webp") center/cover no-repeat;
     }
-    .hero-bg {
-        position:relative;
-        height:330px;
-        order:2;
-    }
-    .hero-overlay { display:none; }
     .hero-inner {
         order:1;
         padding-bottom:2rem;
-        z-index:5;
         text-align:center;
     }
 }
 
+/* ACTION */
 .action-section {
     background:
         linear-gradient(rgba(0,0,0,0.55),
@@ -279,17 +276,12 @@ nav.main-nav a.active::after {
 }
 
 .cta-block { margin-top:1.4rem; }
-.cta-btn-row {
-    margin-top:1.2rem;
-}
+.cta-btn-row { margin-top:1.2rem; }
 @media(max-width:720px){
-    .cta-btn-row {
-        display:flex;
-        justify-content:center;
-        margin-top:1.4rem;
-    }
+    .cta-btn-row { justify-content:center; display:flex; margin-top:1.4rem; }
 }
 
+/* FOOTER */
 footer.site-footer {
     background:#10140c;
     padding:1.3rem 0 1.5rem;
@@ -323,6 +315,7 @@ footer.site-footer {
     }
 }
 
+/* OVERLAY */
 .overlay-bg {
     position:fixed;
     inset:0;
@@ -374,7 +367,6 @@ footer.site-footer {
 </header>
 
 <section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
@@ -543,6 +535,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
