@@ -24,7 +24,6 @@ body{
     color:#fdfdf8;
     line-height:1.65;
     font-size:1.05rem;
-    text-align:left;
 }
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
@@ -118,9 +117,7 @@ nav.main-nav a.active::after{width:100%;}
 }
 .hero-tagline{
     font-size:1.25rem;color:var(--gold);
-    letter-spacing:0.28em;text-transform:uppercase;
-    margin-bottom:1rem;
-    transform:translateX(-10px);
+    letter-spacing:0.28em;text-transform:uppercase;margin-bottom:1rem;
 }
 .hero-title{
     font-size:3rem;margin-bottom:0.5rem;
@@ -134,39 +131,31 @@ nav.main-nav a.active::after{width:100%;}
 
 /* MOBILE HERO */
 @media(max-width:720px){
-    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
+    .hero{flex-direction:column;padding-top:2rem;}
     .hero-bg{position:relative;height:330px;order:2;}
     .hero-overlay{display:none;}
-    .hero-inner{
-        order:1;z-index:5;padding-bottom:2rem;
-        text-align:center;
-    }
-    .hero-tagline{
-        transform:translateX(0);
-        text-align:center;
-    }
+    .hero-inner{text-align:left;order:1;z-index:5;padding-bottom:2rem;}
 }
 
 /* ACTION SECTION */
 .action-section{
-    padding:3rem 0;background:#1e2716;text-align:center;
+    padding:3rem 0;background:#1e2716;
 }
 .section-heading{
     font-size:2rem;letter-spacing:0.14em;margin-bottom:1.4rem;
     color:#fff;text-transform:uppercase;
 }
 .section-text{
-    max-width:760px;margin:0 auto 1.1rem auto;opacity:0.95;
+    max-width:760px;margin-bottom:1.1rem;opacity:0.95;
 }
 
 /* SPENDENBAROMETER */
 .spendenbarometer{
-    margin-top:2.3rem;margin-bottom:2.4rem;text-align:center;
+    margin-top:2.3rem;margin-bottom:2.4rem;
 }
 .bar-container{
     width:100%;background:#333;border-radius:12px;
-    overflow:hidden;height:28px;margin:0.8rem auto 0.5rem auto;
-    max-width:700px;
+    overflow:hidden;height:28px;margin:0.8rem 0 0.5rem;
 }
 .bar-fill{
     width:42%;background:var(--gold);height:100%;
@@ -177,8 +166,7 @@ nav.main-nav a.active::after{width:100%;}
 
 /* PAYMENT */
 .pay-container{
-    display:flex;gap:1.2rem;flex-wrap:wrap;margin:1.5rem auto;
-    justify-content:center;text-align:center;
+    display:flex;gap:1.2rem;flex-wrap:wrap;margin:1.5rem 0;
 }
 .pay-box{
     border:1px solid rgba(255,255,255,0.22);
@@ -237,6 +225,7 @@ footer.site-footer{
 
 <div class="page-wrapper">
 
+<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-block">
@@ -254,13 +243,14 @@ footer.site-footer{
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
     <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
 
-        <p class="hero-tagline">Crowdfunding für Bio-Ingwer-Testanbau</p>
+        <p class="hero-tagline">Gemeinsam etwas Echtes schaffen</p>
 
         <h1 class="hero-title">Crowdfunding</h1>
 
@@ -278,6 +268,7 @@ footer.site-footer{
     </div>
 </section>
 
+<!-- ACTION -->
 <section class="action-section">
     <div class="inner action-inner">
 
@@ -290,12 +281,14 @@ footer.site-footer{
             direkt vor Ort.
         </p>
 
+        <!-- SPENDENBAROMETER -->
         <div class="spendenbarometer">
             <h2 class="section-heading">Finanzierungsfortschritt</h2>
             <div class="bar-container"><div class="bar-fill"></div></div>
             <div class="percent-label">42 % erreicht</div>
         </div>
 
+        <!-- PAYMENT -->
         <h2 class="section-heading">Unterstützen</h2>
         <div class="pay-container">
             <div class="pay-box">TWINT</div>
@@ -306,6 +299,7 @@ footer.site-footer{
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="footer-inner">
         <div class="footer-column footer-left">
@@ -329,6 +323,7 @@ footer.site-footer{
 
 </div>
 
+<!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
@@ -353,12 +348,16 @@ function toggleNav(){
 const footerLogo=document.getElementById("footerLogo");
 const overlayBox=document.getElementById("overlayBox");
 
-footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
-overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
+}
 </script>
 
 </body>
 </html>
+
+
 
 
 
