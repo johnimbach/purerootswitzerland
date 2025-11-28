@@ -105,7 +105,7 @@ nav.main-nav a.active::after {
 @media(max-width:720px){
     .nav-toggle {
         display:inline-flex;
-        padding:0.45rem 0.9rem;
+        padding:0.4rem 0.8rem;
         border:1px solid rgba(255,255,255,0.35);
         border-radius:999px;
         color:#fff;
@@ -214,30 +214,6 @@ nav.main-nav a.active::after {
     margin-bottom:1.4rem;
 }
 
-/* MOBILE HERO */
-@media(max-width:720px){
-    .hero {
-        text-align:center;
-        padding-top:2rem;
-        flex-direction:column;
-    }
-
-    .hero-inner {
-        order:1;
-        z-index:5;
-        padding-bottom:2rem;
-        text-align:center;
-    }
-
-    .hero-bg {
-        position:relative;
-        height:330px;
-        order:2;
-    }
-
-    .hero-overlay { display:none; }
-}
-
 /* ACTION SECTION */
 .action-section {
     background:
@@ -266,31 +242,12 @@ nav.main-nav a.active::after {
     margin-top:1.8rem;
 }
 
-@media(max-width:720px){
-    .section-heading,
-    .section-lead,
-    .action-section p {
-        text-align:center;
-    }
-
-    .highlight-grid {
-        grid-template-columns:1fr;
-    }
-}
-
 /* STORY */
 .story-layout {
     display:grid;
     grid-template-columns:1.3fr 1fr;
     gap:2rem;
     align-items:center;
-}
-
-@media(max-width:720px){
-    .story-layout {
-        grid-template-columns:1fr;
-        text-align:center;
-    }
 }
 
 /* FOOTER */
@@ -318,21 +275,6 @@ footer.site-footer {
     object-fit:cover;
     cursor:pointer;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
-}
-
-/* MOBILE FOOTER — Optimiert & kompaktes Design */
-@media(max-width:720px){
-    .footer-inner {
-        flex-direction:column;
-        text-align:center;
-        gap:0.7rem;
-        padding-bottom:1.6rem;
-    }
-
-    /* LOGO im Footer auf Mobile entfernen */
-    .footer-center {
-        display:none;
-    }
 }
 
 /* OVERLAY */
@@ -363,6 +305,105 @@ footer.site-footer {
     object-fit: cover;
     margin: 0 auto 1.4rem;
     box-shadow:0 0 26px rgba(0,0,0,0.7);
+}
+
+/* MOBILE LAYOUT */
+@media(max-width:720px){
+
+    /* Hero: Bild bleibt Hintergrund, alles zentriert, saubere Abstände */
+    .hero {
+        min-height:70vh;
+        padding:3.5rem 1.5rem 3rem;
+        text-align:center;
+        align-items:center;
+    }
+
+    .hero-inner {
+        max-width:100%;
+        padding:3.2rem 0 2.6rem;
+        margin:0 auto;
+    }
+
+    .hero-tagline {
+        font-size:1.05rem;
+        letter-spacing:0.22em;
+        margin-bottom:0.8rem;
+    }
+
+    .hero-title {
+        font-size:2.4rem;
+        margin-bottom:0.4rem;
+    }
+
+    .hero-subtitle {
+        font-size:1.15rem;
+        margin-bottom:1.1rem;
+    }
+
+    .hero-text {
+        max-width:100%;
+        margin:0 auto 1.6rem;
+        font-size:1rem;
+    }
+
+    .hero-cta-row {
+        margin-top:1.6rem;
+        display:flex;
+        justify-content:center;
+    }
+
+    /* Action-Bereich: zentriert + Einspaltig */
+    .section-heading,
+    .section-lead,
+    .action-section p {
+        text-align:center;
+    }
+
+    .highlight-grid {
+        grid-template-columns:1fr;
+        gap:1.4rem;
+        margin-top:1.4rem;
+    }
+
+    /* Story untereinander, zentriert */
+    .story-layout {
+        grid-template-columns:1fr;
+        text-align:center;
+        gap:1.4rem;
+    }
+
+    .story-image-frame {
+        margin:auto;
+    }
+
+    /* CTA unten: Button zentriert + mehr Abstand */
+    .cta-block {
+        text-align:center;
+        margin-top:2rem;
+    }
+
+    .cta-btn-row {
+        margin-top:1.6rem;
+        display:flex;
+        justify-content:center;
+    }
+
+    /* Footer kompakt, ohne Logo, alles zentriert */
+    .footer-inner {
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:0.6rem;
+        padding-bottom:1.6rem;
+    }
+
+    .footer-center {
+        display:none;
+    }
+
+    .footer-column {
+        text-align:center;
+    }
 }
 </style>
 </head>
@@ -561,6 +602,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
