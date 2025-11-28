@@ -88,7 +88,7 @@ nav.main-nav a.active::after { width:100%; }
 }
 .btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 26px rgba(0,0,0,0.55); }
 
-/* HERO */
+/* HERO — jetzt mit stark gedunkeltem Hintergrund */
 .hero {
     min-height:82vh;
     position:relative;
@@ -100,8 +100,8 @@ nav.main-nav a.active::after { width:100%; }
     position:absolute;
     inset:0;
     background:linear-gradient(to bottom,
-               rgba(0,0,0,0.60),
-               rgba(0,0,0,0.85));
+               rgba(0,0,0,0.65),
+               rgba(0,0,0,0.90));
     z-index:-1;
 }
 .hero-inner {
@@ -109,7 +109,7 @@ nav.main-nav a.active::after { width:100%; }
     padding:5rem 1.5rem 3rem; margin:0 auto;
 }
 
-/* GOLDENE TAGLINE */
+/* TAGLINE GOLD */
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
@@ -119,7 +119,7 @@ nav.main-nav a.active::after { width:100%; }
     color:var(--gold);
 }
 
-/* TITEL & TEXTE WEISS */
+/* TITEL WEISS */
 .hero-title { font-size:3rem; margin-bottom:0.5rem; color:white; }
 .hero-subtitle { font-size:1.4rem; opacity:0.96; margin-bottom:1.2rem; color:white; }
 .hero-text { max-width:720px; margin-bottom:1.4rem; color:white; }
@@ -138,6 +138,7 @@ nav.main-nav a.active::after { width:100%; }
     padding:3.2rem 0 3.4rem;
 }
 
+/* TITEL WEISS */
 .section-heading {
     font-size:2rem;
     letter-spacing:0.14em;
@@ -170,12 +171,11 @@ nav.main-nav a.active::after { width:100%; }
     color:var(--gold);
 }
 
-/* MEHR TEXT IN TEXTFELDERN */
+/* MEHR TEXT */
 .highlight-card p {
-    line-height:1.55;
+    line-height:1.6;
 }
 
-/* MOBILE: ZENTRIERT */
 @media(max-width:720px){
     .section-heading,
     .section-lead,
@@ -256,7 +256,7 @@ footer.site-footer {
     <div class="hero-inner">
         <p class="hero-tagline">Support the Vision</p>
         <h1 class="hero-title">Crowdfunding</h1>
-                <p class="hero-subtitle">Hilf mit, den Testanbau in Portugal zu starten</p>
+        <p class="hero-subtitle">Hilf mit, den Testanbau in Portugal zu starten</p>
         <p class="hero-text">
             Dieses Crowdfunding ermöglicht Bewässerung, Start-Infrastruktur,
             erste Zertifizierungen und die Vorbereitung des Ingwer-Testanbaus.
@@ -278,17 +278,17 @@ footer.site-footer {
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bewässerung</h3>
-                <p>Ein automatisiertes, effizientes System ist entscheidend für gleichbleibend hohe Qualität – besonders in der frühen Wachstumsphase. Die Bewässerung sorgt dafür, dass jede Pflanze optimale Bedingungen erhält.</p>
+                <p>Ein automatisiertes Bewässerungssystem ist entscheidend für die frühe Wachstumsphase. Nur mit einer präzisen Wasserversorgung gedeiht Ingwer gleichmäßig und entwickelt seine charakteristische Schärfe und Frische.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
-                <p>Der vulkanische Boden der Azoren ist außergewöhnlich nährstoffreich. Mit einer professionellen Analyse sichern wir ab, dass jede Fläche optimal genutzt wird und die Pflanzen ideal versorgt werden.</p>
+                <p>Eine umfassende Analyse der vulkanischen Böden stellt sicher, dass jede Anbaufläche perfekt genutzt wird. Die Azoren bieten ideale Nährstoffbedingungen, die durch professionelle Prüfungen optimal ausgeschöpft werden.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bio-Zertifizierung</h3>
-                <p>Eine frühe Zertifizierung ist die Grundlage für Transparenz, Fairness und Glaubwürdigkeit. Sie schafft Vertrauen und öffnet die Türen zu hochwertigen Vertriebspartnern in der Schweiz.</p>
+                <p>Eine frühe Zertifizierung garantiert Transparenz, Vertrauen und faire Standards. Sie bildet die Basis für langfristige Partnerschaften mit Schweizer Bio-Shops und qualitätsbewussten Kund:innen.</p>
             </article>
 
         </div>
@@ -344,6 +344,8 @@ if(footerLogo&&overlayBox){
 
 </body>
 </html>
+
+
 
 
 
