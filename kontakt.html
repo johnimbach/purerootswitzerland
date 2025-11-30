@@ -91,7 +91,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO – IDENTISCH WIE INDEX */
+/* HERO — 1:1 AUS INDEX */
 .hero{
     min-height:82vh;
     position:relative;
@@ -108,7 +108,7 @@ nav.main-nav a.active::after{width:100%;}
 .hero-inner{
     position:relative;z-index:2;
     max-width:1100px;width:100%;
-    padding:5rem 1.5rem 3rem;  /* Desktop */
+    padding:5rem 1.5rem 3rem;
     margin:0 auto;
 }
 .hero-tagline{
@@ -118,17 +118,13 @@ nav.main-nav a.active::after{width:100%;}
 .hero-title{font-size:3rem;margin-bottom:0.5rem;}
 .hero-subtitle{font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;}
 
-/* MOBILE HERO – 1:1 WIE INDEX */
+/* MOBILE HERO — 1:1 AUS INDEX */
 @media(max-width:720px){
-    .hero{
-        flex-direction:column;
-        padding-top:2rem;  /* IDENTISCH */
-        text-align:center;
-    }
+    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
     .hero-inner{
         order:1;
         padding-bottom:2rem;
-        padding-top:0;    /* IDENTISCH – ENTSCHEIDENDER Wert */
+        padding-top:0;
         text-align:center;
     }
 }
@@ -229,9 +225,10 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO — 1:1 identisch -->
 <section class="hero">
     <div class="hero-overlay"></div>
+
     <div class="hero-inner">
         <p class="hero-tagline">Get in Touch</p>
         <h1 class="hero-title">Kontakt</h1>
@@ -246,7 +243,7 @@ footer.site-footer{
         <h2 class="contact-heading">Schreib mir jederzeit</h2>
 
         <p class="contact-text">
-            Egal ob Fragen, Feedback oder Interesse am Projekt – ich freue mich über jede Nachricht.
+            Egal ob Fragen, Feedback oder Interesse am Projekt – ich freue mich über deine Nachricht.
         </p>
 
         <form class="contact-form">
@@ -306,6 +303,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
