@@ -54,12 +54,12 @@ header.site-header {
 }
 .logo-sub {
     font-size:0.9rem;
-    letter-spacing:0.24em;
+    letter-letter-spacing:0.24em;
     text-transform:uppercase;
     color:var(--gold);
 }
 
-/* NAVIGATION – IDENTISCH */
+/* NAVIGATION */
 nav.main-nav {
     display:flex;
     gap:1.8rem;
@@ -135,7 +135,7 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO – ANGEPASST WIE INDEX & CROWDFUNDING */
+/* HERO (wie Index & Crowdfunding) */
 .hero {
     min-height:82vh;
     position:relative;
@@ -161,7 +161,6 @@ nav.main-nav a.active::after {
     padding:5rem 1.5rem 3rem;
     margin:0 auto;
 }
-
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
@@ -179,26 +178,21 @@ nav.main-nav a.active::after {
     opacity:0.96;
 }
 
-/* MOBILE HERO */
 @media(max-width:720px){
-    .hero {
-        padding-top:2rem;
-        text-align:center;
-    }
+    .hero { text-align:center; padding-top:2rem; }
     .hero-inner { padding-bottom:2rem; }
 }
 
-/* PAGE BACKGROUND (ACTION-BEREICH) */
+/* ACTION-BEREICH */
 .page-background {
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
       url("hintergrund.jpg") center/cover;
     padding:3rem 0 3.4rem;
+    text-align:center;
 }
 
-/* ACTION-BEREICH – ZENTRIERT */
 .section-heading {
-    text-align:center;
     letter-spacing:0.14em;
     text-transform:uppercase;
     font-size:1.25rem;
@@ -207,19 +201,22 @@ nav.main-nav a.active::after {
 .section-heading span { color:var(--gold); }
 
 .section-intro {
-    text-align:center;
     max-width:780px;
     margin:0 auto 2rem auto;
     opacity:0.95;
 }
 
-/* STORY CONTENT */
+/* STORY CONTENT – jetzt zentriert */
 .story-layout {
+    max-width:900px;
+    margin:0 auto;
     display:grid;
-    grid-template-columns:minmax(0,1fr) minmax(260px,1fr);
+    grid-template-columns:1fr 1fr;
     gap:2.6rem;
     align-items:flex-start;
+    text-align:left;
 }
+
 .story-text-block p {
     margin-bottom:1.1rem;
     opacity:0.97;
@@ -237,21 +234,50 @@ nav.main-nav a.active::after {
     border-radius:1.4rem;
     overflow:hidden;
     box-shadow:0 0 22px rgba(0,0,0,0.6);
-    margin-top:0; /* war OK */
 }
 
-/* Abstand unter dem Bild – DEIN FIX */
-.story-image-wrap + .story-subsection {
-    margin-top:2.2rem !important;
+/* Abstand unter dem Foto – korrigiert */
+.story-layout + .story-subsection {
+    margin-top:2.4rem;
+}
+
+/* Allgemeine Subsection-Abstände */
+.story-subsection {
+    margin-top:3.2rem;
+    max-width:780px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:left;
+}
+
+.story-subsection h3 {
+    margin-bottom:1rem;
+    font-size:1.35rem;
+    letter-spacing:0.05em;
+}
+
+.story-subsection p {
+    margin-bottom:1.1rem;
+    opacity:0.97;
+}
+
+/* Korrigierter Button-Abstand */
+.story-subsection .btn-primary {
+    margin-top:1.4rem;
+    display:inline-block;
 }
 
 @media(max-width:860px){
-    .story-layout { grid-template-columns:1fr; }
-    .story-image { max-width:280px; }
-    .story-image-wrap { justify-content:center; }
+    .story-layout {
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+    .story-subsection {
+        text-align:center;
+    }
 }
 
-/* FOOTER – IDENTISCH */
+/* FOOTER */
 footer.site-footer {
     background:#10140c;
     padding:1.3rem 0 1.5rem;
@@ -341,7 +367,9 @@ footer.site-footer {
     <div class="hero-inner">
         <p class="hero-tagline">A New Beginning</p>
         <h1 class="hero-title">Meine Geschichte</h1>
-        <p class="hero-subtitle">Von einer Diagnose, die alles verändert, zu einem Projekt, das neue Wurzeln schlägt</p>
+        <p class="hero-subtitle">
+            Von einer Diagnose, die alles verändert, zu einem Projekt, das neue Wurzeln schlägt
+        </p>
     </div>
 </section>
 
@@ -479,6 +507,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
