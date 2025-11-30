@@ -24,42 +24,24 @@ body {
     line-height:1.65;
     font-size:1.05rem;
 }
-
 img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
-
 .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
-.inner {
-    width:100%;
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 1.5rem;
-}
+.inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
 
-/* HEADER – IDENTISCH ZU INDEX */
+/* HEADER */
 header.site-header {
-    position:sticky;
-    top:0;
-    z-index:50;
+    position:sticky; top:0; z-index:50;
     background:rgba(30,40,24,0.95);
     box-shadow:var(--shadow);
 }
-
 .header-inner {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0.95rem 1.5rem;
-    max-width:1100px;
-    margin:0 auto;
+    display:flex; justify-content:space-between;
+    align-items:center; padding:0.95rem 1.5rem;
+    max-width:1100px; margin:0 auto;
 }
 
-.logo-block {
-    display:flex;
-    flex-direction:column;
-    gap:0.2rem;
-}
-
+.logo-block { display:flex; flex-direction:column; gap:0.2rem; }
 .logo-main {
     font-size:1.45rem;
     letter-spacing:0.21em;
@@ -72,10 +54,9 @@ header.site-header {
     color:var(--gold);
 }
 
-/* NAVIGATION – IDENTISCH ZU INDEX */
+/* NAVIGATION */
 nav.main-nav {
-    display:flex;
-    gap:1.8rem;
+    display:flex; gap:1.8rem;
     letter-spacing:0.1em;
     font-size:1rem;
     text-transform:uppercase;
@@ -85,50 +66,41 @@ nav.main-nav a {
     position:relative;
 }
 nav.main-nav a::after {
-    content:"";
-    position:absolute;
-    left:0; bottom:0;
-    width:0%;
-    height:1px;
+    content:""; position:absolute;
+    bottom:0; left:0;
+    width:0%; height:1px;
     background:var(--gold);
-    transition:0.3s ease;
+    transition:0.3s;
 }
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after {
     width:100%;
 }
 
-/* MOBILE NAV – IDENTISCH ZU INDEX */
+/* MOBILE NAV */
 .nav-toggle { display:none; }
 
 @media(max-width:720px){
     .nav-toggle {
-        display:inline-flex;
-        padding:0.4rem 0.7rem;
-        border:1px solid rgba(255,255,255,0.3);
+        display:inline-flex; padding:0.4rem 0.7rem;
         border-radius:999px;
-        color:#fff;
-        background:transparent;
+        border:1px solid rgba(255,255,255,0.3);
+        background:transparent; color:#fff;
     }
 
     nav.main-nav {
-        position:absolute;
-        top:100%;
-        right:0;
+        position:absolute; top:100%; right:0;
         padding:1.2rem 1.4rem;
-        flex-direction:column;
-        align-items:flex-end;
+        flex-direction:column; align-items:flex-end;
         gap:1rem;
         background:rgba(30,40,24,0.98);
         opacity:0;
         pointer-events:none;
         transform:translateY(-8px);
-        transition:0.25s ease;
+        transition:0.25s;
     }
-
     nav.main-nav.open {
-        opacity:1;
-        pointer-events:auto;
+        opacity:1; pointer-events:auto;
         transform:translateY(0);
     }
 }
@@ -145,72 +117,51 @@ nav.main-nav a.active::after {
     border:none;
     box-shadow:0 0 20px rgba(0,0,0,0.4);
     cursor:pointer;
-    transition:0.15s;
     display:inline-block;
 }
-
 .btn-primary:hover {
     transform:translateY(-1px);
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO */
+/* HERO — identisch zu Index & Crowdfunding */
 .hero {
     min-height:82vh;
     position:relative;
     display:flex;
     align-items:center;
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
-
-.hero-bg {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-}
-
 .hero-overlay {
-    position:absolute;
-    inset:0;
-    background:linear-gradient(to bottom,
-               rgba(0,0,0,0.48),
-               rgba(0,0,0,0.78));
-    z-index:-1;
+    position:absolute; inset:0;
+    background:linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.48),
+      rgba(0,0,0,0.78)
+    );
+    z-index:1;
 }
-
 .hero-inner {
-    max-width:1100px;
-    width:100%;
+    position:relative; z-index:2;
+    max-width:1100px; width:100%;
     padding:5rem 1.5rem 3rem;
-    margin: 0 auto;
+    margin:0 auto;
 }
-
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
     text-transform:uppercase;
     margin-bottom:1rem;
-    opacity:0.95;
     color:var(--gold);
 }
-
 .hero-title {
     font-size:3rem;
     margin-bottom:0.5rem;
-    color:#ffffff;
 }
-
 .hero-subtitle {
     font-size:1.4rem;
-    opacity:0.96;
     margin-bottom:1.2rem;
-}
-
-.hero-text {
-    max-width:720px;
-    margin-bottom:1.4rem;
+    opacity:0.96;
 }
 
 /* MOBILE HERO */
@@ -218,21 +169,11 @@ nav.main-nav a.active::after {
     .hero {
         flex-direction:column;
         padding-top:2rem;
-    }
-
-    .hero-bg {
-        position:relative;
-        height:330px;
-        order:2;
-    }
-
-    .hero-overlay { display:none; }
-
-    .hero-inner {
-        order:1;
         text-align:center;
-        z-index:5;
+    }
+    .hero-inner {
         padding-bottom:2rem;
+        text-align:center;
     }
 }
 
@@ -270,11 +211,9 @@ section { padding:2.4rem 0; }
 }
 
 .story-text-block p { margin-bottom:1.1rem; opacity:0.97; }
-
 .story-highlight { font-style:italic; }
 
 .story-image-wrap { display:flex; justify-content:flex-end; }
-
 .story-image {
     max-width:340px;
     border-radius:1.4rem;
@@ -288,33 +227,31 @@ section { padding:2.4rem 0; }
     .story-image { max-width:280px; }
 }
 
-/* FOOTER – IDENTISCH ZU INDEX */
+/* CTA fix */
+.story-subsection .btn-primary {
+    margin-top:2.2rem;
+}
+
+/* FOOTER */
 footer.site-footer {
     background:#10140c;
     padding:1.3rem 0 1.5rem;
     font-size:0.95rem;
     margin-top:auto;
 }
-
 .footer-inner {
     max-width:1100px;
     margin:0 auto;
     padding:0 1.5rem;
-    display:flex;
-    justify-content:space-between;
+    display:flex; justify-content:space-between;
     align-items:flex-end;
 }
-
 .footer-logo {
-    width:78px;
-    height:78px;
-    border-radius:50%;
-    border:3px solid #000;
-    object-fit:cover;
-    cursor:pointer;
+    width:78px; height:78px;
+    border-radius:50%; border:3px solid #000;
+    object-fit:cover; cursor:pointer;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
-
 @media(max-width:720px){
     .footer-inner {
         flex-direction:column;
@@ -324,14 +261,12 @@ footer.site-footer {
     }
 }
 
+/* OVERLAY */
 .overlay-bg {
-    position:fixed;
-    inset:0;
+    position:fixed; inset:0;
     background:rgba(0,0,0,0.78);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    display:none; justify-content:center;
+    align-items:center; text-align:center;
     z-index:9999;
 }
 .overlay-bg.show { display:flex; }
@@ -341,14 +276,13 @@ footer.site-footer {
     padding:2rem 2rem 2.6rem;
 }
 .overlay-logo {
-    width:260px;
-    height:260px;
-    border-radius:50%;
+    width:260px; height:260px;
+    border-radius:50%; border:5px solid #000;
     object-fit:cover;
-    border:5px solid #000;
     margin:0 auto 1.4rem;
     box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
+
 </style>
 </head>
 
@@ -373,8 +307,8 @@ footer.site-footer {
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg">
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
@@ -383,15 +317,10 @@ footer.site-footer {
         <p class="hero-subtitle">
             Von einer Diagnose, die alles verändert, zu einem Projekt, das neue Wurzeln schlägt
         </p>
-        <p class="hero-text">
-            Pure Root Switzerland ist kein abstraktes Business-Konzept, sondern aus einer sehr persönlichen
-            Krise entstanden. Nach meiner Krebserkrankung wurde mir klar, wie kostbar Gesundheit, Zeit
-            und echte Verbindungen sind. Aus dieser Erfahrung wuchs der Wunsch, etwas aufzubauen,
-            das Sinn macht – für mich, für andere Menschen und für die Natur.
-        </p>
     </div>
 </section>
 
+<!-- STORY CONTENT -->
 <div class="page-background">
 
 <section id="story">
@@ -407,6 +336,7 @@ footer.site-footer {
 
         <div class="story-layout">
             <div class="story-text-block">
+
                 <p>
                     Die Krebserkrankung hat mein Leben komplett auf den Kopf gestellt. Plötzlich waren
                     Dinge unwichtig, die früher selbstverständlich erschienen: Tempo, Status, Perfektion.
@@ -419,8 +349,7 @@ footer.site-footer {
 
                 <p class="story-highlight">
                     Ingwer spielte in meiner eigenen Genesungszeit eine überraschend große Rolle:
-                    als täglicher Begleiter–
-                    als Symbol für Wärme, Kraft und ein starkes Immunsystem.
+                    als täglicher Begleiter – als Symbol für Wärme, Kraft und ein starkes Immunsystem.
                 </p>
 
                 <p>
@@ -433,6 +362,7 @@ footer.site-footer {
                     Als ich São Miguel entdeckte, ergab plötzlich vieles Sinn: mildes Klima, vulkanische Böden,
                     starkes Bewusstsein für Natur – ein Ort, an dem dieses Projekt Wurzeln schlagen kann.
                 </p>
+
             </div>
 
             <div class="story-image-wrap">
@@ -446,15 +376,10 @@ footer.site-footer {
             <h3>Von der Idee zum konkreten Projekt</h3>
 
             <p>
-                Aus ersten Gedanken wurden Gespräche – immer wieder auftauchend:
-                Wie kann ein Projekt wirtschaftlich sinnvoll, ökologisch verantwortungsvoll
-                und menschlich authentisch sein?
-            </p>
-
-            <p>
-                Kontakte auf São Miguel – lokale Biolandwirte, Menschen mit Bodenwissen und die
-                <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold);">Universidade dos Açores</a>
-                begleiten das Projekt.
+                Aus ersten Ideen wurden Gespräche – mit lokalen Biolandwirten, Bodenspezialisten und der
+                <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold);">
+                    Universidade dos Açores
+                </a>.
             </p>
 
             <p>
@@ -481,9 +406,8 @@ footer.site-footer {
                 es wächst eine nachhaltige Struktur für die Azoren und die Schweiz.
             </p>
 
-            <p>
-                <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
-            </p>
+            <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
+
         </div>
 
     </div>
@@ -491,6 +415,7 @@ footer.site-footer {
 
 </div>
 
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="footer-inner">
 
@@ -503,10 +428,7 @@ footer.site-footer {
         </div>
 
         <div class="footer-column footer-center">
-            <img src="logo2.jpg"
-                 class="footer-logo"
-                 id="footerLogo"
-                 loading="lazy">
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo" loading="lazy">
         </div>
 
         <div class="footer-column footer-right">
@@ -519,11 +441,10 @@ footer.site-footer {
 
 </div>
 
+<!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg"
-             class="overlay-logo"
-             loading="lazy">
+        <img src="logo2.jpg" class="overlay-logo" loading="lazy">
         <p>
             <strong>Frischer Ingwer ist in der Schweiz nur kurz wirklich frisch erhältlich.</strong><br><br>
             Pure Root Switzerland bringt frische Qualität – direkt von den Azoren.
@@ -535,18 +456,19 @@ footer.site-footer {
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
+const footerLogo=document.getElementById("footerLogo");
+const overlayBox=document.getElementById("overlayBox");
 
-const footerLogo = document.getElementById("footerLogo");
-const overlayBox = document.getElementById("overlayBox");
-
-if (footerLogo && overlayBox) {
-    footerLogo.addEventListener("click", () => overlayBox.classList.add("show"));
-    overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
