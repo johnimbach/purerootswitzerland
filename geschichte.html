@@ -35,7 +35,7 @@ a { color:inherit; text-decoration:none; }
     padding:0 1.5rem;
 }
 
-/* HEADER – IDENTISCH WIE INDEX */
+/* HEADER – IDENTISCH ZU INDEX */
 header.site-header {
     position:sticky;
     top:0;
@@ -65,12 +65,12 @@ header.site-header {
 }
 .logo-sub {
     font-size:0.9rem;
-    letter-spacing:0.24em;
+    letter-letter-spacing:0.24em;
     text-transform:uppercase;
     color:var(--gold);
 }
 
-/* NAVIGATION – IDENTISCH WIE INDEX */
+/* NAVIGATION – IDENTISCH */
 nav.main-nav {
     display:flex;
     gap:1.8rem;
@@ -152,21 +152,15 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO */
+/* HERO — CSS-BACKGROUND WIE INDEX & CROWDFUNDING */
 .hero {
     min-height:82vh;
     position:relative;
     display:flex;
     align-items:center;
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
-.hero-bg {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-}
+
 .hero-overlay {
     position:absolute;
     inset:0;
@@ -175,13 +169,17 @@ nav.main-nav a.active::after {
         rgba(0,0,0,0.48),
         rgba(0,0,0,0.78)
     );
-    z-index:-1;
+    z-index:1;
 }
+
 .hero-inner {
+    position:relative;
+    z-index:2;
     max-width:1100px;
     width:100%;
     padding:5rem 1.5rem 3rem;
     margin:0 auto;
+    text-align:left;
 }
 
 /* HERO TEXT */
@@ -202,25 +200,14 @@ nav.main-nav a.active::after {
     opacity:0.96;
 }
 
-/* MOBILE HERO */
+/* MOBILE HERO — IDENTISCH, ABER TEXT ZENTRIERT */
 @media(max-width:720px){
     .hero {
-        flex-direction:column;
         padding-top:2rem;
-    }
-
-    .hero-bg {
-        position:relative;
-        height:330px;
-        order:2;
-    }
-
-    .hero-overlay { display:none; }
-
-    .hero-inner {
-        order:1;
         text-align:center;
-        z-index:5;
+    }
+    .hero-inner {
+        text-align:center;
         padding-bottom:2rem;
     }
 }
@@ -278,6 +265,31 @@ section { padding:2.4rem 0; }
     .story-layout { grid-template-columns:1fr; }
     .story-image-wrap { justify-content:center; }
     .story-image { max-width:280px; }
+}
+
+/* STORY SUBSECTION – Button-Abstand final korrigiert */
+.story-subsection {
+    margin-top:2.6rem;
+    text-align:left;
+}
+
+.story-subsection p {
+    opacity:0.96;
+    margin-bottom:1.2rem;
+}
+
+.story-subsection p:last-of-type {
+    margin-bottom:2.2rem !important;
+}
+
+.story-subsection .btn-primary {
+    margin-top:0.8rem;
+}
+
+@media(max-width:720px){
+    .story-subsection {
+        text-align:center;
+    }
 }
 
 /* FOOTER */
@@ -367,7 +379,6 @@ footer.site-footer {
 
 <!-- HERO -->
 <section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg">
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
@@ -389,28 +400,26 @@ footer.site-footer {
         <div class="story-layout">
             <div class="story-text-block">
                 <p>
-                    Die Krebserkrankung hat mein Leben komplett auf den Kopf gestellt. Plötzlich waren
-                    Dinge unwichtig, die früher selbstverständlich erschienen.
+                    Die Krebserkrankung hat mein Leben tief verändert. Dinge, die früher selbstverständlich erschienen, verloren plötzlich an Bedeutung.
                 </p>
 
                 <p>
-                    Stattdessen rückten Werte wie Gesundheit, Erdung, Natur, echte Begegnungen
-                    und sinnvolle Projekte in den Vordergrund.
+                    Werte wie Gesundheit, Naturverbundenheit, Erdung und echte Begegnungen rückten in den Vordergrund.
                 </p>
 
                 <p class="story-highlight">
-                    Ingwer spielte in meiner Genesungszeit eine große Rolle:
-                    Wärme, Kraft und ein starkes Immunsystem.
+                    Ingwer wurde während meiner Genesung zu einem täglichen Begleiter –
+                    als Symbol für Wärme, Kraft und ein starkes Immunsystem.
                 </p>
 
                 <p>
-                    Mit der Zeit entstand die Idee, hochwertigen Bio-Ingwer so zu produzieren,
+                    Daraus entstand die Vision, hochwertigen Bio-Ingwer so zu produzieren,
                     wie ich mir Lebensmittel wünsche – frisch, ehrlich und transparent.
                 </p>
 
                 <p>
-                    São Miguel ergab plötzlich Sinn: vulkanische Böden, mildes Klima,
-                    starkes Naturbewusstsein – ein Ort, an dem dieses Projekt Wurzeln schlagen kann.
+                    São Miguel vereint vulkanische Böden, mildes Klima und ein tiefes Naturbewusstsein –
+                    ein Ort, an dem dieses Projekt Wurzeln schlagen kann.
                 </p>
             </div>
 
@@ -425,13 +434,13 @@ footer.site-footer {
             <h3>Von der Idee zum Projekt</h3>
 
             <p>
-                Aus ersten Gedanken wurden Gespräche – mit Biolandwirten,
-                Bodenexperten und der Universidade dos Açores.
+                Aus Gedanken wurden Gespräche – mit Biolandwirten, Bodenexperten
+                und der Universidade dos Açores.
             </p>
 
             <p>
-                Die Vision: die kürzeste und frischeste Ingwerbrücke zwischen
-                Azoren und Schweiz – fair, direkt, nachhaltig.
+                Die Vision: die kürzeste, frischeste und transparenteste Ingwerbrücke
+                zwischen den Azoren und der Schweiz.
             </p>
 
             <p>
@@ -473,7 +482,7 @@ footer.site-footer {
         <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
             <strong>Pure Root Switzerland</strong><br><br>
-            Ein Projekt, das aus einer persönlichen Geschichte entstand –
+            Ein Projekt, das aus einer persönlichen Geschichte entstand –  
             mit Verantwortung für Natur, Menschen und Herkunft.
         </p>
     </div>
@@ -495,6 +504,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
