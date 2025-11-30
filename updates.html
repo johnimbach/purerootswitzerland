@@ -10,275 +10,227 @@
     --green-dark: #3e4a29;
     --green: #556b2f;
     --gold: #eacb83;
-    --cream: #f4f4ed;
+    --cream: #fdfdf8;
     --white: #ffffff;
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
 /* GLOBAL */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body { max-width:100vw; overflow-x:hidden; }
-body {
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{max-width:100vw;overflow-x:hidden;}
+body{
     font-family:"Lora","Georgia",serif;
     background:var(--green-dark);
     color:#fdfdf8;
     line-height:1.65;
     font-size:1.05rem;
 }
-img { max-width:100%; display:block; }
-a { color:inherit; text-decoration:none; }
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
 
-.page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
-.inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+.page-wrapper{min-height:100vh;display:flex;flex-direction:column;}
+.inner{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 1.5rem;
+}
 
-/* HEADER */
-header.site-header {
-    position:sticky; top:0; z-index:50;
+/* HEADER – identisch wie Index */
+header.site-header{
+    position:sticky;top:0;z-index:50;
     background:rgba(30,40,24,0.95);
     box-shadow:var(--shadow);
 }
-.header-inner {
-    display:flex; justify-content:space-between;
-    align-items:center;
+.header-inner{
+    display:flex;justify-content:space-between;align-items:center;
     padding:0.95rem 1.5rem;
-    max-width:1100px; margin:0 auto;
+    max-width:1100px;margin:0 auto;
 }
-.logo-block { display:flex; flex-direction:column; gap:0.2rem; }
-.logo-main {
-    font-size:1.45rem;
-    letter-spacing:0.21em;
-    text-transform:uppercase;
+.logo-block{display:flex;flex-direction:column;gap:0.2rem;}
+.logo-main{
+    font-size:1.45rem;letter-spacing:0.21em;text-transform:uppercase;
 }
-.logo-sub {
-    font-size:0.9rem;
-    letter-spacing:0.24em;
-    text-transform:uppercase;
+.logo-sub{
+    font-size:0.9rem;letter-spacing:0.24em;text-transform:uppercase;
     color:var(--gold);
 }
 
 /* NAVIGATION */
-nav.main-nav {
-    display:flex;
-    gap:1.8rem;
-    letter-spacing:0.1em;
-    font-size:1rem;
-    text-transform:uppercase;
+nav.main-nav{
+    display:flex;gap:1.8rem;letter-spacing:0.1em;
+    text-transform:uppercase;font-size:1rem;
 }
-nav.main-nav a {
-    padding-bottom:0.1rem;
-    position:relative;
+nav.main-nav a{
+    padding-bottom:0.1rem;position:relative;
 }
-nav.main-nav a::after {
-    content:""; position:absolute; bottom:0; left:0;
-    width:0%; height:1px;
-    background:var(--gold);
+nav.main-nav a::after{
+    content:"";position:absolute;bottom:0;left:0;
+    width:0%;height:1px;background:var(--gold);
     transition:0.3s;
 }
 nav.main-nav a:hover::after,
-nav.main-nav a.active::after { width:100%; }
+nav.main-nav a.active::after{width:100%;}
 
 /* MOBILE NAV */
-.nav-toggle { display:none; }
+.nav-toggle{display:none;}
+
 @media(max-width:720px){
-    .nav-toggle {
-        display:inline-flex; padding:0.4rem 0.7rem;
-        border-radius:999px;
-        border:1px solid rgba(255,255,255,0.3);
-        background:transparent; color:#fff;
+    .nav-toggle{
+        display:inline-flex;padding:0.4rem 0.7rem;border-radius:999px;
+        border:1px solid rgba(255,255,255,0.3);background:transparent;color:#fff;
     }
-    nav.main-nav {
-        position:absolute; top:100%; right:0;
-        padding:1.2rem 1.4rem;
-        flex-direction:column; align-items:flex-end;
-        gap:1rem;
+    nav.main-nav{
+        position:absolute;top:100%;right:0;padding:1.2rem 1.4rem;
+        flex-direction:column;align-items:flex-end;gap:1rem;
         background:rgba(30,40,24,0.98);
-        opacity:0; pointer-events:none;
-        transform:translateY(-8px);
+        opacity:0;pointer-events:none;transform:translateY(-8px);
         transition:0.25s;
     }
-    nav.main-nav.open {
-        opacity:1; pointer-events:auto; transform:translateY(0);
+    nav.main-nav.open{
+        opacity:1;pointer-events:auto;transform:translateY(0);
     }
 }
 
-/* BUTTON */
-.btn-primary {
-    padding:0.8rem 2rem;
-    background:var(--gold);
-    border:none; border-radius:999px;
-    font-size:1rem; letter-spacing:0.14em;
-    text-transform:uppercase;
-    color:#1a1a12;
-    box-shadow:0 0 20px rgba(0,0,0,0.4);
-    display:inline-block; cursor:pointer;
-}
-.btn-primary:hover {
-    transform:translateY(-1px);
-    box-shadow:0 0 26px rgba(0,0,0,0.55);
-}
-
-/* HERO */
-.hero {
+/* HERO – exakt wie Index */
+.hero{
     min-height:82vh;
     position:relative;
     display:flex;
     align-items:center;
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
-.hero-overlay {
-    position:absolute; inset:0;
-    background:linear-gradient(
-        to bottom,
+.hero-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(to bottom,
         rgba(0,0,0,0.48),
-        rgba(0,0,0,0.78)
-    );
-    z-index:1;
+        rgba(0,0,0,0.78));
 }
-.hero-inner {
-    position:relative; z-index:2;
-    max-width:1100px; width:100%;
+.hero-inner{
+    position:relative;z-index:2;
+    max-width:1100px;width:100%;
     padding:5rem 1.5rem 3rem;
     margin:0 auto;
+}
+.hero-tagline{
+    font-size:1.25rem;letter-spacing:0.28em;
+    text-transform:uppercase;color:var(--gold);
+    margin-bottom:1rem;
+}
+.hero-title{
+    font-size:3rem;margin-bottom:0.5rem;
+}
+.hero-subtitle{
+    font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
+}
+
+/* MOBILE HERO – 1:1 wie Index */
+@media(max-width:720px){
+    .hero{
+        flex-direction:column;
+        padding-top:2rem; /* exakt wie Index */
+        text-align:center;
+    }
+    .hero-inner{
+        padding-bottom:2rem; /* exakt wie Index */
+        padding-top:0;
+        text-align:center;
+    }
+}
+
+/* PAGE BACKGROUND */
+.page-background{
+    background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+      url("hintergrund.jpg") center/cover fixed;
+    padding-bottom:3.2rem;
+}
+
+section{padding:2.4rem 0;}
+
+/* HEADINGS */
+.section-heading{
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    font-size:1.25rem;
+    margin-bottom:1.4rem;
     text-align:left;
 }
-.hero-tagline {
-    font-size:1.25rem;
-    letter-spacing:0.28em;
-    text-transform:uppercase;
+.section-heading span{color:var(--gold);}
+
+.section-intro{
+    max-width:780px;
+    text-align:left;
+    opacity:0.95;
+    margin-bottom:2rem;
+}
+
+/* UPDATE BLOCKS */
+.update-block{
+    margin-bottom:2.6rem;
+}
+.update-block h3{
     color:var(--gold);
     margin-bottom:1rem;
 }
-.hero-title {
-    font-size:3rem;
-    margin-bottom:0.5rem;
+.update-block p{
+    margin-bottom:1rem;
 }
-.hero-subtitle {
-    font-size:1.4rem;
-    margin-bottom:1.2rem;
-    opacity:0.96;
-}
+
+/* MOBILE – alles zentriert */
 @media(max-width:720px){
-    .hero { text-align:center; padding-top:2rem; }
-    .hero-inner { text-align:center; }
-}
-
-/* ACTION AREA */
-.action-area {
-    background:
-        linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.68)),
-        url("hintergrund.jpg") center/cover fixed;
-    padding:3rem 0 4rem;
-}
-
-.update-block {
-    margin-bottom:2.5rem;
-    padding-bottom:1rem;
-    border-bottom:1px solid rgba(255,255,255,0.18);
-}
-
-.update-title {
-    font-size:1.3rem;
-    text-transform:uppercase;
-    letter-spacing:0.16em;
-    margin-bottom:0.8rem;
-    color:var(--gold);
-}
-
-.update-date {
-    font-size:0.86rem;
-    opacity:0.8;
-    margin-bottom:0.8rem;
-}
-
-.update-text {
-    max-width:780px;
-    line-height:1.6;
-    opacity:0.96;
-    text-align:left;
-}
-
-/* MOBILE ACTION-BEREICH */
-@media(max-width:720px){
-
-    .action-area .inner {
-        text-align:center;
+    #updates *{
+        margin-left:auto !important;
+        margin-right:auto !important;
+        text-align:center !important;
     }
-
-    .update-title,
-    .update-date,
-    .update-text {
-        text-align:center;
-        margin-left:auto;
-        margin-right:auto;
-    }
-
-    .update-cta {
-        text-align:center;
-    }
-}
-
-/* CTA */
-.update-cta {
-    margin-top:3rem;
-    text-align:left;
-}
-@media(max-width:720px){
-    .update-cta { text-align:center; }
 }
 
 /* FOOTER */
-footer.site-footer {
+footer.site-footer{
     background:#10140c;
     padding:1.3rem 0 1.5rem;
-    font-size:0.95rem;
-    margin-top:auto;
+    margin-top:auto;font-size:0.95rem;
 }
-.footer-inner {
-    max-width:1100px; margin:0 auto;
-    padding:0 1.5rem;
-    display:flex; justify-content:space-between;
-    align-items:flex-end;
+.footer-inner{
+    max-width:1100px;margin:0 auto;padding:0 1.5rem;
+    display:flex;justify-content:space-between;align-items:flex-end;
 }
-.footer-logo {
-    width:78px; height:78px;
-    border-radius:50%;
-    border:3px solid #000;
-    object-fit:cover; cursor:pointer;
+.footer-logo{
+    width:78px;height:78px;border-radius:50%;
+    object-fit:cover;border:3px solid #000;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
+    cursor:pointer;
 }
+
 @media(max-width:720px){
-    .footer-inner {
-        flex-direction:column; align-items:center;
-        text-align:center; gap:0.9rem;
+    .footer-inner{
+        flex-direction:column;text-align:center;
+        align-items:center;gap:0.4rem;
     }
 }
 
 /* OVERLAY */
-.overlay-bg {
-    position:fixed; inset:0;
+.overlay-bg{
+    position:fixed;inset:0;
     background:rgba(0,0,0,0.78);
-    display:none; justify-content:center; align-items:center;
-    z-index:9999; text-align:center;
+    display:none;
+    justify-content:center;align-items:center;
+    z-index:9999;text-align:center;
 }
-.overlay-bg.show { display:flex; }
-.overlay-box {
-    max-width:660px;
-    padding:2rem 2rem 2.6rem;
-    color:#fff;
+.overlay-bg.show{display:flex;}
+.overlay-box{
+    max-width:660px;padding:2rem 2rem 2.6rem;color:#fff;
 }
-.overlay-logo {
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    border:5px solid #000;
-    object-fit:cover;
+.overlay-logo{
+    width:260px;height:260px;border-radius:50%;
+    object-fit:cover;border:5px solid #000;
     margin:0 auto 1.4rem;
 }
 </style>
 </head>
 
 <body>
-
 <div class="page-wrapper">
 
 <!-- HEADER -->
@@ -303,95 +255,82 @@ footer.site-footer {
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
-        <p class="hero-tagline">Projekt-Updates</p>
-        <h1 class="hero-title">Wo wir stehen</h1>
-        <p class="hero-subtitle">Organic Ginger – Fortschritt & Einblicke</p>
+        <p class="hero-tagline">Latest Progress</p>
+        <h1 class="hero-title">Updates</h1>
+        <p class="hero-subtitle">
+            Was in den letzten Monaten passiert ist – und wie das Projekt wächst.
+        </p>
     </div>
 </section>
 
-<!-- ACTION -->
-<section class="action-area">
+<div class="page-background">
+
+<section id="updates">
     <div class="inner">
 
-        <!-- UPDATE 1 -->
+        <h2 class="section-heading"><span>Rückblick</span> der letzten Monate</h2>
+
+        <p class="section-intro">
+            Seit der ersten Idee vor rund sechs Monaten ist viel passiert.  
+            Ich habe Informationen gesammelt, Partner gesucht, Bodenanalysen besprochen,  
+            mich mit Bauern vernetzt, erste Kontakte zur Universität hergestellt  
+            und gleichzeitig die gesamte Struktur für dieses Projekt aufgebaut –  
+            von der Website bis zur Planung des Testanbaus.
+        </p>
+
         <div class="update-block">
-            <div class="update-title">Die Idee nimmt Form an</div>
-            <div class="update-date">Oktober – Dezember 2024</div>
-            <div class="update-text">
-                Vor rund sechs Monaten hat alles begonnen. Die Grundidee war einfach:
-                frischen, europäischen Bio-Ingwer anzubauen – mit kurzen Wegen,
-                echter Qualität und vollständiger Transparenz.
-                <br><br>
-                Ich habe angefangen, Informationen einzuholen, die ersten Anbaukonzepte zu prüfen
-                und mich intensiv mit den klimatischen Bedingungen auf den Azoren zu beschäftigen.
-            </div>
+            <h3>Erste Recherchen</h3>
+            <p>
+                Die Basis des Projekts entstand durch intensive Recherche zu Anbau, Klima,  
+                Bodenqualität und möglichen Anbauregionen. Schon in dieser Phase  
+                haben sich die Azoren als ideale Region für europäischen Bio-Ingwer herauskristallisiert.
+            </p>
         </div>
 
-        <!-- UPDATE 2 -->
         <div class="update-block">
-            <div class="update-title">Suche nach einem Bio-Bauern</div>
-            <div class="update-date">Januar 2025</div>
-            <div class="update-text">
-                Die Suche nach einem geeigneten Bio-Bauern war ein entscheidender Schritt.
-                Mittlerweile ist die Zusammenarbeit organisiert, und die ersten gemeinsamen
-                Planungsgespräche sind abgeschlossen.
-                <br><br>
-                Gleichzeitig habe ich begonnen, zu prüfen, welche Werkzeuge, Geräte und Materialien
-                für einen ersten Testanbau nötig sind – und wo ich sie zuverlässig bekommen kann.
-            </div>
+            <h3>Kontakt zu Bauern</h3>
+            <p>
+                Ich habe mit mehreren Biolandwirten auf den Azoren gesprochen,  
+                darunter potenzielle Partner für den ersten Testanbau.  
+                Diese Gespräche haben mir gezeigt, dass die Regionen optimale Bedingungen haben  
+                und dass echtes Interesse an einer Zusammenarbeit besteht.
+            </p>
         </div>
 
-        <!-- UPDATE 3 -->
         <div class="update-block">
-            <div class="update-title">Kontakt mit der Universität</div>
-            <div class="update-date">Februar 2025</div>
-            <div class="update-text">
-                Um das Projekt wissenschaftlich solide aufzubauen, habe ich Kontakt zur
-                <strong>Universidade dos Açores</strong> aufgenommen.  
-                Dort erhalte ich wertvolle Hinweise zu Bodenbeschaffenheit, Klima
-                und der praktischen Umsetzung eines Bioprojekts auf den Inseln.
-                <br><br>
-                Das Feedback der Universität bestärkt mich darin, dass die Azoren
-                einer der wenigen Orte in Europa sind, an denen Ingwer wirklich
-                nachhaltig und in hoher Qualität wachsen kann.
-            </div>
+            <h3>Austausch mit der Universität</h3>
+            <p>
+                Die Universidade dos Açores unterstützt mit wertvollen Informationen  
+                zu Boden, Klima, Bewässerung und nachhaltigem Bio-Anbau.  
+                Dieser Austausch hilft enorm, Fehler zu vermeiden  
+                und von Anfang an professionell zu planen.
+            </p>
         </div>
 
-        <!-- UPDATE 4 -->
         <div class="update-block">
-            <div class="update-title">Webseite & Organisation</div>
-            <div class="update-date">März 2025</div>
-            <div class="update-text">
-                Aktuell arbeite ich intensiv am Aufbau dieser Webseite – als klarer,
-                transparenter Ort für alle Informationen rund um das Projekt.
-                <br><br>
-                Parallel organisiere ich Rezome, Werkzeuge, Materialquellen,
-                Verpackungslösungen und alles, was für den Start notwendig ist.
-                Jeder Schritt bringt das Projekt näher an die erste Pflanzung.
-            </div>
+            <h3>Aufbau der Webseite</h3>
+            <p>
+                In den letzten Wochen habe ich die gesamte Website neu aufgebaut,  
+                Texte geschrieben, Strukturen erstellt und das visuelle Konzept entwickelt.  
+                Die Seite ist inzwischen schnell, klar und einheitlich –  
+                ein zentraler Bestandteil des Projekts.
+            </p>
         </div>
 
-        <!-- UPDATE 5 -->
         <div class="update-block">
-            <div class="update-title">Nächste Schritte</div>
-            <div class="update-date">Ausblick</div>
-            <div class="update-text">
-                In den kommenden Wochen stehen weitere organisatorische Arbeiten an:
-                Angebote einholen, Material bestellen, Transport klären
-                und die Vorbereitung der Anbauflächen planen.
-                <br><br>
-                Das Ziel bleibt klar:
-                <strong>Ein erster Testanbau von frischem Bio-Ingwer auf den Azoren.</strong>
-            </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="update-cta">
-            <a href="crowdfunding.html" class="btn-primary">Jetzt unterstützen</a>
+            <h3>Vorbereitung auf den Testanbau</h3>
+            <p>
+                Aktuell arbeite ich daran, die letzten offenen Fragen zu klären:  
+                Material, Bewässerung, Logistik und die genaue Fläche.  
+                Mit der Unterstützung aus dem Crowdfunding kann ich dann  
+                den ersten Testanbau starten und den nächsten Schritt gehen.
+            </p>
         </div>
 
     </div>
 </section>
+
+</div>
 
 <!-- FOOTER -->
 <footer class="site-footer">
@@ -399,7 +338,10 @@ footer.site-footer {
 
         <div>
             <div>info@purerootswitzerland.ch</div>
-            <div><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></div>
+            <div>
+                <a href="datenschutz.html">Datenschutz</a> ·
+                <a href="impressum.html">Impressum</a>
+            </div>
         </div>
 
         <div>
@@ -419,20 +361,20 @@ footer.site-footer {
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur kurz erhältlich.</strong><br><br>
-            Dieses Projekt möchte das ändern – nachhaltig, regional und fair.
+            Pure Root Switzerland – transparent, frisch und ehrlich.  
+            Jeder Schritt zählt.
         </p>
     </div>
-</div>
-
 </div>
 
 <script>
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
+
 const footerLogo=document.getElementById("footerLogo");
 const overlayBox=document.getElementById("overlayBox");
+
 if(footerLogo && overlayBox){
     footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
     overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
@@ -441,6 +383,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
