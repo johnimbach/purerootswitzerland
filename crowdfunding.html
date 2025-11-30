@@ -166,7 +166,9 @@ nav.main-nav a.active::after{width:100%;}
 .text-image-wrapper{
     display:flex;flex-direction:column;gap:1.8rem;margin-bottom:2.2rem;
 }
-@media(max-width:720px){.text-image-wrapper{text-align:center;}}
+@media(max-width:720px){
+    .text-image-wrapper{text-align:center;}
+}
 
 /* HIGHLIGHT GRID */
 .highlight-grid{
@@ -254,7 +256,10 @@ nav.main-nav a.active::after{width:100%;}
     text-align:center;
 }
 .pay-btn:hover{background:rgba(234,203,131,0.15);}
+
+/* MOBILE – ACTION SEKTION ZENTRIERT */
 @media(max-width:720px){
+    .action-section{text-align:center;}
     .payment-buttons{flex-direction:column;gap:0.8rem;}
 }
 
@@ -265,15 +270,23 @@ footer.site-footer{
 }
 .footer-inner{
     max-width:1100px;margin:0 auto;padding:0 1.5rem;
-    display:flex;justify-content:space-between;align-items:flex-end;
+    display:flex;flex-direction:column;
+    align-items:center;text-align:center;gap:0.9rem;
 }
 .footer-logo{
     width:78px;height:78px;border-radius:50%;
     border:3px solid #000;object-fit:cover;
     cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
+
+/* FOOTER MOBILE (IDENTISCH, NUR REDUNDANT) */
 @media(max-width:720px){
-    .footer-inner{flex-direction:column;text-align:center;gap:0.9rem;}
+    .footer-inner{
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:0.9rem;
+    }
 }
 
 /* FOOTER OVERLAY */
@@ -410,7 +423,9 @@ footer.site-footer{
         <!-- BAROMETER -->
         <div class="barometer-wrap">
             <div class="barometer-label">Fortschritt: 0%</div>
-            <div class="barometer"><div class="barometer-fill" style="width:0%;"></div></div>
+            <div class="barometer">
+                <div class="barometer-fill" style="width:0%;"></div>
+            </div>
         </div>
 
         <!-- PAYMENT -->
@@ -515,6 +530,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
