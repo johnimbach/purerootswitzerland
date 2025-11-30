@@ -159,14 +159,29 @@ nav.main-nav a.active::after{width:100%;}
     font-size:1.25rem;margin-bottom:0.7rem;color:var(--gold);
 }
 
-/* UPDATED TEXTS */
-.highlight-card p{
-    line-height:1.55;
-}
+.highlight-card p{line-height:1.55;}
 
 @media(max-width:720px){
     .action-section{text-align:center;}
     .highlight-grid{grid-template-columns:1fr;}
+}
+
+/* DETAIL COST BLOCK */
+.cost-details{
+    margin-top:3rem;
+    padding:2rem 1.8rem;
+    border-radius:1rem;
+    background:rgba(0,0,0,0.22);
+    border:1px solid rgba(255,255,255,0.18);
+}
+.cost-title{
+    font-size:1.75rem;text-transform:uppercase;
+    letter-spacing:0.13em;margin-bottom:1.4rem;
+    color:var(--gold);text-align:center;
+}
+.cost-details p{
+    margin-bottom:1.1rem;
+    line-height:1.55;
 }
 
 /* SPENDENBAROMETER */
@@ -311,6 +326,29 @@ footer.site-footer{
 
         </div>
 
+        <!-- DETAIL COST LIST -->
+        <div class="cost-details">
+            <div class="cost-title">Detaillierte Kostenübersicht – Total 7’500 CHF</div>
+
+            <p><strong>1’900 CHF – Bewässerungssystem</strong><br>
+            Rohre, Tropfschläuche, Verteiler, Anschlüsse, Kleinmaterial.</p>
+
+            <p><strong>1’100 CHF – Bodenanalyse & Labor</strong><br>
+            Nährstoffprofil, Feuchtigkeitsanalyse, Struktur & pH-Wert (Universität Azoren).</p>
+
+            <p><strong>2’300 CHF – Flächenvorbereitung & Material</strong><br>
+            Weizenfolie, Mulch, Werkzeuge, Fläche vorbereiten, Transport auf São Miguel.</p>
+
+            <p><strong>1’500 CHF – Bio-Zertifizierung</strong><br>
+            EU-Bio Portugal, Dokumentation, Erstaufnahme, Vorbereitung für Bio Suisse.</p>
+
+            <p><strong>700 CHF – Saatrhizome & Startmaterial</strong><br>
+            Startpflanzen, Lagerung, Keimphase.</p>
+
+            <p><strong>In den Kosten enthalten:</strong><br>
+            Transport Portugal (Material) · Transport Azoren → Schweiz (Testmenge Ingwer) · Kleinmaterial.</p>
+        </div>
+
         <!-- SPENDENBAROMETER -->
         <div class="barometer-wrap">
             <div class="barometer-label">Fortschritt: 0%</div>
@@ -378,6 +416,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
