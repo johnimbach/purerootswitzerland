@@ -10,7 +10,7 @@
     --green-dark: #3e4a29;
     --green: #556b2f;
     --gold: #eacb83;
-    --cream: #f4f4ed;
+    --cream: #fdfdf8;
     --white: #ffffff;
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
@@ -31,7 +31,7 @@ a{text-decoration:none;color:inherit;}
 .page-wrapper{min-height:100vh;display:flex;flex-direction:column;}
 .inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
 
-/* HEADER (IDENTISCH) */
+/* HEADER */
 header.site-header{
     position:sticky;top:0;z-index:50;
     background:rgba(30,40,24,0.95);
@@ -46,13 +46,14 @@ header.site-header{
     font-size:1.45rem;letter-spacing:0.21em;text-transform:uppercase;
 }
 .logo-sub{
-    font-size:0.9rem;letter-spacing:0.24em;text-transform:uppercase;
-    color:var(--gold);
+    font-size:0.9rem;letter-spacing:0.24em;
+    text-transform:uppercase;color:var(--gold);
 }
 
+/* NAVIGATION */
 nav.main-nav{
     display:flex;gap:1.8rem;letter-spacing:0.1em;
-    text-transform:uppercase;font-size:1rem;
+    font-size:1rem;text-transform:uppercase;
 }
 nav.main-nav a{
     padding-bottom:0.1rem;position:relative;
@@ -63,9 +64,8 @@ nav.main-nav a::after{
 }
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after{width:100%;}
-
-/* MOBILE NAV */
 .nav-toggle{display:none;}
+
 @media(max-width:720px){
     .nav-toggle{
         display:inline-flex;padding:0.4rem 0.7rem;
@@ -74,23 +74,23 @@ nav.main-nav a.active::after{width:100%;}
     }
     nav.main-nav{
         position:absolute;top:100%;right:0;
-        padding:1.2rem 1.4rem;
-        flex-direction:column;align-items:flex-end;
-        gap:1rem;background:rgba(30,40,24,0.98);
-        opacity:0;pointer-events:none;transform:translateY(-8px);
-        transition:0.25s;
+        padding:1.2rem 1.4rem;flex-direction:column;
+        align-items:flex-end;gap:1rem;
+        background:rgba(30,40,24,0.98);
+        opacity:0;pointer-events:none;
+        transform:translateY(-8px);transition:0.25s;
     }
     nav.main-nav.open{
         opacity:1;pointer-events:auto;transform:translateY(0);
     }
 }
 
-/* PAGE BACKGROUND */
+/* BACKGROUND */
 .page-background{
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
       url("hintergrund.jpg") center/cover fixed;
-    padding:3.2rem 0 4rem;
+    padding:3.4rem 0 4rem;
 }
 
 /* CONTENT */
@@ -99,16 +99,21 @@ nav.main-nav a.active::after{width:100%;}
     text-transform:uppercase;color:var(--gold);
     margin-bottom:2rem;text-align:left;
 }
+
 .text-block{
-    background:rgba(0,0,0,0.25);
+    background:rgba(0,0,0,0.28);
     padding:2rem 2rem;
     border-radius:1.2rem;
-    border:1px solid rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.16);
     line-height:1.7;
 }
+
+/* HEADERS INSIDE CONTENT */
 .text-block h3{
-    color:var(--gold);margin-top:1.6rem;margin-bottom:0.8rem;
+    color:var(--gold);
+    margin-top:1.5rem;margin-bottom:0.8rem;
 }
+
 .text-block p{margin-bottom:1rem;}
 
 @media(max-width:720px){
@@ -116,7 +121,7 @@ nav.main-nav a.active::after{width:100%;}
     .text-block{text-align:center;}
 }
 
-/* FOOTER (IDENTISCH) */
+/* FOOTER */
 footer.site-footer{
     background:#10140c;padding:1.3rem 0 1.5rem;
     margin-top:auto;font-size:0.95rem;
@@ -130,8 +135,11 @@ footer.site-footer{
     object-fit:cover;border:3px solid #000;
     cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
+
 @media(max-width:720px){
-    .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:0.4rem;}
+    .footer-inner{
+        flex-direction:column;align-items:center;text-align:center;gap:0.4rem;
+    }
 }
 
 /* OVERLAY */
@@ -141,6 +149,7 @@ footer.site-footer{
     z-index:9999;text-align:center;
 }
 .overlay-bg.show{display:flex;}
+
 .overlay-box{
     max-width:660px;padding:2rem 2rem 2.6rem;color:#fff;
 }
@@ -155,30 +164,40 @@ footer.site-footer{
 <body>
 <div class="page-wrapper">
 
+<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-block">
             <div class="logo-main">PURE ROOT SWITZERLAND</div>
             <div class="logo-sub">ORGANIC GINGER</div>
         </div>
+
         <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+
         <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
             <a href="geschichte.html">Geschichte</a>
             <a href="updates.html">Updates</a>
             <a href="kontakt.html">Kontakt</a>
-            <a href="impressum.html" class="active">Impressum</a>
         </nav>
     </div>
 </header>
 
+<!-- CONTENT -->
 <div class="page-background">
     <div class="inner">
 
         <h2 class="section-heading">Impressum</h2>
 
         <div class="text-block">
+
+            <h3>Verantwortlich für den Inhalt</h3>
+            <p>
+                <strong>John René Imbach</strong><br>
+                Luzern, Switzerland<br>
+                E-Mail: info@purerootswitzerland.ch
+            </p>
 
             <h3>1. Inhalte</h3>
             <p>
@@ -219,6 +238,7 @@ footer.site-footer{
     </div>
 </div>
 
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="footer-inner">
 
@@ -242,6 +262,7 @@ footer.site-footer{
     </div>
 </footer>
 
+<!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
@@ -266,6 +287,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
