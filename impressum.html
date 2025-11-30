@@ -11,236 +11,263 @@
     --green: #556b2f;
     --gold: #eacb83;
     --cream: #f4f4ed;
+    --white: #ffffff;
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
 /* GLOBAL */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body {
-    max-width:100vw;
-    overflow-x:hidden;
-    background:var(--green-dark);
-    color:var(--cream);
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{max-width:100vw;overflow-x:hidden;}
+body{
     font-family:"Lora","Georgia",serif;
-    line-height:1.6;
+    background:var(--green-dark);
+    color:#fdfdf8;
+    line-height:1.65;
+    font-size:1.05rem;
 }
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
 
-/* HEADER */
-header {
-    position:sticky;
-    top:0;
-    z-index:40;
-    background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
+.page-wrapper{min-height:100vh;display:flex;flex-direction:column;}
+.inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
 
-.nav-container {
-    max-width:1400px;
-    margin:auto;
-    padding:12px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.header-left img {
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    object-fit:cover;
+/* HEADER (IDENTISCH) */
+header.site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(30,40,24,0.95);
     box-shadow:var(--shadow);
 }
-
-.desktop-nav {
-    display:flex;
-    gap:26px;
+.header-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:0.95rem 1.5rem;max-width:1100px;margin:0 auto;
 }
-
-.desktop-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    position:relative;
-    letter-spacing:1px;
-    font-size:1em;
+.logo-block{display:flex;flex-direction:column;gap:0.2rem;}
+.logo-main{
+    font-size:1.45rem;letter-spacing:0.21em;text-transform:uppercase;
 }
-
-.desktop-nav a::after {
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-3px;
-    width:0;
-    height:1px;
-    background:var(--gold);
-    transition:0.3s;
-}
-
-.desktop-nav a:hover::after { width:100%; }
-
-.header-right {
-    font-size:1.1em;
-    font-weight:700;
-    color:var(--cream);
-    letter-spacing:1.5px;
-}
-
-/* MOBILE HEADER */
-.mobile-header {
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    padding:14px 0;
-    gap:6px;
-}
-
-.mobile-header img {
-    width:70px;
-    height:70px;
-    border-radius:50%;
-}
-
-.mobile-header-title {
-    font-size:1.25em;
-    letter-spacing:1.5px;
-}
-
-.mobile-nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:18px;
-}
-
-.mobile-nav a {
-    color:var(--cream);
-    text-decoration:none;
-}
-
-/* CONTENT */
-section {
-    max-width:1000px;
-    margin:60px auto;
-    padding:0 6%;
-}
-
-h1 {
-    font-size:2.2em;
-    margin-bottom:30px;
-    text-align:center;
+.logo-sub{
+    font-size:0.9rem;letter-spacing:0.24em;text-transform:uppercase;
     color:var(--gold);
 }
 
-.text-block {
-    background:rgba(0,0,0,0.45);
-    padding:40px;
-    border-radius:20px;
-    font-size:1.15em;
-    box-shadow:var(--shadow);
+nav.main-nav{
+    display:flex;gap:1.8rem;letter-spacing:0.1em;
+    text-transform:uppercase;font-size:1rem;
+}
+nav.main-nav a{
+    padding-bottom:0.1rem;position:relative;
+}
+nav.main-nav a::after{
+    content:"";position:absolute;bottom:0;left:0;
+    width:0%;height:1px;background:var(--gold);transition:0.3s;
+}
+nav.main-nav a:hover::after,
+nav.main-nav a.active::after{width:100%;}
+
+/* MOBILE NAV */
+.nav-toggle{display:none;}
+@media(max-width:720px){
+    .nav-toggle{
+        display:inline-flex;padding:0.4rem 0.7rem;
+        border-radius:999px;border:1px solid rgba(255,255,255,0.3);
+        background:transparent;color:#fff;
+    }
+    nav.main-nav{
+        position:absolute;top:100%;right:0;
+        padding:1.2rem 1.4rem;
+        flex-direction:column;align-items:flex-end;
+        gap:1rem;background:rgba(30,40,24,0.98);
+        opacity:0;pointer-events:none;transform:translateY(-8px);
+        transition:0.25s;
+    }
+    nav.main-nav.open{
+        opacity:1;pointer-events:auto;transform:translateY(0);
+    }
 }
 
-.text-block p { margin-bottom:16px; }
-
-/* FOOTER */
-footer {
-    text-align:center;
-    padding:50px 10px 40px;
+/* PAGE BACKGROUND */
+.page-background{
+    background:
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+      url("hintergrund.jpg") center/cover fixed;
+    padding:3.2rem 0 4rem;
 }
 
-footer img {
-    width:60px;
-    height:60px;
-    border-radius:50%;
+/* CONTENT */
+.section-heading{
+    font-size:2rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--gold);
+    margin-bottom:2rem;text-align:left;
+}
+.text-block{
+    background:rgba(0,0,0,0.25);
+    padding:2rem 2rem;
+    border-radius:1.2rem;
+    border:1px solid rgba(255,255,255,0.18);
+    line-height:1.7;
+}
+.text-block h3{
+    color:var(--gold);margin-top:1.6rem;margin-bottom:0.8rem;
+}
+.text-block p{margin-bottom:1rem;}
+
+@media(max-width:720px){
+    .section-heading{text-align:center;}
+    .text-block{text-align:center;}
 }
 
-footer a {
-    color:var(--cream);
-    margin:0 10px;
-    text-decoration:none;
+/* FOOTER (IDENTISCH) */
+footer.site-footer{
+    background:#10140c;padding:1.3rem 0 1.5rem;
+    margin-top:auto;font-size:0.95rem;
+}
+.footer-inner{
+    max-width:1100px;margin:0 auto;padding:0 1.5rem;
+    display:flex;justify-content:space-between;align-items:flex-end;
+}
+.footer-logo{
+    width:78px;height:78px;border-radius:50%;
+    object-fit:cover;border:3px solid #000;
+    cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
+}
+@media(max-width:720px){
+    .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:0.4rem;}
 }
 
-footer a:hover { color:var(--gold); }
-
-/* MOBILE */
-@media(max-width:768px){
-    .nav-container { display:none; }
-    .mobile-header { display:flex; }
+/* OVERLAY */
+.overlay-bg{
+    position:fixed;inset:0;background:rgba(0,0,0,0.78);
+    display:none;justify-content:center;align-items:center;
+    z-index:9999;text-align:center;
+}
+.overlay-bg.show{display:flex;}
+.overlay-box{
+    max-width:660px;padding:2rem 2rem 2.6rem;color:#fff;
+}
+.overlay-logo{
+    width:260px;height:260px;border-radius:50%;
+    border:5px solid #000;margin:0 auto 1.4rem;
+    object-fit:cover;box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
 </style>
 </head>
 
 <body>
+<div class="page-wrapper">
 
-<!-- MOBILE HEADER -->
-<div class="mobile-header">
-    <img src="logo2.jpg" alt="">
-    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
-
-    <nav class="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="crowdfunding.html">Crowdfunding</a>
-        <a href="geschichte.html">Meine Geschichte</a>
-        <a href="updates.html">Updates</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
-</div>
-
-<!-- DESKTOP HEADER -->
-<header>
-    <div class="nav-container">
-        <div class="header-left"><img src="logo2.jpg" alt=""></div>
-
-        <nav class="desktop-nav">
+<header class="site-header">
+    <div class="header-inner">
+        <div class="logo-block">
+            <div class="logo-main">PURE ROOT SWITZERLAND</div>
+            <div class="logo-sub">ORGANIC GINGER</div>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+        <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
-            <a href="geschichte.html">Meine Geschichte</a>
+            <a href="geschichte.html">Geschichte</a>
             <a href="updates.html">Updates</a>
             <a href="kontakt.html">Kontakt</a>
+            <a href="impressum.html" class="active">Impressum</a>
         </nav>
-
-        <div class="header-right">PURE ROOT SWITZERLAND</div>
     </div>
 </header>
 
-<!-- CONTENT -->
-<section>
-    <h1>IMPRESSUM</h1>
+<div class="page-background">
+    <div class="inner">
 
-    <div class="text-block">
+        <h2 class="section-heading">Impressum</h2>
 
-        <p><strong>Verantwortlich für den Inhalt:</strong><br>
-        John René Imbach</p>
+        <div class="text-block">
 
-        <p><strong>E-Mail:</strong><br>
-        info@purerootswitzerland.ch</p>
+            <h3>1. Inhalte</h3>
+            <p>
+            Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Gewähr
+            für die Aktualität, Vollständigkeit und Richtigkeit der bereitgestellten
+            Informationen. Jegliche Haftungsansprüche gegen uns, die sich auf Schäden
+            materieller oder ideeller Art beziehen – verursacht durch die Nutzung oder
+            Nichtnutzung der dargebotenen Inhalte bzw. durch Nutzung fehlerhafter und
+            unvollständiger Informationen – sind grundsätzlich ausgeschlossen.
+            </p>
 
-        <p><strong>Projektstandort:</strong><br>
-        Schweiz & Azoren</p>
+            <h3>2. Externe Links</h3>
+            <p>
+            Unsere Webseite enthält Links zu externen Websites Dritter, auf deren Inhalte
+            wir keinen Einfluss haben. Deshalb übernehmen wir für diese fremden Inhalte
+            keine Gewähr. Für die Inhalte der verlinkten Seiten ist stets der jeweilige
+            Anbieter oder Betreiber verantwortlich.
+            </p>
 
-        <p>
-            Dieses Projekt dient dem Aufbau eines nachhaltigen Bio-Ingwer-Testanbaus
-            auf der Insel São Miguel (Azoren).
-        </p>
+            <h3>3. Urheberrecht</h3>
+            <p>
+            Die durch die Seitenbetreiber erstellten Inhalte und Werke auf dieser Website
+            unterliegen dem schweizerischen Urheberrecht. Beiträge Dritter sind als solche
+            gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der
+            Verwertung außerhalb der Grenzen des Urheberrechts bedürfen unserer schriftlichen Zustimmung.
+            </p>
 
-        <p>
-            Alle Inhalte dieser Website wurden sorgfältig erstellt.
-            Für externe Links übernehmen wir keine Haftung.
-        </p>
+            <h3>4. Änderungen und Irrtümer</h3>
+            <p>
+            Wir behalten uns ausdrücklich vor, Teile der Seiten oder das gesamte Angebot
+            jederzeit zu ändern, zu ergänzen, zu löschen oder die Veröffentlichung zeitweise
+            oder endgültig einzustellen. Sollten einzelne Formulierungen dieses Textes
+            unwirksam sein, bleiben die übrigen Bestimmungen davon unberührt.
+            </p>
+
+        </div>
 
     </div>
-</section>
+</div>
 
-<footer>
-    <img src="logo2.jpg" alt="">
-    <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
-    <p>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-    </p>
+<footer class="site-footer">
+    <div class="footer-inner">
+
+        <div>
+            <div>info@purerootswitzerland.ch</div>
+            <div>
+                <a href="datenschutz.html">Datenschutz</a> · 
+                <a href="impressum.html">Impressum</a>
+            </div>
+        </div>
+
+        <div>
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
+        </div>
+
+        <div>
+            <div>Luzern, Switzerland</div>
+            <div>&copy; 2025 Pure Root Switzerland</div>
+        </div>
+
+    </div>
 </footer>
+
+<div class="overlay-bg" id="overlayBox">
+    <div class="overlay-box">
+        <img src="logo2.jpg" class="overlay-logo" alt="">
+        <p>Pure Root Switzerland – Qualität, Transparenz und Herkunft.</p>
+    </div>
+</div>
+
+</div>
+
+<script>
+function toggleNav(){
+    document.getElementById("mainNav").classList.toggle("open");
+}
+const footerLogo=document.getElementById("footerLogo");
+const overlayBox=document.getElementById("overlayBox");
+
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
+}
+</script>
 
 </body>
 </html>
+
+
 
 
 
