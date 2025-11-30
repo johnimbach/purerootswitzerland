@@ -25,16 +25,10 @@ body {
     line-height:1.65;
     font-size:1.05rem;
 }
-
 img { max-width:100%; display:block; }
 a { text-decoration:none; color:inherit; }
-
 .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
-.inner {
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 1.5rem;
-}
+.inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
 
 /* HEADER */
 header.site-header {
@@ -94,16 +88,15 @@ nav.main-nav a.active::after {
 
 /* MOBILE NAV */
 .nav-toggle { display:none; }
-
 @media(max-width:720px){
     .nav-toggle {
         display:inline-flex;
         padding:0.4rem 0.7rem;
         border-radius:999px;
         border:1px solid rgba(255,255,255,0.3);
-        background:transparent; color:#fff;
+        background:transparent;
+        color:#fff;
     }
-
     nav.main-nav {
         position:absolute;
         top:100%;
@@ -155,11 +148,9 @@ nav.main-nav a.active::after {
 .hero-overlay {
     position:absolute;
     inset:0;
-    background:linear-gradient(
-        to bottom,
+    background:linear-gradient(to bottom,
         rgba(0,0,0,0.48),
-        rgba(0,0,0,0.78)
-    );
+        rgba(0,0,0,0.78));
     z-index:1;
 }
 
@@ -225,39 +216,7 @@ nav.main-nav a.active::after {
     margin-bottom:1.3rem;
 }
 
-/* SPENDENBAROMETER */
-.barometer-box {
-    margin:1.8rem 0 2.2rem;
-    max-width:700px;
-}
-
-.barometer-label {
-    font-size:1rem;
-    margin-bottom:0.4rem;
-    letter-spacing:0.05em;
-}
-
-.barometer-track {
-    width:100%;
-    height:16px;
-    background:rgba(255,255,255,0.25);
-    border-radius:999px;
-    overflow:hidden;
-}
-
-.barometer-fill {
-    width:0%;
-    height:100%;
-    background:var(--gold);
-    border-radius:999px;
-}
-
-.barometer-stats {
-    margin-top:0.4rem;
-    font-size:0.95rem;
-    opacity:0.9;
-}
-
+/* HIGHLIGHTS */
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -281,8 +240,82 @@ nav.main-nav a.active::after {
     .highlight-grid { grid-template-columns:1fr; }
 }
 
+/* SPENDENBAROMETER */
+.barometer-box {
+    margin-top:3.4rem;
+}
+.bar-bg {
+    width:100%;
+    height:22px;
+    background:rgba(255,255,255,0.12);
+    border-radius:999px;
+    overflow:hidden;
+    margin-bottom:0.5rem;
+}
+.bar-fill {
+    width:0%; /* Start bei 0% */
+    height:100%;
+    background:var(--gold);
+}
+.bar-text {
+    font-size:0.95rem;
+    opacity:0.9;
+}
+
+/* ZUSATZ: WOFÜR WIRD DAS GELD GENUTZT */
+.use-of-funds {
+    margin-top:3.4rem;
+    background:rgba(0,0,0,0.35);
+    padding:1.8rem;
+    border-radius:1.1rem;
+    border:1px solid rgba(255,255,255,0.18);
+}
+.use-of-funds h3 {
+    color:var(--gold);
+    font-size:1.3rem;
+    margin-bottom:1rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+}
+.use-of-funds ul {
+    list-style:none;
+    padding-left:0;
+}
+.use-of-funds li {
+    margin-bottom:0.7rem;
+    opacity:0.95;
+}
+
+/* ZAHLUNGSARTEN */
+.payment-row {
+    display:flex;
+    gap:1.2rem;
+    margin-top:2.4rem;
+}
+.payment-button {
+    padding:0.8rem 1.6rem;
+    background:rgba(255,255,255,0.12);
+    border-radius:999px;
+    color:#fff;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.15);
+    cursor:pointer;
+    font-size:0.95rem;
+    letter-spacing:0.1em;
+    flex:1;
+}
+.payment-button:hover {
+    background:rgba(255,255,255,0.22);
+}
+
+@media(max-width:720px){
+    .payment-row {
+        flex-direction:column;
+    }
+}
+
 /* CTA */
-.cta-block { margin-top:3.4rem; }
+.cta-block { margin-top:1.4rem; }
 .cta-btn-row { margin-top:1.2rem; }
 @media(max-width:720px){
     .cta-btn-row { justify-content:center; display:flex; margin-top:1.4rem; }
@@ -336,7 +369,7 @@ footer.site-footer {
 .overlay-bg.show { display:flex; }
 .overlay-box {
     max-width:660px;
-    padding:2rem 2.6rem;
+    padding:2rem 2rem 2.6rem;
     color:#fff;
 }
 .overlay-logo {
@@ -348,6 +381,7 @@ footer.site-footer {
     margin:0 auto 1.4rem;
     box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
+
 </style>
 </head>
 
@@ -391,39 +425,59 @@ footer.site-footer {
         <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
 
         <p class="section-lead">
-            Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
-            europäischen Bio-Ingwer-Projekts mit fairer Produktion und
-            kurzen Transportwegen.
+            Mit deinem Beitrag ermöglichst du den Aufbau eines nachhaltigen,
+            europäischen Bio-Ingwer-Projekts – mit kurzen Transportwegen,
+            fairer Produktion und maximaler Qualität.
         </p>
 
         <!-- SPENDENBAROMETER -->
         <div class="barometer-box">
-            <div class="barometer-label">Fortschritt</div>
-
-            <div class="barometer-track">
-                <div class="barometer-fill" style="width:0%;"></div>
+            <div class="bar-bg">
+                <div class="bar-fill" style="width:0%;"></div>
             </div>
-
-            <div class="barometer-stats">
-                0 CHF von 7’500 CHF • 0%
-            </div>
+            <div class="bar-text">0% von 7’500 CHF</div>
         </div>
 
+        <!-- WOFÜR WIRD DAS GELD GENUTZT -->
+        <div class="use-of-funds">
+            <h3>Wofür wird das Geld genutzt?</h3>
+            <ul>
+                <li>• Installation des Bewässerungssystems</li>
+                <li>• Bodenanalyse auf São Miguel</li>
+                <li>• Kosten der Bio-Zertifizierung</li>
+            </ul>
+        </div>
+
+        <!-- ZAHLUNGSARTEN -->
+        <div class="payment-row">
+            <div class="payment-button">Kreditkarte</div>
+            <div class="payment-button">Twint</div>
+            <a href="https://wemakeit.com" target="_blank" class="payment-button">WeMakeIt</a>
+        </div>
+
+        <!-- WAS SCHON DA IST: HIGHLIGHTS -->
         <div class="highlight-grid">
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bewässerung</h3>
-                <p>Installation eines Systems zur gleichmäßigen Wasserversorgung.</p>
+                <p>
+                    Installation eines effizienten Systems zur Sicherstellung einer
+                    gleichmäßigen Wasserversorgung.
+                </p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
-                <p>Untersuchung der vulkanischen Böden für optimale Anbaubedingungen.</p>
+                <p>
+                    Untersuchung des vulkanischen Bodens auf Nährstoffe und Struktur.
+                </p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bio-Zertifizierung</h3>
-                <p>Ein wichtiger Schritt zu Transparenz, Fairness und Qualität.</p>
+                <p>
+                    Transparenz und Qualität – die Basis für nachhaltige Landwirtschaft.
+                </p>
             </article>
 
         </div>
@@ -461,17 +515,17 @@ footer.site-footer {
     </div>
 </footer>
 
-</div>
-
 <!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo">
+        <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
-            <strong>Pure Root Switzerland</strong><br><br>
-            Nachhaltiger Bio-Ingwer von den Azoren – frisch, fair und direkt.
+            <strong>Frischer Ingwer ist in der Schweiz nur kurz wirklich frisch erhältlich.</strong><br><br>
+            Pure Root Switzerland bringt frische Qualität – direkt von den Azoren.
         </p>
     </div>
+</div>
+
 </div>
 
 <script>
@@ -480,7 +534,6 @@ function toggleNav(){
 }
 const footerLogo=document.getElementById("footerLogo");
 const overlayBox=document.getElementById("overlayBox");
-
 if(footerLogo && overlayBox){
     footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
     overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
@@ -489,6 +542,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
