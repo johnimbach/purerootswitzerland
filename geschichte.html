@@ -58,6 +58,7 @@ header.site-header {
     flex-direction:column;
     gap:0.2rem;
 }
+
 .logo-main {
     font-size:1.45rem;
     letter-spacing:0.21em;
@@ -70,7 +71,7 @@ header.site-header {
     color:var(--gold);
 }
 
-/* NAVIGATION – IDENTISCH */
+/* NAV */
 nav.main-nav {
     display:flex;
     gap:1.8rem;
@@ -85,12 +86,11 @@ nav.main-nav a {
 nav.main-nav a::after {
     content:"";
     position:absolute;
-    left:0;
-    bottom:0;
+    left:0; bottom:0;
     width:0%;
     height:1px;
     background:var(--gold);
-    transition:0.3s ease;
+    transition:0.3s;
 }
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after {
@@ -122,8 +122,9 @@ nav.main-nav a.active::after {
         opacity:0;
         pointer-events:none;
         transform:translateY(-8px);
-        transition:0.25s ease;
+        transition:0.25s;
     }
+
     nav.main-nav.open {
         opacity:1;
         pointer-events:auto;
@@ -135,15 +136,12 @@ nav.main-nav a.active::after {
 .btn-primary {
     padding:0.8rem 2rem;
     background:var(--gold);
-    border-radius:999px;
-    color:#1a1a12;
-    font-size:1rem;
-    letter-spacing:0.14em;
+    border:none; border-radius:999px;
+    font-size:1rem; letter-spacing:0.14em;
     text-transform:uppercase;
-    border:none;
+    color:#1a1a12;
     box-shadow:0 0 20px rgba(0,0,0,0.4);
-    cursor:pointer;
-    transition:0.15s;
+    display:inline-block; cursor:pointer;
 }
 .btn-primary:hover {
     transform:translateY(-1px);
@@ -156,12 +154,11 @@ nav.main-nav a.active::after {
     position:relative;
     display:flex;
     align-items:center;
+    justify-content:flex-start;
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
-
 .hero-overlay {
-    position:absolute;
-    inset:0;
+    position:absolute; inset:0;
     background:linear-gradient(
         to bottom,
         rgba(0,0,0,0.48),
@@ -169,24 +166,22 @@ nav.main-nav a.active::after {
     );
     z-index:1;
 }
-
 .hero-inner {
     position:relative;
-    z-index:2;
+    z-index:5;
     max-width:1100px;
     width:100%;
     padding:5rem 1.5rem 3rem;
     margin:0 auto;
-    text-align:left;
 }
 
-/* HERO TEXT */
+/* HERO TEXT – ABSTÄNDE EXAKT WIE ANDERE SEITEN */
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
     text-transform:uppercase;
-    margin-bottom:1rem;
     color:var(--gold);
+    margin-bottom:0.9rem; /* exakt wie Index & Crowdfunding */
 }
 .hero-title {
     font-size:3rem;
@@ -194,20 +189,20 @@ nav.main-nav a.active::after {
 }
 .hero-subtitle {
     font-size:1.4rem;
-    margin-bottom:1.2rem;
     opacity:0.96;
+    margin-bottom:1.2rem;
 }
 
-/* MOBILE HERO – PERFEKT ANGEPASST */
+/* MOBILE HERO */
 @media(max-width:720px){
     .hero {
-        padding-top:1.4rem;
-        padding-bottom:1.4rem;
+        padding-top:0.6rem;      /* exakt wie Crowdfunding */
+        padding-bottom:1.2rem;
         text-align:center;
     }
     .hero-inner {
         padding-top:0;
-        padding-bottom:1.4rem;
+        padding-bottom:1.2rem;
         text-align:center;
     }
 }
@@ -238,6 +233,7 @@ section { padding:2.4rem 0; }
     opacity:0.95;
 }
 
+/* STORY LAYOUT */
 .story-layout {
     display:grid;
     grid-template-columns:minmax(0,1.1fr) minmax(260px,0.9fr);
@@ -245,19 +241,10 @@ section { padding:2.4rem 0; }
     align-items:flex-start;
 }
 
-.story-text-block p {
-    margin-bottom:1.1rem;
-    opacity:0.97;
-}
+.story-text-block p { margin-bottom:1.1rem; opacity:0.97; }
+.story-highlight { font-style:italic; }
 
-.story-highlight {
-    font-style:italic;
-}
-
-.story-image-wrap {
-    display:flex;
-    justify-content:flex-end;
-}
+.story-image-wrap { display:flex; justify-content:flex-end; }
 
 .story-image {
     max-width:340px;
@@ -267,50 +254,33 @@ section { padding:2.4rem 0; }
 }
 
 @media(max-width:860px){
-    .story-layout {
-        grid-template-columns:1fr;
-    }
-    .story-image-wrap {
-        justify-content:center;
-    }
-    .story-image {
-        max-width:280px;
-    }
+    .story-layout { grid-template-columns:1fr; }
+    .story-image-wrap { justify-content:center; }
+    .story-image { max-width:280px; }
 }
 
-/* STORY SUBSECTION – Button-Abstand perfektioniert */
+/* BUTTON SECTION */
 .story-subsection {
     margin-top:2.6rem;
-    text-align:left;
 }
-
-.story-subsection p {
-    opacity:0.96;
+.story-subsection h3 {
+    color:var(--gold);
     margin-bottom:1.2rem;
 }
+.story-subsection p { margin-bottom:1.1rem; }
 
-.story-subsection p:last-of-type {
-    margin-bottom:2.2rem !important;
+/* BUTTON – ABSTAND KORRIGIERT */
+.story-subsection p:last-child {
+    margin-top:2.2rem;
 }
 
-.story-subsection .btn-primary {
-    margin-top:0.8rem;
-}
-
-@media(max-width:720px){
-    .story-subsection {
-        text-align:center;
-    }
-}
-
-/* FOOTER */
+/* FOOTER – IDENTISCH */
 footer.site-footer {
     background:#10140c;
     padding:1.3rem 0 1.5rem;
     font-size:0.95rem;
     margin-top:auto;
 }
-
 .footer-inner {
     max-width:1100px;
     margin:0 auto;
@@ -319,7 +289,6 @@ footer.site-footer {
     justify-content:space-between;
     align-items:flex-end;
 }
-
 .footer-logo {
     width:78px;
     height:78px;
@@ -356,7 +325,6 @@ footer.site-footer {
     max-width:660px;
     padding:2rem 2rem 2.6rem;
 }
-
 .overlay-logo {
     width:260px;
     height:260px;
@@ -366,6 +334,7 @@ footer.site-footer {
     margin:0 auto 1.4rem;
     box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
+
 </style>
 </head>
 
@@ -373,16 +342,13 @@ footer.site-footer {
 
 <div class="page-wrapper">
 
-<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-block">
             <div class="logo-main">PURE ROOT SWITZERLAND</div>
             <div class="logo-sub">ORGANIC GINGER</div>
         </div>
-
         <button class="nav-toggle" onclick="toggleNav()">Menü</button>
-
         <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
@@ -398,9 +364,15 @@ footer.site-footer {
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
+
         <p class="hero-tagline">A New Beginning</p>
+
         <h1 class="hero-title">Meine Geschichte</h1>
-        <p class="hero-subtitle">Von einer Diagnose, die alles veränderte, zu einem Projekt, das neue Wurzeln schlägt</p>
+
+        <p class="hero-subtitle">
+            Von einer Diagnose, die alles verändert, zu einem Projekt, das neue Wurzeln schlägt
+        </p>
+
     </div>
 </section>
 
@@ -411,30 +383,38 @@ footer.site-footer {
 
         <h2 class="section-heading">Warum <span>dieses Projekt</span> so persönlich ist</h2>
 
+        <p class="section-intro">
+            Dieses Projekt beginnt nicht auf einem Feld, sondern in einem Krankenhauszimmer.
+            Die Zeit nach der Diagnose war geprägt von Unsicherheit, Angst und einer brutalen Ehrlichkeit:
+            Was will ich mit dem Rest meines Lebens wirklich tun?
+        </p>
+
         <div class="story-layout">
             <div class="story-text-block">
                 <p>
-                    Die Krebserkrankung hat mein Leben tief verändert. Dinge, die früher selbstverständlich erschienen,
-                    verloren plötzlich an Bedeutung.
+                    Die Krebserkrankung hat mein Leben komplett auf den Kopf gestellt. Plötzlich waren
+                    Dinge unwichtig, die früher selbstverständlich erschienen: Tempo, Status, Perfektion.
                 </p>
 
                 <p>
-                    Stattdessen rückten Gesundheit, Naturverbundenheit, Erdung und echte Begegnungen in den Mittelpunkt.
+                    Stattdessen rückten Werte wie Gesundheit, Erdung, Natur, echte Begegnungen
+                    und sinnvolle Projekte in den Vordergrund – Dinge, die bleiben.
                 </p>
 
                 <p class="story-highlight">
-                    Ingwer wurde für mich während der Genesung zu einem täglichen Begleiter –
-                    ein Symbol für Kraft, Wärme und ein starkes Immunsystem.
+                    Ingwer spielte in meiner eigenen Genesungszeit eine überraschend große Rolle:
+                    als täglicher Begleiter – als Symbol für Wärme, Kraft und ein starkes Immunsystem.
                 </p>
 
                 <p>
-                    Daraus entstand die Vision, hochwertigen Bio-Ingwer so zu produzieren,
-                    wie ich mir Lebensmittel selbst wünsche – frisch, ehrlich und transparent.
+                    Mit der Zeit entstand die Idee, hochwertigen Bio-Ingwer so zu produzieren,
+                    wie ich mir Lebensmittel selbst wünsche – frisch, ehrlich, nachvollziehbar und
+                    ohne lange Transportwege.
                 </p>
 
                 <p>
-                    São Miguel vereint vulkanische Böden, mildes Klima und ein tiefes Bewusstsein für Natur –
-                    ein idealer Ort, an dem dieses Projekt Wurzeln schlagen kann.
+                    Als ich São Miguel entdeckte, ergab plötzlich vieles Sinn: mildes Klima, vulkanische Böden,
+                    starkes Bewusstsein für Natur – ein Ort, an dem dieses Projekt Wurzeln schlagen kann.
                 </p>
             </div>
 
@@ -446,15 +426,42 @@ footer.site-footer {
         </div>
 
         <div class="story-subsection">
-            <h3>Von der Idee zum Projekt</h3>
+            <h3>Von der Idee zum konkreten Projekt</h3>
 
             <p>
-                Aus einer Idee wurden Gespräche – mit lokalen Biolandwirten, Bodenexperten
-                und der Universidade dos Açores.
+                Aus ersten Gedanken wurden Gespräche – immer wieder auftauchend:
+                Wie kann ein Projekt wirtschaftlich sinnvoll, ökologisch verantwortungsvoll
+                und menschlich authentisch sein?
             </p>
 
             <p>
-                Die Vision: die frischeste und direkteste Bio-Ingwer-Brücke zwischen den Azoren und der Schweiz.
+                Kontakte auf São Miguel – lokale Biolandwirte, Menschen mit Bodenwissen und die
+                <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold);">Universidade dos Açores</a>
+                begleiten das Projekt.
+            </p>
+
+            <p>
+                Die Vision: eine Brücke zwischen Azoren und Schweiz.
+                Kurze Lieferwege, faire Bezahlung, transparente Herkunft.
+            </p>
+        </div>
+
+        <div class="story-subsection">
+            <h3>Was mich heute antreibt</h3>
+
+            <p>
+                Pure Root Switzerland ist mehr als ein Name. Es ist der Versuch, aus einer
+                persönlichen Geschichte etwas zu schaffen, das Menschen stärkt und Böden respektiert.
+            </p>
+
+            <p>
+                Jede Unterstützung ist ein Zeichen:
+                Qualität statt Masse, Partnerschaft statt anonymer Lieferketten.
+            </p>
+
+            <p>
+                Mit deiner Unterstützung wächst nicht nur Ingwer –  
+                es wächst eine nachhaltige Struktur für die Azoren und die Schweiz.
             </p>
 
             <p>
@@ -474,7 +481,7 @@ footer.site-footer {
         <div>
             <div>info@purerootswitzerland.ch</div>
             <div>
-                <a href="datenschutz.html">Datenschutz</a> · 
+                <a href="datenschutz.html">Datenschutz</a> ·
                 <a href="impressum.html">Impressum</a>
             </div>
         </div>
@@ -485,22 +492,19 @@ footer.site-footer {
 
         <div>
             <div>Luzern, Switzerland</div>
-            <div>© 2025 Pure Root Switzerland</div>
+            <div>&copy; 2025 Pure Root Switzerland</div>
         </div>
 
     </div>
 </footer>
 
-</div>
-
 <!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo">
+        <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
-            <strong>Pure Root Switzerland</strong><br><br>
-            Ein Projekt, das aus einem persönlichen Wendepunkt entstanden ist –  
-            mit Verantwortung für Natur, Menschen und Herkunft.
+            <strong>Frischer Ingwer ist in der Schweiz nur kurz erhältlich.</strong><br><br>
+            Pure Root Switzerland bringt frische Qualität – direkt von den Azoren.
         </p>
     </div>
 </div>
@@ -521,6 +525,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
