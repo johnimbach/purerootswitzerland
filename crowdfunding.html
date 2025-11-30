@@ -10,9 +10,12 @@
     --green-dark: #3e4a29;
     --green: #556b2f;
     --gold: #eacb83;
+    --cream: #f4f4ed;
+    --white: #ffffff;
     --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
+/* GLOBAL */
 * { margin:0; padding:0; box-sizing:border-box; }
 html, body { max-width:100vw; overflow-x:hidden; }
 body {
@@ -24,12 +27,16 @@ body {
 }
 
 img { max-width:100%; display:block; }
-a { color:inherit; text-decoration:none; }
+a { text-decoration:none; color:inherit; }
 
 .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
-.inner { width:100%; max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+.inner {
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 1.5rem;
+}
 
-/* HEADER */
+/* HEADER – IDENTISCH WIE INDEX */
 header.site-header {
     position:sticky;
     top:0;
@@ -39,53 +46,87 @@ header.site-header {
 }
 .header-inner {
     display:flex;
-    align-items:center;
     justify-content:space-between;
+    align-items:center;
     padding:0.95rem 1.5rem;
     max-width:1100px;
     margin:0 auto;
 }
 .logo-block { display:flex; flex-direction:column; gap:0.2rem; }
-.logo-main { font-size:1.45rem; letter-spacing:0.21em; text-transform:uppercase; }
-.logo-sub { font-size:0.9rem; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold); }
+.logo-main {
+    font-size:1.45rem;
+    letter-spacing:0.21em;
+    text-transform:uppercase;
+}
+.logo-sub {
+    font-size:0.9rem;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--gold);
+}
 
-nav.main-nav { display:flex; gap:1.8rem; letter-spacing:0.1em; font-size:1rem; text-transform:uppercase; }
-nav.main-nav a { position:relative; padding-bottom:0.1rem; }
+/* NAVIGATION – IDENTISCH WIE INDEX */
+nav.main-nav {
+    display:flex;
+    gap:1.8rem;
+    letter-spacing:0.1em;
+    font-size:1rem;
+    text-transform:uppercase;
+}
+nav.main-nav a {
+    padding-bottom:0.1rem;
+    position:relative;
+}
 nav.main-nav a::after {
-    content:""; position:absolute; left:0; bottom:0; width:0%; height:1px;
-    background:var(--gold); transition:0.3s ease;
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0%;
+    height:1px;
+    background:var(--gold);
+    transition:0.3s;
 }
 nav.main-nav a:hover::after,
-nav.main-nav a.active::after { width:100%; }
+nav.main-nav a.active::after {
+    width:100%;
+}
 
+/* MOBILE NAV */
 .nav-toggle { display:none; }
 
 @media(max-width:720px){
     .nav-toggle {
         display:inline-flex;
         padding:0.4rem 0.7rem;
-        border:1px solid rgba(255,255,255,0.3);
         border-radius:999px;
-        color:#fff;
+        border:1px solid rgba(255,255,255,0.3);
         background:transparent;
+        color:#fff;
     }
+
     nav.main-nav {
-        position:absolute; top:100%; right:0;
+        position:absolute;
+        top:100%;
+        right:0;
         padding:1.2rem 1.4rem;
         flex-direction:column;
         align-items:flex-end;
         gap:1rem;
         background:rgba(30,40,24,0.98);
-        opacity:0; pointer-events:none;
+        opacity:0;
+        pointer-events:none;
         transform:translateY(-8px);
-        transition:0.25s ease;
+        transition:0.25s;
     }
     nav.main-nav.open {
-        opacity:1; pointer-events:auto; transform:translateY(0);
+        opacity:1;
+        pointer-events:auto;
+        transform:translateY(0);
     }
 }
 
-/* BUTTON */
+/* BUTTON – IDENTISCH WIE INDEX */
 .btn-primary {
     padding:0.8rem 2rem;
     background:var(--gold);
@@ -97,35 +138,33 @@ nav.main-nav a.active::after { width:100%; }
     border:none;
     box-shadow:0 0 20px rgba(0,0,0,0.4);
     cursor:pointer;
-    transition:0.15s;
     display:inline-block;
 }
-.btn-primary:hover { transform:translateY(-1px); box-shadow:0 0 26px rgba(0,0,0,0.55); }
+.btn-primary:hover {
+    transform:translateY(-1px);
+    box-shadow:0 0 26px rgba(0,0,0,0.55);
+}
 
-/* HERO */
+/* HERO – IDENTISCH WIE INDEX (nur Text angepasst) */
 .hero {
     min-height:82vh;
     position:relative;
     display:flex;
     align-items:center;
-}
-.hero-bg {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay {
     position:absolute;
     inset:0;
     background:linear-gradient(to bottom,
-               rgba(0,0,0,0.58),
-               rgba(0,0,0,0.82));
-    z-index:-1;
+        rgba(0,0,0,0.48),
+        rgba(0,0,0,0.78));
+    z-index:1;
 }
+
 .hero-inner {
+    position:relative;
+    z-index:2;
     max-width:1100px;
     width:100%;
     padding:5rem 1.5rem 3rem;
@@ -137,87 +176,78 @@ nav.main-nav a.active::after { width:100%; }
     letter-spacing:0.28em;
     text-transform:uppercase;
     margin-bottom:1rem;
-    opacity:0.95;
     color:var(--gold);
 }
-.hero-title { font-size:3rem; margin-bottom:0.5rem; color:#ffffff; }
-.hero-subtitle {
-    font-size:1.4rem;
-    opacity:0.96;
-    margin-bottom:1.2rem;
-    color:#ffffff;
-}
-.hero-text { max-width:720px; margin-bottom:1.4rem; color:#ffffff; }
+.hero-title { font-size:3rem; margin-bottom:0.5rem; }
+.hero-subtitle { font-size:1.4rem; margin-bottom:1.2rem; opacity:0.96; }
+.hero-text { max-width:720px; margin-bottom:1.4rem; }
 
-/* MOBILE HERO */
 @media(max-width:720px){
     .hero {
         flex-direction:column;
         padding-top:2rem;
+        text-align:center;
     }
-    .hero-bg { position:relative; height:330px; order:2; }
-    .hero-overlay { display:none; }
-    .hero-inner { order:1; text-align:center; z-index:5; padding-bottom:2rem; }
+    .hero-inner {
+        order:1;
+        padding-bottom:2rem;
+        text-align:center;
+    }
 }
 
-/* ACTION SECTION */
+/* ACTION – IDENTISCH ZU INDEX */
 .action-section {
     background:
-      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.7)),
-      url("hintergrund.jpg") center/cover;
+        linear-gradient(rgba(0,0,0,0.55),
+        rgba(0,0,0,0.7)),
+        url("hintergrund.jpg")
+        center/cover;
     padding:3.2rem 0 3.4rem;
 }
-
 .section-heading {
     font-size:2rem;
     letter-spacing:0.14em;
     margin-bottom:1.3rem;
-    text-align:left;
     color:#ffffff !important;
+    text-transform:uppercase;
 }
-
 .section-lead {
     max-width:780px;
     opacity:0.95;
     line-height:1.65;
-    margin:0 0 1.3rem 0;
-    text-align:left;
+    margin-bottom:1.3rem;
 }
-
-/* HIGHLIGHTS */
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:2.2rem;
-    margin-top:2rem;
+    gap:1.8rem;
+    margin-top:1.8rem;
 }
 .highlight-card {
     background:rgba(0,0,0,0.25);
-    padding:1.8rem;
+    padding:1.6rem;
     border-radius:1.1rem;
     border:1px solid rgba(255,255,255,0.18);
-    text-align:left;
 }
 .highlight-title {
-    font-size:1.35rem;
-    margin-bottom:0.8rem;
+    font-size:1.25rem;
+    margin-bottom:0.7rem;
     color:var(--gold);
 }
 
-/* Additional text in highlight boxes */
-.highlight-card p {
-    line-height:1.65;
-    opacity:0.97;
+@media(max-width:720px){
+    .action-section { text-align:center; }
+    .highlight-grid { grid-template-columns:1fr; }
 }
 
-@media(max-width:900px){
-    .highlight-grid { grid-template-columns:1fr; text-align:center; }
-    .highlight-card { text-align:center; }
+/* CTA */
+.cta-block { margin-top:1.4rem; }
+.cta-btn-row { margin-top:1.2rem; }
+@media(max-width:720px){
+    .cta-btn-row { justify-content:center; display:flex; margin-top:1.4rem; }
 }
 
-.cta-block { margin-top:3rem; text-align:left; }
-
-/* FOOTER */
+/* FOOTER – IDENTISCH WIE INDEX */
 footer.site-footer {
     background:#10140c;
     padding:1.3rem 0 1.5rem;
@@ -247,18 +277,18 @@ footer.site-footer {
         flex-direction:column;
         align-items:center;
         text-align:center;
-        gap:0.4rem;
+        gap:0.9rem;
     }
 }
 
-/* OVERLAY */
+/* OVERLAY – IDENTISCH WIE INDEX */
 .overlay-bg {
     position:fixed;
     inset:0;
     background:rgba(0,0,0,0.78);
     display:none;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
     z-index:9999;
 }
@@ -266,13 +296,15 @@ footer.site-footer {
 .overlay-box {
     max-width:660px;
     padding:2rem 2rem 2.6rem;
+    color:#fff;
+    text-align:center;
 }
 .overlay-logo {
     width:260px;
     height:260px;
     border-radius:50%;
-    object-fit:cover;
     border:5px solid #000;
+    object-fit:cover;
     margin:0 auto 1.4rem;
     box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
@@ -280,8 +312,10 @@ footer.site-footer {
 </head>
 
 <body>
+
 <div class="page-wrapper">
 
+<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-block">
@@ -299,14 +333,15 @@ footer.site-footer {
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
         <p class="hero-tagline">Support the Vision</p>
         <h1 class="hero-title">Crowdfunding</h1>
         <p class="hero-subtitle">Hilf mit, den Testanbau in Portugal zu starten</p>
+
         <p class="hero-text">
             Dieses Crowdfunding ermöglicht Bewässerung, Start-Infrastruktur,
             erste Zertifizierungen und die Vorbereitung des Ingwer-Testanbaus.
@@ -314,61 +349,67 @@ footer.site-footer {
     </div>
 </section>
 
+<!-- ACTION -->
 <section class="action-section">
-    <div class="inner">
+    <div class="inner action-inner">
 
-        <h2 class="section-heading">Warum <span>deine Unterstützung</span> wichtig ist</h2>
+        <div>
+            <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
 
-        <p class="section-lead">
-            Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
-            europäischen Bio-Ingwer-Projekts mit fairer Produktion und
-            kurzen Transportwegen. Jede Spende stärkt die lokale Landwirtschaft
-            auf den Azoren und bringt frischen Bio-Ingwer direkt in die Schweiz –
-            ohne unnötige Zwischenlagerung, ohne Übersee-Ware und ohne lange Transportzeiten.
-        </p>
+            <p class="section-lead">
+                Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
+                europäischen Bio-Ingwer-Projekts mit fairer Produktion und
+                kurzen Transportwegen. Jede Spende stärkt die lokale Landwirtschaft
+                auf den Azoren und bringt frischen Bio-Ingwer direkt in die Schweiz –
+                ohne unnötige Zwischenlagerung oder lange Transportzeiten.
+            </p>
 
-        <p class="section-lead">
-            Der Testanbau legt den Grundstein für eine spätere Produktion von mehreren Tonnen
-            Bio-Ingwer pro Jahr. Deine Unterstützung hilft uns, eine stabile, faire und
-            nachhaltige Struktur aufzubauen, die langfristig sowohl Landwirten als auch
-            Konsument:innen zugutekommt.
-        </p>
+            <p class="section-lead">
+                Der Testanbau legt den Grundstein für eine spätere Produktion von mehreren Tonnen
+                Bio-Ingwer pro Jahr. Deine Unterstützung hilft uns, eine stabile, faire und
+                nachhaltige Struktur aufzubauen, die langfristig sowohl Landwirten als auch
+                Konsument:innen zugutekommt.
+            </p>
+        </div>
 
         <div class="highlight-grid">
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bewässerung</h3>
                 <p>
-                    Installation eines effizienten Systems zur Sicherstellung einer gleichmäßigen Wasserversorgung,
-                    damit jeder Pflanzabschnitt stets optimale Bedingungen erhält.
+                    Installation eines effizienten Systems zur Sicherstellung einer
+                    gleichmäßigen Wasserversorgung – entscheidend für gesundes Wachstum.
                 </p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
                 <p>
-                    Präzise Untersuchung des vulkanischen Bodens auf Nährstoffe, Struktur und
-                    Wasserhaltefähigkeit – entscheidend für ein gesundes Wachstum der Ingwerwurzeln.
+                    Untersuchung des vulkanischen Bodens auf Nährstoffe, Struktur
+                    und Wasserhaltefähigkeit – Basis für optimale Bedingungen.
                 </p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bio-Zertifizierung</h3>
                 <p>
-                    Grundlage für Transparenz, Fairness und langfristige Nachhaltigkeit.  
-                    Jede Zertifizierungsstufe stärkt das Vertrauen in Qualität und Herkunft.
+                    Transparenz, Fairness und Nachhaltigkeit – die Zertifizierung
+                    schafft Vertrauen und ermöglicht langfristige Qualität.
                 </p>
             </article>
 
         </div>
 
         <div class="cta-block">
-            <a href="#" class="btn-primary">Jetzt unterstützen</a>
+            <div class="cta-btn-row">
+                <a href="#" class="btn-primary">Jetzt unterstützen</a>
+            </div>
         </div>
 
     </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="site-footer">
     <div class="footer-inner">
 
@@ -381,23 +422,26 @@ footer.site-footer {
         </div>
 
         <div class="footer-column footer-center">
-            <img src="logo2.jpg" class="footer-logo" id="footerLogo" loading="lazy">
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
         </div>
 
         <div class="footer-column footer-right">
             <div>Luzern, Switzerland</div>
-            <div>© 2025 Pure Root Switzerland</div>
+            <div>&copy; 2025 Pure Root Switzerland</div>
         </div>
 
     </div>
 </footer>
 
+<!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo" loading="lazy">
+        <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur für kurze Zeit wirklich frisch erhältlich.</strong><br><br>
-            Pure Root Switzerland möchte das ändern – mit nachhaltigem Ingweranbau auf den Azoren.
+            <strong>Frischer Ingwer ist in der Schweiz nur kurz im Jahr wirklich frisch erhältlich.</strong><br><br>
+            Pure Root Switzerland möchte das ändern – mit nachhaltigem Bio-Anbau auf den Azoren,
+            kurzen Transportwegen und einer direkten Verbindung in die Schweiz.<br><br>
+            So entsteht ein Produkt mit klarer Herkunft, hoher Qualität und echter Nähe.
         </p>
     </div>
 </div>
@@ -408,16 +452,18 @@ footer.site-footer {
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
-const footerLogo = document.getElementById("footerLogo");
-const overlayBox = document.getElementById("overlayBox");
+const footerLogo=document.getElementById("footerLogo");
+const overlayBox=document.getElementById("overlayBox");
 if(footerLogo && overlayBox){
-    footerLogo.addEventListener("click", ()=>overlayBox.classList.add("show"));
-    overlayBox.addEventListener("click", ()=>overlayBox.classList.remove("show"));
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
