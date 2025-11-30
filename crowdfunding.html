@@ -27,7 +27,6 @@ body{
 }
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
-
 .page-wrapper{min-height:100vh;display:flex;flex-direction:column;}
 .inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
 
@@ -50,7 +49,7 @@ header.site-header{
     color:var(--gold);
 }
 
-/* NAVIGATION */
+/* NAV */
 nav.main-nav{
     display:flex;gap:1.8rem;
     letter-spacing:0.1em;font-size:1rem;text-transform:uppercase;
@@ -87,35 +86,6 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* BUTTON */
-.btn-primary{
-    padding:0.8rem 2rem;background:var(--gold);border-radius:999px;
-    color:#1a1a12;font-size:1rem;text-transform:uppercase;
-    letter-spacing:0.14em;border:none;cursor:pointer;
-    box-shadow:0 0 20px rgba(0,0,0,0.4);transition:0.15s;
-}
-.btn-primary:hover{
-    transform:translateY(-1px);
-    box-shadow:0 0 26px rgba(0,0,0,0.55);
-}
-
-/* SECONDARY BUTTON STYLE */
-.btn-secondary{
-    padding:0.8rem 2rem;
-    background:transparent;
-    border:2px solid var(--gold);
-    border-radius:999px;
-    font-size:1rem;
-    text-transform:uppercase;
-    letter-spacing:0.14em;
-    color:var(--gold);
-    cursor:pointer;
-    transition:0.2s;
-}
-.btn-secondary:hover{
-    background:rgba(234,203,131,0.15);
-}
-
 /* HERO (UNVERÄNDERT) */
 .hero{
     min-height:82vh;position:relative;display:flex;align-items:center;
@@ -146,11 +116,11 @@ nav.main-nav a.active::after{width:100%;}
 }
 
 @media(max-width:720px){
-    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
-    .hero-inner{text-align:center;padding-bottom:2rem;}
+    .hero{text-align:center;padding-top:2rem;}
+    .hero-inner{text-align:center;}
 }
 
-/* ACTION AREA */
+/* ACTION SECTION */
 .action-section{
     background:
         linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),
@@ -165,66 +135,40 @@ nav.main-nav a.active::after{width:100%;}
     max-width:780px;opacity:0.95;line-height:1.65;margin-bottom:1.3rem;
 }
 
-/* GRID */
-.highlight-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);
-    gap:1.8rem;margin-top:1.8rem;
-}
-.highlight-card{
-    background:rgba(0,0,0,0.25);
-    padding:1.6rem;border-radius:1.1rem;
-    border:1px solid rgba(255,255,255,0.18);
-}
-.highlight-title{
-    font-size:1.25rem;margin-bottom:0.7rem;color:var(--gold);
-}
-
-@media(max-width:720px){
-    .highlight-grid{grid-template-columns:1fr;}
-}
-
-/* COST DETAILS */
-.cost-details{
-    margin-top:3rem;
-    padding:2rem 1.8rem;
-    border-radius:1rem;
-    background:rgba(0,0,0,0.22);
-    border:1px solid rgba(255,255,255,0.18);
-}
-.cost-title{
-    font-size:1.75rem;text-transform:uppercase;
-    letter-spacing:0.13em;margin-bottom:1.4rem;
-    color:var(--gold);text-align:center;
-}
-.cost-details p{margin-bottom:1.1rem;line-height:1.55;}
-
-/* BAROMETER */
-.barometer-wrap{margin:3rem 0 0;text-align:left;}
-.barometer-label{margin-bottom:0.5rem;font-size:1.1rem;}
-.barometer{
-    height:22px;border-radius:14px;
-    border:2px solid var(--gold);
-    overflow:hidden;
-}
-.barometer-fill{
-    height:100%;width:0%;
-    background:var(--gold);
-    transition:0.6s;
-}
-
-/* PAYMENT BUTTONS */
+/* PAYMENT BUTTONS FIXED */
 .payment-buttons{
-    margin-top:2.6rem;
+    margin-top:2.8rem;
     display:flex;
-    flex-direction:column;
+    justify-content:center;
     gap:1rem;
-    max-width:420px;
+    flex-wrap:wrap;
 }
+
+.pay-btn{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-width:200px;
+    padding:0.65rem 1.2rem;
+    background:transparent;
+    border:2px solid var(--gold);
+    border-radius:999px;
+    letter-spacing:0.15em;
+    font-size:0.9rem;
+    color:var(--gold);
+    cursor:pointer;
+    transition:0.2s;
+    text-transform:uppercase;
+}
+.pay-btn:hover{
+    background:rgba(234,203,131,0.15);
+}
+
 @media(max-width:720px){
     .payment-buttons{
-        margin-left:auto;
-        margin-right:auto;
+        flex-direction:column;
         align-items:center;
+        gap:0.8rem;
     }
 }
 
@@ -250,10 +194,9 @@ footer.site-footer{
     }
 }
 
-/* OVERLAY FOR PAYMENTS */
+/* PAYMENT OVERLAY */
 .payment-overlay{
-    position:fixed;inset:0;
-    background:rgba(0,0,0,0.78);
+    position:fixed;inset:0;background:rgba(0,0,0,0.78);
     display:none;justify-content:center;align-items:center;
     z-index:9999;text-align:center;color:#fff;
 }
@@ -272,7 +215,6 @@ footer.site-footer{
 <body>
 <div class="page-wrapper">
 
-<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
         <div class="logo-block">
@@ -302,121 +244,35 @@ footer.site-footer{
     </div>
 </section>
 
-<!-- ACTION SECTION -->
+<!-- ACTION -->
 <section class="action-section">
     <div class="inner">
 
-        <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
+        <h2 class="section-heading">Unterstützen – Zahlungsmöglichkeiten</h2>
 
-        <p class="section-lead">
-            Mit deiner Unterstützung entsteht ein Projekt, das in Europa einzigartig ist:
-            <strong>frischer Bio-Ingwer aus nachhaltigem Anbau – direkt von den Azoren, ohne Zwischenlager, ohne Umwege.</strong>
-        </p>
-
-        <p class="section-lead">
-            Der Testanbau ist der entscheidende erste Schritt. Er zeigt, dass Ingwer unter europäischen Bedingungen
-            nicht nur wächst, sondern in höchster Qualität gedeihen kann. Jeder Beitrag bringt uns näher an eine realistische Alternative zu langen Transportwegen.
-        </p>
-
-        <p class="section-lead">
-            Ziel ist eine spätere Jahresproduktion von mehreren Tonnen frischem Bio-Ingwer – fair, ökologisch, transparent.
-        </p>
-
-        <!-- HIGHLIGHTS -->
-        <div class="highlight-grid">
-
-            <article class="highlight-card">
-                <h3 class="highlight-title">Bewässerung</h3>
-                <p>
-                    Ein präzises Bewässerungssystem sorgt für gleichmäßiges Wachstum und eine stabile Qualität.
-                    <br><em>Budget: 1’900 CHF</em>
-                </p>
-            </article>
-
-            <article class="highlight-card">
-                <h3 class="highlight-title">Bodenanalyse</h3>
-                <p>
-                    Der vulkanische Boden wird im Labor analysiert: Nährstoffe, Struktur, pH-Wert.
-                    <br><em>Budget: 1’100 CHF</em>
-                </p>
-            </article>
-
-            <article class="highlight-card">
-                <h3 class="highlight-title">Bio-Zertifizierung</h3>
-                <p>
-                    Die EU-Bio-Zertifizierung ist Grundlage für Transparenz und Qualität.
-                    <br><em>Budget: 1’500 CHF</em>
-                </p>
-            </article>
-
-        </div>
-
-        <!-- COST LIST -->
-        <div class="cost-details">
-            <div class="cost-title">Detaillierte Kostenübersicht – Total 7’500 CHF</div>
-
-            <p><strong>1’900 CHF – Bewässerungssystem</strong><br>Rohre, Tropfschläuche, Verteiler, Anschlüsse.</p>
-            <p><strong>1’100 CHF – Bodenanalyse</strong><br>Laboranalyse, Proben, Auswertung.</p>
-            <p><strong>2’300 CHF – Flächenvorbereitung</strong><br>Mulch, Weizenfolie, Werkzeuge, Transport.</p>
-            <p><strong>1’500 CHF – Bio-Zertifizierung</strong><br>Dokumentation, Erstaufnahme.</p>
-            <p><strong>700 CHF – Saatmaterial</strong><br>Bio-Ingwer-Rhizome für den Start.</p>
-        </div>
-
-        <!-- BAROMETER -->
-        <div class="barometer-wrap">
-            <div class="barometer-label">Fortschritt: 0%</div>
-            <div class="barometer">
-                <div class="barometer-fill" style="width:0%;"></div>
-            </div>
-        </div>
-
-        <!-- PAYMENT METHODS -->
-        <h2 class="section-heading" style="margin-top:2.6rem;">Unterstützen – Zahlungsmöglichkeiten</h2>
-
+        <!-- PAYMENT BUTTONS -->
         <div class="payment-buttons">
 
-            <button class="btn-secondary" onclick="openPayment('twint')">TWINT</button>
+            <button class="pay-btn" onclick="openPayment('twint')">TWINT</button>
 
-            <button class="btn-secondary" onclick="openPayment('bank')">Banküberweisung</button>
+            <button class="pay-btn" onclick="openPayment('bank')">Bank</button>
 
-            <a href="https://wemakeit.com" target="_blank" class="btn-secondary">WeMakeIt</a>
+            <a href="https://wemakeit.com" target="_blank" class="pay-btn">WeMakeIt</a>
 
         </div>
 
     </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-    <div class="footer-inner">
-
-        <div>
-            <div>info@purerootswitzerland.ch</div>
-            <div><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></div>
-        </div>
-
-        <div>
-            <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
-        </div>
-
-        <div>
-            <div>Luzern, Switzerland</div>
-            <div>&copy; 2025 Pure Root Switzerland</div>
-        </div>
-
-    </div>
-</footer>
-
 <!-- PAYMENT OVERLAY -->
 <div class="payment-overlay" id="paymentOverlay">
     <div class="payment-box" id="paymentBox">
 
-        <!-- TWINT QR (Platzhalter) -->
         <img id="twintQR" src="" style="display:none;" alt="TWINT QR">
 
         <p id="paymentText"></p>
 
-        <button class="btn-primary" style="margin-top:1.5rem;" onclick="closePayment()">Schliessen</button>
+        <button class="pay-btn" onclick="closePayment()" style="margin-top:1.4rem;">Schliessen</button>
     </div>
 </div>
 
@@ -425,7 +281,6 @@ function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
 
-/* PAYMENT LOGIC */
 function openPayment(method){
     const overlay = document.getElementById("paymentOverlay");
     const text = document.getElementById("paymentText");
@@ -434,13 +289,13 @@ function openPayment(method){
     qr.style.display = "none";
 
     if(method === "twint"){
-        qr.src = "twint-placeholder.jpg"; /* Platzhalter */
+        qr.src = "twint-placeholder.jpg";
         qr.style.display = "block";
-        text.innerHTML = "TWINT-Zahlung – provisorischer QR-Code. Die finale Version folgt.";
+        text.innerHTML = "Provisorischer TWINT QR – der finale Code folgt.";
     }
 
     if(method === "bank"){
-        text.innerHTML = "<strong>Banküberweisung</strong><br>Bankdaten folgen in Kürze.";
+        text.innerHTML = "<strong>Banküberweisung</strong><br>Bankdaten folgen.";
     }
 
     overlay.classList.add("show");
@@ -449,14 +304,12 @@ function openPayment(method){
 function closePayment(){
     document.getElementById("paymentOverlay").classList.remove("show");
 }
-
-/* FOOTER LOGO OVERLAY */
-const footerLogo=document.getElementById("footerLogo");
-const overlayBox=document.getElementById("paymentOverlay");
 </script>
 
 </body>
 </html>
+
+
 
 
 
