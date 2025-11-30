@@ -26,21 +26,26 @@ body {
 }
 img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
+
 .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
 .inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
 
-/* HEADER */
+/* HEADER – IDENTISCH */
 header.site-header {
-    position:sticky; top:0; z-index:50;
+    position:sticky;
+    top:0;
+    z-index:50;
     background:rgba(30,40,24,0.95);
     box-shadow:var(--shadow);
 }
 .header-inner {
-    display:flex; justify-content:space-between;
-    align-items:center; padding:0.95rem 1.5rem;
-    max-width:1100px; margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0.95rem 1.5rem;
+    max-width:1100px;
+    margin:0 auto;
 }
-
 .logo-block { display:flex; flex-direction:column; gap:0.2rem; }
 .logo-main {
     font-size:1.45rem;
@@ -54,9 +59,10 @@ header.site-header {
     color:var(--gold);
 }
 
-/* NAVIGATION */
+/* NAVIGATION – IDENTISCH */
 nav.main-nav {
-    display:flex; gap:1.8rem;
+    display:flex;
+    gap:1.8rem;
     letter-spacing:0.1em;
     font-size:1rem;
     text-transform:uppercase;
@@ -66,9 +72,12 @@ nav.main-nav a {
     position:relative;
 }
 nav.main-nav a::after {
-    content:""; position:absolute;
-    bottom:0; left:0;
-    width:0%; height:1px;
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:0%;
+    height:1px;
     background:var(--gold);
     transition:0.3s;
 }
@@ -76,22 +85,24 @@ nav.main-nav a:hover::after,
 nav.main-nav a.active::after {
     width:100%;
 }
-
-/* MOBILE NAV */
 .nav-toggle { display:none; }
 
 @media(max-width:720px){
     .nav-toggle {
-        display:inline-flex; padding:0.4rem 0.7rem;
+        display:inline-flex;
+        padding:0.4rem 0.7rem;
         border-radius:999px;
         border:1px solid rgba(255,255,255,0.3);
-        background:transparent; color:#fff;
+        background:transparent;
+        color:#fff;
     }
-
     nav.main-nav {
-        position:absolute; top:100%; right:0;
+        position:absolute;
+        top:100%;
+        right:0;
         padding:1.2rem 1.4rem;
-        flex-direction:column; align-items:flex-end;
+        flex-direction:column;
+        align-items:flex-end;
         gap:1rem;
         background:rgba(30,40,24,0.98);
         opacity:0;
@@ -100,7 +111,8 @@ nav.main-nav a.active::after {
         transition:0.25s;
     }
     nav.main-nav.open {
-        opacity:1; pointer-events:auto;
+        opacity:1;
+        pointer-events:auto;
         transform:translateY(0);
     }
 }
@@ -109,22 +121,21 @@ nav.main-nav a.active::after {
 .btn-primary {
     padding:0.8rem 2rem;
     background:var(--gold);
+    border:none;
     border-radius:999px;
-    color:#1a1a12;
     font-size:1rem;
     letter-spacing:0.14em;
+    color:#1a1a12;
     text-transform:uppercase;
-    border:none;
     box-shadow:0 0 20px rgba(0,0,0,0.4);
     cursor:pointer;
-    display:inline-block;
 }
 .btn-primary:hover {
     transform:translateY(-1px);
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO — identisch zu Index & Crowdfunding */
+/* HERO – ANGEPASST WIE INDEX & CROWDFUNDING */
 .hero {
     min-height:82vh;
     position:relative;
@@ -133,26 +144,30 @@ nav.main-nav a.active::after {
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay {
-    position:absolute; inset:0;
+    position:absolute;
+    inset:0;
     background:linear-gradient(
-      to bottom,
-      rgba(0,0,0,0.48),
-      rgba(0,0,0,0.78)
+        to bottom,
+        rgba(0,0,0,0.48),
+        rgba(0,0,0,0.78)
     );
     z-index:1;
 }
 .hero-inner {
-    position:relative; z-index:2;
-    max-width:1100px; width:100%;
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    width:100%;
     padding:5rem 1.5rem 3rem;
     margin:0 auto;
 }
+
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
     text-transform:uppercase;
-    margin-bottom:1rem;
     color:var(--gold);
+    margin-bottom:1rem;
 }
 .hero-title {
     font-size:3rem;
@@ -167,26 +182,21 @@ nav.main-nav a.active::after {
 /* MOBILE HERO */
 @media(max-width:720px){
     .hero {
-        flex-direction:column;
         padding-top:2rem;
         text-align:center;
     }
-    .hero-inner {
-        padding-bottom:2rem;
-        text-align:center;
-    }
+    .hero-inner { padding-bottom:2rem; }
 }
 
-/* STORY BACKGROUND */
+/* PAGE BACKGROUND (ACTION-BEREICH) */
 .page-background {
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
-      url("hintergrund.jpg") center/cover fixed;
-    padding-bottom:3.2rem;
+      url("hintergrund.jpg") center/cover;
+    padding:3rem 0 3.4rem;
 }
 
-section { padding:2.4rem 0; }
-
+/* ACTION-BEREICH – ZENTRIERT */
 .section-heading {
     text-align:center;
     letter-spacing:0.14em;
@@ -199,40 +209,49 @@ section { padding:2.4rem 0; }
 .section-intro {
     text-align:center;
     max-width:780px;
-    margin:0 auto 2rem;
+    margin:0 auto 2rem auto;
     opacity:0.95;
 }
 
+/* STORY CONTENT */
 .story-layout {
     display:grid;
-    grid-template-columns:minmax(0,1.1fr) minmax(260px,0.9fr);
-    gap:2.4rem;
+    grid-template-columns:minmax(0,1fr) minmax(260px,1fr);
+    gap:2.6rem;
     align-items:flex-start;
 }
+.story-text-block p {
+    margin-bottom:1.1rem;
+    opacity:0.97;
+}
+.story-highlight {
+    font-style:italic;
+}
 
-.story-text-block p { margin-bottom:1.1rem; opacity:0.97; }
-.story-highlight { font-style:italic; }
-
-.story-image-wrap { display:flex; justify-content:flex-end; }
+.story-image-wrap {
+    display:flex;
+    justify-content:center;
+}
 .story-image {
     max-width:340px;
     border-radius:1.4rem;
-    box-shadow:0 0 22px rgba(0,0,0,0.6);
     overflow:hidden;
+    box-shadow:0 0 22px rgba(0,0,0,0.6);
+    margin-top:0; /* war OK */
+}
+
+/* Abstand unter dem Bild – DEIN FIX */
+.story-image-wrap + .story-subsection {
+    margin-top:2.2rem !important;
 }
 
 @media(max-width:860px){
     .story-layout { grid-template-columns:1fr; }
-    .story-image-wrap { justify-content:center; }
     .story-image { max-width:280px; }
+    .story-image-wrap { justify-content:center; }
 }
 
-/* CTA fix */
-.story-subsection .btn-primary {
-    margin-top:2.2rem;
-}
-
-/* FOOTER */
+/* FOOTER – IDENTISCH */
 footer.site-footer {
     background:#10140c;
     padding:1.3rem 0 1.5rem;
@@ -243,13 +262,17 @@ footer.site-footer {
     max-width:1100px;
     margin:0 auto;
     padding:0 1.5rem;
-    display:flex; justify-content:space-between;
+    display:flex;
+    justify-content:space-between;
     align-items:flex-end;
 }
 .footer-logo {
-    width:78px; height:78px;
-    border-radius:50%; border:3px solid #000;
-    object-fit:cover; cursor:pointer;
+    width:78px;
+    height:78px;
+    border-radius:50%;
+    border:3px solid #000;
+    object-fit:cover;
+    cursor:pointer;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 @media(max-width:720px){
@@ -263,26 +286,31 @@ footer.site-footer {
 
 /* OVERLAY */
 .overlay-bg {
-    position:fixed; inset:0;
+    position:fixed;
+    inset:0;
     background:rgba(0,0,0,0.78);
-    display:none; justify-content:center;
-    align-items:center; text-align:center;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     z-index:9999;
 }
 .overlay-bg.show { display:flex; }
 
 .overlay-box {
     max-width:660px;
-    padding:2rem 2rem 2.6rem;
+    padding:2rem;
+    color:#fff;
 }
 .overlay-logo {
-    width:260px; height:260px;
-    border-radius:50%; border:5px solid #000;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    border:5px solid #000;
     object-fit:cover;
     margin:0 auto 1.4rem;
     box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
-
 </style>
 </head>
 
@@ -310,81 +338,70 @@ footer.site-footer {
 <!-- HERO -->
 <section class="hero">
     <div class="hero-overlay"></div>
-
     <div class="hero-inner">
         <p class="hero-tagline">A New Beginning</p>
         <h1 class="hero-title">Meine Geschichte</h1>
-        <p class="hero-subtitle">
-            Von einer Diagnose, die alles verändert, zu einem Projekt, das neue Wurzeln schlägt
-        </p>
+        <p class="hero-subtitle">Von einer Diagnose, die alles verändert, zu einem Projekt, das neue Wurzeln schlägt</p>
     </div>
 </section>
 
-<!-- STORY CONTENT -->
+<!-- ACTION -->
 <div class="page-background">
 
 <section id="story">
     <div class="inner">
 
-        <h2 class="section-heading">Warum <span>dieses Projekt</span> so persönlich ist</h2>
+        <h2 class="section-heading">
+            Warum <span>dieses Projekt</span> so persönlich ist
+        </h2>
 
         <p class="section-intro">
-            Dieses Projekt beginnt nicht auf einem Feld, sondern in einem Krankenhauszimmer.
-            Die Zeit nach der Diagnose war geprägt von Unsicherheit, Angst und einer brutalen Ehrlichkeit:
-            Was will ich mit dem Rest meines Lebens wirklich tun?
+            Dieses Projekt beginnt nicht auf einem Feld,
+            sondern in einem Krankenhauszimmer.
         </p>
 
         <div class="story-layout">
+
             <div class="story-text-block">
-
                 <p>
-                    Die Krebserkrankung hat mein Leben komplett auf den Kopf gestellt. Plötzlich waren
-                    Dinge unwichtig, die früher selbstverständlich erschienen: Tempo, Status, Perfektion.
-                </p>
-
-                <p>
-                    Stattdessen rückten Werte wie Gesundheit, Erdung, Natur, echte Begegnungen
-                    und sinnvolle Projekte in den Vordergrund – Dinge, die bleiben.
+                    Die Krebserkrankung hat mein Leben komplett verändert.
+                    Werte wie Gesundheit, Natur und Echtheit wurden plötzlich zentral.
                 </p>
 
                 <p class="story-highlight">
-                    Ingwer spielte in meiner eigenen Genesungszeit eine überraschend große Rolle:
-                    als täglicher Begleiter – als Symbol für Wärme, Kraft und ein starkes Immunsystem.
+                    Ingwer spielte in dieser Zeit eine unerwartet große Rolle –
+                    als Symbol für Kraft, Wärme und Heilung.
                 </p>
 
                 <p>
-                    Mit der Zeit entstand die Idee, hochwertigen Bio-Ingwer so zu produzieren,
-                    wie ich mir Lebensmittel selbst wünsche – frisch, ehrlich, nachvollziehbar und
-                    ohne lange Transportwege. Keine anonyme Ware aus Übersee.
+                    So entstand die Vision, hochwertigen Bio-Ingwer zu produzieren,
+                    ehrlich, frisch und ohne lange Transportwege.
                 </p>
 
                 <p>
-                    Als ich São Miguel entdeckte, ergab plötzlich vieles Sinn: mildes Klima, vulkanische Böden,
-                    starkes Bewusstsein für Natur – ein Ort, an dem dieses Projekt Wurzeln schlagen kann.
+                    Als ich São Miguel entdeckte, ergab plötzlich vieles Sinn:
+                    Klima, Böden und Menschen – ein Ort für neue Wurzeln.
                 </p>
-
             </div>
 
             <div class="story-image-wrap">
                 <div class="story-image">
-                    <img src="meinfotosw.jpg" loading="lazy">
+                    <img src="meinfotosw.jpg" loading="lazy" alt="">
                 </div>
             </div>
+
         </div>
 
         <div class="story-subsection">
-            <h3>Von der Idee zum konkreten Projekt</h3>
-
+            <h3>Von der Idee zum Projekt</h3>
             <p>
-                Aus ersten Ideen wurden Gespräche – mit lokalen Biolandwirten, Bodenspezialisten und der
-                <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold);">
-                    Universidade dos Açores
-                </a>.
+                Gespräche mit lokalen Biolandwirten, Bodenexperten und
+                der Universität der Azoren legten die Basis.
             </p>
 
             <p>
-                Die Vision: eine Brücke zwischen Azoren und Schweiz.
-                Kurze Lieferwege, faire Bezahlung, transparente Herkunft.
+                Ziel: Eine Brücke zwischen Azoren und Schweiz –
+                frisch, fair und transparent.
             </p>
         </div>
 
@@ -392,22 +409,18 @@ footer.site-footer {
             <h3>Was mich heute antreibt</h3>
 
             <p>
-                Pure Root Switzerland ist mehr als ein Name. Es ist der Versuch, aus einer
-                persönlichen Geschichte etwas zu schaffen, das Menschen stärkt und Böden respektiert.
+                Pure Root Switzerland ist mehr als ein Projekt –
+                es ist ein Neuanfang.
             </p>
 
             <p>
-                Jede Unterstützung ist ein Zeichen:  
-                Qualität statt Masse, Partnerschaft statt anonymer Lieferketten.
+                Mit jeder Unterstützung wächst nicht nur der Ingwer,
+                sondern eine nachhaltige Struktur für zwei Länder.
             </p>
 
             <p>
-                Mit deiner Unterstützung wächst nicht nur Ingwer –  
-                es wächst eine nachhaltige Struktur für die Azoren und die Schweiz.
+                <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
             </p>
-
-            <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
-
         </div>
 
     </div>
@@ -419,7 +432,7 @@ footer.site-footer {
 <footer class="site-footer">
     <div class="footer-inner">
 
-        <div class="footer-column footer-left">
+        <div class="footer-left">
             <div>info@purerootswitzerland.ch</div>
             <div>
                 <a href="datenschutz.html">Datenschutz</a> ·
@@ -427,13 +440,13 @@ footer.site-footer {
             </div>
         </div>
 
-        <div class="footer-column footer-center">
+        <div class="footer-center">
             <img src="logo2.jpg" class="footer-logo" id="footerLogo" loading="lazy">
         </div>
 
-        <div class="footer-column footer-right">
+        <div class="footer-right">
             <div>Luzern, Switzerland</div>
-            <div>© 2025 Pure Root Switzerland</div>
+            <div>&copy; 2025 Pure Root Switzerland</div>
         </div>
 
     </div>
@@ -446,8 +459,8 @@ footer.site-footer {
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" loading="lazy">
         <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur kurz wirklich frisch erhältlich.</strong><br><br>
-            Pure Root Switzerland bringt frische Qualität – direkt von den Azoren.
+            <strong>Frischer Ingwer – direkt von den Azoren.</strong><br><br>
+            Pure Root Switzerland steht für Qualität, Transparenz und echte Nähe.
         </p>
     </div>
 </div>
@@ -458,7 +471,6 @@ function toggleNav(){
 }
 const footerLogo=document.getElementById("footerLogo");
 const overlayBox=document.getElementById("overlayBox");
-
 if(footerLogo && overlayBox){
     footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
     overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
@@ -467,6 +479,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
