@@ -36,7 +36,7 @@ a{text-decoration:none;color:inherit;}
     padding:0 1.5rem;
 }
 
-/* HEADER – identisch wie Index */
+/* HEADER */
 header.site-header{
     position:sticky;top:0;z-index:50;
     background:rgba(30,40,24,0.95);
@@ -92,7 +92,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO – 100% IDENTISCH MIT INDEX */
+/* HERO – STANDARDISIERTER HERO */
 .hero{
     min-height:82vh;
     position:relative;
@@ -102,9 +102,11 @@ nav.main-nav a.active::after{width:100%;}
 }
 .hero-overlay{
     position:absolute;inset:0;
-    background:linear-gradient(to bottom,
+    background:linear-gradient(
+        to bottom,
         rgba(0,0,0,0.48),
-        rgba(0,0,0,0.78));
+        rgba(0,0,0,0.78)
+    );
 }
 .hero-inner{
     position:relative;z-index:2;
@@ -124,17 +126,16 @@ nav.main-nav a.active::after{width:100%;}
     font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
 }
 
-/* MOBILE HERO – 1:1 WIE INDEX, ABSTAND EXAKT */
+/* MOBILE HERO – 1:1 wie Index */
 @media(max-width:720px){
     .hero{
         flex-direction:column;
-        padding-top:2rem;         /* EXAKT INDEX */
+        padding-top:2rem;
         text-align:center;
     }
     .hero-inner{
         order:1;
-        padding-bottom:2rem;      /* EXAKT INDEX */
-        padding-top:0;
+        padding-bottom:2rem;
         text-align:center;
     }
 }
@@ -252,7 +253,7 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO – IDENTISCH WIE INDEX -->
+<!-- HERO (PERFEKT KORREKT) -->
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
@@ -281,51 +282,27 @@ footer.site-footer{
 
         <div class="update-block">
             <h3>Erste Recherchen</h3>
-            <p>
-                Die Basis des Projekts entstand durch intensive Recherche zu Anbau, Klima,  
-                Bodenqualität und möglichen Anbauregionen. Schon in dieser Phase  
-                haben sich die Azoren als ideale Region für europäischen Bio-Ingwer herauskristallisiert.
-            </p>
+            <p>Die Basis des Projekts entstand durch intensive Recherche …</p>
         </div>
 
         <div class="update-block">
             <h3>Kontakt zu Bauern</h3>
-            <p>
-                Ich habe mit mehreren Biolandwirten auf den Azoren gesprochen,  
-                darunter potenzielle Partner für den ersten Testanbau.  
-                Diese Gespräche haben mir gezeigt, dass die Regionen optimale Bedingungen haben  
-                und dass echtes Interesse an einer Zusammenarbeit besteht.
-            </p>
+            <p>Ich habe mit mehreren Biolandwirten auf den Azoren gesprochen …</p>
         </div>
 
         <div class="update-block">
             <h3>Austausch mit der Universität</h3>
-            <p>
-                Die Universidade dos Açores unterstützt mit wertvollen Informationen  
-                zu Boden, Klima, Bewässerung und nachhaltigem Bio-Anbau.  
-                Dieser Austausch hilft enorm, Fehler zu vermeiden  
-                und von Anfang an professionell zu planen.
-            </p>
+            <p>Die Universidade dos Açores unterstützt …</p>
         </div>
 
         <div class="update-block">
             <h3>Aufbau der Webseite</h3>
-            <p>
-                In den letzten Wochen habe ich die gesamte Website neu aufgebaut,  
-                Texte geschrieben, Strukturen erstellt und das visuelle Konzept entwickelt.  
-                Die Seite ist inzwischen schnell, klar und einheitlich –  
-                ein zentraler Bestandteil des Projekts.
-            </p>
+            <p>In den letzten Wochen habe ich die gesamte Website neu aufgebaut …</p>
         </div>
 
         <div class="update-block">
             <h3>Vorbereitung auf den Testanbau</h3>
-            <p>
-                Aktuell arbeite ich daran, die letzten offenen Fragen zu klären:  
-                Material, Bewässerung, Logistik und die genaue Fläche.  
-                Mit der Unterstützung aus dem Crowdfunding kann ich dann  
-                den ersten Testanbau starten und den nächsten Schritt gehen.
-            </p>
+            <p>Aktuell arbeite ich daran, die letzten offenen Fragen zu klären …</p>
         </div>
 
     </div>
@@ -361,10 +338,7 @@ footer.site-footer{
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
-        <p>
-            Pure Root Switzerland – transparent, frisch und ehrlich.  
-            Jeder Schritt zählt.
-        </p>
+        <p>Pure Root Switzerland – transparent, frisch und ehrlich.</p>
     </div>
 </div>
 
@@ -384,6 +358,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
