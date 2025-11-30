@@ -127,6 +127,19 @@ nav.main-nav a.active::after{width:100%;}
     .hero-inner{text-align:center;padding-bottom:2rem;}
 }
 
+/* STORY IMAGE */
+.story-image-wrapper{
+    max-width:900px;
+    margin: -2rem auto 2.4rem;
+    padding:0 1.5rem;
+}
+.story-image{
+    width:100%;
+    border-radius:1rem;
+    box-shadow:0 0 26px rgba(0,0,0,0.55);
+    object-fit:cover;
+}
+
 /* ACTION */
 .action-section{
     background:
@@ -221,6 +234,11 @@ footer.site-footer{
         <p class="hero-subtitle">Wie alles begann – und wohin der Weg führt.</p>
     </div>
 </section>
+
+<!-- STORY IMAGE DIRECTLY AFTER HERO -->
+<div class="story-image-wrapper">
+    <img src="meinfotosw.jpg" alt="Meine Geschichte" class="story-image">
+</div>
 
 <!-- ACTION -->
 <section class="action-section">
@@ -342,6 +360,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
