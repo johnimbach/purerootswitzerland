@@ -148,7 +148,7 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO – EXAKT WIE INDEX/CROWDFUNDING */
+/* HERO – IDENTISCH WIE INDEX + CROWDFUNDING */
 .hero {
     min-height:82vh;
     position:relative;
@@ -179,7 +179,7 @@ nav.main-nav a.active::after {
     letter-spacing:0.28em;
     text-transform:uppercase;
     color:var(--gold);
-    margin-bottom:1rem; /* exakt wie Index/Crowdfunding */
+    margin-bottom:1rem;
 }
 .hero-title {
     font-size:3rem;
@@ -191,7 +191,7 @@ nav.main-nav a.active::after {
     opacity:0.96;
 }
 
-/* MOBILE HERO – 1:1 wie Index/Crowdfunding */
+/* MOBILE HERO – IDENTISCH WIE ALLE ANDEREN SEITEN */
 @media(max-width:720px){
     .hero {
         flex-direction:column;
@@ -205,11 +205,11 @@ nav.main-nav a.active::after {
     }
 }
 
-/* STORY-BACKGROUND */
+/* STORY BACKGROUND */
 .page-background {
     background:
-        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
-        url("hintergrund.jpg") center/cover fixed;
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+      url("hintergrund.jpg") center/cover fixed;
     padding-bottom:3.2rem;
 }
 
@@ -242,9 +242,13 @@ section { padding:2.4rem 0; }
     margin-bottom:1.1rem;
     opacity:0.97;
 }
-.story-highlight { font-style:italic; }
-
-.story-image-wrap { display:flex; justify-content:flex-end; }
+.story-highlight {
+    font-style:italic;
+}
+.story-image-wrap {
+    display:flex;
+    justify-content:flex-end;
+}
 .story-image {
     max-width:340px;
     border-radius:1.4rem;
@@ -304,6 +308,31 @@ footer.site-footer {
         align-items:center;
         text-align:center;
         gap:0.4rem;
+    }
+}
+
+/* MOBILE ACTION-BEREICH KOMPLETT ZENTRIERT */
+@media(max-width:720px){
+    #story .inner,
+    #story,
+    #story .section-heading,
+    #story .section-intro,
+    #story .story-subsection,
+    #story .story-subsection h3,
+    #story .story-subsection p,
+    #story .story-text-block p {
+        text-align:center !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+    }
+
+    #story .story-image-wrap {
+        justify-content:center !important;
+    }
+
+    #story .btn-primary {
+        display:block !important;
+        margin:2.2rem auto 0 auto !important;
     }
 }
 
@@ -438,25 +467,6 @@ footer.site-footer {
                 Die Vision: eine Brücke zwischen Azoren und Schweiz.
                 Kurze Lieferwege, faire Bezahlung, transparente Herkunft.
             </p>
-        </div>
-
-        <div class="story-subsection">
-            <h3>Was mich heute antreibt</h3>
-
-            <p>
-                Pure Root Switzerland ist mehr als ein Name. Es ist der Versuch, aus einer
-                persönlichen Geschichte etwas zu schaffen, das Menschen stärkt und Böden respektiert.
-            </p>
-
-            <p>
-                Jede Unterstützung ist ein Zeichen:
-                Qualität statt Masse, Partnerschaft statt anonymer Lieferketten.
-            </p>
-
-            <p>
-                Mit deiner Unterstützung wächst nicht nur Ingwer –
-                es wächst eine nachhaltige Struktur für die Azoren und die Schweiz.
-            </p>
 
             <p>
                 <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
@@ -519,6 +529,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
