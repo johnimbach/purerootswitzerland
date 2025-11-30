@@ -65,7 +65,7 @@ header.site-header {
     color:var(--gold);
 }
 
-/* NAV */
+/* NAVIGATION */
 nav.main-nav {
     display:flex;
     gap:1.8rem;
@@ -145,13 +145,13 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO – 100% IDENTISCH WIE INDEX */
+/* HERO – mit repariertem Bild */
 .hero {
     min-height:82vh;
     position:relative;
     display:flex;
     align-items:center;
-    background:url("fruchtbarkeit.jpg") center/cover no-repeat;
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay {
     position:absolute;
@@ -178,8 +178,14 @@ nav.main-nav a.active::after {
     margin-bottom:1rem;
     color:var(--gold);
 }
+
 .hero-title { font-size:3rem; margin-bottom:0.5rem; }
-.hero-subtitle { font-size:1.4rem; margin-bottom:1.2rem; opacity:0.96; }
+
+.hero-subtitle {
+    font-size:1.4rem;
+    margin-bottom:1.2rem;
+    opacity:0.96;
+}
 
 @media(max-width:720px){
     .hero {
@@ -203,6 +209,7 @@ nav.main-nav a.active::after {
         center/cover;
     padding:3.2rem 0 3.4rem;
 }
+
 .section-heading {
     font-size:2rem;
     letter-spacing:0.14em;
@@ -216,6 +223,7 @@ nav.main-nav a.active::after {
     line-height:1.65;
     margin-bottom:1.3rem;
 }
+
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -456,6 +464,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
