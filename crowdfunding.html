@@ -86,41 +86,68 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO */
+/* BUTTON (IDENTISCH WIE ANDERE SEITEN) */
+.btn-primary{
+    padding:0.8rem 2rem;background:var(--gold);border-radius:999px;
+    color:#1a1a12;font-size:1rem;text-transform:uppercase;
+    letter-spacing:0.14em;border:none;cursor:pointer;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);transition:0.15s;
+    display:inline-block;
+}
+.btn-primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 0 26px rgba(0,0,0,0.55);
+}
+
+/* HERO (1:1 IDENTISCH MIT INDEX) */
 .hero{
-    min-height:82vh;position:relative;display:flex;align-items:center;
+    min-height:82vh;
+    position:relative;
+    display:flex;
+    align-items:center;
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay{
     position:absolute;inset:0;
-    background:linear-gradient(to bottom,
+    background:linear-gradient(
+        to bottom,
         rgba(0,0,0,0.48),
-        rgba(0,0,0,0.78));
+        rgba(0,0,0,0.78)
+    );
     z-index:1;
 }
 .hero-inner{
     position:relative;z-index:2;
     max-width:1100px;width:100%;
-    padding:5rem 1.5rem 3rem;margin:0 auto;
+    padding:5rem 1.5rem 3rem;
+    margin:0 auto;
     text-align:left;
 }
 .hero-tagline{
-    font-size:1.25rem;letter-spacing:0.28em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:1rem;
+    font-size:1.25rem;letter-spacing:0.28em;
+    text-transform:uppercase;color:var(--gold);
+    margin-bottom:1rem;
 }
-.hero-title{
-    font-size:3rem;margin-bottom:0.5rem;
-}
+.hero-title{font-size:3rem;margin-bottom:0.5rem;}
 .hero-subtitle{
     font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
 }
 
+/* MOBILE HERO OVERRIDE – IDENTISCH MIT INDEX */
 @media(max-width:720px){
-    .hero{text-align:center;}
-    .hero-inner{text-align:center;}
+    .hero{
+        flex-direction:column;
+        padding-top:2rem;
+        text-align:center;
+    }
+    .hero-inner{
+        order:1;
+        padding-bottom:2rem;
+        text-align:center;
+    }
 }
 
-/* ACTION */
+/* ACTION SECTION */
 .action-section{
     background:
         linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),
@@ -135,23 +162,16 @@ nav.main-nav a.active::after{width:100%;}
     max-width:780px;opacity:0.95;line-height:1.65;margin-bottom:1.3rem;
 }
 
-/* TEXT + IMAGE WRAPPER */
+/* TEXT WRAPPER */
 .text-image-wrapper{
-    display:flex;
-    flex-direction:column;
-    gap:1.8rem;
-    margin-bottom:2.2rem;
+    display:flex;flex-direction:column;gap:1.8rem;margin-bottom:2.2rem;
 }
-@media(max-width:720px){
-    .text-image-wrapper{text-align:center;}
-}
+@media(max-width:720px){.text-image-wrapper{text-align:center;}}
 
-/* HIGHLIGHTS */
+/* HIGHLIGHT GRID */
 .highlight-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.8rem;
-    margin-top:1.8rem;
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:1.8rem;margin-top:1.8rem;
 }
 .highlight-card{
     background:rgba(0,0,0,0.25);
@@ -169,30 +189,20 @@ nav.main-nav a.active::after{width:100%;}
 
 /* IMAGE GRID UNDER HIGHLIGHTS */
 .image-grid-under{
-    margin-top:2.2rem;
-    margin-bottom:2.6rem;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.8rem;
+    margin-top:2.2rem;margin-bottom:2.6rem;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;
 }
 .image-grid-under img{
-    width:100%;
-    border-radius:18px;
+    width:100%;border-radius:18px;
     box-shadow:0 0 14px rgba(0,0,0,0.45);
-    display:block;
 }
-
 @media(max-width:720px){
-    .image-grid-under{
-        grid-template-columns:1fr;
-        gap:1.3rem;
-    }
+    .image-grid-under{grid-template-columns:1fr;gap:1.3rem;}
 }
 
-/* COST DETAILS */
+/* COST BLOCK */
 .cost-details{
-    padding:2rem 1.8rem;
-    border-radius:1rem;
+    padding:2rem 1.8rem;border-radius:1rem;
     background:rgba(0,0,0,0.22);
     border:1px solid rgba(255,255,255,0.18);
 }
@@ -202,23 +212,18 @@ nav.main-nav a.active::after{width:100%;}
     color:var(--gold);text-align:center;
 }
 .cost-details p{
-    margin-bottom:1.1rem;
-    line-height:1.55;
+    margin-bottom:1.1rem;line-height:1.55;
 }
 
 /* BAROMETER */
-.barometer-wrap{
-    margin:3rem 0 0;text-align:left;
-}
+.barometer-wrap{margin:3rem 0 0;text-align:left;}
 .barometer-label{margin-bottom:0.5rem;font-size:1.1rem;}
 .barometer{
-    height:22px;border-radius:14px;
-    border:2px solid var(--gold);
+    height:22px;border-radius:14px;border:2px solid var(--gold);
     overflow:hidden;
 }
 .barometer-fill{
-    height:100%;width:0%;
-    background:var(--gold);
+    height:100%;width:0%;background:var(--gold);
     transition:0.6s;
 }
 @media(max-width:720px){
@@ -228,22 +233,19 @@ nav.main-nav a.active::after{width:100%;}
 /* PAYMENT BUTTONS */
 .payment-heading{margin-top:2.8rem;}
 .payment-buttons{
-    margin-top:1.6rem;
-    display:flex;justify-content:center;
+    margin-top:1.6rem;display:flex;justify-content:center;
     gap:1rem;flex-wrap:wrap;
 }
 .pay-btn{
-    display:flex;justify-content:center;align-items:center;
     min-width:200px;padding:0.65rem 1.2rem;
     background:transparent;border:2px solid var(--gold);
     border-radius:999px;letter-spacing:0.15em;
     font-size:0.9rem;color:var(--gold);
-    cursor:pointer;transition:0.2s;
-    text-transform:uppercase;text-align:center;
+    cursor:pointer;transition:0.2s;text-transform:uppercase;
 }
 .pay-btn:hover{background:rgba(234,203,131,0.15);}
 @media(max-width:720px){
-    .payment-buttons{flex-direction:column;align-items:center;gap:0.8rem;}
+    .payment-buttons{flex-direction:column;gap:0.8rem;}
 }
 
 /* FOOTER */
@@ -261,12 +263,10 @@ footer.site-footer{
     cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 @media(max-width:720px){
-    .footer-inner{
-        flex-direction:column;align-items:center;text-align:center;gap:0.9rem;
-    }
+    .footer-inner{flex-direction:column;text-align:center;gap:0.9rem;}
 }
 
-/* OVERLAY */
+/* FOOTER OVERLAY */
 .overlay-bg{
     position:fixed;inset:0;background:rgba(0,0,0,0.78);
     display:none;justify-content:center;align-items:center;
@@ -274,12 +274,12 @@ footer.site-footer{
 }
 .overlay-bg.show{display:flex;}
 .overlay-box{
-    max-width:660px;padding:2rem 2rem 2.6rem;color:#fff;
+    max-width:660px;padding:2rem 2.6rem;color:#fff;
 }
 .overlay-logo{
     width:260px;height:260px;border-radius:50%;
-    border:5px solid #000;object-fit:cover;
-    margin:0 auto 1.4rem;box-shadow:0 0 26px rgba(0,0,0,0.7);
+    border:5px solid #000;object-fit:cover;margin:0 auto 1.4rem;
+    box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
 
 /* PAYMENT OVERLAY */
@@ -323,7 +323,7 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO (IDENTISCH WIE INDEX) -->
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
@@ -333,105 +333,88 @@ footer.site-footer{
     </div>
 </section>
 
-<!-- ACTION -->
+<!-- ACTION SECTION -->
 <section class="action-section">
     <div class="inner">
 
         <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
 
         <div class="text-image-wrapper">
-
             <p class="section-lead">
                 Dieses Crowdfunding ermöglicht den Start des <strong>Testanbaus</strong> auf den Azoren –
                 der entscheidende erste Schritt, um herauszufinden, wie gut Bio-Ingwer im vulkanischen Boden wächst.
                 Ich arbeite dafür mit <strong>Paulo Amaral</strong> zusammen, einem erfahrenen Bio-Bauern
-                und Pionier im Kaffeeanbau auf den Azoren. Sein Mut, Neues auszuprobieren, macht ihn zum idealen Partner
-                für dieses Projekt.
+                und Pionier im Kaffeeanbau auf den Azoren. Sein Mut, Neues auszuprobieren, macht ihn zum idealen Partner.
             </p>
 
             <p class="section-lead">
                 Mit deinem Beitrag können wir die ersten Parzellen anlegen, Bewässerung installieren,
                 Boden untersuchen und Startmaterial pflanzen. Jeder Franken bringt uns näher an die
-                erste kleine Testernte – und an die Vision eines frischen, nachhaltig produzierten
-                Bio-Ingwers direkt aus Europa.
+                erste Testernte – und an die Vision eines nachhaltig produzierten Bio-Ingwers aus Europa.
             </p>
-
         </div>
 
         <!-- HIGHLIGHTS -->
         <div class="highlight-grid">
-
             <article class="highlight-card">
                 <h3 class="highlight-title">Bewässerung</h3>
                 <p>
                     Garantiert gleichmäßige Wasserversorgung für gesundes Pflanzenwachstum.<br>
-                    <em>Budget: 1’900 CHF (Rohre, Tropfschläuche, Verteiler, Anschlüsse).</em>
+                    <em>Budget: 1’900 CHF</em>
                 </p>
             </article>
-
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
                 <p>
-                    Der vulkanische Boden wird detailliert untersucht für optimale Bedingungen.<br>
-                    <em>Budget: 1’100 CHF (Laboranalyse, Nährstoffprofil, Auswertung Universität Azoren).</em>
+                    Detaillierte Untersuchung des vulkanischen Bodens.<br>
+                    <em>Budget: 1’100 CHF</em>
                 </p>
             </article>
-
             <article class="highlight-card">
                 <h3 class="highlight-title">Bio-Zertifizierung</h3>
                 <p>
-                    Schafft Vertrauen und sichert langfristige Qualität und Transparenz.<br>
-                    <em>Budget: 1’500 CHF (EU-Bio Portugal, erste Dokumentation).</em>
+                    Schafft Vertrauen und Transparenz.<br>
+                    <em>Budget: 1’500 CHF</em>
                 </p>
             </article>
-
         </div>
 
-        <!-- IMAGE GRID UNDER HIGHLIGHTS -->
+        <!-- IMAGE GRID -->
         <div class="image-grid-under">
-            <img src="ingwerinhand.jpg" alt="Ingwer in der Hand">
-            <img src="ingwerfrisch.jpg" alt="Frischer Ingwer">
-            <img src="ingwerfeld.jpg" alt="Ingwerfeld auf den Azoren">
+            <img src="ingwerinhand.jpg" alt="">
+            <img src="ingwerfrisch.jpg" alt="">
+            <img src="ingwerfeld.jpg" alt="">
         </div>
 
         <!-- COST BLOCK -->
         <div class="cost-details">
             <div class="cost-title">Detaillierte Kostenübersicht – Total 7’500 CHF</div>
 
-            <p><strong>1’900 CHF – Bewässerungssystem</strong><br>
-            Rohre, Tropfschläuche, Verteiler, Anschlüsse, Kleinmaterial.</p>
-
-            <p><strong>1’100 CHF – Bodenanalyse & Labor</strong><br>
-            Nährstoffprofil, Feuchtigkeitsanalyse, Struktur & pH-Wert (Universität Azoren).</p>
-
-            <p><strong>2’300 CHF – Flächenvorbereitung & Material</strong><br>
-            Weizenfolie, Mulch, Werkzeuge, Fläche vorbereiten, Transport auf São Miguel.</p>
-
-            <p><strong>1’500 CHF – Bio-Zertifizierung</strong><br>
-            EU-Bio Portugal, Dokumentation, Erstaufnahme, Vorbereitung für Bio Suisse.</p>
-
-            <p><strong>700 CHF – Saatrhizome & Startmaterial</strong><br>
-            Startpflanzen, Lagerung, Keimphase.</p>
-
-            <p><strong>In den Kosten enthalten:</strong><br>
-            Transport Portugal (Material) · Transport Azoren → Schweiz (Testmenge Ingwer) · Kleinmaterial.</p>
+            <p><strong>1’900 CHF – Bewässerungssystem</strong><br>Rohre, Tropfschläuche, Material.</p>
+            <p><strong>1’100 CHF – Bodenanalyse</strong><br>Laborwerte, Universität Azoren.</p>
+            <p><strong>2’300 CHF – Flächenvorbereitung</strong><br>Weizenfolie, Werkzeuge, Transport.</p>
+            <p><strong>1’500 CHF – Bio-Zertifizierung</strong><br>EU-Bio Portugal.</p>
+            <p><strong>700 CHF – Saatrhizome & Startmaterial</strong></p>
         </div>
 
         <!-- BAROMETER -->
         <div class="barometer-wrap">
             <div class="barometer-label">Fortschritt: 0%</div>
-            <div class="barometer">
-                <div class="barometer-fill" style="width:0%;"></div>
-            </div>
+            <div class="barometer"><div class="barometer-fill" style="width:0%;"></div></div>
         </div>
 
         <!-- PAYMENT -->
         <h2 class="section-heading payment-heading">Unterstützen – Zahlungsmöglichkeiten</h2>
 
         <div class="payment-buttons">
-            <button class="pay-btn" type="button" onclick="openPayment('twint')">TWINT</button>
-            <button class="pay-btn" type="button" onclick="openPayment('bank')">Bank</button>
+            <button class="pay-btn" onclick="openPayment('twint')">TWINT</button>
+            <button class="pay-btn" onclick="openPayment('bank')">Bank</button>
             <a href="https://wemakeit.com" target="_blank" class="pay-btn">WeMakeIt</a>
+        </div>
+
+        <!-- FINAL CTA BUTTON – IDENTISCH WIE ANDERE SEITEN -->
+        <div style="margin-top:3rem;">
+            <a href="crowdfunding.html" class="btn-primary">Jetzt unterstützen</a>
         </div>
 
     </div>
@@ -458,14 +441,12 @@ footer.site-footer{
     </div>
 </footer>
 
-<!-- FOOTER OVERLAY -->
+<!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
-        <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur kurz im Jahr wirklich frisch erhältlich.</strong><br><br>
-            Pure Root Switzerland möchte das ändern – direkt von den Azoren.
-        </p>
+        <p><strong>Pure Root Switzerland</strong><br><br>
+        Frischer Bio-Ingwer von den Azoren – direkt, ehrlich, nachhaltig.</p>
     </div>
 </div>
 
@@ -474,10 +455,9 @@ footer.site-footer{
     <div class="payment-box" id="paymentBox">
 
         <img id="twintQR" src="" style="display:none;" alt="TWINT QR">
-
         <p id="paymentText"></p>
 
-        <button class="pay-btn" type="button" onclick="closePayment()" style="margin-top:1.4rem;">
+        <button class="pay-btn" onclick="closePayment()" style="margin-top:1.4rem;">
             Schliessen
         </button>
     </div>
@@ -525,6 +505,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
