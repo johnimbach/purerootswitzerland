@@ -92,7 +92,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO – STANDARDISIERTER HERO */
+/* HERO */
 .hero{
     min-height:82vh;
     position:relative;
@@ -126,7 +126,7 @@ nav.main-nav a.active::after{width:100%;}
     font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
 }
 
-/* MOBILE HERO – 1:1 wie Index */
+/* MOBILE HERO */
 @media(max-width:720px){
     .hero{
         flex-direction:column;
@@ -179,7 +179,25 @@ section{padding:2.4rem 0;}
     margin-bottom:1rem;
 }
 
-/* MOBILE – alles zentriert */
+/* BUTTON */
+.update-btn{
+    display:inline-block;
+    padding:0.8rem 2rem;
+    background:var(--gold);
+    color:#1a1a12;
+    border-radius:999px;
+    text-transform:uppercase;
+    font-size:1rem;
+    letter-spacing:0.12em;
+    margin-top:2rem;
+    box-shadow:0 0 22px rgba(0,0,0,0.45);
+    transition:0.2s;
+}
+.update-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 28px rgba(0,0,0,0.65);
+}
+
 @media(max-width:720px){
     #updates *{
         margin-left:auto !important;
@@ -253,7 +271,7 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO (PERFEKT KORREKT) -->
+<!-- HERO -->
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
@@ -287,9 +305,7 @@ footer.site-footer{
             <p>
                 Der Beginn dieses Projekts war geprägt von intensiver Recherche.
                 Ich wollte verstehen, ob Ingwer auf den Azoren realistisch angebaut
-                werden kann – und wie die Bedingungen dort wirklich sind. Dazu
-                gehörten Vergleiche mit anderen Regionen, Gespräche mit lokalen
-                Produzenten und das Studium von wissenschaftlichen Artikeln.
+                werden kann – und wie die Bedingungen dort wirklich sind.
                 Die Kombination aus vulkanischem Boden, angenehmem Klima und hoher
                 Luftfeuchtigkeit hat klar gezeigt: Ingwer hat hier eine echte Chance.
             </p>
@@ -299,53 +315,46 @@ footer.site-footer{
             <h3>Kontakt zu Bauern</h3>
             <p>
                 Der Austausch mit Bauern vor Ort war ein entscheidender Schritt.
-                Ich habe mehrere Gespräche geführt, Erfahrungen abgefragt und
-                Vertrauen aufgebaut. Besonders wichtig war die Verbindung zu
+                Besonders wichtig war die Verbindung zu
                 <strong>Paulo Amaral</strong>, einem erfahrenen Bio-Bauern, der auf
                 den Azoren bereits neue Wege gegangen ist – unter anderem als Pionier
                 im Kaffeeanbau. Seine Offenheit, sein Wissen und seine Bereitschaft,
                 gemeinsam etwas Neues aufzubauen, geben diesem Projekt eine starke
-                und ehrliche Grundlage.
+                Grundlage.
             </p>
         </div>
 
         <div class="update-block">
             <h3>Austausch mit der Universität</h3>
             <p>
-                Die Universidade dos Açores spielt eine zentrale Rolle bei der
-                Bodenanalyse und den fachlichen Einschätzungen. Gemeinsam haben wir
-                die Testfläche untersucht und Proben analysiert. Erste Ergebnisse
-                bestätigen, dass der Boden ausreichend Nährstoffe enthält und sich
-                sehr gut für einen Ingwer-Testanbau eignet. Die detaillierten
-                Laborwerte folgen in den nächsten Wochen, und sie werden darüber
-                entscheiden, wie wir die Fläche ideal vorbereiten.
+                Die Universidade dos Açores begleitet die Bodenanalyse und die
+                fachliche Einschätzung. Erste Ergebnisse zeigen, dass der Boden
+                gute Voraussetzungen bietet. Die abschließenden Laborwerte bestimmen,
+                wie die Fläche optimal vorbereitet wird.
             </p>
         </div>
 
         <div class="update-block">
             <h3>Aufbau der Webseite</h3>
             <p>
-                Parallel zu den Vorbereitungen auf den Azoren habe ich diese Webseite
-                aufgebaut – klar strukturiert, visuell ruhig und so optimiert, dass
-                alle Informationen verständlich und transparent dargestellt sind.
-                Der gesamte Aufbau, von der Startseite über das Crowdfunding bis hin
-                zu dieser Updates-Seite, soll zeigen, wie offen und nachvollziehbar
-                dieses Projekt geführt wird.
+                Parallel zu den Vorbereitungen habe ich diese Webseite aufgebaut –
+                ruhig, klar, transparent und so strukturiert, dass jeder Schritt
+                dieses Projekts nachvollziehbar bleibt.
             </p>
         </div>
 
         <div class="update-block">
             <h3>Vorbereitung auf den Testanbau</h3>
             <p>
-                Aktuell laufen die letzten Vorbereitungen für den Testanbau:
-                Bewässerungssystem, Weizenfolie, Startmaterial und Bodenanalyse
-                werden aufeinander abgestimmt. Die nächsten Wochen werden entscheidend,
-                denn dann wird die Fläche vorbereitet, die Bewässerung installiert
-                und die ersten Rhizome werden gesetzt. Jeder Schritt bringt uns näher
-                an die erste kleine Testernte – und damit an die Vision eines frischen,
-                europäischen Bio-Ingwers.
+                Bewässerung, Startmaterial, Weizenfolie, Bodenvorbereitung – alles
+                wird gerade final abgestimmt. Die Fläche wird vorbereitet, die
+                Tropfbewässerung aufgebaut und die ersten Rhizome gesetzt. Jeder
+                Schritt bringt uns der ersten Testernte näher.
             </p>
         </div>
+
+        <!-- BUTTON – am Schluss -->
+        <a href="crowdfunding.html" class="update-btn">Jetzt unterstützen</a>
 
     </div>
 </section>
@@ -400,6 +409,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
