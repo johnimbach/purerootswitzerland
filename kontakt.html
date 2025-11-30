@@ -69,8 +69,6 @@ nav.main-nav a::after{
 }
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after{width:100%;}
-
-/* MOBILE NAV */
 .nav-toggle{display:none;}
 
 @media(max-width:720px){
@@ -91,7 +89,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO — exakt die saubere Version */
+/* HERO — 1:1 AUS INDEX */
 .hero{
     min-height:82vh;
     position:relative;
@@ -118,18 +116,21 @@ nav.main-nav a.active::after{width:100%;}
 .hero-title{font-size:3rem;margin-bottom:0.5rem;}
 .hero-subtitle{font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;}
 
-/* MOBILE HERO — 1:1 wie Index */
+/* MOBILE HERO — 1:1 AUS INDEX (WICHTIG: KEIN padding-top:0 HIER!) */
 @media(max-width:720px){
-    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
+    .hero{
+        flex-direction:column;
+        padding-top:2rem;
+        text-align:center;
+    }
     .hero-inner{
         order:1;
         padding-bottom:2rem;
-        padding-top:0;
         text-align:center;
     }
 }
 
-/* CONTACT SECTION — nur Text ergänzt */
+/* CONTACT SECTION (Action-Bereich) */
 .contact-section{
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
@@ -143,12 +144,6 @@ nav.main-nav a.active::after{width:100%;}
 .contact-text{
     max-width:780px;opacity:0.95;margin-bottom:2rem;text-align:left;
 }
-
-/* → Nur hier wurde der neue Text eingefügt */
-.contact-text-extended{
-    max-width:780px;opacity:0.95;margin-bottom:2rem;text-align:left;
-}
-
 .contact-form{max-width:780px;}
 .contact-form input,
 .contact-form textarea{
@@ -168,7 +163,6 @@ nav.main-nav a.active::after{width:100%;}
 @media(max-width:720px){
     .contact-heading,
     .contact-text,
-    .contact-text-extended,
     .contact-form{
         text-align:center;margin-left:auto;margin-right:auto;
     }
@@ -243,21 +237,16 @@ footer.site-footer{
     </div>
 </section>
 
-<!-- CONTACT SECTION -->
+<!-- CONTACT SECTION / ACTION-BEREICH MIT ERWEITERTEM TEXT -->
 <section class="contact-section">
     <div class="inner">
 
         <h2 class="contact-heading">Schreib mir jederzeit</h2>
 
         <p class="contact-text">
-            Egal ob Fragen, Feedback oder Interesse am Projekt – ich freue mich über deine Nachricht.
-        </p>
-
-        <p class="contact-text-extended">
-            Die letzten Monate waren intensiv: Recherche, Aufbau dieser Webseite,  
-            viele Gespräche mit Bauern, Behörden und der Universität.  
-            Jetzt beginnt die entscheidende Phase – und jede Nachricht, jedes Feedback  
-            und jeder neue Kontakt hilft mir weiter.
+            Egal ob Fragen, Feedback, Ideen oder Interesse am Projekt – ich freue mich über jede Nachricht.  
+            Deine Rückmeldung hilft mir, Pure Root Switzerland Schritt für Schritt besser zu machen.  
+            In der Regel antworte ich innerhalb von 24–48 Stunden.
         </p>
 
         <form class="contact-form">
@@ -317,6 +306,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
