@@ -65,8 +65,8 @@ nav.main-nav a::after{
 }
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after{width:100%;}
-.nav-toggle{display:none;}
 
+.nav-toggle{display:none;}
 @media(max-width:720px){
     .nav-toggle{
         display:inline-flex;padding:0.4rem 0.7rem;
@@ -85,9 +85,12 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO */
+/* HERO — KORREKTUR → dieser Block stellt den richtigen Abstand wieder her */
 .hero{
-    min-height:82vh;position:relative;display:flex;align-items:center;
+    min-height:82vh;
+    position:relative;
+    display:flex;
+    align-items:center;
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay{
@@ -98,12 +101,20 @@ nav.main-nav a.active::after{width:100%;}
     z-index:1;
 }
 .hero-inner{
-    position:relative;z-index:2;max-width:1100px;width:100%;
-    padding:5rem 1.5rem 3rem;margin:0 auto;text-align:left;
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    width:100%;
+    padding:5rem 1.5rem 3rem; /* ← EXACT WIE INDEX */
+    margin:0 auto;
+    text-align:left;
 }
+
 .hero-tagline{
-    font-size:1.25rem;letter-spacing:0.28em;
-    text-transform:uppercase;color:var(--gold);
+    font-size:1.25rem;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
     margin-bottom:1rem;
 }
 .hero-title{
@@ -144,22 +155,25 @@ section{padding:2.4rem 0;}
 .story-layout{
     display:grid;
     grid-template-columns:minmax(0,1.1fr) minmax(260px,0.9fr);
-    gap:2.4rem;align-items:flex-start;
+    gap:2.4rem;
+    align-items:flex-start;
 }
 .story-text-block p{
-    margin-bottom:1.1rem;opacity:0.97;
+    margin-bottom:1.1rem;
+    opacity:0.97;
 }
 .story-highlight{font-style:italic;}
-
 .story-image-wrap{
-    display:flex;justify-content:flex-end;
+    display:flex;
+    justify-content:flex-end;
 }
 .story-image{
-    max-width:340px;border-radius:1.4rem;
-    overflow:hidden;box-shadow:0 0 22px rgba(0,0,0,0.6);
+    max-width:340px;
+    border-radius:1.4rem;
+    overflow:hidden;
+    box-shadow:0 0 22px rgba(0,0,0,0.6);
 }
 
-/* GRID MOBILE */
 @media(max-width:860px){
     .story-layout{grid-template-columns:1fr;}
     .story-image-wrap{justify-content:center;}
@@ -169,18 +183,25 @@ section{padding:2.4rem 0;}
 /* SUBSECTIONS */
 .story-subsection{margin-top:2.6rem;}
 .story-subsection h3{
-    color:var(--gold);margin-bottom:1.2rem;
+    color:var(--gold);
+    margin-bottom:1.2rem;
 }
 .story-subsection p{margin-bottom:1.1rem;}
 
 /* FOOTER */
 footer.site-footer{
-    background:#10140c;padding:1.3rem 0 1.5rem;
-    font-size:0.95rem;margin-top:auto;
+    background:#10140c;
+    padding:1.3rem 0 1.5rem;
+    font-size:0.95rem;
+    margin-top:auto;
 }
 .footer-inner{
-    max-width:1100px;margin:0 auto;padding:0 1.5rem;
-    display:flex;justify-content:space-between;align-items:flex-end;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 1.5rem;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
 }
 .footer-logo{
     width:78px;height:78px;border-radius:50%;
@@ -189,12 +210,14 @@ footer.site-footer{
 }
 @media(max-width:720px){
     .footer-inner{
-        flex-direction:column;align-items:center;
-        text-align:center;gap:0.4rem;
+        flex-direction:column;
+        align-items:center;
+        text-align:center;
+        gap:0.4rem;
     }
 }
 
-/* FOOTER-OVERLAY */
+/* OVERLAY */
 .overlay-bg{
     position:fixed;inset:0;background:rgba(0,0,0,0.78);
     display:none;justify-content:center;align-items:center;
@@ -208,10 +231,9 @@ footer.site-footer{
     width:260px;height:260px;border-radius:50%;
     border:5px solid #000;object-fit:cover;
     margin:0 auto 1.4rem;
-    box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
 
-/* MOBILE: alles zentriert */
+/* MOBILE STORY-ZENTRIERUNG */
 @media(max-width:720px){
     #story *{
         text-align:center !important;
@@ -219,20 +241,6 @@ footer.site-footer{
         margin-right:auto !important;
     }
     .story-image-wrap{justify-content:center !important;}
-}
-
-/* DESKTOP LEFT ALIGN – EINZIGER NEUER BLOCK */
-@media(min-width:721px){
-    #story .section-heading,
-    #story .section-intro,
-    #story .story-text-block p,
-    #story .story-subsection,
-    #story .story-subsection h3,
-    #story .story-subsection p {
-        text-align:left !important;
-        margin-left:0 !important;
-        margin-right:0 !important;
-    }
 }
 </style>
 </head>
@@ -294,7 +302,7 @@ footer.site-footer{
                 <p>
                     Die Monate der Chemotherapie und Bestrahlung haben mein Leben verändert.
                     Nicht im Sinne eines dramatischen Neuanfangs, sondern mit einer ruhigen,
-                    klaren Erkenntnis:  
+                    klaren Erkenntnis:
                     <strong>Ich möchte bewusster leben und etwas aufbauen, das Sinn ergibt.</strong>
                 </p>
 
@@ -423,17 +431,19 @@ function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
 
-const footerLogo = document.getElementById("footerLogo");
-const overlayBox = document.getElementById("overlayBox");
+const footerLogo=document.getElementById("footerLogo");
+const overlayBox=document.getElementById("overlayBox");
 
-if (footerLogo && overlayBox) {
-    footerLogo.addEventListener("click", () => overlayBox.classList.add("show"));
-    overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
