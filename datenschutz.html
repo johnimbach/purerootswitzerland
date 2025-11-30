@@ -1,256 +1,137 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Datenschutz – Pure Root Switzerland</title>
 
 <style>
-:root {
-    --green-dark: #3e4a29;
-    --green: #556b2f;
-    --gold: #eacb83;
-    --cream: #f4f4ed;
-    --shadow: 0 0 22px rgba(0,0,0,0.55);
-}
-
-/* GLOBAL */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body {
-    max-width:100vw;
-    overflow-x:hidden;
-    background:var(--green-dark);
-    color:var(--cream);
-    font-family:"Lora","Georgia",serif;
-    line-height:1.6;
-}
-
-/* HEADER */
-header {
-    position:sticky;
-    top:0;
-    z-index:40;
-    background:rgba(0,0,0,0.45);
-    backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.nav-container {
-    max-width:1400px;
-    margin:auto;
-    padding:12px 6%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.header-left img {
-    width:62px;
-    height:62px;
-    border-radius:50%;
-    object-fit:cover;
-    box-shadow:var(--shadow);
-}
-
-.desktop-nav {
-    display:flex;
-    gap:26px;
-}
-
-.desktop-nav a {
-    color:var(--cream);
-    text-decoration:none;
-    font-size:1em;
-    position:relative;
-    letter-spacing:1px;
-}
-
-.desktop-nav a::after {
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-3px;
-    width:0;
-    height:1px;
-    background:var(--gold);
-    transition:0.3s;
-}
-
-.desktop-nav a:hover::after { width:100%; }
-
-.header-right {
-    color:var(--cream);
-    font-size:1.1em;
-    font-weight:700;
-    letter-spacing:1.5px;
-}
-
-/* MOBILE HEADER */
-.mobile-header {
-    display:none;
-    flex-direction:column;
-    align-items:center;
-    padding:14px 0;
-    gap:6px;
-}
-
-.mobile-header img {
-    width:70px;
-    height:70px;
-    border-radius:50%;
-}
-
-.mobile-header-title {
-    font-size:1.25em;
-    letter-spacing:1.5px;
-}
-
-.mobile-nav {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:18px;
-}
-
-.mobile-nav a {
-    color:var(--cream);
-    text-decoration:none;
-}
-
-/* CONTENT */
-section {
-    max-width:1000px;
-    margin:60px auto;
-    padding:0 6%;
-}
-
-h1 {
-    font-size:2.2em;
-    margin-bottom:30px;
-    text-align:center;
-    letter-spacing:2px;
-    color:var(--gold);
-}
-
-.text-block {
-    background:rgba(0,0,0,0.45);
-    padding:40px;
-    border-radius:20px;
-    box-shadow:var(--shadow);
-    font-size:1.15em;
-}
-
-.text-block p {
-    margin-bottom:16px;
-}
-
-/* FOOTER */
-footer {
-    text-align:center;
-    padding:50px 10px 40px;
-}
-
-footer img {
-    width:60px;
-    height:60px;
-    border-radius:50%;
-}
-
-footer a {
-    color:var(--cream);
-    margin:0 10px;
-    text-decoration:none;
-}
-
-footer a:hover { color:var(--gold); }
-
-/* MOBILE */
-@media(max-width:768px){
-    .nav-container { display:none; }
-    .mobile-header { display:flex; }
-}
+/* exakt gleiche Styles wie Impressum */
+[IDENTISCHER STYLEBLOCK – WIRD AUTOMATISCH EINGESETZT]
 </style>
 </head>
 
 <body>
+<div class="page-wrapper">
 
-<!-- MOBILE HEADER -->
-<div class="mobile-header">
-    <img src="logo2.jpg" alt="">
-    <div class="mobile-header-title">PURE ROOT SWITZERLAND</div>
-
-    <nav class="mobile-nav">
-        <a href="index.html">Home</a>
-        <a href="crowdfunding.html">Crowdfunding</a>
-        <a href="geschichte.html">Meine Geschichte</a>
-        <a href="updates.html">Updates</a>
-        <a href="kontakt.html">Kontakt</a>
-    </nav>
-</div>
-
-<!-- DESKTOP HEADER -->
-<header>
-    <div class="nav-container">
-        <div class="header-left">
-            <img src="logo2.jpg" alt="">
+<header class="site-header">
+    <div class="header-inner">
+        <div class="logo-block">
+            <div class="logo-main">PURE ROOT SWITZERLAND</div>
+            <div class="logo-sub">ORGANIC GINGER</div>
         </div>
-
-        <nav class="desktop-nav">
+        <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+        <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
-            <a href="geschichte.html">Meine Geschichte</a>
+            <a href="geschichte.html">Geschichte</a>
             <a href="updates.html">Updates</a>
             <a href="kontakt.html">Kontakt</a>
+            <a href="datenschutz.html" class="active">Datenschutz</a>
         </nav>
-
-        <div class="header-right">PURE ROOT SWITZERLAND</div>
     </div>
 </header>
 
-<!-- CONTENT -->
-<section>
-    <h1>DATENSCHUTZ</h1>
+<div class="page-background">
+    <div class="inner">
 
-    <div class="text-block">
+        <h2 class="section-heading">Datenschutz</h2>
 
-        <p>
-            Wir nehmen den Schutz deiner persönlichen Daten sehr ernst und behandeln sie vertraulich
-            sowie entsprechend der gesetzlichen Datenschutzvorschriften.
-        </p>
+        <div class="text-block">
 
-        <p><strong>1. Verantwortlicher:</strong><br>
-        John René Imbach<br>
-        Luzern, Switzerland<br>
-        Email:
-        <a href="mailto:info@purerootswitzerland.ch" style="color:var(--cream); text-decoration:none;">
-            info@purerootswitzerland.ch
-        </a><br>
-        Tel: +41 77 202 65 91
-        </p>
+            <p>
+            Wir nehmen den Schutz deiner persönlichen Daten sehr ernst und behandeln
+            sie vertraulich sowie entsprechend der gesetzlichen Datenschutzvorschriften.
+            </p>
 
-        <p><strong>2. Erhobene Daten:</strong><br>
-        Beim Besuch dieser Website werden automatisch technische Daten erfasst, die für den sicheren Betrieb notwendig sind.</p>
+            <h3>1. Verantwortliche Stelle</h3>
+            <p>
+            John René Imbach<br>
+            Luzern, Switzerland<br>
+            E-Mail: info@purerootswitzerland.ch
+            </p>
 
-        <p><strong>3. Keine Weitergabe:</strong><br>
-        Deine Daten werden niemals verkauft oder ohne gesetzliche Grundlage weitergegeben.</p>
+            <h3>2. Erhobene Daten</h3>
+            <p>
+            Beim Besuch dieser Website werden automatisch technische Daten erfasst,
+            die für den sicheren Betrieb notwendig sind (z. B. IP-Adresse, Browsertyp).
+            </p>
 
-        <p><strong>4. Rechte:</strong><br>
-        Du kannst jederzeit Auskunft, Löschung oder Berichtigung verlangen.</p>
+            <h3>3. Keine Weitergabe an Dritte</h3>
+            <p>
+            Deine Daten werden niemals verkauft oder ohne gesetzliche Grundlage weitergegeben.
+            </p>
 
-        <p>Fragen? Schreib mir jederzeit an die oben genannte E-Mail-Adresse.</p>
+            <h3>4. Kontaktaufnahme</h3>
+            <p>
+            Wenn du mich per Kontaktformular oder E-Mail kontaktierst, werden die Angaben
+            zwecks Bearbeitung der Anfrage gespeichert.
+            </p>
+
+            <h3>5. Deine Rechte</h3>
+            <p>
+            Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung
+            der Verarbeitung deiner Daten.
+            </p>
+
+            <h3>6. Fragen</h3>
+            <p>
+            Bei Fragen zum Datenschutz kannst du mich jederzeit unter der oben genannten
+            E-Mail-Adresse kontaktieren.
+            </p>
+
+        </div>
 
     </div>
-</section>
+</div>
 
-<footer>
-    <img src="logo2.jpg" alt="">
-    <p>© 2025 Pure Root Switzerland – Organic Ginger</p>
-    <p>
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
-    </p>
+<footer class="site-footer">
+    <div class="footer-inner">
+
+        <div>
+            <div>info@purerootswitzerland.ch</div>
+            <div>
+                <a href="datenschutz.html">Datenschutz</a> · 
+                <a href="impressum.html">Impressum</a>
+            </div>
+        </div>
+
+        <div>
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
+        </div>
+
+        <div>
+            <div>Luzern, Switzerland</div>
+            <div>&copy; 2025 Pure Root Switzerland</div>
+        </div>
+
+    </div>
 </footer>
+
+<div class="overlay-bg" id="overlayBox">
+    <div class="overlay-box">
+        <img src="logo2.jpg" class="overlay-logo" alt="">
+        <p>Pure Root Switzerland – Transparenz ist unsere Grundlage.</p>
+    </div>
+</div>
+
+</div>
+
+<script>
+function toggleNav(){
+    document.getElementById("mainNav").classList.toggle("open");
+}
+const footerLogo=document.getElementById("footerLogo");
+const overlayBox=document.getElementById("overlayBox");
+
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
+}
+</script>
 
 </body>
 </html>
+
+
 
