@@ -24,7 +24,6 @@ body{
     color:#fdfdf8;
     line-height:1.65;
     font-size:1.05rem;
-    text-align:left;
 }
 img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
@@ -94,44 +93,49 @@ nav.main-nav a.active::after{width:100%;}
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO */
+/* HERO – IDENTISCH ZU INDEX / CROWDFUNDING */
 .hero{
-    min-height:82vh;position:relative;display:flex;align-items:center;
-}
-.hero-bg{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;z-index:-2;
+    min-height:82vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay{
     position:absolute;inset:0;
-    background:linear-gradient(to bottom,rgba(0,0,0,0.48),rgba(0,0,0,0.78));
-    z-index:-1;
+    background:linear-gradient(to bottom,
+        rgba(0,0,0,0.48),
+        rgba(0,0,0,0.78));
+    z-index:1;
 }
 .hero-inner{
-    max-width:1100px;width:100%;padding:5rem 1.5rem 3rem;
-    margin:0 auto;text-align:left;
+    position:relative;z-index:2;
+    max-width:1100px;width:100%;
+    padding:5rem 1.5rem 3rem;
+    margin:0 auto;
+    text-align:left;
 }
 .hero-tagline{
-    font-size:1.25rem;letter-spacing:0.28em;text-transform:uppercase;
-    color:var(--gold);margin-bottom:1rem;
+    font-size:1.25rem;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:1rem;
 }
 .hero-title{
-    font-size:3rem;margin-bottom:0.5rem;
+    font-size:3rem;
+    margin-bottom:0.5rem;
 }
 .hero-subtitle{
-    font-size:1.4rem;margin-bottom:1.4rem;
-    opacity:0.95;
-}
-.hero-text{
-    max-width:720px;margin-bottom:1.4rem;
+    font-size:1.4rem;
+    margin-bottom:1.2rem;
+    opacity:0.96;
 }
 
 /* MOBILE HERO */
 @media(max-width:720px){
-    .hero{flex-direction:column;padding-top:2rem;}
-    .hero-bg{position:relative;height:330px;order:2;}
-    .hero-overlay{display:none;}
-    .hero-inner{order:1;z-index:5;padding-bottom:2rem;}
+    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
+    .hero-inner{text-align:center;padding-bottom:2rem;}
 }
 
 /* CONTACT SECTION */
@@ -140,8 +144,11 @@ nav.main-nav a.active::after{width:100%;}
       linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),
       url("hintergrund.jpg") center/cover;
     padding:3rem 0 3.4rem;
+    text-align:left;
 }
-
+@media(max-width:720px){
+    .contact-section{text-align:center;}
+}
 .contact-intro{
     max-width:780px;margin-bottom:2rem;opacity:0.96;
 }
@@ -181,12 +188,8 @@ footer.site-footer{
     border:3px solid #000;object-fit:cover;
     cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
-
 @media(max-width:720px){
-    .footer-inner{
-        flex-direction:column;align-items:center;
-        gap:1rem;text-align:left;
-    }
+    .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:0.9rem;}
 }
 
 /* OVERLAY */
@@ -196,16 +199,13 @@ footer.site-footer{
     text-align:center;z-index:9999;
 }
 .overlay-bg.show{display:flex;}
-
 .overlay-box{
-    max-width:660px;padding:2rem 2rem 2.6rem;
-    color:#fff;text-align:center;
+    max-width:660px;padding:2rem 2rem 2.6rem;color:#fff;
 }
 .overlay-logo{
     width:260px;height:260px;border-radius:50%;
     border:5px solid #000;object-fit:cover;
-    margin:0 auto 1.4rem;
-    box-shadow:0 0 26px rgba(0,0,0,0.7);
+    margin:0 auto 1.4rem;box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
 </style>
 </head>
@@ -234,8 +234,8 @@ footer.site-footer{
 
 <!-- HERO -->
 <section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
     <div class="hero-overlay"></div>
+
     <div class="hero-inner">
 
         <p class="hero-tagline">Let's Connect</p>
@@ -244,11 +244,6 @@ footer.site-footer{
 
         <p class="hero-subtitle">
             Ob Fragen, Ideen oder Interesse am Projekt – deine Nachricht erreicht mich direkt.
-        </p>
-
-        <p class="hero-text">
-            Ich freue mich über jeden Austausch, jede Anregung und jede Unterstützung.
-            Gerade in dieser frühen Phase bedeutet persönlicher Kontakt sehr viel.
         </p>
 
     </div>
@@ -308,6 +303,8 @@ footer.site-footer{
     </div>
 </footer>
 
+</div>
+
 <!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
@@ -336,6 +333,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
