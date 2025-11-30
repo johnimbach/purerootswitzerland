@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Kontakt – Pure Root Switzerland</title>
 
 <style>
@@ -10,7 +10,6 @@
     --green-dark:#3e4a29;
     --green:#556b2f;
     --gold:#eacb83;
-    --cream:#f4f4ed;
     --white:#ffffff;
     --shadow:0 0 22px rgba(0,0,0,0.55);
 }
@@ -34,20 +33,27 @@ a{text-decoration:none;color:inherit;}
 /* HEADER */
 header.site-header{
     position:sticky;top:0;z-index:50;
-    background:rgba(30,40,24,0.95);box-shadow:var(--shadow);
+    background:rgba(30,40,24,0.95);
+    box-shadow:var(--shadow);
 }
 .header-inner{
-    display:flex;align-items:center;justify-content:space-between;
+    display:flex;justify-content:space-between;align-items:center;
     padding:0.95rem 1.5rem;max-width:1100px;margin:0 auto;
 }
 .logo-block{display:flex;flex-direction:column;gap:0.2rem;}
-.logo-main{font-size:1.45rem;letter-spacing:0.21em;text-transform:uppercase;}
-.logo-sub{font-size:0.9rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);}
+.logo-main{
+    font-size:1.45rem;letter-spacing:0.21em;text-transform:uppercase;
+}
+.logo-sub{
+    font-size:0.9rem;letter-spacing:0.24em;text-transform:uppercase;
+    color:var(--gold);
+}
 
-/* NAV */
+/* NAVIGATION */
 nav.main-nav{
     display:flex;gap:1.8rem;
-    letter-spacing:0.1em;font-size:1rem;text-transform:uppercase;
+    text-transform:uppercase;
+    letter-spacing:0.1em;font-size:1rem;
 }
 nav.main-nav a{
     padding-bottom:0.1rem;position:relative;
@@ -60,45 +66,28 @@ nav.main-nav a::after{
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after{width:100%;}
 
-/* MOBILE NAV */
 .nav-toggle{display:none;}
 @media(max-width:720px){
     .nav-toggle{
         display:inline-flex;padding:0.4rem 0.7rem;
-        border:1px solid rgba(255,255,255,0.3);
-        border-radius:999px;background:transparent;color:#fff;
+        border-radius:999px;background:transparent;
+        border:1px solid rgba(255,255,255,0.3);color:#fff;
     }
     nav.main-nav{
         position:absolute;top:100%;right:0;
-        background:rgba(30,40,24,0.98);
-        padding:1.2rem 1.4rem;
-        flex-direction:column;align-items:flex-end;
-        gap:1rem;opacity:0;pointer-events:none;
-        transform:translateY(-8px);transition:0.25s;
+        padding:1.2rem 1.4rem;background:rgba(30,40,24,0.98);
+        flex-direction:column;gap:1rem;align-items:flex-end;
+        opacity:0;pointer-events:none;transform:translateY(-8px);
+        transition:0.25s;
     }
     nav.main-nav.open{
         opacity:1;pointer-events:auto;transform:translateY(0);
     }
 }
 
-/* BUTTON */
-.btn-primary{
-    padding:0.8rem 2rem;background:var(--gold);border-radius:999px;
-    color:#1a1a12;font-size:1rem;letter-spacing:0.14em;
-    text-transform:uppercase;border:none;cursor:pointer;
-    box-shadow:0 0 20px rgba(0,0,0,0.4);transition:0.15s;
-}
-.btn-primary:hover{
-    transform:translateY(-1px);
-    box-shadow:0 0 26px rgba(0,0,0,0.55);
-}
-
-/* HERO – IDENTISCH ZU INDEX / CROWDFUNDING */
+/* HERO */
 .hero{
-    min-height:82vh;
-    position:relative;
-    display:flex;
-    align-items:center;
+    min-height:82vh;position:relative;display:flex;align-items:center;
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay{
@@ -109,69 +98,89 @@ nav.main-nav a.active::after{width:100%;}
     z-index:1;
 }
 .hero-inner{
-    position:relative;z-index:2;
-    max-width:1100px;width:100%;
-    padding:5rem 1.5rem 3rem;
-    margin:0 auto;
-    text-align:left;
+    position:relative;z-index:2;max-width:1100px;width:100%;
+    padding:5rem 1.5rem 3rem;margin:0 auto;text-align:left;
 }
 .hero-tagline{
-    font-size:1.25rem;
-    letter-spacing:0.28em;
-    text-transform:uppercase;
-    color:var(--gold);
+    font-size:1.25rem;letter-spacing:0.28em;
+    text-transform:uppercase;color:var(--gold);
     margin-bottom:1rem;
 }
 .hero-title{
-    font-size:3rem;
-    margin-bottom:0.5rem;
+    font-size:3rem;margin-bottom:0.5rem;
 }
 .hero-subtitle{
-    font-size:1.4rem;
-    margin-bottom:1.2rem;
-    opacity:0.96;
+    font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
 }
 
-/* MOBILE HERO */
 @media(max-width:720px){
-    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
-    .hero-inner{text-align:center;padding-bottom:2rem;}
+    .hero{text-align:center;padding-top:2rem;}
+    .hero-inner{text-align:center;}
 }
 
-/* CONTACT SECTION */
-.contact-section{
+/* ACTION AREA */
+.contact-area{
     background:
-      linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),
-      url("hintergrund.jpg") center/cover;
-    padding:3rem 0 3.4rem;
+      linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.72)),
+      url("hintergrund.jpg") center/cover fixed;
+    padding:3rem 0 4rem;
+}
+
+.contact-text{
+    max-width:780px;
+    margin-bottom:2rem;
+    opacity:0.97;
     text-align:left;
 }
-@media(max-width:720px){
-    .contact-section{text-align:center;}
+
+.contact-text p{
+    margin-bottom:1.2rem;
 }
-.contact-intro{
-    max-width:780px;margin-bottom:2rem;opacity:0.96;
+
+@media(max-width:720px){
+    .contact-text,
+    .contact-text p{
+        text-align:center !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+    }
 }
 
 /* FORM */
 form.contact-form{
-    max-width:700px;margin-top:1.2rem;
-}
-form.contact-form label{
-    display:block;margin-bottom:0.35rem;
-    letter-spacing:0.08em;text-transform:uppercase;
-    font-size:0.9rem;color:var(--gold);
+    max-width:760px;
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
 }
 form.contact-form input,
 form.contact-form textarea{
-    width:100%;padding:0.9rem 1rem;margin-bottom:1.3rem;
-    border-radius:0.6rem;border:none;
-    background:rgba(255,255,255,0.1);
-    color:#fff;font-size:1rem;
-    box-shadow:0 0 12px rgba(0,0,0,0.25) inset;
+    width:100%;padding:0.9rem 1rem;
+    border:none;border-radius:8px;
+    font-size:1rem;
 }
 form.contact-form textarea{
-    height:170px;resize:none;
+    min-height:160px;resize:vertical;
+}
+
+.btn-primary{
+    padding:0.8rem 2rem;background:var(--gold);
+    border:none;border-radius:999px;
+    font-size:1rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:#1a1a12;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+    cursor:pointer;display:inline-block;
+}
+.btn-primary:hover{
+    transform:translateY(-1px);
+    box-shadow:0 0 26px rgba(0,0,0,0.55);
+}
+
+@media(max-width:720px){
+    .btn-primary{
+        margin-left:auto !important;
+        margin-right:auto !important;
+    }
 }
 
 /* FOOTER */
@@ -189,14 +198,17 @@ footer.site-footer{
     cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
 @media(max-width:720px){
-    .footer-inner{flex-direction:column;align-items:center;text-align:center;gap:0.9rem;}
+    .footer-inner{
+        flex-direction:column;align-items:center;
+        text-align:center;gap:0.4rem;
+    }
 }
 
 /* OVERLAY */
 .overlay-bg{
     position:fixed;inset:0;background:rgba(0,0,0,0.78);
-    display:none;align-items:center;justify-content:center;
-    text-align:center;z-index:9999;
+    display:none;justify-content:center;align-items:center;
+    z-index:9999;text-align:center;
 }
 .overlay-bg.show{display:flex;}
 .overlay-box{
@@ -205,7 +217,7 @@ footer.site-footer{
 .overlay-logo{
     width:260px;height:260px;border-radius:50%;
     border:5px solid #000;object-fit:cover;
-    margin:0 auto 1.4rem;box-shadow:0 0 26px rgba(0,0,0,0.7);
+    margin:0 auto 1.4rem;
 }
 </style>
 </head>
@@ -221,7 +233,9 @@ footer.site-footer{
             <div class="logo-main">PURE ROOT SWITZERLAND</div>
             <div class="logo-sub">ORGANIC GINGER</div>
         </div>
+
         <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+
         <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
@@ -235,45 +249,36 @@ footer.site-footer{
 <!-- HERO -->
 <section class="hero">
     <div class="hero-overlay"></div>
-
     <div class="hero-inner">
-
-        <p class="hero-tagline">Let's Connect</p>
-
-        <h1 class="hero-title">Lass uns in Kontakt bleiben</h1>
-
-        <p class="hero-subtitle">
-            Ob Fragen, Ideen oder Interesse am Projekt – deine Nachricht erreicht mich direkt.
-        </p>
-
+        <p class="hero-tagline">Kontakt</p>
+        <h1 class="hero-title">Schreib mir gerne</h1>
+        <p class="hero-subtitle">Ich freue mich über jede Nachricht</p>
     </div>
 </section>
 
-<!-- CONTACT SECTION -->
-<section class="contact-section">
+<!-- CONTACT AREA -->
+<section class="contact-area">
     <div class="inner">
 
-        <p class="contact-intro">
-            Nutze das Formular unten, um mir direkt zu schreiben.
-            Ich antworte so schnell wie möglich – meistens noch am gleichen Tag.
-        </p>
+        <div class="contact-text">
+            <p>
+                Ich freue mich über jede Nachricht – egal ob Frage, Anregung oder Interesse am Projekt.
+            </p>
+            <p>
+                Hinter Pure Root Switzerland steht ein persönlicher, ehrlicher Ansatz.
+                Wenn du mehr über das Projekt, den Anbau oder die nächsten Schritte erfahren möchtest,
+                schreibe mir einfach.
+            </p>
+            <p>
+                <strong>Antworten erfolgen in der Regel innerhalb von 24–48 Stunden.</strong>
+            </p>
+        </div>
 
-        <form class="contact-form" action="#" method="post">
-
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name" required>
-
-            <label for="email">E-Mail</label>
-            <input id="email" type="email" name="email" required>
-
-            <label for="telefon">Telefon (optional)</label>
-            <input id="telefon" type="text" name="telefon">
-
-            <label for="nachricht">Nachricht</label>
-            <textarea id="nachricht" name="nachricht" required></textarea>
-
-            <button type="submit" class="btn-primary">Nachricht senden</button>
-
+        <form class="contact-form" autocomplete="off">
+            <input type="text" name="name" placeholder="Dein Name" required />
+            <input type="email" name="email" placeholder="Deine E-Mail" required />
+            <textarea name="message" placeholder="Deine Nachricht"></textarea>
+            <button type="submit" class="btn-primary">Absenden</button>
         </form>
 
     </div>
@@ -283,7 +288,7 @@ footer.site-footer{
 <footer class="site-footer">
     <div class="footer-inner">
 
-        <div class="footer-column footer-left">
+        <div>
             <div>info@purerootswitzerland.ch</div>
             <div>
                 <a href="datenschutz.html">Datenschutz</a> ·
@@ -291,11 +296,11 @@ footer.site-footer{
             </div>
         </div>
 
-        <div class="footer-column footer-center">
-            <img src="logo2.jpg" class="footer-logo" id="footerLogo">
+        <div>
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
         </div>
 
-        <div class="footer-column footer-right">
+        <div>
             <div>Luzern, Switzerland</div>
             <div>&copy; 2025 Pure Root Switzerland</div>
         </div>
@@ -303,19 +308,17 @@ footer.site-footer{
     </div>
 </footer>
 
-</div>
-
 <!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
-            <strong>Pure Root Switzerland steht für Nähe, Ehrlichkeit und echten Austausch.</strong><br><br>
-            Jede Nachricht hilft, das Projekt weiterzuentwickeln – ob Feedback, Fragen oder
-            Ideen. Danke, dass du dir Zeit nimmst, mich zu kontaktieren.
+            <strong>Frischer Ingwer aus Europa – ein ehrliches Projekt mit klaren Werten.</strong>
         </p>
     </div>
 </div>
+
+</div><!-- page-wrapper END -->
 
 <script>
 function toggleNav(){
@@ -333,6 +336,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
