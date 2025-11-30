@@ -16,377 +16,242 @@
 }
 
 /* GLOBAL */
-* { margin:0; padding:0; box-sizing:border-box; }
-html, body { max-width:100vw; overflow-x:hidden; }
-body {
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{max-width:100vw;overflow-x:hidden;}
+body{
     font-family:"Lora","Georgia",serif;
     background:var(--green-dark);
     color:#fdfdf8;
     line-height:1.65;
     font-size:1.05rem;
 }
-img { max-width:100%; display:block; }
-a { text-decoration:none; color:inherit; }
-.page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
-.inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+
+.page-wrapper{min-height:100vh;display:flex;flex-direction:column;}
+.inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
 
 /* HEADER */
-header.site-header {
-    position:sticky;
-    top:0;
-    z-index:50;
+header.site-header{
+    position:sticky;top:0;z-index:50;
     background:rgba(30,40,24,0.95);
     box-shadow:var(--shadow);
 }
-.header-inner {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0.95rem 1.5rem;
-    max-width:1100px;
-    margin:0 auto;
+.header-inner{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:0.95rem 1.5rem;max-width:1100px;margin:0 auto;
 }
-.logo-block { display:flex; flex-direction:column; gap:0.2rem; }
-.logo-main {
-    font-size:1.45rem;
-    letter-spacing:0.21em;
-    text-transform:uppercase;
+.logo-block{display:flex;flex-direction:column;gap:0.2rem;}
+.logo-main{
+    font-size:1.45rem;letter-spacing:0.21em;text-transform:uppercase;
 }
-.logo-sub {
-    font-size:0.9rem;
-    letter-spacing:0.24em;
-    text-transform:uppercase;
+.logo-sub{
+    font-size:0.9rem;letter-spacing:0.24em;text-transform:uppercase;
     color:var(--gold);
 }
 
 /* NAVIGATION */
-nav.main-nav {
-    display:flex;
-    gap:1.8rem;
-    letter-spacing:0.1em;
-    font-size:1rem;
-    text-transform:uppercase;
+nav.main-nav{
+    display:flex;gap:1.8rem;
+    letter-spacing:0.1em;font-size:1rem;text-transform:uppercase;
 }
-nav.main-nav a {
-    padding-bottom:0.1rem;
-    position:relative;
+nav.main-nav a{
+    padding-bottom:0.1rem;position:relative;
 }
-nav.main-nav a::after {
-    content:"";
-    position:absolute;
-    bottom:0;
-    left:0;
-    width:0%;
-    height:1px;
-    background:var(--gold);
+nav.main-nav a::after{
+    content:"";position:absolute;bottom:0;left:0;
+    width:0%;height:1px;background:var(--gold);
     transition:0.3s;
 }
 nav.main-nav a:hover::after,
-nav.main-nav a.active::after {
-    width:100%;
-}
+nav.main-nav a.active::after{width:100%;}
 
 /* MOBILE NAV */
-.nav-toggle { display:none; }
+.nav-toggle{display:none;}
+
 @media(max-width:720px){
-    .nav-toggle {
-        display:inline-flex;
-        padding:0.4rem 0.7rem;
-        border-radius:999px;
+    .nav-toggle{
+        display:inline-flex;padding:0.4rem 0.7rem;
         border:1px solid rgba(255,255,255,0.3);
-        background:transparent;
-        color:#fff;
+        border-radius:999px;background:transparent;color:#fff;
     }
-    nav.main-nav {
-        position:absolute;
-        top:100%;
-        right:0;
+    nav.main-nav{
+        position:absolute;top:100%;right:0;
         padding:1.2rem 1.4rem;
-        flex-direction:column;
-        align-items:flex-end;
-        gap:1rem;
-        background:rgba(30,40,24,0.98);
-        opacity:0;
-        pointer-events:none;
-        transform:translateY(-8px);
+        flex-direction:column;align-items:flex-end;
+        gap:1rem;background:rgba(30,40,24,0.98);
+        opacity:0;pointer-events:none;transform:translateY(-8px);
         transition:0.25s;
     }
-    nav.main-nav.open {
-        opacity:1;
-        pointer-events:auto;
-        transform:translateY(0);
+    nav.main-nav.open{
+        opacity:1;pointer-events:auto;transform:translateY(0);
     }
 }
 
 /* BUTTON */
-.btn-primary {
-    padding:0.8rem 2rem;
-    background:var(--gold);
-    border-radius:999px;
-    color:#1a1a12;
-    font-size:1rem;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    border:none;
-    box-shadow:0 0 20px rgba(0,0,0,0.4);
-    cursor:pointer;
-    display:inline-block;
+.btn-primary{
+    padding:0.8rem 2rem;background:var(--gold);border-radius:999px;
+    color:#1a1a12;font-size:1rem;text-transform:uppercase;
+    letter-spacing:0.14em;border:none;cursor:pointer;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);transition:0.15s;
 }
-.btn-primary:hover {
+.btn-primary:hover{
     transform:translateY(-1px);
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
 /* HERO */
-.hero {
-    min-height:82vh;
-    position:relative;
-    display:flex;
-    align-items:center;
+.hero{
+    min-height:82vh;position:relative;display:flex;align-items:center;
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
-.hero-overlay {
-    position:absolute;
-    inset:0;
+.hero-overlay{
+    position:absolute;inset:0;
     background:linear-gradient(to bottom,
         rgba(0,0,0,0.48),
         rgba(0,0,0,0.78));
     z-index:1;
 }
-
-.hero-inner {
-    position:relative;
-    z-index:2;
-    max-width:1100px;
-    width:100%;
-    padding:5rem 1.5rem 3rem;
-    margin:0 auto;
+.hero-inner{
+    position:relative;z-index:2;
+    max-width:1100px;width:100%;
+    padding:5rem 1.5rem 3rem;margin:0 auto;
+    text-align:left;
 }
-
-.hero-tagline {
-    font-size:1.25rem;
-    letter-spacing:0.28em;
-    text-transform:uppercase;
-    margin-bottom:1rem;
-    color:var(--gold);
+.hero-tagline{
+    font-size:1.25rem;letter-spacing:0.28em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1rem;
 }
-
-.hero-title { font-size:3rem; margin-bottom:0.5rem; }
-
-.hero-subtitle {
-    font-size:1.4rem;
-    margin-bottom:1.2rem;
-    opacity:0.96;
+.hero-title{
+    font-size:3rem;margin-bottom:0.5rem;
+}
+.hero-subtitle{
+    font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
 }
 
 @media(max-width:720px){
-    .hero {
-        flex-direction:column;
-        padding-top:2rem;
-        text-align:center;
-    }
-    .hero-inner {
-        order:1;
-        padding-bottom:2rem;
-        text-align:center;
-    }
+    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
+    .hero-inner{text-align:center;padding-bottom:2rem;}
+}
+
+/* SECTION: WOFÜR WIRD DAS GELD GENUTZT */
+.fund-usage{
+    background:rgba(0,0,0,0.35);
+    padding:3rem 0 3rem;
+    border-top:1px solid rgba(255,255,255,0.15);
+    border-bottom:1px solid rgba(255,255,255,0.15);
+}
+.fund-title{
+    font-size:2rem;text-transform:uppercase;
+    letter-spacing:0.13em;margin-bottom:1.6rem;
+    color:var(--gold);
+}
+.fund-list{
+    max-width:780px;margin:0 auto;
+    line-height:1.75;font-size:1.1rem;
+}
+.fund-list li{
+    margin-bottom:1.3rem;
 }
 
 /* ACTION */
-.action-section {
+.action-section{
     background:
-        linear-gradient(rgba(0,0,0,0.55),
-        rgba(0,0,0,0.7)),
-        url("hintergrund.jpg")
-        center/cover;
+        linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.7)),
+        url("hintergrund.jpg") center/cover;
     padding:3.2rem 0 3.4rem;
 }
-
-.section-heading {
-    font-size:2rem;
-    letter-spacing:0.14em;
-    margin-bottom:1.3rem;
-    color:#ffffff !important;
-    text-transform:uppercase;
+.section-heading{
+    font-size:2rem;letter-spacing:0.14em;
+    text-transform:uppercase;margin-bottom:1.3rem;
 }
-.section-lead {
-    max-width:780px;
-    opacity:0.95;
-    line-height:1.65;
-    margin-bottom:1.3rem;
+.section-lead{
+    max-width:780px;opacity:0.95;line-height:1.65;margin-bottom:1.3rem;
 }
-
-/* HIGHLIGHTS */
-.highlight-grid {
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1.8rem;
-    margin-top:1.8rem;
+.highlight-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:1.8rem;margin-top:1.8rem;
 }
-.highlight-card {
+.highlight-card{
     background:rgba(0,0,0,0.25);
-    padding:1.6rem;
-    border-radius:1.1rem;
+    padding:1.6rem;border-radius:1.1rem;
     border:1px solid rgba(255,255,255,0.18);
 }
-.highlight-title {
-    font-size:1.25rem;
-    margin-bottom:0.7rem;
-    color:var(--gold);
+.highlight-title{
+    font-size:1.25rem;margin-bottom:0.7rem;color:var(--gold);
 }
 
 @media(max-width:720px){
-    .action-section { text-align:center; }
-    .highlight-grid { grid-template-columns:1fr; }
+    .action-section{text-align:center;}
+    .highlight-grid{grid-template-columns:1fr;}
+}
+
+/* CTA BLOCK */
+.cta-block{margin-top:1.4rem;}
+.cta-btn-row{margin-top:1.3rem;}
+@media(max-width:720px){
+    .cta-btn-row{display:flex;justify-content:center;}
 }
 
 /* SPENDENBAROMETER */
-.barometer-box {
-    margin-top:3.4rem;
+.barometer-wrap{
+    margin:3rem 0 0;
+    text-align:left;
 }
-.bar-bg {
-    width:100%;
-    height:22px;
-    background:rgba(255,255,255,0.12);
-    border-radius:999px;
+.barometer-label{
+    margin-bottom:0.5rem;font-size:1.1rem;
+}
+.barometer{
+    height:22px;border-radius:14px;
+    border:2px solid var(--gold);
     overflow:hidden;
-    margin-bottom:0.5rem;
 }
-.bar-fill {
-    width:0%; /* Start bei 0% */
-    height:100%;
+.barometer-fill{
+    height:100%;width:0%;
     background:var(--gold);
-}
-.bar-text {
-    font-size:0.95rem;
-    opacity:0.9;
-}
-
-/* ZUSATZ: WOFÜR WIRD DAS GELD GENUTZT */
-.use-of-funds {
-    margin-top:3.4rem;
-    background:rgba(0,0,0,0.35);
-    padding:1.8rem;
-    border-radius:1.1rem;
-    border:1px solid rgba(255,255,255,0.18);
-}
-.use-of-funds h3 {
-    color:var(--gold);
-    font-size:1.3rem;
-    margin-bottom:1rem;
-    letter-spacing:0.1em;
-    text-transform:uppercase;
-}
-.use-of-funds ul {
-    list-style:none;
-    padding-left:0;
-}
-.use-of-funds li {
-    margin-bottom:0.7rem;
-    opacity:0.95;
-}
-
-/* ZAHLUNGSARTEN */
-.payment-row {
-    display:flex;
-    gap:1.2rem;
-    margin-top:2.4rem;
-}
-.payment-button {
-    padding:0.8rem 1.6rem;
-    background:rgba(255,255,255,0.12);
-    border-radius:999px;
-    color:#fff;
-    text-align:center;
-    border:1px solid rgba(255,255,255,0.15);
-    cursor:pointer;
-    font-size:0.95rem;
-    letter-spacing:0.1em;
-    flex:1;
-}
-.payment-button:hover {
-    background:rgba(255,255,255,0.22);
-}
-
-@media(max-width:720px){
-    .payment-row {
-        flex-direction:column;
-    }
-}
-
-/* CTA */
-.cta-block { margin-top:1.4rem; }
-.cta-btn-row { margin-top:1.2rem; }
-@media(max-width:720px){
-    .cta-btn-row { justify-content:center; display:flex; margin-top:1.4rem; }
+    transition:0.6s;
 }
 
 /* FOOTER */
-footer.site-footer {
-    background:#10140c;
-    padding:1.3rem 0 1.5rem;
-    font-size:0.95rem;
-    margin-top:auto;
+footer.site-footer{
+    background:#10140c;padding:1.3rem 0 1.5rem;
+    font-size:0.95rem;margin-top:auto;
 }
-.footer-inner {
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 1.5rem;
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-end;
+.footer-inner{
+    max-width:1100px;margin:0 auto;padding:0 1.5rem;
+    display:flex;justify-content:space-between;align-items:flex-end;
 }
-.footer-logo {
-    width:78px;
-    height:78px;
-    border-radius:50%;
-    border:3px solid #000;
-    object-fit:cover;
-    cursor:pointer;
-    box-shadow:0 0 18px rgba(0,0,0,0.55);
+.footer-logo{
+    width:78px;height:78px;border-radius:50%;
+    border:3px solid #000;object-fit:cover;
+    cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
-
 @media(max-width:720px){
-    .footer-inner {
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        gap:0.9rem;
+    .footer-inner{
+        flex-direction:column;align-items:center;
+        text-align:center;gap:0.9rem;
     }
 }
 
 /* OVERLAY */
-.overlay-bg {
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.78);
-    display:none;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    z-index:9999;
+.overlay-bg{
+    position:fixed;inset:0;background:rgba(0,0,0,0.78);
+    display:none;justify-content:center;align-items:center;
+    z-index:9999;text-align:center;
 }
-.overlay-bg.show { display:flex; }
-.overlay-box {
-    max-width:660px;
-    padding:2rem 2rem 2.6rem;
-    color:#fff;
+.overlay-bg.show{display:flex;}
+.overlay-box{
+    max-width:660px;padding:2rem 2rem 2.6rem;color:#fff;
 }
-.overlay-logo {
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    border:5px solid #000;
-    object-fit:cover;
-    margin:0 auto 1.4rem;
-    box-shadow:0 0 26px rgba(0,0,0,0.7);
+.overlay-logo{
+    width:260px;height:260px;border-radius:50%;
+    border:5px solid #000;object-fit:cover;
+    margin:0 auto 1.4rem;box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
-
 </style>
 </head>
 
 <body>
-
 <div class="page-wrapper">
 
 <!-- HEADER -->
@@ -396,7 +261,9 @@ footer.site-footer {
             <div class="logo-main">PURE ROOT SWITZERLAND</div>
             <div class="logo-sub">ORGANIC GINGER</div>
         </div>
+
         <button class="nav-toggle" onclick="toggleNav()">Menü</button>
+
         <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html" class="active">Crowdfunding</a>
@@ -410,7 +277,6 @@ footer.site-footer {
 <!-- HERO -->
 <section class="hero">
     <div class="hero-overlay"></div>
-
     <div class="hero-inner">
         <p class="hero-tagline">Support the Vision</p>
         <h1 class="hero-title">Crowdfunding</h1>
@@ -418,68 +284,83 @@ footer.site-footer {
     </div>
 </section>
 
+<!-- FUND USAGE -->
+<section class="fund-usage">
+    <div class="inner">
+
+        <h2 class="fund-title">Wofür wird das Geld genutzt? – Total 7’500 CHF</h2>
+
+        <ul class="fund-list">
+            <li>
+                💧 <strong>1’900 CHF – Bewässerungssystem</strong><br>
+                Rohre, Tropfschläuche, Verteiler, Anschlüsse, Kleinmaterial.
+            </li>
+
+            <li>
+                🌱 <strong>1’100 CHF – Bodenanalyse & Labor</strong><br>
+                Chemische und organische Bodenanalyse, Nährstoffprofil, Auswertung Universität Azoren.
+            </li>
+
+            <li>
+                🌿 <strong>2’300 CHF – Flächenvorbereitung & Material</strong><br>
+                Mulch, Werkzeuge, Folie, Transport und Vorbereitung der Anbaufläche.
+            </li>
+
+            <li>
+                🟢 <strong>1’500 CHF – Bio-Zertifizierung</strong><br>
+                EU-Bio Portugal, Dokumentation, Erstaufnahme, Vorbereitung für Bio Suisse.
+            </li>
+
+            <li>
+                🌾 <strong>700 CHF – Saatrhizome & Startmaterial</strong><br>
+                Startpflanzen, Lagerung, Keimphase.
+            </li>
+        </ul>
+
+    </div>
+</section>
+
 <!-- ACTION -->
 <section class="action-section">
-    <div class="inner action-inner">
+    <div class="inner">
 
         <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
 
         <p class="section-lead">
-            Mit deinem Beitrag ermöglichst du den Aufbau eines nachhaltigen,
-            europäischen Bio-Ingwer-Projekts – mit kurzen Transportwegen,
-            fairer Produktion und maximaler Qualität.
+            Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
+            europäischen Bio-Ingwer-Projekts mit kurzen Transportwegen.
         </p>
 
-        <!-- SPENDENBAROMETER -->
-        <div class="barometer-box">
-            <div class="bar-bg">
-                <div class="bar-fill" style="width:0%;"></div>
-            </div>
-            <div class="bar-text">0% von 7’500 CHF</div>
-        </div>
+        <p class="section-lead">
+            Der Testanbau legt den Grundstein für eine spätere Produktion von mehreren Tonnen
+            Bio-Ingwer pro Jahr – frisch, ehrlich, direkt.
+        </p>
 
-        <!-- WOFÜR WIRD DAS GELD GENUTZT -->
-        <div class="use-of-funds">
-            <h3>Wofür wird das Geld genutzt?</h3>
-            <ul>
-                <li>• Installation des Bewässerungssystems</li>
-                <li>• Bodenanalyse auf São Miguel</li>
-                <li>• Kosten der Bio-Zertifizierung</li>
-            </ul>
-        </div>
-
-        <!-- ZAHLUNGSARTEN -->
-        <div class="payment-row">
-            <div class="payment-button">Kreditkarte</div>
-            <div class="payment-button">Twint</div>
-            <a href="https://wemakeit.com" target="_blank" class="payment-button">WeMakeIt</a>
-        </div>
-
-        <!-- WAS SCHON DA IST: HIGHLIGHTS -->
         <div class="highlight-grid">
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bewässerung</h3>
-                <p>
-                    Installation eines effizienten Systems zur Sicherstellung einer
-                    gleichmäßigen Wasserversorgung.
-                </p>
+                <p>Garantiert gleichmäßige Wasserversorgung für gesundes Pflanzenwachstum.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
-                <p>
-                    Untersuchung des vulkanischen Bodens auf Nährstoffe und Struktur.
-                </p>
+                <p>Der vulkanische Boden wird detailliert untersucht für optimale Bedingungen.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bio-Zertifizierung</h3>
-                <p>
-                    Transparenz und Qualität – die Basis für nachhaltige Landwirtschaft.
-                </p>
+                <p>Schafft Vertrauen und sichert langfristige Qualität und Transparenz.</p>
             </article>
 
+        </div>
+
+        <!-- SPENDENBAROMETER -->
+        <div class="barometer-wrap">
+            <div class="barometer-label">Fortschritt: 0%</div>
+            <div class="barometer">
+                <div class="barometer-fill" style="width:0%;"></div>
+            </div>
         </div>
 
         <div class="cta-block">
@@ -495,19 +376,16 @@ footer.site-footer {
 <footer class="site-footer">
     <div class="footer-inner">
 
-        <div class="footer-left">
+        <div>
             <div>info@purerootswitzerland.ch</div>
-            <div>
-                <a href="datenschutz.html">Datenschutz</a> ·
-                <a href="impressum.html">Impressum</a>
-            </div>
+            <div><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></div>
         </div>
 
-        <div class="footer-center">
-            <img src="logo2.jpg" class="footer-logo" id="footerLogo">
+        <div>
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
         </div>
 
-        <div class="footer-right">
+        <div>
             <div>Luzern, Switzerland</div>
             <div>&copy; 2025 Pure Root Switzerland</div>
         </div>
@@ -520,8 +398,8 @@ footer.site-footer {
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur kurz wirklich frisch erhältlich.</strong><br><br>
-            Pure Root Switzerland bringt frische Qualität – direkt von den Azoren.
+            <strong>Frischer Ingwer ist in der Schweiz nur kurz im Jahr wirklich frisch erhältlich.</strong><br><br>
+            Pure Root Switzerland möchte das ändern – direkt von den Azoren.
         </p>
     </div>
 </div>
@@ -532,8 +410,10 @@ footer.site-footer {
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
+
 const footerLogo=document.getElementById("footerLogo");
 const overlayBox=document.getElementById("overlayBox");
+
 if(footerLogo && overlayBox){
     footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
     overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
@@ -542,6 +422,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
