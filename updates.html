@@ -29,36 +29,21 @@ img { max-width:100%; display:block; }
 a { color:inherit; text-decoration:none; }
 
 .page-wrapper { min-height:100vh; display:flex; flex-direction:column; }
-.inner {
-    width:100%;
-    max-width:1100px;
-    margin:0 auto;
-    padding:0 1.5rem;
-}
+.inner { max-width:1100px; margin:0 auto; padding:0 1.5rem; }
 
-/* HEADER – IDENTISCH WIE INDEX */
+/* HEADER */
 header.site-header {
-    position:sticky;
-    top:0;
-    z-index:50;
+    position:sticky; top:0; z-index:50;
     background:rgba(30,40,24,0.95);
     box-shadow:var(--shadow);
 }
-
 .header-inner {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0.95rem 1.5rem;
-    max-width:1100px;
-    margin:0 auto;
+    display:flex; justify-content:space-between;
+    align-items:center; padding:0.95rem 1.5rem;
+    max-width:1100px; margin:0 auto;
 }
 
-.logo-block {
-    display:flex;
-    flex-direction:column;
-    gap:0.2rem;
-}
+.logo-block { display:flex; flex-direction:column; gap:0.2rem; }
 .logo-main {
     font-size:1.45rem;
     letter-spacing:0.21em;
@@ -71,162 +56,110 @@ header.site-header {
     color:var(--gold);
 }
 
-/* NAVIGATION – IDENTISCH ZU INDEX */
+/* NAVIGATION */
 nav.main-nav {
-    display:flex;
-    gap:1.8rem;
-    font-size:1rem;
+    display:flex; gap:1.8rem;
     letter-spacing:0.1em;
+    font-size:1rem;
     text-transform:uppercase;
 }
 nav.main-nav a {
-    position:relative;
     padding-bottom:0.1rem;
+    position:relative;
 }
 nav.main-nav a::after {
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:0;
-    width:0%;
-    height:1px;
+    content:""; position:absolute;
+    bottom:0; left:0;
+    width:0%; height:1px;
     background:var(--gold);
-    transition:0.3s ease;
+    transition:0.3s;
 }
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after {
     width:100%;
 }
 
-/* MOBILE NAVIGATION */
-.nav-toggle {
-    display:none;
-}
+/* MOBILE NAV */
+.nav-toggle { display:none; }
 
 @media(max-width:720px){
     .nav-toggle {
-        display:inline-flex;
-        padding:0.4rem 0.7rem;
-        border:1px solid rgba(255,255,255,0.3);
+        display:inline-flex; padding:0.4rem 0.7rem;
         border-radius:999px;
-        color:#fff;
-        background:transparent;
+        border:1px solid rgba(255,255,255,0.3);
+        background:transparent; color:#fff;
     }
 
     nav.main-nav {
-        position:absolute;
-        top:100%;
-        right:0;
+        position:absolute; top:100%; right:0;
         padding:1.2rem 1.4rem;
-        flex-direction:column;
-        align-items:flex-end;
+        flex-direction:column; align-items:flex-end;
         gap:1rem;
         background:rgba(30,40,24,0.98);
-        opacity:0;
-        pointer-events:none;
+        opacity:0; pointer-events:none;
         transform:translateY(-8px);
-        transition:0.25s ease;
+        transition:0.25s;
     }
-
     nav.main-nav.open {
-        opacity:1;
-        pointer-events:auto;
+        opacity:1; pointer-events:auto;
         transform:translateY(0);
     }
 }
 
-/* HERO */
+/* HERO — IDENTISCH ZU INDEX & CROWDFUNDING */
 .hero {
-    position:relative;
     min-height:82vh;
+    position:relative;
     display:flex;
     align-items:center;
+    background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
-
-/* HERO-BILD — JETZT FRUCHTBARKEIT + ABDUNKLUNG WIE INDEX */
-.hero-bg {
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-}
-
 .hero-overlay {
-    position:absolute;
-    inset:0;
-    z-index:-1;
-    background:
-        radial-gradient(circle at 18% 22%, rgba(0,0,0,0.35), transparent 40%),
-        linear-gradient(to bottom,
-            rgba(0,0,0,0.55),
-            rgba(0,0,0,0.78)
-        );
+    position:absolute; inset:0;
+    background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.48),
+        rgba(0,0,0,0.78)
+    );
+    z-index:1;
 }
-
 .hero-inner {
-    position:relative;
-    z-index:5;
-    width:100%;
-    max-width:1100px;
+    position:relative; z-index:2;
+    max-width:1100px; width:100%;
+    padding:5rem 1.5rem 3rem;
     margin:0 auto;
-    padding:4.5rem 1.5rem;
-    text-align:left;
 }
-
-/* HERO TEXT */
 .hero-tagline {
-    font-size:1.05rem;
-    letter-spacing:0.26em;
+    font-size:1.25rem;
+    letter-spacing:0.28em;
     text-transform:uppercase;
     color:var(--gold);
+    margin-bottom:1rem;
 }
-
 .hero-title {
-    font-size:clamp(2.4rem,4vw,3rem);
-    letter-spacing:0.2em;
-    text-transform:uppercase;
-    color:#fff;
-    margin-top:0.4rem;
+    font-size:3rem;
+    margin-bottom:0.5rem;
 }
-
 .hero-subtitle {
-    font-size:0.92rem;
-    letter-spacing:0.16em;
-    opacity:0.92;
-    margin-top:0.4rem;
-    text-transform:uppercase;
-}
-
-.hero-text {
-    max-width:620px;
-    margin-top:0.9rem;
+    font-size:1.4rem;
+    margin-bottom:1.2rem;
     opacity:0.96;
 }
 
 /* MOBILE HERO */
 @media(max-width:720px){
     .hero {
+        flex-direction:column;
         padding-top:2rem;
-        background:url("fruchtbarkeit.webp") center/cover no-repeat;
-    }
-    .hero-bg { display:none; }
-    .hero-overlay { display:none; }
-
-    .hero-inner {
         text-align:center;
-        padding-bottom:2.4rem;
     }
-
-    .hero-text {
-        margin-left:auto;
-        margin-right:auto;
+    .hero-inner {
+        padding-bottom:2rem;
         text-align:center;
     }
 }
 
-/* ACTION AREA */
+/* ACTION */
 .action-area {
     background:
         linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.68)),
@@ -235,8 +168,8 @@ nav.main-nav a.active::after {
 }
 
 .update-block {
-    margin-bottom:2.5rem;
-    padding-bottom:1rem;
+    margin-bottom:2.6rem;
+    padding-bottom:1.4rem;
     border-bottom:1px solid rgba(255,255,255,0.18);
 }
 
@@ -244,60 +177,53 @@ nav.main-nav a.active::after {
     font-size:1.3rem;
     text-transform:uppercase;
     letter-spacing:0.16em;
-    margin-bottom:0.8rem;
     color:var(--gold);
+    margin-bottom:0.7rem;
 }
 
 .update-date {
-    font-size:0.86rem;
-    opacity:0.8;
+    font-size:0.88rem;
+    opacity:0.82;
     margin-bottom:0.8rem;
 }
 
 .update-text {
     max-width:760px;
-    line-height:1.6;
+    line-height:1.65;
+    opacity:0.96;
 }
 
 @media(max-width:720px){
     .update-block,
-    .update-text,
     .update-title,
     .update-date,
-    .action-area .inner {
+    .update-text {
         text-align:center;
         margin-left:auto;
         margin-right:auto;
     }
 }
 
-/* FOOTER – IDENTISCH ZU INDEX */
+/* FOOTER */
 footer.site-footer {
     background:#10140c;
     padding:1.3rem 0 1.5rem;
     font-size:0.95rem;
     margin-top:auto;
 }
-
 .footer-inner {
     max-width:1100px;
     margin:0 auto;
     padding:0 1.5rem;
-    display:flex;
-    justify-content:space-between;
+    display:flex; justify-content:space-between;
     align-items:flex-end;
 }
-
 .footer-logo {
-    width:78px;
-    height:78px;
-    border-radius:50%;
-    border:3px solid #000;
-    object-fit:cover;
-    cursor:pointer;
+    width:78px; height:78px;
+    border-radius:50%; border:3px solid #000;
+    object-fit:cover; cursor:pointer;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
-
 @media(max-width:720px){
     .footer-inner {
         flex-direction:column;
@@ -309,12 +235,11 @@ footer.site-footer {
 
 /* OVERLAY */
 .overlay-bg {
-    position:fixed;
-    inset:0;
+    position:fixed; inset:0;
     background:rgba(0,0,0,0.78);
     display:none;
-    align-items:center;
     justify-content:center;
+    align-items:center;
     text-align:center;
     z-index:9999;
 }
@@ -325,12 +250,9 @@ footer.site-footer {
     padding:2rem;
     color:#fff;
 }
-
 .overlay-logo {
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    border:5px solid #000;
+    width:260px; height:260px;
+    border-radius:50%; border:5px solid #000;
     object-fit:cover;
     margin:0 auto 1.4rem;
 }
@@ -341,6 +263,7 @@ footer.site-footer {
 
 <div class="page-wrapper">
 
+<!-- HEADER -->
 <header class="site-header">
     <div class="header-inner">
 
@@ -364,23 +287,12 @@ footer.site-footer {
 
 <!-- HERO -->
 <section class="hero">
-    <img src="fruchtbarkeit.webp" class="hero-bg" alt="">
     <div class="hero-overlay"></div>
 
     <div class="hero-inner">
-
         <p class="hero-tagline">Projekt-Updates</p>
-
-        <h1 class="hero-title">WO WIR STEHEN</h1>
-
+        <h1 class="hero-title">Wo wir stehen</h1>
         <p class="hero-subtitle">Organic Ginger – Fortschritt & Einblicke</p>
-
-        <p class="hero-text">
-            Hier findest du alle Entwicklungen rund um den Testanbau auf São Miguel,
-            den Projektfortschritt und wichtige Meilensteine auf dem Weg zu nachhaltigem,
-            europäischem Bio-Ingwer.
-        </p>
-
     </div>
 </section>
 
@@ -390,28 +302,29 @@ footer.site-footer {
 
         <div class="update-block">
             <div class="update-title">Projektstart & Vorbereitung</div>
-            <div class="update-date">Update vom Januar 2025</div>
+            <div class="update-date">Januar 2025</div>
             <div class="update-text">
-                Die Grundlagen für den nachhaltigen Testanbau sind gelegt. Die Zusammenarbeit
-                mit dem lokalen Biolandwirt ist organisiert und erste Schritte bezüglich logistischer
-                Planung wurden begonnen.
+                Die Grundlagen für den nachhaltigen Testanbau sind gelegt.
+                Die Zusammenarbeit mit dem lokalen Biolandwirt steht,
+                und die logistische Vorbereitung hat begonnen.
             </div>
         </div>
 
         <div class="update-block">
             <div class="update-title">Bio-Zertifizierung & Infrastruktur</div>
-            <div class="update-date">Update vom Februar 2025</div>
+            <div class="update-date">Februar 2025</div>
             <div class="update-text">
                 Die ersten Gespräche mit dem Zertifizierungsinstitut sind abgeschlossen.
+                Die Vorbereitungen zur Flächenerschließung laufen.
             </div>
         </div>
 
         <div class="update-block">
             <div class="update-title">Nächste Schritte</div>
-            <div class="update-date">Update vom März 2025</div>
+            <div class="update-date">März 2025</div>
             <div class="update-text">
-                Jetzt folgen die finalen
-                Zertifizierungsunterlagen und die Vorbereitung der neuen Flächen.
+                Jetzt folgen die finalen Zertifizierungsunterlagen
+                und praktische Vorbereitungen direkt auf São Miguel.
             </div>
         </div>
 
@@ -447,10 +360,10 @@ footer.site-footer {
 <!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo">
+        <img src="logo2.jpg" class="overlay-logo" loading="lazy">
         <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr erhältlich.</strong>
-            <br><br>Mein Projekt möchte das ändern – mit nachhaltigem Anbau auf den Azoren.
+            <strong>Frischer Ingwer ist in der Schweiz nur rund zwei Monate im Jahr wirklich frisch erhältlich.</strong><br><br>
+            Dieses Projekt möchte das ändern – mit nachhaltigem Anbau auf den Azoren.
         </p>
     </div>
 </div>
@@ -459,19 +372,19 @@ footer.site-footer {
 function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
+const footerLogo=document.getElementById("footerLogo");
+const overlayBox=document.getElementById("overlayBox");
 
-const footerLogo = document.getElementById("footerLogo");
-const overlayBox = document.getElementById("overlayBox");
-
-if (footerLogo && overlayBox) {
-    footerLogo.addEventListener("mouseenter", () => overlayBox.classList.add("show"));
-    footerLogo.addEventListener("click", () => overlayBox.classList.add("show"));
-    overlayBox.addEventListener("click", () => overlayBox.classList.remove("show"));
+if(footerLogo && overlayBox){
+    footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
+    overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
 }
 </script>
 
 </body>
 </html>
+
+
 
 
 
