@@ -91,7 +91,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO — 1:1 AUS INDEX */
+/* HERO — exakt die saubere Version */
 .hero{
     min-height:82vh;
     position:relative;
@@ -118,7 +118,7 @@ nav.main-nav a.active::after{width:100%;}
 .hero-title{font-size:3rem;margin-bottom:0.5rem;}
 .hero-subtitle{font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;}
 
-/* MOBILE HERO — 1:1 AUS INDEX */
+/* MOBILE HERO — 1:1 wie Index */
 @media(max-width:720px){
     .hero{flex-direction:column;padding-top:2rem;text-align:center;}
     .hero-inner{
@@ -129,7 +129,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* CONTACT SECTION */
+/* CONTACT SECTION — nur Text ergänzt */
 .contact-section{
     background:
       linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
@@ -143,6 +143,12 @@ nav.main-nav a.active::after{width:100%;}
 .contact-text{
     max-width:780px;opacity:0.95;margin-bottom:2rem;text-align:left;
 }
+
+/* → Nur hier wurde der neue Text eingefügt */
+.contact-text-extended{
+    max-width:780px;opacity:0.95;margin-bottom:2rem;text-align:left;
+}
+
 .contact-form{max-width:780px;}
 .contact-form input,
 .contact-form textarea{
@@ -162,6 +168,7 @@ nav.main-nav a.active::after{width:100%;}
 @media(max-width:720px){
     .contact-heading,
     .contact-text,
+    .contact-text-extended,
     .contact-form{
         text-align:center;margin-left:auto;margin-right:auto;
     }
@@ -225,7 +232,7 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO — 1:1 identisch -->
+<!-- HERO -->
 <section class="hero">
     <div class="hero-overlay"></div>
 
@@ -244,14 +251,13 @@ footer.site-footer{
 
         <p class="contact-text">
             Egal ob Fragen, Feedback oder Interesse am Projekt – ich freue mich über deine Nachricht.
-            <br><br>
-            In den letzten Monaten ist unglaublich viel passiert: ich habe Bauern kontaktiert,
-            mit der Universität gesprochen, Anbauflächen geprüft, Angebote für Material eingeholt,
-            Logistik organisiert und diese gesamte Website aufgebaut – alles Stück für Stück,
-            jeden Tag ein bisschen mehr.
-            <br><br>
-            Wenn du Fragen hast oder mehr über einzelne Schritte wissen möchtest,
-            melde dich jederzeit.
+        </p>
+
+        <p class="contact-text-extended">
+            Die letzten Monate waren intensiv: Recherche, Aufbau dieser Webseite,  
+            viele Gespräche mit Bauern, Behörden und der Universität.  
+            Jetzt beginnt die entscheidende Phase – und jede Nachricht, jedes Feedback  
+            und jeder neue Kontakt hilft mir weiter.
         </p>
 
         <form class="contact-form">
@@ -311,6 +317,7 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
 
 
 
