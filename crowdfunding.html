@@ -101,8 +101,7 @@ nav.main-nav a.active::after {
         padding:0.4rem 0.7rem;
         border-radius:999px;
         border:1px solid rgba(255,255,255,0.3);
-        background:transparent;
-        color:#fff;
+        background:transparent; color:#fff;
     }
 
     nav.main-nav {
@@ -156,9 +155,11 @@ nav.main-nav a.active::after {
 .hero-overlay {
     position:absolute;
     inset:0;
-    background:linear-gradient(to bottom,
+    background:linear-gradient(
+        to bottom,
         rgba(0,0,0,0.48),
-        rgba(0,0,0,0.78));
+        rgba(0,0,0,0.78)
+    );
     z-index:1;
 }
 
@@ -224,6 +225,39 @@ nav.main-nav a.active::after {
     margin-bottom:1.3rem;
 }
 
+/* SPENDENBAROMETER */
+.barometer-box {
+    margin:1.8rem 0 2.2rem;
+    max-width:700px;
+}
+
+.barometer-label {
+    font-size:1rem;
+    margin-bottom:0.4rem;
+    letter-spacing:0.05em;
+}
+
+.barometer-track {
+    width:100%;
+    height:16px;
+    background:rgba(255,255,255,0.25);
+    border-radius:999px;
+    overflow:hidden;
+}
+
+.barometer-fill {
+    width:0%;
+    height:100%;
+    background:var(--gold);
+    border-radius:999px;
+}
+
+.barometer-stats {
+    margin-top:0.4rem;
+    font-size:0.95rem;
+    opacity:0.9;
+}
+
 .highlight-grid {
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -247,10 +281,9 @@ nav.main-nav a.active::after {
     .highlight-grid { grid-template-columns:1fr; }
 }
 
-/* CTA – KORRIGIERTER ABSTAND */
+/* CTA */
 .cta-block { margin-top:3.4rem; }
 .cta-btn-row { margin-top:1.2rem; }
-
 @media(max-width:720px){
     .cta-btn-row { justify-content:center; display:flex; margin-top:1.4rem; }
 }
@@ -303,9 +336,8 @@ footer.site-footer {
 .overlay-bg.show { display:flex; }
 .overlay-box {
     max-width:660px;
-    padding:2rem 2rem 2.6rem;
+    padding:2rem 2.6rem;
     color:#fff;
-    text-align:center;
 }
 .overlay-logo {
     width:260px;
@@ -356,49 +388,42 @@ footer.site-footer {
 <section class="action-section">
     <div class="inner action-inner">
 
-        <div>
-            <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
+        <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
 
-            <p class="section-lead">
-                Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
-                europäischen Bio-Ingwer-Projekts mit fairer Produktion und
-                kurzen Transportwegen. Jede Spende stärkt die lokale Landwirtschaft
-                auf den Azoren und bringt frischen Bio-Ingwer direkt in die Schweiz – 
-                ohne unnötige Zwischenlagerung oder lange Transportzeiten.
-            </p>
+        <p class="section-lead">
+            Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
+            europäischen Bio-Ingwer-Projekts mit fairer Produktion und
+            kurzen Transportwegen.
+        </p>
 
-            <p class="section-lead">
-                Der Testanbau legt den Grundstein für eine spätere Produktion von mehreren Tonnen
-                Bio-Ingwer pro Jahr. Deine Unterstützung hilft uns, eine stabile, faire und
-                nachhaltige Struktur aufzubauen, die langfristig sowohl Landwirten als auch
-                Konsument:innen zugutekommt.
-            </p>
+        <!-- SPENDENBAROMETER -->
+        <div class="barometer-box">
+            <div class="barometer-label">Fortschritt</div>
+
+            <div class="barometer-track">
+                <div class="barometer-fill" style="width:0%;"></div>
+            </div>
+
+            <div class="barometer-stats">
+                0 CHF von 7’500 CHF • 0%
+            </div>
         </div>
 
         <div class="highlight-grid">
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bewässerung</h3>
-                <p>
-                    Installation eines effizienten Systems zur Sicherstellung einer
-                    gleichmäßigen Wasserversorgung – entscheidend für gesundes Wachstum.
-                </p>
+                <p>Installation eines Systems zur gleichmäßigen Wasserversorgung.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bodenanalyse</h3>
-                <p>
-                    Untersuchung des vulkanischen Bodens auf Nährstoffe, Struktur
-                    und Wasserhaltefähigkeit – Basis für optimale Bedingungen.
-                </p>
+                <p>Untersuchung der vulkanischen Böden für optimale Anbaubedingungen.</p>
             </article>
 
             <article class="highlight-card">
                 <h3 class="highlight-title">Bio-Zertifizierung</h3>
-                <p>
-                    Transparenz, Fairness und Nachhaltigkeit – die Zertifizierung
-                    schafft Vertrauen und ermöglicht langfristige Qualität.
-                </p>
+                <p>Ein wichtiger Schritt zu Transparenz, Fairness und Qualität.</p>
             </article>
 
         </div>
@@ -416,7 +441,7 @@ footer.site-footer {
 <footer class="site-footer">
     <div class="footer-inner">
 
-        <div class="footer-column footer-left">
+        <div class="footer-left">
             <div>info@purerootswitzerland.ch</div>
             <div>
                 <a href="datenschutz.html">Datenschutz</a> ·
@@ -424,11 +449,11 @@ footer.site-footer {
             </div>
         </div>
 
-        <div class="footer-column footer-center">
-            <img src="logo2.jpg" class="footer-logo" id="footerLogo" alt="">
+        <div class="footer-center">
+            <img src="logo2.jpg" class="footer-logo" id="footerLogo">
         </div>
 
-        <div class="footer-column footer-right">
+        <div class="footer-right">
             <div>Luzern, Switzerland</div>
             <div>&copy; 2025 Pure Root Switzerland</div>
         </div>
@@ -436,19 +461,17 @@ footer.site-footer {
     </div>
 </footer>
 
+</div>
+
 <!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo" alt="">
+        <img src="logo2.jpg" class="overlay-logo">
         <p>
-            <strong>Frischer Ingwer ist in der Schweiz nur kurz im Jahr wirklich frisch erhältlich.</strong><br><br>
-            Pure Root Switzerland möchte das ändern – mit nachhaltigem Bio-Anbau auf den Azoren,
-            kurzen Transportwegen und einer direkten Verbindung in die Schweiz.<br><br>
-            So entsteht ein Produkt mit klarer Herkunft, hoher Qualität und echter Nähe.
+            <strong>Pure Root Switzerland</strong><br><br>
+            Nachhaltiger Bio-Ingwer von den Azoren – frisch, fair und direkt.
         </p>
     </div>
-</div>
-
 </div>
 
 <script>
@@ -457,6 +480,7 @@ function toggleNav(){
 }
 const footerLogo=document.getElementById("footerLogo");
 const overlayBox=document.getElementById("overlayBox");
+
 if(footerLogo && overlayBox){
     footerLogo.addEventListener("click",()=>overlayBox.classList.add("show"));
     overlayBox.addEventListener("click",()=>overlayBox.classList.remove("show"));
@@ -465,6 +489,7 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
 
 
 
