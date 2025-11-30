@@ -35,7 +35,7 @@ a { color:inherit; text-decoration:none; }
     padding:0 1.5rem;
 }
 
-/* HEADER – IDENTISCH ZU INDEX */
+/* HEADER – IDENTISCH */
 header.site-header {
     position:sticky;
     top:0;
@@ -65,7 +65,7 @@ header.site-header {
 }
 .logo-sub {
     font-size:0.9rem;
-    letter-letter-spacing:0.24em;
+    letter-spacing:0.24em;
     text-transform:uppercase;
     color:var(--gold);
 }
@@ -124,7 +124,6 @@ nav.main-nav a.active::after {
         transform:translateY(-8px);
         transition:0.25s ease;
     }
-
     nav.main-nav.open {
         opacity:1;
         pointer-events:auto;
@@ -145,14 +144,13 @@ nav.main-nav a.active::after {
     box-shadow:0 0 20px rgba(0,0,0,0.4);
     cursor:pointer;
     transition:0.15s;
-    display:inline-block;
 }
 .btn-primary:hover {
     transform:translateY(-1px);
     box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
-/* HERO — CSS-BACKGROUND WIE INDEX & CROWDFUNDING */
+/* HERO – IDENTISCH ZU INDEX/CROWDFUNDING */
 .hero {
     min-height:82vh;
     position:relative;
@@ -200,15 +198,17 @@ nav.main-nav a.active::after {
     opacity:0.96;
 }
 
-/* MOBILE HERO — IDENTISCH, ABER TEXT ZENTRIERT */
+/* MOBILE HERO – PERFEKT ANGEPASST */
 @media(max-width:720px){
     .hero {
-        padding-top:2rem;
+        padding-top:1.4rem;
+        padding-bottom:1.4rem;
         text-align:center;
     }
     .hero-inner {
+        padding-top:0;
+        padding-bottom:1.4rem;
         text-align:center;
-        padding-bottom:2rem;
     }
 }
 
@@ -250,9 +250,14 @@ section { padding:2.4rem 0; }
     opacity:0.97;
 }
 
-.story-highlight { font-style:italic; }
+.story-highlight {
+    font-style:italic;
+}
 
-.story-image-wrap { display:flex; justify-content:flex-end; }
+.story-image-wrap {
+    display:flex;
+    justify-content:flex-end;
+}
 
 .story-image {
     max-width:340px;
@@ -262,12 +267,18 @@ section { padding:2.4rem 0; }
 }
 
 @media(max-width:860px){
-    .story-layout { grid-template-columns:1fr; }
-    .story-image-wrap { justify-content:center; }
-    .story-image { max-width:280px; }
+    .story-layout {
+        grid-template-columns:1fr;
+    }
+    .story-image-wrap {
+        justify-content:center;
+    }
+    .story-image {
+        max-width:280px;
+    }
 }
 
-/* STORY SUBSECTION – Button-Abstand final korrigiert */
+/* STORY SUBSECTION – Button-Abstand perfektioniert */
 .story-subsection {
     margin-top:2.6rem;
     text-align:left;
@@ -299,6 +310,7 @@ footer.site-footer {
     font-size:0.95rem;
     margin-top:auto;
 }
+
 .footer-inner {
     max-width:1100px;
     margin:0 auto;
@@ -307,6 +319,7 @@ footer.site-footer {
     justify-content:space-between;
     align-items:flex-end;
 }
+
 .footer-logo {
     width:78px;
     height:78px;
@@ -316,6 +329,7 @@ footer.site-footer {
     cursor:pointer;
     box-shadow:0 0 18px rgba(0,0,0,0.55);
 }
+
 @media(max-width:720px){
     .footer-inner {
         flex-direction:column;
@@ -342,6 +356,7 @@ footer.site-footer {
     max-width:660px;
     padding:2rem 2rem 2.6rem;
 }
+
 .overlay-logo {
     width:260px;
     height:260px;
@@ -365,6 +380,7 @@ footer.site-footer {
             <div class="logo-main">PURE ROOT SWITZERLAND</div>
             <div class="logo-sub">ORGANIC GINGER</div>
         </div>
+
         <button class="nav-toggle" onclick="toggleNav()">Menü</button>
 
         <nav class="main-nav" id="mainNav">
@@ -384,9 +400,7 @@ footer.site-footer {
     <div class="hero-inner">
         <p class="hero-tagline">A New Beginning</p>
         <h1 class="hero-title">Meine Geschichte</h1>
-        <p class="hero-subtitle">
-            Von einer Diagnose, die alles verändert, zu einem Projekt, das neue Wurzeln schlägt
-        </p>
+        <p class="hero-subtitle">Von einer Diagnose, die alles veränderte, zu einem Projekt, das neue Wurzeln schlägt</p>
     </div>
 </section>
 
@@ -400,26 +414,27 @@ footer.site-footer {
         <div class="story-layout">
             <div class="story-text-block">
                 <p>
-                    Die Krebserkrankung hat mein Leben tief verändert. Dinge, die früher selbstverständlich erschienen, verloren plötzlich an Bedeutung.
+                    Die Krebserkrankung hat mein Leben tief verändert. Dinge, die früher selbstverständlich erschienen,
+                    verloren plötzlich an Bedeutung.
                 </p>
 
                 <p>
-                    Werte wie Gesundheit, Naturverbundenheit, Erdung und echte Begegnungen rückten in den Vordergrund.
+                    Stattdessen rückten Gesundheit, Naturverbundenheit, Erdung und echte Begegnungen in den Mittelpunkt.
                 </p>
 
                 <p class="story-highlight">
-                    Ingwer wurde während meiner Genesung zu einem täglichen Begleiter –
-                    als Symbol für Wärme, Kraft und ein starkes Immunsystem.
+                    Ingwer wurde für mich während der Genesung zu einem täglichen Begleiter –
+                    ein Symbol für Kraft, Wärme und ein starkes Immunsystem.
                 </p>
 
                 <p>
                     Daraus entstand die Vision, hochwertigen Bio-Ingwer so zu produzieren,
-                    wie ich mir Lebensmittel wünsche – frisch, ehrlich und transparent.
+                    wie ich mir Lebensmittel selbst wünsche – frisch, ehrlich und transparent.
                 </p>
 
                 <p>
-                    São Miguel vereint vulkanische Böden, mildes Klima und ein tiefes Naturbewusstsein –
-                    ein Ort, an dem dieses Projekt Wurzeln schlagen kann.
+                    São Miguel vereint vulkanische Böden, mildes Klima und ein tiefes Bewusstsein für Natur –
+                    ein idealer Ort, an dem dieses Projekt Wurzeln schlagen kann.
                 </p>
             </div>
 
@@ -434,13 +449,12 @@ footer.site-footer {
             <h3>Von der Idee zum Projekt</h3>
 
             <p>
-                Aus Gedanken wurden Gespräche – mit Biolandwirten, Bodenexperten
+                Aus einer Idee wurden Gespräche – mit lokalen Biolandwirten, Bodenexperten
                 und der Universidade dos Açores.
             </p>
 
             <p>
-                Die Vision: die kürzeste, frischeste und transparenteste Ingwerbrücke
-                zwischen den Azoren und der Schweiz.
+                Die Vision: die frischeste und direkteste Bio-Ingwer-Brücke zwischen den Azoren und der Schweiz.
             </p>
 
             <p>
@@ -459,7 +473,10 @@ footer.site-footer {
 
         <div>
             <div>info@purerootswitzerland.ch</div>
-            <div><a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></div>
+            <div>
+                <a href="datenschutz.html">Datenschutz</a> · 
+                <a href="impressum.html">Impressum</a>
+            </div>
         </div>
 
         <div>
@@ -479,10 +496,10 @@ footer.site-footer {
 <!-- OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
-        <img src="logo2.jpg" class="overlay-logo" alt="">
+        <img src="logo2.jpg" class="overlay-logo">
         <p>
             <strong>Pure Root Switzerland</strong><br><br>
-            Ein Projekt, das aus einer persönlichen Geschichte entstand –  
+            Ein Projekt, das aus einem persönlichen Wendepunkt entstanden ist –  
             mit Verantwortung für Natur, Menschen und Herkunft.
         </p>
     </div>
@@ -504,6 +521,7 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
 
 
 
