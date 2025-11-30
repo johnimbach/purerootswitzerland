@@ -50,7 +50,7 @@ header.site-header{
     color:var(--gold);
 }
 
-/* NAVIGATION */
+/* NAV */
 nav.main-nav{
     display:flex;gap:1.8rem;
     letter-spacing:0.1em;font-size:1rem;text-transform:uppercase;
@@ -116,8 +116,8 @@ nav.main-nav a.active::after{width:100%;}
 }
 
 @media(max-width:720px){
-    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
-    .hero-inner{text-align:center;padding-bottom:2rem;}
+    .hero{text-align:center;}
+    .hero-inner{text-align:center;}
 }
 
 /* BUTTONS */
@@ -147,7 +147,36 @@ nav.main-nav a.active::after{width:100%;}
     max-width:780px;opacity:0.95;line-height:1.65;margin-bottom:1.3rem;
 }
 
-/* HIGHLIGHTS */
+/* IMAGE BLOCK RIGHT OF TEXT */
+.image-column {
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    max-width:300px;
+}
+
+@media (max-width:720px) {
+    .image-column {
+        max-width:100%;
+        margin:1.5rem 0;
+    }
+}
+
+/* GRID FOR DESKTOP: TEXT LEFT, IMAGES RIGHT */
+.text-image-wrapper {
+    display:flex;
+    gap:2rem;
+    align-items:flex-start;
+}
+
+@media(max-width:720px){
+    .text-image-wrapper {
+        flex-direction:column;
+        text-align:center;
+    }
+}
+
+/* HIGHLIGHTS ETC. remain identical... */
 .highlight-grid{
     display:grid;grid-template-columns:repeat(3,1fr);
     gap:1.8rem;margin-top:1.8rem;
@@ -162,7 +191,6 @@ nav.main-nav a.active::after{width:100%;}
 }
 .highlight-card p{line-height:1.55;}
 
-/* KOSTENBLOCK */
 .cost-details{
     margin-top:3rem;
     padding:2rem 1.8rem;
@@ -180,7 +208,7 @@ nav.main-nav a.active::after{width:100%;}
     line-height:1.55;
 }
 
-/* SPENDENBAROMETER */
+/* BAROMETER */
 .barometer-wrap{
     margin:3rem 0 0;text-align:left;
 }
@@ -198,59 +226,31 @@ nav.main-nav a.active::after{width:100%;}
     transition:0.6s;
 }
 
-/* CTA BLOCK (falls du den Button später wieder willst) */
-.cta-block{margin-top:1.4rem;}
-.cta-btn-row{margin-top:1.3rem;}
 @media(max-width:720px){
-    .cta-btn-row{display:flex;justify-content:center;}
-}
-
-/* ZAHLUNGS-BUTTONS */
-.payment-heading{
-    margin-top:2.8rem;
-}
-
-.payment-buttons{
-    margin-top:1.6rem;
-    display:flex;
-    justify-content:center;
-    gap:1rem;
-    flex-wrap:wrap;
-}
-
-.pay-btn{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-width:200px;
-    padding:0.65rem 1.2rem;
-    background:transparent;
-    border:2px solid var(--gold);
-    border-radius:999px;
-    letter-spacing:0.15em;
-    font-size:0.9rem;
-    color:var(--gold);
-    cursor:pointer;
-    transition:0.2s;
-    text-transform:uppercase;
-    text-align:center;
-}
-.pay-btn:hover{
-    background:rgba(234,203,131,0.15);
-}
-
-@media(max-width:720px){
-    .action-section{text-align:center;}
-    .highlight-grid{grid-template-columns:1fr;}
     .barometer-wrap{text-align:center;}
-    .payment-buttons{
-        flex-direction:column;
-        align-items:center;
-        gap:0.8rem;
-    }
 }
 
-/* FOOTER */
+/* PAYMENT BUTTONS */
+.payment-heading{margin-top:2.8rem;}
+.payment-buttons{
+    margin-top:1.6rem;display:flex;justify-content:center;
+    gap:1rem;flex-wrap:wrap;
+}
+.pay-btn{
+    display:flex;justify-content:center;align-items:center;
+    min-width:200px;padding:0.65rem 1.2rem;
+    background:transparent;border:2px solid var(--gold);
+    border-radius:999px;letter-spacing:0.15em;
+    font-size:0.9rem;color:var(--gold);
+    cursor:pointer;transition:0.2s;
+    text-transform:uppercase;text-align:center;
+}
+.pay-btn:hover{background:rgba(234,203,131,0.15);}
+@media(max-width:720px){
+    .payment-buttons{flex-direction:column;align-items:center;gap:0.8rem;}
+}
+
+/* FOOTER IDENTICAL... */
 footer.site-footer{
     background:#10140c;padding:1.3rem 0 1.5rem;
     font-size:0.95rem;margin-top:auto;
@@ -266,8 +266,7 @@ footer.site-footer{
 }
 @media(max-width:720px){
     .footer-inner{
-        flex-direction:column;align-items:center;
-        text-align:center;gap:0.9rem;
+        flex-direction:column;align-items:center;text-align:center;gap:0.9rem;
     }
 }
 
@@ -344,16 +343,38 @@ footer.site-footer{
 
         <h2 class="section-heading">Warum deine Unterstützung wichtig ist</h2>
 
-        <p class="section-lead">
-            Mit deinem Beitrag hilfst du beim Aufbau eines nachhaltigen,
-            europäischen Bio-Ingwer-Projekts mit kurzen Transportwegen.
-        </p>
+        <div class="text-image-wrapper">
 
-        <p class="section-lead">
-            Der Testanbau legt den Grundstein für eine spätere Produktion von mehreren Tonnen
-            Bio-Ingwer pro Jahr – frisch, ehrlich, direkt.
-        </p>
+            <!-- TEXT -->
+            <div class="text-block">
 
+                <p class="section-lead" style="max-width:780px;">
+                    Dieses Crowdfunding ermöglicht den Start des <strong>Testanbaus</strong> auf den Azoren – 
+                    der entscheidende erste Schritt, um herauszufinden, wie gut Bio-Ingwer im vulkanischen Boden wächst.
+                    Ich arbeite dafür mit <strong>Paulo Amaral</strong> zusammen, einem erfahrenen Bio-Bauern 
+                    und Pionier im Kaffeeanbau auf den Azoren. Sein Mut, Neues auszuprobieren, macht ihn zum idealen Partner 
+                    für dieses Projekt.
+                </p>
+
+                <p class="section-lead" style="max-width:780px;">
+                    Mit deinem Beitrag können wir die ersten Parzellen anlegen, Bewässerung installieren, 
+                    Boden untersuchen und Startmaterial pflanzen. Jeder Franken bringt uns näher an die 
+                    erste kleine Testernte – und an die Vision eines frischen, nachhaltig produzierten 
+                    Bio-Ingwers direkt aus Europa.
+                </p>
+
+            </div>
+
+            <!-- IMAGE COLUMN (RIGHT ON DESKTOP, BELOW ON MOBILE) -->
+            <div class="image-column">
+                <img src="ingwerinhand.jpg" alt="Ingwer frisch in der Hand">
+                <img src="ingwerfrisch.jpg" alt="Frischer Bio-Ingwer">
+                <img src="ingwerfeld.jpg" alt="Ingwerfeld auf den Azoren">
+            </div>
+
+        </div>
+
+        <!-- HIGHLIGHTS -->
         <div class="highlight-grid">
 
             <article class="highlight-card">
@@ -382,7 +403,7 @@ footer.site-footer{
 
         </div>
 
-        <!-- KOSTENLISTE -->
+        <!-- KOSTEN -->
         <div class="cost-details">
             <div class="cost-title">Detaillierte Kostenübersicht – Total 7’500 CHF</div>
 
@@ -405,7 +426,7 @@ footer.site-footer{
             Transport Portugal (Material) · Transport Azoren → Schweiz (Testmenge Ingwer) · Kleinmaterial.</p>
         </div>
 
-        <!-- SPENDENBAROMETER -->
+        <!-- BAROMETER -->
         <div class="barometer-wrap">
             <div class="barometer-label">Fortschritt: 0%</div>
             <div class="barometer">
@@ -413,23 +434,13 @@ footer.site-footer{
             </div>
         </div>
 
-        <!-- ZAHLUNGSMÖGLICHKEITEN -->
+        <!-- PAYMENT -->
         <h2 class="section-heading payment-heading">Unterstützen – Zahlungsmöglichkeiten</h2>
 
         <div class="payment-buttons">
-
-            <button class="pay-btn" type="button" onclick="openPayment('twint')">
-                TWINT
-            </button>
-
-            <button class="pay-btn" type="button" onclick="openPayment('bank')">
-                Bank
-            </button>
-
-            <a href="https://wemakeit.com" target="_blank" class="pay-btn">
-                WeMakeIt
-            </a>
-
+            <button class="pay-btn" type="button" onclick="openPayment('twint')">TWINT</button>
+            <button class="pay-btn" type="button" onclick="openPayment('bank')">Bank</button>
+            <a href="https://wemakeit.com" target="_blank" class="pay-btn">WeMakeIt</a>
         </div>
 
     </div>
@@ -456,7 +467,7 @@ footer.site-footer{
     </div>
 </footer>
 
-<!-- FOOTER-OVERLAY -->
+<!-- FOOTER OVERLAY -->
 <div class="overlay-bg" id="overlayBox">
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
@@ -467,7 +478,7 @@ footer.site-footer{
     </div>
 </div>
 
-<!-- PAYMENT-OVERLAY -->
+<!-- PAYMENT OVERLAY -->
 <div class="payment-overlay" id="paymentOverlay">
     <div class="payment-box" id="paymentBox">
 
@@ -488,7 +499,6 @@ function toggleNav(){
     document.getElementById("mainNav").classList.toggle("open");
 }
 
-/* ZAHLUNG */
 function openPayment(method){
     const overlay = document.getElementById("paymentOverlay");
     const text = document.getElementById("paymentText");
@@ -497,7 +507,7 @@ function openPayment(method){
     qr.style.display = "none";
 
     if(method === "twint"){
-        qr.src = "twint-placeholder.jpg"; // Platzhalter
+        qr.src = "twint-placeholder.jpg";
         qr.style.display = "block";
         text.innerHTML = "Provisorischer TWINT QR – der finale Code folgt.";
     }
@@ -513,7 +523,6 @@ function closePayment(){
     document.getElementById("paymentOverlay").classList.remove("show");
 }
 
-/* FOOTER-LOGO OVERLAY */
 const footerLogo = document.getElementById("footerLogo");
 const overlayBox = document.getElementById("overlayBox");
 
@@ -525,6 +534,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
