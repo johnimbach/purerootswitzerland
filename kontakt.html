@@ -91,7 +91,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO — 1:1 VON INDEX */
+/* HERO — 1:1 AUS INDEX */
 .hero{
     min-height:82vh;
     position:relative;
@@ -112,28 +112,19 @@ nav.main-nav a.active::after{width:100%;}
     margin:0 auto;
 }
 .hero-tagline{
-    font-size:1.25rem;letter-spacing:0.28em;
-    text-transform:uppercase;color:var(--gold);
-    margin-bottom:1rem;
+    font-size:1.25rem;letter-spacing:0.28em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:1rem;
 }
-.hero-title{
-    font-size:3rem;margin-bottom:0.5rem;
-}
-.hero-subtitle{
-    font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
-}
+.hero-title{font-size:3rem;margin-bottom:0.5rem;}
+.hero-subtitle{font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;}
 
-/* MOBILE HERO — 1:1 VON INDEX */
+/* MOBILE HERO — 1:1 AUS INDEX */
 @media(max-width:720px){
-    .hero{
-        flex-direction:column;
-        padding-top:2rem;
-        text-align:center;
-    }
+    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
     .hero-inner{
         order:1;
-        padding-top:4.2rem;   /* <<< ENTSCHEIDEND – exakt wie Index */
         padding-bottom:2rem;
+        padding-top:0;
         text-align:center;
     }
 }
@@ -190,6 +181,7 @@ footer.site-footer{
     object-fit:cover;border:3px solid #000;
     box-shadow:0 0 18px rgba(0,0,0,0.55);cursor:pointer;
 }
+
 @media(max-width:720px){
     .footer-inner{
         flex-direction:column;text-align:center;align-items:center;gap:0.4rem;
@@ -233,7 +225,7 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO — perfekt wie Index -->
+<!-- HERO — 1:1 identisch -->
 <section class="hero">
     <div class="hero-overlay"></div>
 
@@ -252,6 +244,14 @@ footer.site-footer{
 
         <p class="contact-text">
             Egal ob Fragen, Feedback oder Interesse am Projekt – ich freue mich über deine Nachricht.
+            <br><br>
+            In den letzten Monaten ist unglaublich viel passiert: ich habe Bauern kontaktiert,
+            mit der Universität gesprochen, Anbauflächen geprüft, Angebote für Material eingeholt,
+            Logistik organisiert und diese gesamte Website aufgebaut – alles Stück für Stück,
+            jeden Tag ein bisschen mehr.
+            <br><br>
+            Wenn du Fragen hast oder mehr über einzelne Schritte wissen möchtest,
+            melde dich jederzeit.
         </p>
 
         <form class="contact-form">
@@ -311,6 +311,7 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
 
 
 
