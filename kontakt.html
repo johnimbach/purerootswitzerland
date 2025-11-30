@@ -7,11 +7,12 @@
 
 <style>
 :root {
-    --green-dark:#3e4a29;
-    --green:#556b2f;
-    --gold:#eacb83;
-    --white:#ffffff;
-    --shadow:0 0 22px rgba(0,0,0,0.55);
+    --green-dark: #3e4a29;
+    --green: #556b2f;
+    --gold: #eacb83;
+    --cream: #fdfdf8;
+    --white: #ffffff;
+    --shadow: 0 0 22px rgba(0,0,0,0.55);
 }
 
 /* GLOBAL */
@@ -28,7 +29,12 @@ img{max-width:100%;display:block;}
 a{text-decoration:none;color:inherit;}
 
 .page-wrapper{min-height:100vh;display:flex;flex-direction:column;}
-.inner{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+.inner{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 1.5rem;
+}
 
 /* HEADER */
 header.site-header{
@@ -38,7 +44,8 @@ header.site-header{
 }
 .header-inner{
     display:flex;justify-content:space-between;align-items:center;
-    padding:0.95rem 1.5rem;max-width:1100px;margin:0 auto;
+    padding:0.95rem 1.5rem;
+    max-width:1100px;margin:0 auto;
 }
 .logo-block{display:flex;flex-direction:column;gap:0.2rem;}
 .logo-main{
@@ -51,32 +58,30 @@ header.site-header{
 
 /* NAVIGATION */
 nav.main-nav{
-    display:flex;gap:1.8rem;
-    text-transform:uppercase;
-    letter-spacing:0.1em;font-size:1rem;
+    display:flex;gap:1.8rem;letter-spacing:0.1em;
+    text-transform:uppercase;font-size:1rem;
 }
 nav.main-nav a{
     padding-bottom:0.1rem;position:relative;
 }
 nav.main-nav a::after{
-    content:"";position:absolute;left:0;bottom:0;
+    content:"";position:absolute;bottom:0;left:0;
     width:0%;height:1px;background:var(--gold);
     transition:0.3s;
 }
 nav.main-nav a:hover::after,
 nav.main-nav a.active::after{width:100%;}
-
 .nav-toggle{display:none;}
+
 @media(max-width:720px){
     .nav-toggle{
-        display:inline-flex;padding:0.4rem 0.7rem;
-        border-radius:999px;background:transparent;
-        border:1px solid rgba(255,255,255,0.3);color:#fff;
+        display:inline-flex;padding:0.4rem 0.7rem;border-radius:999px;
+        border:1px solid rgba(255,255,255,0.3);background:transparent;color:#fff;
     }
     nav.main-nav{
-        position:absolute;top:100%;right:0;
-        padding:1.2rem 1.4rem;background:rgba(30,40,24,0.98);
-        flex-direction:column;gap:1rem;align-items:flex-end;
+        position:absolute;top:100%;right:0;padding:1.2rem 1.4rem;
+        flex-direction:column;align-items:flex-end;gap:1rem;
+        background:rgba(30,40,24,0.98);
         opacity:0;pointer-events:none;transform:translateY(-8px);
         transition:0.25s;
     }
@@ -85,21 +90,27 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO */
+/* HERO – exakt wie Index / Crowdfunding / Geschichte / Updates */
 .hero{
-    min-height:82vh;position:relative;display:flex;align-items:center;
+    min-height:82vh;
+    position:relative;
+    display:flex;
+    align-items:center;
     background:url("fruchtbarkeit.webp") center/cover no-repeat;
 }
 .hero-overlay{
     position:absolute;inset:0;
-    background:linear-gradient(to bottom,
+    background:linear-gradient(
+        to bottom,
         rgba(0,0,0,0.48),
-        rgba(0,0,0,0.78));
-    z-index:1;
+        rgba(0,0,0,0.78)
+    );
 }
 .hero-inner{
-    position:relative;z-index:2;max-width:1100px;width:100%;
-    padding:5rem 1.5rem 3rem;margin:0 auto;text-align:left;
+    position:relative;z-index:2;
+    max-width:1100px;width:100%;
+    padding:5rem 1.5rem 3rem; /* Desktop */
+    margin:0 auto;
 }
 .hero-tagline{
     font-size:1.25rem;letter-spacing:0.28em;
@@ -113,80 +124,98 @@ nav.main-nav a.active::after{width:100%;}
     font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
 }
 
+/* MOBILE HERO – 100% identisch wie die funktionierenden Seiten */
 @media(max-width:720px){
-    .hero{text-align:center;padding-top:2rem;}
-    .hero-inner{text-align:center;}
+    .hero{
+        flex-direction:column;
+        padding-top:2rem;   /* exakt wie Index */
+        text-align:center;
+    }
+    .hero-inner{
+        order:1;
+        padding-bottom:2rem; /* exakt wie Index */
+        padding-top:0;
+        text-align:center;
+    }
 }
 
-/* ACTION AREA */
-.contact-area{
+/* CONTACT SECTION */
+.contact-section{
     background:
-      linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.72)),
+      linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
       url("hintergrund.jpg") center/cover fixed;
-    padding:3rem 0 4rem;
+    padding:3.2rem 0 3.4rem;
+}
+
+.contact-heading{
+    font-size:1.9rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    margin-bottom:1.4rem;
+    text-align:left;
 }
 
 .contact-text{
     max-width:780px;
+    opacity:0.95;
     margin-bottom:2rem;
-    opacity:0.97;
     text-align:left;
 }
 
-.contact-text p{
-    margin-bottom:1.2rem;
-}
-
-@media(max-width:720px){
-    .contact-text,
-    .contact-text p{
-        text-align:center !important;
-        margin-left:auto !important;
-        margin-right:auto !important;
-    }
-}
-
 /* FORM */
-form.contact-form{
-    max-width:760px;
-    display:flex;
-    flex-direction:column;
-    gap:1.1rem;
+.contact-form{
+    max-width:780px;
 }
-form.contact-form input,
-form.contact-form textarea{
-    width:100%;padding:0.9rem 1rem;
-    border:none;border-radius:8px;
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:0.9rem 1rem;
+    margin-bottom:1rem;
+    border-radius:0.6rem;
+    border:none;
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+}
+.contact-form textarea{
+    min-height:140px;
+}
+.contact-form button{
+    padding:0.85rem 2rem;
+    background:var(--gold);
+    border:none;
+    border-radius:999px;
+    cursor:pointer;
+    color:#1a1a12;
+    text-transform:uppercase;
+    letter-spacing:0.13em;
     font-size:1rem;
-}
-form.contact-form textarea{
-    min-height:160px;resize:vertical;
-}
-
-.btn-primary{
-    padding:0.8rem 2rem;background:var(--gold);
-    border:none;border-radius:999px;
-    font-size:1rem;letter-spacing:0.14em;
-    text-transform:uppercase;color:#1a1a12;
     box-shadow:0 0 20px rgba(0,0,0,0.4);
-    cursor:pointer;display:inline-block;
-}
-.btn-primary:hover{
-    transform:translateY(-1px);
-    box-shadow:0 0 26px rgba(0,0,0,0.55);
 }
 
+.contact-form button:hover{
+    transform:translateY(-1px);
+}
+
+/* MOBILE – zentriert */
 @media(max-width:720px){
-    .btn-primary{
-        margin-left:auto !important;
-        margin-right:auto !important;
+    .contact-heading,
+    .contact-text{
+        text-align:center;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    .contact-form{
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
     }
 }
 
 /* FOOTER */
 footer.site-footer{
-    background:#10140c;padding:1.3rem 0 1.5rem;
-    font-size:0.95rem;margin-top:auto;
+    background:#10140c;
+    padding:1.3rem 0 1.5rem;
+    margin-top:auto;font-size:0.95rem;
 }
 .footer-inner{
     max-width:1100px;margin:0 auto;padding:0 1.5rem;
@@ -194,20 +223,24 @@ footer.site-footer{
 }
 .footer-logo{
     width:78px;height:78px;border-radius:50%;
-    border:3px solid #000;object-fit:cover;
-    cursor:pointer;box-shadow:0 0 18px rgba(0,0,0,0.55);
+    object-fit:cover;border:3px solid #000;
+    box-shadow:0 0 18px rgba(0,0,0,0.55);
+    cursor:pointer;
 }
+
 @media(max-width:720px){
     .footer-inner{
-        flex-direction:column;align-items:center;
-        text-align:center;gap:0.4rem;
+        flex-direction:column;text-align:center;
+        align-items:center;gap:0.4rem;
     }
 }
 
 /* OVERLAY */
 .overlay-bg{
-    position:fixed;inset:0;background:rgba(0,0,0,0.78);
-    display:none;justify-content:center;align-items:center;
+    position:fixed;inset:0;
+    background:rgba(0,0,0,0.78);
+    display:none;
+    justify-content:center;align-items:center;
     z-index:9999;text-align:center;
 }
 .overlay-bg.show{display:flex;}
@@ -216,14 +249,13 @@ footer.site-footer{
 }
 .overlay-logo{
     width:260px;height:260px;border-radius:50%;
-    border:5px solid #000;object-fit:cover;
+    object-fit:cover;border:5px solid #000;
     margin:0 auto 1.4rem;
 }
 </style>
 </head>
 
 <body>
-
 <div class="page-wrapper">
 
 <!-- HEADER -->
@@ -233,9 +265,7 @@ footer.site-footer{
             <div class="logo-main">PURE ROOT SWITZERLAND</div>
             <div class="logo-sub">ORGANIC GINGER</div>
         </div>
-
         <button class="nav-toggle" onclick="toggleNav()">Menü</button>
-
         <nav class="main-nav" id="mainNav">
             <a href="index.html">Home</a>
             <a href="crowdfunding.html">Crowdfunding</a>
@@ -246,39 +276,32 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO – perfekt identisch -->
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
-        <p class="hero-tagline">Kontakt</p>
-        <h1 class="hero-title">Schreib mir gerne</h1>
-        <p class="hero-subtitle">Ich freue mich über jede Nachricht</p>
+        <p class="hero-tagline">Get in Touch</p>
+        <h1 class="hero-title">Kontakt</h1>
+        <p class="hero-subtitle">Ich freue mich über jede Nachricht.</p>
     </div>
 </section>
 
-<!-- CONTACT AREA -->
-<section class="contact-area">
+<!-- CONTACT SECTION -->
+<section class="contact-section">
     <div class="inner">
 
-        <div class="contact-text">
-            <p>
-                Ich freue mich über jede Nachricht – egal ob Frage, Anregung oder Interesse am Projekt.
-            </p>
-            <p>
-                Hinter Pure Root Switzerland steht ein persönlicher, ehrlicher Ansatz.
-                Wenn du mehr über das Projekt, den Anbau oder die nächsten Schritte erfahren möchtest,
-                schreibe mir einfach.
-            </p>
-            <p>
-                <strong>Antworten erfolgen in der Regel innerhalb von 24–48 Stunden.</strong>
-            </p>
-        </div>
+        <h2 class="contact-heading">Schreib mir jederzeit</h2>
 
-        <form class="contact-form" autocomplete="off">
-            <input type="text" name="name" placeholder="Dein Name" required />
-            <input type="email" name="email" placeholder="Deine E-Mail" required />
-            <textarea name="message" placeholder="Deine Nachricht"></textarea>
-            <button type="submit" class="btn-primary">Absenden</button>
+        <p class="contact-text">
+            Egal ob Fragen, Anregungen oder Interesse am Projekt – ich freue mich über jede Nachricht.  
+            Antworten erfolgen normalerweise innerhalb von 24–48 Stunden.
+        </p>
+
+        <form class="contact-form">
+            <input type="text" placeholder="Dein Name" required />
+            <input type="email" placeholder="Deine E-Mail" required />
+            <textarea placeholder="Deine Nachricht" required></textarea>
+            <button type="submit">Absenden</button>
         </form>
 
     </div>
@@ -313,12 +336,10 @@ footer.site-footer{
     <div class="overlay-box">
         <img src="logo2.jpg" class="overlay-logo" alt="">
         <p>
-            <strong>Frischer Ingwer aus Europa – ein ehrliches Projekt mit klaren Werten.</strong>
+            Pure Root Switzerland – transparent, frisch und ehrlich.
         </p>
     </div>
 </div>
-
-</div><!-- page-wrapper END -->
 
 <script>
 function toggleNav(){
@@ -336,6 +357,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
