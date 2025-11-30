@@ -92,7 +92,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO – exakt wie Index */
+/* HERO – 100% IDENTISCH MIT INDEX */
 .hero{
     min-height:82vh;
     position:relative;
@@ -124,15 +124,16 @@ nav.main-nav a.active::after{width:100%;}
     font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;
 }
 
-/* MOBILE HERO – 1:1 wie Index */
+/* MOBILE HERO – 1:1 WIE INDEX, ABSTAND EXAKT */
 @media(max-width:720px){
     .hero{
         flex-direction:column;
-        padding-top:2rem; /* exakt wie Index */
+        padding-top:2rem;         /* EXAKT INDEX */
         text-align:center;
     }
     .hero-inner{
-        padding-bottom:2rem; /* exakt wie Index */
+        order:1;
+        padding-bottom:2rem;      /* EXAKT INDEX */
         padding-top:0;
         text-align:center;
     }
@@ -251,7 +252,7 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO – IDENTISCH WIE INDEX -->
 <section class="hero">
     <div class="hero-overlay"></div>
     <div class="hero-inner">
@@ -383,6 +384,8 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
+
 
 
 
