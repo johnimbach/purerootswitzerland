@@ -147,7 +147,7 @@ nav.main-nav a.active::after {
     box-shadow:0 0 26px rgba(0,0,0,0.5);
 }
 
-/* HERO (FINAL ALIGNMENT, IDENTISCH ZU ALLEN ANDEREN SEITEN) */
+/* HERO – Hintergrund wie alle anderen Seiten */
 .hero {
     min-height:82vh;
     position:relative;
@@ -174,7 +174,7 @@ nav.main-nav a.active::after {
     margin:0 auto;
 }
 
-/* HERO TEXT – gleiche Abstände wie alle anderen Seiten */
+/* HERO TEXT */
 .hero-tagline {
     font-size:1.25rem;
     letter-spacing:0.28em;
@@ -192,17 +192,22 @@ nav.main-nav a.active::after {
     margin-bottom:1.2rem;
 }
 
-/* MOBILE HERO – absolut identisch zum Rest */
+/* MOBILE HERO – ENDGÜLTIGE LÖSUNG */
 @media(max-width:720px){
+
+    /* absolut identisch zur Crowdfunding-Höhe */
     .hero {
-        padding-top:2rem !important;
+        padding-top:0 !important;
         padding-bottom:1.2rem;
         text-align:center;
     }
+
+    /* Textblock exakt hochgeschoben */
     .hero-inner {
         padding-top:0 !important;
         padding-bottom:1.2rem;
         text-align:center;
+        transform: translateY(-14%); /* DER FIX */
     }
 }
 
@@ -266,7 +271,6 @@ section { padding:2.4rem 0; }
 }
 .story-subsection p { margin-bottom:1.1rem; }
 
-/* BUTTON DISTANCE FIX */
 .story-subsection p:last-child {
     margin-top:2.2rem;
 }
@@ -383,31 +387,23 @@ footer.site-footer {
 
         <div class="story-layout">
             <div class="story-text-block">
-                <p>
-                    Die Krebserkrankung hat mein Leben komplett auf den Kopf gestellt. Plötzlich waren
-                    Dinge unwichtig, die früher selbstverständlich erschienen: Tempo, Status, Perfektion.
-                </p>
+                <p>Die Krebserkrankung hat mein Leben komplett auf den Kopf gestellt. Plötzlich waren
+                Dinge unwichtig, die früher selbstverständlich erschienen: Tempo, Status, Perfektion.</p>
 
-                <p>
-                    Stattdessen rückten Werte wie Gesundheit, Erdung, Natur, echte Begegnungen
-                    und sinnvolle Projekte in den Vordergrund – Dinge, die bleiben.
-                </p>
+                <p>Stattdessen rückten Werte wie Gesundheit, Erdung, Natur, echte Begegnungen
+                und sinnvolle Projekte in den Vordergrund – Dinge, die bleiben.</p>
 
                 <p class="story-highlight">
-                    Ingwer spielte in meiner eigenen Genesungszeit eine überraschend große Rolle:
-                    als täglicher Begleiter – als Symbol für Wärme, Kraft und ein starkes Immunsystem.
+                    Ingwer spielte in meiner eigenen Genesungszeit eine überraschend große Rolle –
+                    als Symbol für Wärme, Kraft und ein starkes Immunsystem.
                 </p>
 
-                <p>
-                    Mit der Zeit entstand die Idee, hochwertigen Bio-Ingwer so zu produzieren,
-                    wie ich mir Lebensmittel selbst wünsche – frisch, ehrlich, nachvollziehbar und
-                    ohne lange Transportwege.
-                </p>
+                <p>Mit der Zeit entstand die Idee, hochwertigen Bio-Ingwer so zu produzieren,
+                wie ich mir Lebensmittel selbst wünsche – frisch, ehrlich, nachvollziehbar und
+                ohne lange Transportwege.</p>
 
-                <p>
-                    Als ich São Miguel entdeckte, ergab plötzlich vieles Sinn: mildes Klima, vulkanische Böden,
-                    starkes Bewusstsein für Natur – ein Ort, an dem dieses Projekt Wurzeln schlagen kann.
-                </p>
+                <p>Als ich São Miguel entdeckte, ergab plötzlich vieles Sinn: mildes Klima, vulkanische Böden,
+                starkes Bewusstsein für Natur – ein Ort, an dem dieses Projekt Wurzeln schlagen kann.</p>
             </div>
 
             <div class="story-image-wrap">
@@ -420,45 +416,32 @@ footer.site-footer {
         <div class="story-subsection">
             <h3>Von der Idee zum konkreten Projekt</h3>
 
-            <p>
-                Aus ersten Gedanken wurden Gespräche – immer wieder auftauchend:
-                Wie kann ein Projekt wirtschaftlich sinnvoll, ökologisch verantwortungsvoll
-                und menschlich authentisch sein?
-            </p>
+            <p>Aus ersten Gedanken wurden Gespräche – immer wieder auftauchend:
+            Wie kann ein Projekt wirtschaftlich sinnvoll, ökologisch verantwortungsvoll
+            und menschlich authentisch sein?</p>
 
             <p>
-                Kontakte auf São Miguel – lokale Biolandwirte, Menschen mit Bodenwissen und die
-                <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold);">Universidade dos Açores</a>
-                begleiten das Projekt.
-            </p>
+            Kontakte auf São Miguel – lokale Biolandwirte, Menschen mit Bodenwissen und die
+            <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold);">Universidade dos Açores</a>
+            begleiten das Projekt.</p>
 
-            <p>
-                Die Vision: eine Brücke zwischen Azoren und Schweiz.
-                Kurze Lieferwege, faire Bezahlung, transparente Herkunft.
-            </p>
+            <p>Die Vision: eine Brücke zwischen Azoren und Schweiz.
+            Kurze Lieferwege, faire Bezahlung, transparente Herkunft.</p>
         </div>
 
         <div class="story-subsection">
             <h3>Was mich heute antreibt</h3>
 
-            <p>
-                Pure Root Switzerland ist mehr als ein Name. Es ist der Versuch, aus einer
-                persönlichen Geschichte etwas zu schaffen, das Menschen stärkt und Böden respektiert.
-            </p>
+            <p>Pure Root Switzerland ist mehr als ein Name. Es ist der Versuch, aus einer
+            persönlichen Geschichte etwas zu schaffen, das Menschen stärkt und Böden respektiert.</p>
 
-            <p>
-                Jede Unterstützung ist ein Zeichen:  
-                Qualität statt Masse, Partnerschaft statt anonymer Lieferketten.
-            </p>
+            <p>Jede Unterstützung ist ein Zeichen:
+            Qualität statt Masse, Partnerschaft statt anonymer Lieferketten.</p>
 
-            <p>
-                Mit deiner Unterstützung wächst nicht nur Ingwer –  
-                es wächst eine nachhaltige Struktur für die Azoren und die Schweiz.
-            </p>
+            <p>Mit deiner Unterstützung wächst nicht nur Ingwer –
+            es wächst eine nachhaltige Struktur für die Azoren und die Schweiz.</p>
 
-            <p>
-                <a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a>
-            </p>
+            <p><a href="crowdfunding.html" class="btn-primary">Zum Crowdfunding</a></p>
         </div>
 
     </div>
@@ -517,6 +500,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
