@@ -118,7 +118,7 @@ nav.main-nav a.active::after{width:100%;}
     .hero-inner{text-align:center;}
 }
 
-/* STORY-HINTERGRUND */
+/* STORY BACKGROUND */
 .page-background{
     background:
       linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)),
@@ -150,6 +150,7 @@ section{padding:2.4rem 0;}
     margin-bottom:1.1rem;opacity:0.97;
 }
 .story-highlight{font-style:italic;}
+
 .story-image-wrap{
     display:flex;justify-content:flex-end;
 }
@@ -158,6 +159,7 @@ section{padding:2.4rem 0;}
     overflow:hidden;box-shadow:0 0 22px rgba(0,0,0,0.6);
 }
 
+/* GRID MOBILE */
 @media(max-width:860px){
     .story-layout{grid-template-columns:1fr;}
     .story-image-wrap{justify-content:center;}
@@ -209,7 +211,7 @@ footer.site-footer{
     box-shadow:0 0 26px rgba(0,0,0,0.7);
 }
 
-/* MOBILE: STORY-ZENTRIERT */
+/* MOBILE: alles zentriert */
 @media(max-width:720px){
     #story *{
         text-align:center !important;
@@ -217,6 +219,20 @@ footer.site-footer{
         margin-right:auto !important;
     }
     .story-image-wrap{justify-content:center !important;}
+}
+
+/* DESKTOP LEFT ALIGN – EINZIGER NEUER BLOCK */
+@media(min-width:721px){
+    #story .section-heading,
+    #story .section-intro,
+    #story .story-text-block p,
+    #story .story-subsection,
+    #story .story-subsection h3,
+    #story .story-subsection p {
+        text-align:left !important;
+        margin-left:0 !important;
+        margin-right:0 !important;
+    }
 }
 </style>
 </head>
@@ -265,9 +281,10 @@ footer.site-footer{
         <h2 class="section-heading">Warum <span>dieses Projekt</span> so persönlich ist</h2>
 
         <p class="section-intro">
-            Dieses Projekt beginnt nicht mit einem Businessplan, sondern mit einer sehr persönlichen Phase:
-            der Zeit nach einer überstandenen Krebsbehandlung. Sie hat mir klar gezeigt, was mir wichtig ist
-            und wie ich meine Zeit nutzen möchte.
+            Dieses Projekt beginnt nicht mit Zahlen oder Plänen,
+            sondern mit einer sehr persönlichen Phase meines Lebens –
+            nach einer überstandenen Krebsbehandlung, die mir klar gezeigt hat,
+            was wirklich zählt.
         </p>
 
         <div class="story-layout">
@@ -275,29 +292,39 @@ footer.site-footer{
             <div class="story-text-block">
 
                 <p>
-                    Nach einer überstandenen Krebsbehandlung – bestehend aus Chemotherapie und Bestrahlung –
-                    wollte ich mein Leben bewusster ausrichten und etwas schaffen, das Sinn ergibt.
-                    Heute bin ich vollständig gesund und dankbar dafür.
+                    Die Monate der Chemotherapie und Bestrahlung haben mein Leben verändert.
+                    Nicht im Sinne eines dramatischen Neuanfangs, sondern mit einer ruhigen,
+                    klaren Erkenntnis:  
+                    <strong>Ich möchte bewusster leben und etwas aufbauen, das Sinn ergibt.</strong>
                 </p>
 
                 <p>
-                    Gesundheit, Natur, Einfachheit und Qualität sind Werte, die seither eine zentrale Rolle spielen.
-                    Genau diese Werte sollen sich im Projekt Pure Root Switzerland widerspiegeln.
+                    Natur, Gesundheit, Authentizität und Qualität wurden zu meinen
+                    wichtigsten Werten – und genau diese Werte prägen das Projekt
+                    Pure Root Switzerland von Anfang an.
                 </p>
 
                 <p class="story-highlight">
-                    Ingwer war in dieser Zeit ein stiller Begleiter. Kein Wundermittel, aber ein natürliches
-                    Produkt, das mir gut tat und ein fester Bestandteil meines Alltags wurde.
+                    Ingwer spielte dabei eine kleine, aber konstante Rolle.
+                    Nicht als Symbol, sondern als einfaches Naturprodukt,
+                    das mir gut tat und mich täglich begleitet hat.
                 </p>
 
                 <p>
-                    Daraus entstand eine einfache Frage:
-                    <em>Warum ist wirklich frischer, hochwertiger Ingwer in der Schweiz so schwer erhältlich?</em>
+                    So entstand eine Frage:
+                    <em>Warum gibt es in der Schweiz kaum frischen,
+                    hochwertigen Ingwer aus Europa?</em>
                 </p>
 
                 <p>
-                    Der meiste Ingwer legt lange Wege zurück, ist wochenlang unterwegs und verliert
-                    auf diesem Weg einen Teil seiner Frische, seines Aromas und seiner Qualität.
+                    Der Großteil kommt aus Übersee, ist lange unterwegs und verliert
+                    auf dem Weg einen Teil seiner Frische, seines Aromas und seiner Wirkung.
+                </p>
+
+                <p>
+                    Bei der Recherche erkannte ich schnell:
+                    <strong>Die Azoren sind einer der wenigen Orte in Europa,
+                    an denen Ingwer in Premium-Qualität wachsen kann.</strong>
                 </p>
 
             </div>
@@ -314,37 +341,35 @@ footer.site-footer{
             <h3>Warum die Azoren</h3>
 
             <p>
-                Die Azoren bieten Bedingungen, die für hochwertigen Ingwer nahezu ideal sind:
-                milde Temperaturen, viel Feuchtigkeit, fruchtbare vulkanische Böden und eine gewachsene
-                Biolandwirtschaft. Gleichzeitig sind die Wege in die Schweiz deutlich kürzer
-                als bei Importen aus Übersee.
+                Die Azoren bieten milde Temperaturen, konstante Luftfeuchtigkeit,
+                fruchtbare vulkanische Böden und eine gewachsene Biostruktur.
             </p>
 
             <p>
-                Damit sind die Azoren einer der wenigen Orte in Europa, an denen Ingwer in dieser
-                Qualität realistisch und nachhaltig angebaut werden kann.
+                Für hochwertigen Ingwer sind diese Bedingungen ideal –
+                viel besser als in fast allen anderen Regionen Europas.
             </p>
         </div>
 
         <div class="story-subsection">
-            <h3>Von der Idee zum konkreten Projekt</h3>
+            <h3>Von der Idee zum Projekt</h3>
 
             <p>
-                Aus einer persönlichen Idee wurde Schritt für Schritt ein konkretes Projekt:
-                Gespräche mit Biolandwirten, erste Abklärungen zu Boden und Klima
-                sowie der Austausch mit Fachleuten der
+                Aus einer einfachen Frage wurde eine klare Vision:
+                europäischer Bio-Ingwer in echter Spitzenqualität.
+            </p>
+
+            <p>
+                Diese Vision führte zu Gesprächen mit Biobauern,
+                ersten Bodenanalysen und einem Austausch
+                mit Fachleuten der
                 <a href="https://www.uac.pt/" target="_blank" style="color:var(--gold);">
                 Universidade dos Açores</a>.
             </p>
 
             <p>
-                Ziel ist ein ehrlicher, überschaubarer Anbau von Bio-Ingwer auf den Azoren –
-                transparent, nachvollziehbar und mit klaren Qualitätsansprüchen.
-            </p>
-
-            <p>
-                Langfristig soll daraus eine stabile Verbindung zwischen den Azoren und der Schweiz entstehen:
-                kurze Lieferwege, klare Herkunft und ein Produkt, das so frisch wie möglich bleibt.
+                Heute steht das Projekt auf soliden Beinen.
+                Der nächste Schritt ist der Testanbau – und genau dafür sammle ich Unterstützung.
             </p>
 
             <p>
@@ -391,7 +416,7 @@ footer.site-footer{
     </div>
 </div>
 
-</div><!-- page-wrapper ENDE -->
+</div><!-- page-wrapper END -->
 
 <script>
 function toggleNav(){
@@ -409,6 +434,8 @@ if (footerLogo && overlayBox) {
 
 </body>
 </html>
+
+
 
 
 
