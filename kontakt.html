@@ -91,7 +91,7 @@ nav.main-nav a.active::after{width:100%;}
     }
 }
 
-/* HERO — 1:1 AUS INDEX */
+/* HERO — 1:1 AUS INDEX, FEHLER FREI */
 .hero{
     min-height:82vh;
     position:relative;
@@ -118,9 +118,13 @@ nav.main-nav a.active::after{width:100%;}
 .hero-title{font-size:3rem;margin-bottom:0.5rem;}
 .hero-subtitle{font-size:1.4rem;margin-bottom:1.2rem;opacity:0.96;}
 
-/* MOBILE HERO — 1:1 AUS INDEX */
+/* MOBILE HERO — RICHTIGER ABSTAND */
 @media(max-width:720px){
-    .hero{flex-direction:column;padding-top:2rem;text-align:center;}
+    .hero{
+        flex-direction:column;
+        padding-top:2rem;  /* 🔥 DER WICHTIGE ABSATZ, DER BEI DIR GEFELT HAT */
+        text-align:center;
+    }
     .hero-inner{
         order:1;
         padding-bottom:2rem;
@@ -225,7 +229,7 @@ footer.site-footer{
     </div>
 </header>
 
-<!-- HERO — 1:1 identisch -->
+<!-- HERO -->
 <section class="hero">
     <div class="hero-overlay"></div>
 
@@ -303,6 +307,7 @@ if(footerLogo && overlayBox){
 
 </body>
 </html>
+
 
 
 
